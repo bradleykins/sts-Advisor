@@ -467,6 +467,7 @@ function analyzeDeckStats() {
   renderCostChart();
   renderPieChart();
   renderArchetypeStrength();
+  renderMinBlockAnalysis();
 
   showToast('Deck analyzed successfully', 'success');
 }
@@ -526,6 +527,24 @@ function calculateDeckHealth() {
   }).length;
 
   if (act >= 2 && powerCount >= 2) score += 10;
+
+  // Min-block evaluation: can we efficiently block expected damage?
+  const minBlockResult = evaluateMinBlockCoverage();
+  if (minBlockResult.canSurvive) {
+    score += 15;
+  } else if (minBlockResult.blockDeficit > 10) {
+    score -= 15; // Severe block gap
+  } else if (minBlockResult.blockDeficit > 0) {
+    score -= 5; // Moderate block gap
+  }
+
+  // Damage output evaluation
+  const damageResult = evaluateDamageOutput();
+  if (damageResult.canKillInReasonableTime) {
+    score += 10;
+  } else {
+    score -= 10; // Too slow, fights drag on
+  }
 
   return Math.max(0, Math.min(100, Math.round(score)));
 }
@@ -650,6 +669,216 @@ function renderPieChart() {
   chart.style.setProperty('--skill-deg', skillDeg + 'deg');
 }
 
+// ============================================================================
+// MIN-BLOCK AND MC ROLLOUT ANALYSIS
+// ============================================================================
+
+function getExpectedDamage() {
+  // Get base damage profile for current act
+  if (typeof ENEMY_DAMAGE_BY_ACT === 'undefined') {
+    return { avg: 10, elite: 20, boss: 30 };
+  }
+
+  const baseDamage = ENEMY_DAMAGE_BY_ACT[currentAct] || ENEMY_DAMAGE_BY_ACT[2];
+
+  // Apply ascension multiplier
+  let multiplier = 1.0;
+  if (typeof ASCENSION_DAMAGE_MULTIPLIER !== 'undefined') {
+    if (currentAscension >= 20) multiplier = ASCENSION_DAMAGE_MULTIPLIER[20];
+    else if (currentAscension >= 18) multiplier = ASCENSION_DAMAGE_MULTIPLIER[18];
+    else if (currentAscension >= 15) multiplier = ASCENSION_DAMAGE_MULTIPLIER[15];
+    else if (currentAscension >= 10) multiplier = ASCENSION_DAMAGE_MULTIPLIER[10];
+    else if (currentAscension >= 5) multiplier = ASCENSION_DAMAGE_MULTIPLIER[5];
+  }
+
+  return {
+    avg: Math.round(baseDamage.avg * multiplier),
+    elite: Math.round(baseDamage.elite * multiplier),
+    boss: Math.round(baseDamage.boss * multiplier)
+  };
+}
+
+function evaluateMinBlockCoverage() {
+  // Simulate: can we generate minimum block needed per turn?
+  const expectedDamage = getExpectedDamage();
+  const targetBlock = expectedDamage.avg; // Aim to block average damage
+
+  let totalBlockPerEnergy = 0;
+  let blockCardCount = 0;
+
+  currentDeck.forEach(cardName => {
+    const card = findCard(cardName);
+    if (!card) return;
+
+    // Count block cards and their efficiency
+    if (card.block && card.block > 0) {
+      const cost = card.cost >= 0 ? card.cost : 1; // X-cost assumed 1 energy
+      const efficiency = cost > 0 ? card.block / cost : card.block;
+      totalBlockPerEnergy += efficiency;
+      blockCardCount++;
+    }
+
+    // Passive block from powers (e.g., Frost Orbs, Barricade effects)
+    if (card.type === 'Power' && card.keywords) {
+      const keywords = Array.isArray(card.keywords) ? card.keywords : [card.keywords];
+      if (keywords.some(k => k.toLowerCase().includes('block') || k.toLowerCase().includes('frost'))) {
+        totalBlockPerEnergy += 3; // Estimate passive block contribution
+      }
+    }
+  });
+
+  // Assume 3 energy baseline, drawing ~5 cards per turn
+  const expectedBlockPerTurn = blockCardCount > 0 ? (totalBlockPerEnergy / blockCardCount) * 3 : 0;
+
+  const blockDeficit = Math.max(0, targetBlock - expectedBlockPerTurn);
+  const canSurvive = expectedBlockPerTurn >= (targetBlock * 0.7); // 70% coverage is acceptable (min-block strategy)
+
+  return {
+    canSurvive,
+    blockDeficit,
+    expectedBlockPerTurn,
+    targetBlock
+  };
+}
+
+function evaluateDamageOutput() {
+  // Simulate: can we kill enemies before running out of HP?
+  let totalDamagePerEnergy = 0;
+  let attackCardCount = 0;
+  let scalingCount = 0;
+
+  currentDeck.forEach(cardName => {
+    const card = findCard(cardName);
+    if (!card) return;
+
+    // Direct damage
+    if (card.damage && card.damage > 0) {
+      const cost = card.cost >= 0 ? card.cost : 2; // X-cost assumed 2 energy avg
+      const efficiency = cost > 0 ? card.damage / cost : card.damage;
+      totalDamagePerEnergy += efficiency;
+      attackCardCount++;
+    }
+
+    // Scaling cards (Strength, Poison, Doom, Focus)
+    if (card.type === 'Power' || (card.keywords && Array.isArray(card.keywords))) {
+      const keywords = card.keywords ? (Array.isArray(card.keywords) ? card.keywords : [card.keywords]) : [];
+      if (keywords.some(k => ['strength', 'poison', 'doom', 'focus', 'scaling'].includes(k.toLowerCase()))) {
+        scalingCount++;
+      }
+    }
+  });
+
+  // Estimate damage per turn (3 energy, avg 2 attacks played)
+  const expectedDamagePerTurn = attackCardCount > 0 ? (totalDamagePerEnergy / attackCardCount) * 3 * 2 : 0;
+
+  // Scaling modifier: more scaling = damage ramps over time
+  const scalingBonus = scalingCount * 5;
+  const adjustedDamage = expectedDamagePerTurn + scalingBonus;
+
+  // Act-specific kill thresholds (avg elite HP)
+  const killThresholds = { 1: 80, 2: 150, 3: 250, 4: 350 };
+  const targetHP = killThresholds[currentAct] || 150;
+
+  // Can we kill in ~10 turns? (reasonable fight length)
+  const turnsToKill = adjustedDamage > 0 ? targetHP / adjustedDamage : 999;
+  const canKillInReasonableTime = turnsToKill <= 10;
+
+  return {
+    canKillInReasonableTime,
+    turnsToKill,
+    expectedDamagePerTurn: adjustedDamage
+  };
+}
+
+function performMCRollout(card, simulations = 100) {
+  // Monte Carlo rollout: simulate adding this card and evaluate win rate
+  let winCount = 0;
+
+  for (let i = 0; i < simulations; i++) {
+    // Simulate deck with this card added
+    const testDeck = [...currentDeck, card.name];
+
+    // Simple heuristic: score based on block coverage + damage output
+    const blockCoverage = evaluateMinBlockCoverageForDeck(testDeck);
+    const damageOutput = evaluateDamageOutputForDeck(testDeck);
+
+    // Win condition: can block 70%+ damage AND kill in <10 turns
+    if (blockCoverage.canSurvive && damageOutput.canKillInReasonableTime) {
+      winCount++;
+    }
+  }
+
+  return (winCount / simulations) * 100; // Return win percentage
+}
+
+function evaluateMinBlockCoverageForDeck(deck) {
+  // Same logic as evaluateMinBlockCoverage but for arbitrary deck
+  const expectedDamage = getExpectedDamage();
+  const targetBlock = expectedDamage.avg;
+
+  let totalBlockPerEnergy = 0;
+  let blockCardCount = 0;
+
+  deck.forEach(cardName => {
+    const card = findCard(cardName);
+    if (!card) return;
+
+    if (card.block && card.block > 0) {
+      const cost = card.cost >= 0 ? card.cost : 1;
+      const efficiency = cost > 0 ? card.block / cost : card.block;
+      totalBlockPerEnergy += efficiency;
+      blockCardCount++;
+    }
+
+    if (card.type === 'Power' && card.keywords) {
+      const keywords = Array.isArray(card.keywords) ? card.keywords : [card.keywords];
+      if (keywords.some(k => k.toLowerCase().includes('block') || k.toLowerCase().includes('frost'))) {
+        totalBlockPerEnergy += 3;
+      }
+    }
+  });
+
+  const expectedBlockPerTurn = blockCardCount > 0 ? (totalBlockPerEnergy / blockCardCount) * 3 : 0;
+  const canSurvive = expectedBlockPerTurn >= (targetBlock * 0.7);
+
+  return { canSurvive, expectedBlockPerTurn };
+}
+
+function evaluateDamageOutputForDeck(deck) {
+  let totalDamagePerEnergy = 0;
+  let attackCardCount = 0;
+  let scalingCount = 0;
+
+  deck.forEach(cardName => {
+    const card = findCard(cardName);
+    if (!card) return;
+
+    if (card.damage && card.damage > 0) {
+      const cost = card.cost >= 0 ? card.cost : 2;
+      const efficiency = cost > 0 ? card.damage / cost : card.damage;
+      totalDamagePerEnergy += efficiency;
+      attackCardCount++;
+    }
+
+    if (card.type === 'Power' || (card.keywords && Array.isArray(card.keywords))) {
+      const keywords = card.keywords ? (Array.isArray(card.keywords) ? card.keywords : [card.keywords]) : [];
+      if (keywords.some(k => ['strength', 'poison', 'doom', 'focus', 'scaling'].includes(k.toLowerCase()))) {
+        scalingCount++;
+      }
+    }
+  });
+
+  const expectedDamagePerTurn = attackCardCount > 0 ? (totalDamagePerEnergy / attackCardCount) * 3 * 2 : 0;
+  const adjustedDamage = expectedDamagePerTurn + (scalingCount * 5);
+
+  const killThresholds = { 1: 80, 2: 150, 3: 250, 4: 350 };
+  const targetHP = killThresholds[currentAct] || 150;
+  const turnsToKill = adjustedDamage > 0 ? targetHP / adjustedDamage : 999;
+  const canKillInReasonableTime = turnsToKill <= 10;
+
+  return { canKillInReasonableTime };
+}
+
 function renderArchetypeStrength() {
   if (detectedArchetypes.size === 0) {
     document.getElementById('archetype-strength-bars').innerHTML =
@@ -680,6 +909,34 @@ function renderArchetypeStrength() {
   }).join('');
 
   document.getElementById('archetype-strength-bars').innerHTML = html;
+}
+
+function renderMinBlockAnalysis() {
+  const expectedDamage = getExpectedDamage();
+  const blockCoverage = evaluateMinBlockCoverage();
+  const damageOutput = evaluateDamageOutput();
+
+  document.getElementById('expected-damage').textContent = `${expectedDamage.avg} (Elite: ${expectedDamage.elite})`;
+  document.getElementById('block-per-turn').textContent = Math.round(blockCoverage.expectedBlockPerTurn);
+  document.getElementById('damage-per-turn').textContent = Math.round(damageOutput.expectedDamagePerTurn);
+  document.getElementById('turns-to-kill').textContent = damageOutput.turnsToKill < 999 ? Math.round(damageOutput.turnsToKill) : '∞';
+
+  // Color code based on performance
+  const blockEl = document.getElementById('block-per-turn');
+  if (blockCoverage.canSurvive) {
+    blockEl.style.color = '#6ee7b7'; // Green
+  } else if (blockCoverage.blockDeficit > 10) {
+    blockEl.style.color = '#fca5a5'; // Red
+  } else {
+    blockEl.style.color = '#fbbf24'; // Yellow
+  }
+
+  const damageEl = document.getElementById('damage-per-turn');
+  if (damageOutput.canKillInReasonableTime) {
+    damageEl.style.color = '#6ee7b7';
+  } else {
+    damageEl.style.color = '#fca5a5';
+  }
 }
 
 // ============================================================================
@@ -798,6 +1055,69 @@ function scoreCard(cardName, context = {}) {
     const premiumData = PREMIUM_CARDS[card.name];
     score += premiumData.bonus;
     breakdown.push({ factor: `${premiumData.tier}-tier: ${premiumData.reason}`, value: premiumData.bonus });
+  }
+
+  // Min-block evaluation: does this card help us hit minimum block thresholds?
+  const expectedDamage = getExpectedDamage();
+  const currentBlockCoverage = evaluateMinBlockCoverage();
+
+  if (card.block && card.block > 0) {
+    const cost = card.cost >= 0 ? card.cost : 1;
+    const blockEfficiency = cost > 0 ? card.block / cost : card.block;
+
+    // High-efficiency block (7+ block per energy) is premium
+    if (blockEfficiency >= 7) {
+      const bonus = 12;
+      score += bonus;
+      breakdown.push({ factor: 'High block efficiency', value: bonus });
+    } else if (blockEfficiency >= 5) {
+      const bonus = 6;
+      score += bonus;
+      breakdown.push({ factor: 'Good block efficiency', value: bonus });
+    }
+
+    // If we have block deficit, prioritize block cards more
+    if (currentBlockCoverage.blockDeficit > 5) {
+      const bonus = 10;
+      score += bonus;
+      breakdown.push({ factor: 'Fills block gap', value: bonus });
+    }
+  }
+
+  // Damage efficiency (for min-block: need to kill fast to minimize turns taking damage)
+  if (card.damage && card.damage > 0) {
+    const cost = card.cost >= 0 ? card.cost : 2;
+    const damageEfficiency = cost > 0 ? card.damage / cost : card.damage;
+
+    // High damage efficiency (12+ damage per energy)
+    if (damageEfficiency >= 12) {
+      const bonus = 10;
+      score += bonus;
+      breakdown.push({ factor: 'High damage efficiency', value: bonus });
+    }
+
+    // Multi-hit attacks scale better with Strength
+    if (card.name && (card.name.includes('Twin') || card.name.includes('Multi') || card.name.includes('Whirlwind'))) {
+      const bonus = 8;
+      score += bonus;
+      breakdown.push({ factor: 'Multi-hit scaling', value: bonus });
+    }
+  }
+
+  // MC Rollout: simulate adding this card to deck
+  const mcWinRate = performMCRollout(card, 50); // 50 simulations for speed
+  if (mcWinRate >= 80) {
+    const bonus = 15;
+    score += bonus;
+    breakdown.push({ factor: `MC rollout: ${Math.round(mcWinRate)}% win`, value: bonus });
+  } else if (mcWinRate >= 60) {
+    const bonus = 8;
+    score += bonus;
+    breakdown.push({ factor: `MC rollout: ${Math.round(mcWinRate)}% win`, value: bonus });
+  } else if (mcWinRate < 40) {
+    const penalty = -10;
+    score += penalty;
+    breakdown.push({ factor: `MC rollout: ${Math.round(mcWinRate)}% win`, value: penalty });
   }
 
   // Ascension scaling (high Ascension favors consistency, scaling, and defensive power)

@@ -211,3 +211,22 @@ const PREMIUM_CARDS = {
   'End of Days': { tier: 'S', bonus: 15, reason: 'Doom execute' },
   'Neurosurge': { tier: 'A', bonus: 10, reason: 'Energy burst' }
 };
+
+// Enemy damage profiles per Act (used for min-block calculations)
+// Average incoming damage per turn from common/elite encounters
+const ENEMY_DAMAGE_BY_ACT = {
+  1: { avg: 8, elite: 15, boss: 20 },
+  2: { avg: 12, elite: 22, boss: 32 },
+  3: { avg: 16, elite: 30, boss: 45 },
+  4: { avg: 25, elite: 40, boss: 60 }
+};
+
+// Ascension modifiers to enemy damage
+const ASCENSION_DAMAGE_MULTIPLIER = {
+  0: 1.0,   // Base game
+  5: 1.1,   // +10% enemy damage
+  10: 1.2,  // +20%
+  15: 1.35, // +35%
+  18: 1.45, // +45%
+  20: 1.5   // +50%
+};

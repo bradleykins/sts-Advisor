@@ -1699,6 +1699,30 @@
           <h3 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 10px;">💪 Archetype Strength</h3>
           <div id="archetype-strength-bars" role="region" aria-label="Archetype strength meters"></div>
         </div>
+
+        <div class="deck-viz" style="margin-top: 20px;">
+          <h3 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 10px;">🛡️ Min-Block Analysis</h3>
+          <div id="min-block-analysis" role="region" aria-label="Minimum block analysis" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+            <div style="padding: 15px; background: var(--bg-secondary); border-radius: 6px; border: 1px solid var(--border-color);">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <span>Expected Damage:</span>
+                <strong id="expected-damage">--</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <span>Block Per Turn:</span>
+                <strong id="block-per-turn" style="color: var(--accent);">--</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <span>Damage Per Turn:</span>
+                <strong id="damage-per-turn" style="color: #ef4444;">--</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span>Est. Turns to Kill:</span>
+                <strong id="turns-to-kill">--</strong>
+              </div>
+            </div>
+          </div>
+        </div>
       </aside>
 
       <!-- Main content -->
