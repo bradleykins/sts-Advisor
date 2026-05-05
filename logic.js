@@ -1009,6 +1009,20 @@ function toggleCardUpgrade(index, cardName) {
   saveDeckState();
 }
 
+function upgradeCardFromPriority(index, cardName) {
+  const key = `${index}-${cardName}`;
+
+  // Add to upgraded cards
+  upgradedCards.add(key);
+
+  // Re-render everything
+  renderDeckCardList();
+  analyzeDeckStats();
+  saveDeckState();
+
+  showToast(`Upgraded ${cardName}`, 'success', 1500);
+}
+
 function toggleEnchantmentMenu(index, cardName, event) {
   const key = `${index}-${cardName}`;
   const currentEnchant = cardEnchantments.get(key);
@@ -1415,12 +1429,12 @@ function analyzeDeckStats() {
   const upgradeContent = document.getElementById('upgrade-priority-content');
   if (upgrades.length > 0) {
     upgradeContent.innerHTML = upgrades.map((up, i) => `
-      <div style="margin-bottom: 8px; padding: 6px; background: rgba(100, 116, 139, 0.1); border-radius: 4px;">
+      <div onclick="upgradeCardFromPriority(${up.index}, '${up.cardName.replace(/'/g, "\\'")}')" style="margin-bottom: 8px; padding: 6px; background: rgba(100, 116, 139, 0.1); border-radius: 4px; cursor: pointer; transition: background 0.2s;" onmouseenter="this.style.background='rgba(100, 116, 139, 0.2)'" onmouseleave="this.style.background='rgba(100, 116, 139, 0.1)'">
         <div style="color: #e2e8f0; font-weight: bold;">
           ${i + 1}. ${up.cardName}
         </div>
         <div style="color: #94a3b8; font-size: 0.85rem; margin-top: 2px;">
-          Priority: ${up.priority}
+          Priority: ${up.priority} • Click to upgrade
         </div>
       </div>
     `).join('');
