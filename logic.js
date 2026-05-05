@@ -272,17 +272,11 @@ function handleBossChange() {
 
 async function analyzeBossReadiness() {
   const resultsContainer = document.getElementById('boss-readiness-results');
-  const btn = document.getElementById('analyze-bosses-btn');
 
   if (currentDeck.length === 0) {
     resultsContainer.innerHTML = '<div style="color: #fca5a5; text-align: center; padding: 20px;">Add cards to your deck first!</div>';
     return;
   }
-
-  // Set loading state
-  const originalText = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = '⏳ Analyzing...';
 
   // Temporarily store current boss selection
   const originalBoss = selectedBoss;
@@ -382,9 +376,6 @@ async function analyzeBossReadiness() {
       // Update UI after each boss
       actContainer.innerHTML = actHtml;
 
-      // Update button text with progress
-      btn.textContent = `⏳ Analyzing... (${actGroups.indexOf(act) * 3 + i + 1}/12)`;
-
       // Small delay to let UI update
       await new Promise(resolve => setTimeout(resolve, 10));
     }
@@ -393,10 +384,6 @@ async function analyzeBossReadiness() {
   // Restore original boss selection
   selectedBoss = originalBoss;
   invalidateMCBaseline();
-
-  btn.disabled = false;
-  btn.textContent = originalText;
-  showToast('Boss readiness calculated!', 'success', 2000);
 }
 
 function selectBossFromReadiness(bossKey) {
