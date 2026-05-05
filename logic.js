@@ -354,19 +354,121 @@ async function analyzeBossReadiness() {
       if (bossData.rewardRetain) mechanicSummary.push('✓ Retain');
       if (bossData.rewardAttacks) mechanicSummary.push('✓ Attacks');
 
+      // Generate summary text and breakdown
+      const deckCtx = getDeckContext();
+      const strengths = [];
+      const weaknesses = [];
+      const breakdown = [];
+
+      // Analyze deck composition against boss mechanics
+      if (bossData.penalizePowers && deckCtx.powers > 0) {
+        weaknesses.push(`${deckCtx.powers} power cards`);
+        breakdown.push({ factor: 'Powers penalized', impact: 'negative', count: deckCtx.powers });
+      }
+      if (bossData.penalizeCardDraw) {
+        const drawCards = currentDeck.filter(c => {
+          const card = findCard(c);
+          return card?.keywords && (Array.isArray(card.keywords) ? card.keywords : [card.keywords])
+            .some(k => k.toLowerCase().includes('draw'));
+        }).length;
+        if (drawCards > 0) {
+          weaknesses.push(`${drawCards} card draw`);
+          breakdown.push({ factor: 'Card draw penalized', impact: 'negative', count: drawCards });
+        }
+      }
+      if (bossData.requireAOE) {
+        const aoeCards = currentDeck.filter(c => {
+          const card = findCard(c);
+          const name = c.toLowerCase();
+          return (card?.keywords && (Array.isArray(card.keywords) ? card.keywords : [card.keywords])
+            .some(k => k.toLowerCase().includes('aoe') || k.toLowerCase().includes('area'))) ||
+            name.includes('whirlwind') || name.includes('cleave');
+        }).length;
+        if (aoeCards > 0) {
+          strengths.push(`${aoeCards} AOE cards`);
+          breakdown.push({ factor: 'AOE damage', impact: 'positive', count: aoeCards });
+        } else {
+          weaknesses.push('no AOE');
+          breakdown.push({ factor: 'Missing AOE', impact: 'negative', count: 0 });
+        }
+      }
+      if (bossData.rewardBlock && deckCtx.skills > 0) {
+        const blockCards = currentDeck.filter(c => findCard(c)?.block).length;
+        if (blockCards > 0) {
+          strengths.push(`${blockCards} block cards`);
+          breakdown.push({ factor: 'Block rewarded', impact: 'positive', count: blockCards });
+        }
+      }
+      if (bossData.requireMultiHit) {
+        const multiHitCards = currentDeck.filter(c => {
+          const card = findCard(c);
+          return card?.keywords && (Array.isArray(card.keywords) ? card.keywords : [card.keywords])
+            .some(k => k.toLowerCase().includes('multihit'));
+        }).length;
+        if (multiHitCards > 0) {
+          strengths.push(`${multiHitCards} multi-hit`);
+          breakdown.push({ factor: 'Multi-hit attacks', impact: 'positive', count: multiHitCards });
+        } else {
+          weaknesses.push('no multi-hit');
+          breakdown.push({ factor: 'Missing multi-hit', impact: 'negative', count: 0 });
+        }
+      }
+      if (bossData.requireBurst) {
+        const burstCards = currentDeck.filter(c => {
+          const card = findCard(c);
+          return card?.damage && card.damage >= 20;
+        }).length;
+        if (burstCards > 0) {
+          strengths.push(`${burstCards} burst damage`);
+          breakdown.push({ factor: 'Burst damage', impact: 'positive', count: burstCards });
+        } else {
+          weaknesses.push('low burst');
+          breakdown.push({ factor: 'Missing burst', impact: 'negative', count: 0 });
+        }
+      }
+
+      let summaryText = '';
+      if (avgScore >= 70) {
+        summaryText = strengths.length > 0 ? `Strong matchup: ${strengths.join(', ')}.` : 'Excellent deck composition for this fight.';
+      } else if (avgScore >= 60) {
+        summaryText = `Good matchup${strengths.length > 0 ? ': ' + strengths.slice(0, 2).join(', ') : ''}${weaknesses.length > 0 ? '. Watch: ' + weaknesses.slice(0, 1).join(', ') : ''}.`;
+      } else if (avgScore >= 50) {
+        summaryText = weaknesses.length > 0 ? `Fair matchup. Weaknesses: ${weaknesses.slice(0, 2).join(', ')}.` : 'Manageable fight with current deck.';
+      } else if (avgScore >= 40) {
+        summaryText = `Difficult matchup. Issues: ${weaknesses.slice(0, 2).join(', ')}.`;
+      } else {
+        summaryText = `Very difficult. Major issues: ${weaknesses.slice(0, 3).join(', ')}.`;
+      }
+
+      const breakdownId = `breakdown-${bossKey}`;
+      const breakdownHtml = breakdown.length > 0 ? breakdown.map(b => {
+        const icon = b.impact === 'positive' ? '✓' : '✗';
+        const color = b.impact === 'positive' ? '#6ee7b7' : '#fca5a5';
+        return `<div style="color: ${color}; font-size: 0.8rem; margin-bottom: 4px;">${icon} ${b.factor}${b.count > 0 ? ` (${b.count})` : ''}</div>`;
+      }).join('') : '<div style="color: var(--text-secondary); font-size: 0.8rem;">No specific factors identified.</div>';
+
       actHtml += `
         <div style="background: var(--bg-secondary); border-left: 4px solid ${color}; border-radius: 8px; padding: 16px; margin-bottom: 12px; animation: slideIn 0.3s ease; position: relative;">
           <div style="margin-bottom: 8px;">
             <div style="font-weight: bold; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 4px;">${bossData.name}
               <button onclick="selectBossFromReadiness('${bossKey}')" style="margin-left: 8px; padding: 2px 8px !important; background: var(--accent); color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 0.7rem !important; line-height: 1.2; width: auto !important; max-width: fit-content !important; display: inline-block !important;">Set</button>
             </div>
-            <div style="color: ${color}; font-weight: 600; font-size: 0.9rem;">
+            <div style="color: ${color}; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">
               ${readiness} (Score: ${Math.round(avgScore)})
             </div>
+            <div style="color: var(--text-secondary); font-size: 0.85rem; font-style: italic; margin-bottom: 8px;">
+              ${summaryText}
+            </div>
           </div>
-          <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 8px; line-height: 1.4;">
+          <div style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 8px; line-height: 1.4;">
             ${mechanicSummary.join(' • ')}
           </div>
+          <details style="margin-top: 8px;">
+            <summary style="cursor: pointer; color: var(--accent); font-size: 0.8rem; user-select: none;">Show breakdown</summary>
+            <div style="margin-top: 8px; padding: 8px; background: rgba(0,0,0,0.2); border-radius: 4px;">
+              ${breakdownHtml}
+            </div>
+          </details>
         </div>
       `;
 
