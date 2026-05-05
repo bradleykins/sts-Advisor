@@ -321,7 +321,7 @@ function setupDeckAutocomplete() {
       return;
     }
 
-    // Fuzzy search
+    // Fuzzy search - deck allows duplicates, no filtering
     const matches = autocompleteData.filter(card => {
       const name = card.name.toLowerCase();
       if (name.startsWith(query)) return true;
@@ -1397,6 +1397,7 @@ function renderCardResult(card, result, showAddButton = false) {
     `
     : '';
 
+  // CACHE BUSTER v2 - This should show "Add to Deck" button
   const addButtonHtml = showAddButton ? `
     <button class="add-to-deck-btn" onclick="addCardToDeck('${cardName.replace(/'/g, "\\'")}')" aria-label="Add ${cardName} to deck">
       ➕ Add to Deck
@@ -2056,8 +2057,11 @@ function setupAdditionalRewardAutocomplete() {
       return;
     }
 
-    // Fuzzy search
+    // Fuzzy search - exclude already selected cards
     const matches = autocompleteData.filter(card => {
+      // Skip if already in additionalRewardCards
+      if (additionalRewardCards.includes(card.name)) return false;
+
       const name = card.name.toLowerCase();
       if (name.startsWith(query)) return true;
       if (name.includes(query)) return true;
@@ -2615,8 +2619,11 @@ function setupShopAutocomplete() {
       return;
     }
 
-    // Fuzzy search
+    // Fuzzy search - exclude already selected cards
     const matches = autocompleteData.filter(card => {
+      // Skip if already in shopCards
+      if (shopCards.includes(card.name)) return false;
+
       const name = card.name.toLowerCase();
       if (name.startsWith(query)) return true;
       if (name.includes(query)) return true;
