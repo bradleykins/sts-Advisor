@@ -862,19 +862,22 @@
       border: none;
       color: var(--text-secondary);
       cursor: pointer;
-      padding: 4px 6px;
+      padding: 0;
       font-size: 1rem;
       line-height: 1;
       border-radius: 4px;
-      transition: all 0.2s;
+      transition: background 0.2s, color 0.2s;
       display: none;
       width: 24px;
       height: 24px;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .input-clear-btn.show {
-      display: block;
+      display: flex;
     }
 
     .input-clear-btn:hover {
