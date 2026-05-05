@@ -3060,9 +3060,10 @@ function scoreCard(cardName, context = {}) {
       score += penalty;
       breakdown.push({ factor: `MC: ${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: penalty });
     } else {
-    const penalty = -8; // Slightly worse
-    score += penalty;
-    breakdown.push({ factor: `MC: ${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: penalty });
+      const penalty = -8; // Slightly worse
+      score += penalty;
+      breakdown.push({ factor: `MC: ${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: penalty });
+    }
   }
 
   // Ascension scaling - enemies scale exponentially
