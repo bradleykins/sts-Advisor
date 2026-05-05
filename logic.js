@@ -3190,6 +3190,9 @@ function scoreCard(cardName, context = {}) {
   if (selectedBoss && BOSS_MECHANICS[selectedBoss]) {
     const boss = BOSS_MECHANICS[selectedBoss];
     const bossName = boss.name;
+    const cardLower = cardName.toLowerCase();
+    const keywords = card.keywords ? (Array.isArray(card.keywords) ? card.keywords : [card.keywords]) : [];
+    const keywordStr = keywords.join(' ').toLowerCase();
 
     // Penalize card draw
     if (boss.penalizeCardDraw && card.keywords && keywordStr.includes('draw')) {
