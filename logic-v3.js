@@ -1397,12 +1397,14 @@ function renderCardResult(card, result, showAddButton = false) {
     `
     : '';
 
-  // CACHE BUSTER v2 - This should show "Add to Deck" button
+  // CACHE BUSTER v3 - This should show "Add to Deck" button
   const addButtonHtml = showAddButton ? `
     <button class="add-to-deck-btn" onclick="addCardToDeck('${cardName.replace(/'/g, "\\'")}')" aria-label="Add ${cardName} to deck">
       ➕ Add to Deck
     </button>
   ` : '';
+
+  console.log('DEBUG renderCardResult:', cardName, 'showAddButton:', showAddButton, 'buttonHtml:', addButtonHtml.substring(0, 100));
 
   return `
     <div class="card-result ${rarityClass}" data-card-name="${cardName}">
