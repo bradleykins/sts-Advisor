@@ -848,6 +848,7 @@ function addCardToDeckPill(cardName) {
 
   // Re-analyze deck
   analyzeDeckStats();
+  analyzeBossReadiness();
 
   showToast(`Added ${cardName} to deck`, 'success', 1500);
 }
@@ -978,6 +979,7 @@ function removeCardFromDeck(index) {
 
   renderDeckCardList();
   analyzeDeckStats();
+  analyzeBossReadiness();
   showToast('Card removed from deck', 'info', 1500);
 }
 
@@ -3776,6 +3778,7 @@ function addRewardCardToDeck(cardName, rewardKey) {
   renderDeckCardList();
   clearAutocompleteFields();
   analyzeDeckStats();
+  analyzeBossReadiness();
   saveDeckState();
 
   showToast(`Added ${cardName} to deck!`, 'success', 2000);
@@ -4022,6 +4025,7 @@ function purchaseShopCard(cardName, shopKey) {
   renderShopGrid();
   renderDeckCardList();
   analyzeDeckStats();
+  analyzeBossReadiness();
   saveDeckState();
 
   // Focus back to input
@@ -4055,6 +4059,7 @@ function purchaseShopRelic(relicName, shopSlotIndex) {
   renderShopGrid();
   renderRelicList();
   analyzeDeckStats();
+  analyzeBossReadiness();
   saveDeckState();
 
   // Focus back to input
@@ -4116,6 +4121,7 @@ function purchaseShopRemoval() {
   renderDeckCardList();
   renderShopGrid();
   analyzeDeckStats();
+  analyzeBossReadiness();
   saveDeckState();
 
   // Focus back to input
@@ -5610,6 +5616,7 @@ function addRelic(relicName) {
 
     // Re-analyze deck with new relic context
     analyzeDeck();
+    analyzeBossReadiness();
 
     showToast(`Added relic: ${relicName}`, 'success');
   }
@@ -5621,6 +5628,7 @@ function removeRelic(relicName) {
     currentRelics.splice(index, 1);
     renderRelicList();
     analyzeDeck();
+    analyzeBossReadiness();
     showToast(`Removed relic: ${relicName}`, 'info');
   }
 }
