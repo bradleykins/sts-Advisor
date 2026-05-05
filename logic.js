@@ -356,12 +356,11 @@ async function analyzeBossReadiness() {
 
       actHtml += `
         <div style="background: var(--bg-secondary); border-left: 4px solid ${color}; border-radius: 8px; padding: 16px; margin-bottom: 12px; animation: slideIn 0.3s ease; position: relative;">
-          <button onclick="selectBossFromReadiness('${bossKey}')" style="position: absolute; top: 16px; right: 16px; padding: 2px 8px; background: var(--accent); color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 0.7rem; line-height: 1.2;">
-            Set
-          </button>
-          <div style="margin-bottom: 8px; padding-right: 50px;">
-            <div style="font-weight: bold; font-size: 1.1rem; color: var(--text-primary);">${bossData.name}</div>
-            <div style="color: ${color}; font-weight: 600; font-size: 0.9rem; margin-top: 4px;">
+          <div style="margin-bottom: 8px;">
+            <div style="font-weight: bold; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 4px;">${bossData.name}
+              <button onclick="selectBossFromReadiness('${bossKey}')" style="margin-left: 8px; padding: 2px 8px !important; background: var(--accent); color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 0.7rem !important; line-height: 1.2; width: auto !important; max-width: fit-content !important; display: inline-block !important;">Set</button>
+            </div>
+            <div style="color: ${color}; font-weight: 600; font-size: 0.9rem;">
               ${readiness} (Score: ${Math.round(avgScore)})
             </div>
           </div>
