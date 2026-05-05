@@ -142,7 +142,8 @@ const BOSS_MECHANICS = {
     requireAOE: false,
     rewardBlock: false,
     penalizeCombo: true,         // Ringing kills combo decks
-    name: 'Ceremonial Beast'
+    name: 'Ceremonial Beast',
+    emoji: '🐂'
   },
   'kin_priest': {
     penalizeCardDraw: false,
@@ -152,7 +153,8 @@ const BOSS_MECHANICS = {
     requireAOE: true,            // 3 enemies
     rewardBlock: true,           // Many small attacks
     penalizeCombo: false,
-    name: 'The Kin'
+    name: 'The Kin',
+    emoji: '👥'
   },
   'vantom': {
     penalizeCardDraw: false,
@@ -367,8 +369,8 @@ async function analyzeBossReadiness() {
                 ${readiness} (Score: ${Math.round(avgScore)})
               </div>
             </div>
-            <button onclick="selectBossFromReadiness('${bossKey}')" style="padding: 4px 10px; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.75rem; white-space: nowrap;">
-              Set Target
+            <button onclick="selectBossFromReadiness('${bossKey}')" style="padding: 3px 8px; background: var(--accent); color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 0.7rem; white-space: nowrap; flex-shrink: 0;">
+              Set
             </button>
           </div>
           <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 8px; line-height: 1.4;">
