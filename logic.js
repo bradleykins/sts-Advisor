@@ -1524,22 +1524,78 @@ function analyzeGaps() {
   const deckCtx = getDeckContext();
   const gaps = [];
 
-  // No AOE
+  // Check if a specific boss is selected
+  const boss = selectedBoss && BOSS_MECHANICS[selectedBoss] ? BOSS_MECHANICS[selectedBoss] : null;
+
+  // Boss-specific gaps (higher priority if boss selected)
+  if (boss) {
+    if (boss.requireAOE) {
+      const hasAOE = currentDeck.some(c => {
+        const card = findCard(c);
+        const name = c.toLowerCase();
+        return (card?.keywords && (Array.isArray(card.keywords) ? card.keywords : [card.keywords])
+          .some(k => k.toLowerCase().includes('aoe') || k.toLowerCase().includes('area'))) ||
+          name.includes('whirlwind') || name.includes('cleave');
+      });
+      if (!hasAOE) {
+        gaps.push({ type: 'AOE', severity: 'critical', message: `No AOE (required for ${boss.name})` });
+      }
+    }
+
+    if (boss.requireBurst) {
+      const hasBurst = currentDeck.some(c => {
+        const card = findCard(c);
+        return card?.damage && card.damage >= 20;
+      });
+      if (!hasBurst) {
+        gaps.push({ type: 'Burst', severity: 'critical', message: `No burst damage (required for ${boss.name})` });
+      }
+    }
+
+    if (boss.requireMultiHit) {
+      const hasMultiHit = currentDeck.some(c => {
+        const card = findCard(c);
+        return card?.keywords && (Array.isArray(card.keywords) ? card.keywords : [card.keywords])
+          .some(k => k.toLowerCase().includes('multihit'));
+      });
+      if (!hasMultiHit) {
+        gaps.push({ type: 'Multi-hit', severity: 'high', message: `No multi-hit attacks (needed for ${boss.name})` });
+      }
+    }
+
+    if (boss.requireFrontLoaded) {
+      const hasFrontLoaded = currentDeck.some(c => {
+        const card = findCard(c);
+        return card && card.cost <= 1 && card.damage && card.damage >= 10;
+      });
+      if (!hasFrontLoaded) {
+        gaps.push({ type: 'Front-loaded', severity: 'high', message: `No front-loaded damage (needed for ${boss.name})` });
+      }
+    }
+
+    if (boss.rewardBlock) {
+      const blockCards = currentDeck.filter(c => findCard(c)?.block).length;
+      if (blockCards < 3) {
+        gaps.push({ type: 'Block', severity: 'high', message: `Low block cards (${boss.name} rewards block)` });
+      }
+    }
+  }
+
+  // General gaps (always checked, lower severity if boss has different priorities)
   const hasAOE = currentDeck.some(c => {
     const card = findCard(c);
     return card?.keywords && (Array.isArray(card.keywords) ? card.keywords : [card.keywords])
       .some(k => k.toLowerCase().includes('aoe') || k.toLowerCase().includes('area'));
   });
-  if (!hasAOE) {
+  if (!hasAOE && (!boss || !boss.requireAOE)) {
     gaps.push({ type: 'AOE', severity: 'medium', message: 'No AOE damage' });
   }
 
-  // No burst damage
   const hasBurst = currentDeck.some(c => {
     const card = findCard(c);
     return card?.damage && card.damage >= 20;
   });
-  if (!hasBurst) {
+  if (!hasBurst && (!boss || !boss.requireBurst)) {
     gaps.push({ type: 'Burst', severity: 'high', message: 'No single-target burst' });
   }
 
@@ -1553,17 +1609,17 @@ function analyzeGaps() {
     gaps.push({ type: 'Sustain', severity: 'low', message: 'No healing/sustain' });
   }
 
-  // Removing last block card
-  if (deckCtx.skills <= 3) {
+  // Very few block cards (critical if not boss-rewarded)
+  if (deckCtx.skills <= 3 && (!boss || !boss.rewardBlock)) {
     gaps.push({ type: 'Block', severity: 'critical', message: 'Very few block cards' });
   }
 
-  // No front-loaded damage
+  // No front-loaded damage (only if not boss-specific)
   const hasFrontLoaded = currentDeck.some(c => {
     const card = findCard(c);
     return card?.cost <= 1 && card?.damage >= 10;
   });
-  if (!hasFrontLoaded) {
+  if (!hasFrontLoaded && (!boss || !boss.requireFrontLoaded)) {
     gaps.push({ type: 'Front-loaded', severity: 'medium', message: 'No cheap burst' });
   }
 
