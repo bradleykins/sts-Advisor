@@ -1239,7 +1239,7 @@ function renderBestCardsPills(scored, listContainer) {
 
     return `
       <div class="pill-tag"
-           style="font-size: 0.75rem; padding: 3px 8px; cursor: pointer; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);"
+           style="font-size: 0.75rem; padding: 3px 8px; cursor: pointer; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: #10b981;"
            data-suggestion-name="${item.name}"
            data-suggestion-score="${item.score}"
            data-suggestion-reason="${item.reason.replace(/"/g, '&quot;')}"
