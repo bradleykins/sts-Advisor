@@ -2280,16 +2280,42 @@ function setupInputClearButtons() {
 
 function showCardPreview(event, cardName) {
   const card = findCard(cardName);
-  if (!card || !card.image) return;
+  if (!card) return;
 
   const preview = document.getElementById('card-hover-preview');
   if (!preview) return;
 
+  // Calculate quick score for preview
+  const scoreResult = scoreCard(cardName);
+  const scoreClass = scoreResult.score >= 70 ? 'score-high' : scoreResult.score >= 40 ? 'score-medium' : 'score-low';
+
+  // Build keywords/archetypes display
+  const keywords = card.keywords
+    ? (Array.isArray(card.keywords) ? card.keywords : [card.keywords])
+    : [];
+
+  const keywordsHtml = keywords.length > 0
+    ? keywords.map(k => `<span class="pill" style="font-size: 0.75rem; padding: 3px 8px;">${k}</span>`).join('')
+    : '';
+
+  const imageHtml = card.image
+    ? `<img src="${card.image}" alt="${card.name}" style="width: 100%; height: auto; border-radius: 4px; margin-bottom: 12px;">`
+    : '';
+
   preview.innerHTML = `
-    <img src="${card.image}" alt="${card.name}">
+    ${imageHtml}
     <div class="card-hover-info">
-      <strong>${card.name}</strong>
-      ${card.description ? `<div style="margin-top: 4px;">${card.description}</div>` : ''}
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <strong style="font-size: 1.1rem; color: var(--text-primary);">${card.name}</strong>
+        <span class="card-score ${scoreClass}" style="font-size: 1rem; padding: 4px 10px;">${scoreResult.score}</span>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;">
+        ${card.cost !== undefined ? `<span class="pill" style="font-size: 0.75rem; padding: 3px 8px;">Cost: ${card.cost >= 0 ? card.cost : 'X'}</span>` : ''}
+        ${card.type ? `<span class="pill" style="font-size: 0.75rem; padding: 3px 8px;">${card.type}</span>` : ''}
+        ${card.rarity ? `<span class="pill pill-${card.rarity}" style="font-size: 0.75rem; padding: 3px 8px;">${card.rarity}</span>` : ''}
+      </div>
+      ${keywordsHtml ? `<div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;">${keywordsHtml}</div>` : ''}
+      ${card.description ? `<div style="margin-top: 8px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">${card.description}</div>` : ''}
     </div>
   `;
 
@@ -2299,16 +2325,26 @@ function showCardPreview(event, cardName) {
 
 function showRelicPreview(event, relicName) {
   const relic = findRelic(relicName);
-  if (!relic || !relic.image) return;
+  if (!relic) return;
 
   const preview = document.getElementById('card-hover-preview');
   if (!preview) return;
 
+  const imageHtml = relic.image
+    ? `<img src="${relic.image}" alt="${relic.name}" style="width: 100%; height: auto; border-radius: 4px; margin-bottom: 12px;">`
+    : '';
+
   preview.innerHTML = `
-    <img src="${relic.image}" alt="${relic.name}">
+    ${imageHtml}
     <div class="card-hover-info">
-      <strong>${relic.name}</strong>
-      ${relic.description ? `<div style="margin-top: 4px;">${relic.description}</div>` : ''}
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <strong style="font-size: 1.1rem; color: var(--text-primary);">${relic.name}</strong>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;">
+        ${relic.rarity ? `<span class="pill" style="font-size: 0.75rem; padding: 3px 8px;">${relic.rarity}</span>` : ''}
+        ${relic.character ? `<span class="pill" style="font-size: 0.75rem; padding: 3px 8px;">${relic.character}</span>` : ''}
+      </div>
+      ${relic.description ? `<div style="margin-top: 8px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">${relic.description}</div>` : ''}
     </div>
   `;
 
