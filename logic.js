@@ -281,104 +281,93 @@ async function analyzeBossReadiness() {
   const originalText = btn.textContent;
   btn.disabled = true;
   btn.textContent = '⏳ Analyzing...';
-  resultsContainer.innerHTML = '<div class="skeleton skeleton-card"></div>'.repeat(3);
 
   // Temporarily store current boss selection
   const originalBoss = selectedBoss;
 
-  // Analyze each boss
-  const readinessScores = [];
+  // Define act groups in order
+  const actGroups = [
+    { name: 'Act 1a - Overgrowth', bosses: ['ceremonial_beast', 'kin_priest', 'vantom'], displayNames: ['Ceremonial Beast', 'The Kin', 'Vantom'] },
+    { name: 'Act 1b - Underdocks', bosses: ['lagavulin_matriarch', 'soul_fysh', 'waterfall_giant'], displayNames: ['Lagavulin Matriarch', 'Soul Fysh', 'Waterfall Giant'] },
+    { name: 'Act 2 - Hive', bosses: ['kaiser_crab', 'knowledge_demon', 'the_insatiable'], displayNames: ['Kaiser Crab', 'Knowledge Demon', 'The Insatiable'] },
+    { name: 'Act 3 - Glory', bosses: ['doormaker', 'queen', 'test_subject_c10'], displayNames: ['Doormaker', 'Queen', 'Test Subject #C10'] }
+  ];
 
-  for (const [bossKey, bossData] of Object.entries(BOSS_MECHANICS)) {
-    // Temporarily set this boss for scoring
-    selectedBoss = bossKey;
-
-    // Invalidate cache to force re-score with this boss
-    invalidateMCBaseline();
-
-    // Get average card score against this boss (skip MC simulation for speed)
-    const cardScores = currentDeck.map(cardName => {
-      const result = scoreCard(cardName, { skipMC: true });
-      return result.score;
-    });
-
-    const avgScore = cardScores.reduce((a, b) => a + b, 0) / cardScores.length;
-
-    // Determine readiness level
-    let readiness = 'Poor';
-    let color = '#fca5a5';
-    if (avgScore >= 70) {
-      readiness = 'Excellent';
-      color = '#6ee7b7';
-    } else if (avgScore >= 60) {
-      readiness = 'Good';
-      color = '#86efac';
-    } else if (avgScore >= 50) {
-      readiness = 'Fair';
-      color = '#fbbf24';
-    } else if (avgScore >= 40) {
-      readiness = 'Weak';
-      color = '#fdba74';
-    }
-
-    readinessScores.push({
-      boss: bossData.name,
-      bossKey,
-      avgScore: Math.round(avgScore),
-      readiness,
-      color,
-      mechanics: bossData
-    });
-  }
-
-  // Restore original boss selection
-  selectedBoss = originalBoss;
-  invalidateMCBaseline();
-
-  // Sort by score (best matchups first)
-  readinessScores.sort((a, b) => b.avgScore - a.avgScore);
-
-  // Render results grouped by act
-  const actGroups = {
-    'Act 1a - Overgrowth': ['Ceremonial Beast', 'The Kin', 'Vantom'],
-    'Act 1b - Underdocks': ['Lagavulin Matriarch', 'Soul Fysh', 'Waterfall Giant'],
-    'Act 2 - Hive': ['Kaiser Crab', 'Knowledge Demon', 'The Insatiable'],
-    'Act 3 - Glory': ['Doormaker', 'Queen', 'Test Subject #C10']
-  };
-
+  // Initialize container with act structure
   let html = '';
-  for (const [actName, bosses] of Object.entries(actGroups)) {
-    html += `<div style="margin-bottom: 24px;">`;
-    html += `<h3 style="color: var(--accent); font-size: 1rem; margin-bottom: 12px; border-bottom: 2px solid var(--border-color); padding-bottom: 6px;">${actName}</h3>`;
+  actGroups.forEach(act => {
+    html += `<div id="act-${act.bosses[0]}" style="margin-bottom: 24px;">`;
+    html += `<h3 style="color: var(--accent); font-size: 1rem; margin-bottom: 12px; border-bottom: 2px solid var(--border-color); padding-bottom: 6px;">${act.name}</h3>`;
+    html += `<div class="skeleton skeleton-card" style="height: 150px;"></div>`;
+    html += `</div>`;
+  });
+  resultsContainer.innerHTML = html;
 
-    const actBosses = readinessScores.filter(b => bosses.includes(b.boss));
+  // Process each act sequentially
+  for (const act of actGroups) {
+    const actContainer = document.getElementById(`act-${act.bosses[0]}`);
+    let actHtml = `<h3 style="color: var(--accent); font-size: 1rem; margin-bottom: 12px; border-bottom: 2px solid var(--border-color); padding-bottom: 6px;">${act.name}</h3>`;
 
-    actBosses.forEach(boss => {
+    // Process each boss in this act
+    for (let i = 0; i < act.bosses.length; i++) {
+      const bossKey = act.bosses[i];
+      const bossData = BOSS_MECHANICS[bossKey];
+
+      // Temporarily set this boss for scoring
+      selectedBoss = bossKey;
+      invalidateMCBaseline();
+
+      // Get average card score against this boss (with MC simulation)
+      const cardScores = currentDeck.map(cardName => {
+        const result = scoreCard(cardName);
+        return result.score;
+      });
+
+      const avgScore = cardScores.reduce((a, b) => a + b, 0) / cardScores.length;
+
+      // Determine readiness level
+      let readiness = 'Poor';
+      let color = '#fca5a5';
+      if (avgScore >= 70) {
+        readiness = 'Excellent';
+        color = '#6ee7b7';
+      } else if (avgScore >= 60) {
+        readiness = 'Good';
+        color = '#86efac';
+      } else if (avgScore >= 50) {
+        readiness = 'Fair';
+        color = '#fbbf24';
+      } else if (avgScore >= 40) {
+        readiness = 'Weak';
+        color = '#fdba74';
+      }
+
+      // Build mechanic summary
       const mechanicSummary = [];
-      if (boss.mechanics.penalizeCardDraw) mechanicSummary.push('❌ Card Draw');
-      if (boss.mechanics.penalizePowers) mechanicSummary.push('❌ Powers');
-      if (boss.mechanics.penalizeCombo) mechanicSummary.push('❌ Combo');
-      if (boss.mechanics.requireMultiHit) mechanicSummary.push('✓ Multi-hit');
-      if (boss.mechanics.requireFrontLoaded) mechanicSummary.push('✓ Front-loaded');
-      if (boss.mechanics.requireAOE) mechanicSummary.push('✓ AOE');
-      if (boss.mechanics.requireBurst) mechanicSummary.push('✓ Burst');
-      if (boss.mechanics.rewardBlock) mechanicSummary.push('✓ Block');
-      if (boss.mechanics.rewardSetup) mechanicSummary.push('✓ Setup');
-      if (boss.mechanics.rewardScaling) mechanicSummary.push('✓ Scaling');
-      if (boss.mechanics.rewardExhaust) mechanicSummary.push('✓ Exhaust');
-      if (boss.mechanics.rewardRetain) mechanicSummary.push('✓ Retain');
-      if (boss.mechanics.rewardAttacks) mechanicSummary.push('✓ Attacks');
+      if (bossData.penalizeCardDraw) mechanicSummary.push('❌ Card Draw');
+      if (bossData.penalizePowers) mechanicSummary.push('❌ Powers');
+      if (bossData.penalizeCombo) mechanicSummary.push('❌ Combo');
+      if (bossData.requireMultiHit) mechanicSummary.push('✓ Multi-hit');
+      if (bossData.requireFrontLoaded) mechanicSummary.push('✓ Front-loaded');
+      if (bossData.requireAOE) mechanicSummary.push('✓ AOE');
+      if (bossData.requireBurst) mechanicSummary.push('✓ Burst');
+      if (bossData.rewardBlock) mechanicSummary.push('✓ Block');
+      if (bossData.rewardSetup) mechanicSummary.push('✓ Setup');
+      if (bossData.rewardScaling) mechanicSummary.push('✓ Scaling');
+      if (bossData.rewardExhaust) mechanicSummary.push('✓ Exhaust');
+      if (bossData.rewardRetain) mechanicSummary.push('✓ Retain');
+      if (bossData.rewardAttacks) mechanicSummary.push('✓ Attacks');
 
-      html += `
-        <div style="background: var(--bg-secondary); border-left: 4px solid ${boss.color}; border-radius: 8px; padding: 16px; margin-bottom: 12px;">
+      actHtml += `
+        <div style="background: var(--bg-secondary); border-left: 4px solid ${color}; border-radius: 8px; padding: 16px; margin-bottom: 12px; animation: slideIn 0.3s ease;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
             <div>
-              <div style="font-weight: bold; font-size: 1.1rem; color: var(--text-primary);">${boss.boss}</div>
-              <div style="color: ${boss.color}; font-weight: 600; font-size: 0.9rem; margin-top: 4px;">
-                ${boss.readiness} (Score: ${boss.avgScore})
+              <div style="font-weight: bold; font-size: 1.1rem; color: var(--text-primary);">${bossData.name}</div>
+              <div style="color: ${color}; font-weight: 600; font-size: 0.9rem; margin-top: 4px;">
+                ${readiness} (Score: ${Math.round(avgScore)})
               </div>
             </div>
-            <button onclick="selectBossFromReadiness('${boss.bossKey}')" style="padding: 8px 16px; background: var(--accent); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
+            <button onclick="selectBossFromReadiness('${bossKey}')" style="padding: 8px 16px; background: var(--accent); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
               Set as Target
             </button>
           </div>
@@ -387,12 +376,22 @@ async function analyzeBossReadiness() {
           </div>
         </div>
       `;
-    });
 
-    html += `</div>`;
+      // Update UI after each boss
+      actContainer.innerHTML = actHtml;
+
+      // Update button text with progress
+      btn.textContent = `⏳ Analyzing... (${actGroups.indexOf(act) * 3 + i + 1}/12)`;
+
+      // Small delay to let UI update
+      await new Promise(resolve => setTimeout(resolve, 10));
+    }
   }
 
-  resultsContainer.innerHTML = html;
+  // Restore original boss selection
+  selectedBoss = originalBoss;
+  invalidateMCBaseline();
+
   btn.disabled = false;
   btn.textContent = originalText;
   showToast('Boss readiness calculated!', 'success', 2000);
@@ -6567,6 +6566,13 @@ window.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     showToast('Welcome to STS2 Decision Advisor!', 'success');
   }, 500);
+
+  // Auto-analyze boss readiness after page loads (if deck exists)
+  if (currentDeck.length > 0) {
+    setTimeout(() => {
+      analyzeBossReadiness();
+    }, 1000);
+  }
 
   // Setup help modal content
   const helpContent = document.getElementById('help-content');
