@@ -367,8 +367,8 @@ async function analyzeBossReadiness() {
                 ${readiness} (Score: ${Math.round(avgScore)})
               </div>
             </div>
-            <button onclick="selectBossFromReadiness('${bossKey}')" style="padding: 8px 16px; background: var(--accent); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">
-              Set as Target
+            <button onclick="selectBossFromReadiness('${bossKey}')" style="padding: 4px 10px; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.75rem; white-space: nowrap;">
+              Set Target
             </button>
           </div>
           <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 8px; line-height: 1.4;">
