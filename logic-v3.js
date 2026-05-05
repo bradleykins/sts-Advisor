@@ -1392,13 +1392,13 @@ function renderCardResult(card, result, showAddButton = false) {
     : '';
 
   const addButtonHtml = showAddButton ? `
-    <button class="add-to-deck-btn" onclick="addCardToDeck('${cardName}')" aria-label="Add ${cardName} to deck">
+    <button class="add-to-deck-btn" onclick="addCardToDeck('${cardName.replace(/'/g, "\\'")}')" aria-label="Add ${cardName} to deck">
       ➕ Add to Deck
     </button>
   ` : '';
 
   return `
-    <div class="card-result ${rarityClass}" data-card-name="${cardName}" onmouseenter="showCardPreview('${cardName}')" onmouseleave="hideCardPreview()">
+    <div class="card-result ${rarityClass}" data-card-name="${cardName}">
       <div class="card-header">
         <div class="card-name-section">
           <span class="card-icon">${icon}</span>
