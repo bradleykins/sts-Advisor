@@ -1501,17 +1501,54 @@ async function scoreRewards() {
 
   const filtered = filterAndSortCards(scored);
 
-  const html = filtered.map(item => renderCardResult(item.card, item, true)).join('');
+  // Check if SKIP is the best option (all cards below threshold)
+  const SKIP_THRESHOLD = 45; // Cards below this are probably not worth taking
+  const bestScore = filtered.length > 0 ? filtered[0].score : 0;
+  const shouldSkip = bestScore < SKIP_THRESHOLD;
+
+  let html = '';
+
+  if (shouldSkip) {
+    // Show SKIP recommendation prominently
+    html = `
+      <div class="card-result skip-recommendation" style="border: 3px solid #fbbf24; background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05));">
+        <div class="card-header">
+          <div class="card-name-section">
+            <span class="card-icon" style="font-size: 1.8rem;">⏭️</span>
+            <span class="card-name" style="font-size: 1.3rem; color: #fbbf24;">SKIP REWARD</span>
+          </div>
+          <span class="card-score" style="background: linear-gradient(135deg, #ca8a04, #eab308); color: #fef3c7; font-size: 1.5rem;">BEST</span>
+        </div>
+        <div class="card-reason" style="font-size: 1rem; margin-top: 10px;">
+          No card offers significant value. Best option: <strong>${filtered[0]?.card.name || 'None'}</strong> (${bestScore}/100).
+          Skip to avoid deck bloat and preserve focus.
+        </div>
+        <div style="margin-top: 12px; padding: 12px; background: rgba(251, 191, 36, 0.1); border-radius: 6px; font-size: 0.9rem; color: var(--text-secondary);">
+          💡 <strong>Why skip?</strong> Adding weak cards dilutes your deck, making it harder to draw your core combo pieces.
+          ${currentDeck.length > 20 ? 'Your deck is already focused—protect that.' : 'Better cards will appear later.'}
+        </div>
+      </div>
+      <div style="margin: 20px 0; padding: 12px; background: var(--bg-secondary); border-radius: 6px; border-left: 3px solid #64748b;">
+        <strong style="color: var(--text-primary);">Available cards (not recommended):</strong>
+      </div>
+    `;
+  }
+
+  html += filtered.map(item => renderCardResult(item.card, item, true)).join('');
   document.getElementById('reward-results').innerHTML = html;
 
   setLoading('reward-results', false);
 
-  // Trigger confetti for high scores
+  // Trigger confetti for high scores OR skip recommendation
   if (filtered.some(item => item.score >= 90)) {
     triggerConfetti();
   }
 
-  showToast(`Analyzed ${filtered.length} card${filtered.length !== 1 ? 's' : ''}`, 'success', 2000);
+  if (shouldSkip) {
+    showToast('💡 Recommendation: SKIP this reward', 'info', 3000);
+  } else {
+    showToast(`Analyzed ${filtered.length} card${filtered.length !== 1 ? 's' : ''}`, 'success', 2000);
+  }
 }
 
 function addCardToDeck(cardName) {
@@ -1682,7 +1719,44 @@ async function analyzeShopCards() {
 
   const filtered = filterAndSortCards(scored);
 
-  const html = filtered.map(item => {
+  // Check if SKIP is the best option (shop gold is expensive)
+  const SHOP_SKIP_THRESHOLD = 55; // Higher threshold for shop (gold cost matters)
+  const bestScore = filtered.length > 0 ? filtered[0].score : 0;
+  const shouldSkip = bestScore < SHOP_SKIP_THRESHOLD;
+
+  let html = '';
+
+  if (shouldSkip) {
+    // Show SKIP recommendation for shop
+    html = `
+      <div class="card-result skip-recommendation" style="border: 3px solid #fbbf24; background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05));">
+        <div class="card-header">
+          <div class="card-name-section">
+            <span class="card-icon" style="font-size: 1.8rem;">💰</span>
+            <span class="card-name" style="font-size: 1.3rem; color: #fbbf24;">SAVE YOUR GOLD</span>
+          </div>
+          <span class="card-score" style="background: linear-gradient(135deg, #ca8a04, #eab308); color: #fef3c7; font-size: 1.5rem;">BEST</span>
+        </div>
+        <div class="card-reason" style="font-size: 1rem; margin-top: 10px;">
+          No card justifies the gold cost. Best option: <strong>${filtered[0]?.card.name || 'None'}</strong> (${bestScore}/100).
+          Skip to save gold for relics, card removal, or better cards later.
+        </div>
+        <div style="margin-top: 12px; padding: 12px; background: rgba(251, 191, 36, 0.1); border-radius: 6px; font-size: 0.9rem; color: var(--text-secondary);">
+          💡 <strong>Why skip?</strong> Gold is finite. Spending it on mediocre cards means you can't afford:
+          <ul style="margin: 8px 0 0 20px; line-height: 1.6;">
+            <li>Card removal at shops (often more valuable than adding cards)</li>
+            <li>Game-changing relics</li>
+            <li>Better cards in later shops</li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin: 20px 0; padding: 12px; background: var(--bg-secondary); border-radius: 6px; border-left: 3px solid #64748b;">
+        <strong style="color: var(--text-primary);">Shop inventory (not worth buying):</strong>
+      </div>
+    `;
+  }
+
+  html += filtered.map(item => {
     let cardHtml = renderCardResult(item.card, item, true);
 
     // Add removal value indicator
@@ -1700,7 +1774,11 @@ async function analyzeShopCards() {
     triggerConfetti();
   }
 
-  showToast(`Analyzed ${filtered.length} shop card${filtered.length !== 1 ? 's' : ''}`, 'success', 2000);
+  if (shouldSkip) {
+    showToast('💰 Recommendation: SAVE YOUR GOLD', 'info', 3000);
+  } else {
+    showToast(`Analyzed ${filtered.length} shop card${filtered.length !== 1 ? 's' : ''}`, 'success', 2000);
+  }
 }
 
 async function scoreShop() {
