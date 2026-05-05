@@ -426,6 +426,63 @@ async function analyzeBossReadiness() {
           breakdown.push({ factor: 'Missing burst', impact: 'negative', count: 0 });
         }
       }
+      if (bossData.requireFrontLoaded) {
+        const frontLoadedCards = currentDeck.filter(c => {
+          const card = findCard(c);
+          return card && card.cost <= 1 && card.damage && card.damage >= 10;
+        }).length;
+        if (frontLoadedCards > 0) {
+          strengths.push(`${frontLoadedCards} front-loaded`);
+          breakdown.push({ factor: 'Front-loaded damage', impact: 'positive', count: frontLoadedCards });
+        } else {
+          weaknesses.push('no front-loaded damage');
+          breakdown.push({ factor: 'Missing front-loaded', impact: 'negative', count: 0 });
+        }
+      }
+      if (bossData.penalizeCombo && (deckCtx.powers > 2 || deckCtx.avgCost >= 2)) {
+        weaknesses.push('slow/combo heavy');
+        breakdown.push({ factor: 'Combo/slow cards penalized', impact: 'negative', count: deckCtx.powers });
+      }
+      if (bossData.rewardScaling && deckCtx.powers > 0) {
+        const scalingPowers = currentDeck.filter(c => {
+          const card = findCard(c);
+          return card?.type === 'Power';
+        }).length;
+        if (scalingPowers > 0) {
+          strengths.push(`${scalingPowers} scaling powers`);
+          breakdown.push({ factor: 'Scaling rewarded', impact: 'positive', count: scalingPowers });
+        }
+      }
+      if (bossData.rewardSetup && deckCtx.powers > 0) {
+        strengths.push(`${deckCtx.powers} setup cards`);
+        breakdown.push({ factor: 'Setup rewarded', impact: 'positive', count: deckCtx.powers });
+      }
+      if (bossData.rewardExhaust) {
+        const exhaustCards = currentDeck.filter(c => {
+          const card = findCard(c);
+          return card?.keywords && (Array.isArray(card.keywords) ? card.keywords : [card.keywords])
+            .some(k => k.toLowerCase().includes('exhaust'));
+        }).length;
+        if (exhaustCards > 0) {
+          strengths.push(`${exhaustCards} exhaust cards`);
+          breakdown.push({ factor: 'Exhaust rewarded', impact: 'positive', count: exhaustCards });
+        }
+      }
+      if (bossData.rewardRetain) {
+        const retainCards = currentDeck.filter(c => {
+          const card = findCard(c);
+          return card?.keywords && (Array.isArray(card.keywords) ? card.keywords : [card.keywords])
+            .some(k => k.toLowerCase().includes('retain'));
+        }).length;
+        if (retainCards > 0) {
+          strengths.push(`${retainCards} retain cards`);
+          breakdown.push({ factor: 'Retain rewarded', impact: 'positive', count: retainCards });
+        }
+      }
+      if (bossData.rewardAttacks && deckCtx.attacks > 0) {
+        strengths.push(`${deckCtx.attacks} attacks`);
+        breakdown.push({ factor: 'Attacks rewarded', impact: 'positive', count: deckCtx.attacks });
+      }
 
       let summaryText = '';
       if (avgScore >= 70) {
