@@ -296,9 +296,9 @@ async function analyzeBossReadiness() {
     // Invalidate cache to force re-score with this boss
     invalidateMCBaseline();
 
-    // Get average card score against this boss
+    // Get average card score against this boss (skip MC simulation for speed)
     const cardScores = currentDeck.map(cardName => {
-      const result = scoreCard(cardName);
+      const result = scoreCard(cardName, { skipMC: true });
       return result.score;
     });
 
@@ -3010,56 +3010,57 @@ function scoreCard(cardName, context = {}) {
     }
   }
 
-  // MC Rollout: compare win rate improvement vs current deck
-  // Calculate baseline if not cached (respects user's simulation count)
-  if (mcBaselineWinRate === null) {
-    calculateMCBaseline();
-  }
+  // MC Rollout: compare win rate improvement vs current deck (skip if context.skipMC)
+  if (!context.skipMC) {
+    // Calculate baseline if not cached (respects user's simulation count)
+    if (mcBaselineWinRate === null) {
+      calculateMCBaseline();
+    }
 
-  // Check if this card has been simulated already for this baseline
-  const cacheKey = cardName;
-  const cached = mcCardCache.get(cacheKey);
-  let withCardWinRate;
+    // Check if this card has been simulated already for this baseline
+    const cacheKey = cardName;
+    const cached = mcCardCache.get(cacheKey);
+    let withCardWinRate;
 
-  if (cached && cached.baselineHash === mcBaselineHash) {
-    // Use cached result
-    withCardWinRate = cached.winRate;
-  } else {
-    // Run simulation and cache result (respects user's simulation count)
-    withCardWinRate = performMCRollout(card, mcSimulations);
-    mcCardCache.set(cacheKey, {
-      baselineHash: mcBaselineHash,
-      winRate: withCardWinRate
-    });
-  }
+    if (cached && cached.baselineHash === mcBaselineHash) {
+      // Use cached result
+      withCardWinRate = cached.winRate;
+    } else {
+      // Run simulation and cache result (respects user's simulation count)
+      withCardWinRate = performMCRollout(card, mcSimulations);
+      mcCardCache.set(cacheKey, {
+        baselineHash: mcBaselineHash,
+        winRate: withCardWinRate
+      });
+    }
 
-  const improvement = withCardWinRate - mcBaselineWinRate;
-  const baselineRounded = Math.round(mcBaselineWinRate);
-  const withCardRounded = Math.round(withCardWinRate);
-  const improvementRounded = Math.round(improvement);
+    const improvement = withCardWinRate - mcBaselineWinRate;
+    const baselineRounded = Math.round(mcBaselineWinRate);
+    const withCardRounded = Math.round(withCardWinRate);
+    const improvementRounded = Math.round(improvement);
 
-  // Score based on improvement, not absolute win rate
-  if (improvement >= 15) {
-    const bonus = 20; // Huge improvement
-    score += bonus;
-    breakdown.push({ factor: `MC: +${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: bonus });
-  } else if (improvement >= 8) {
-    const bonus = 15; // Strong improvement
-    score += bonus;
-    breakdown.push({ factor: `MC: +${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: bonus });
-  } else if (improvement >= 3) {
-    const bonus = 10; // Moderate improvement
-    score += bonus;
-    breakdown.push({ factor: `MC: +${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: bonus });
-  } else if (improvement >= 0) {
-    const bonus = 5; // Slight improvement
-    score += bonus;
-    breakdown.push({ factor: `MC: +${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: bonus });
-  } else if (improvement < -5) {
-    const penalty = -15; // Makes deck worse
-    score += penalty;
-    breakdown.push({ factor: `MC: ${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: penalty });
-  } else {
+    // Score based on improvement, not absolute win rate
+    if (improvement >= 15) {
+      const bonus = 20; // Huge improvement
+      score += bonus;
+      breakdown.push({ factor: `MC: +${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: bonus });
+    } else if (improvement >= 8) {
+      const bonus = 15; // Strong improvement
+      score += bonus;
+      breakdown.push({ factor: `MC: +${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: bonus });
+    } else if (improvement >= 3) {
+      const bonus = 10; // Moderate improvement
+      score += bonus;
+      breakdown.push({ factor: `MC: +${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: bonus });
+    } else if (improvement >= 0) {
+      const bonus = 5; // Slight improvement
+      score += bonus;
+      breakdown.push({ factor: `MC: +${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: bonus });
+    } else if (improvement < -5) {
+      const penalty = -15; // Makes deck worse
+      score += penalty;
+      breakdown.push({ factor: `MC: ${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: penalty });
+    } else {
     const penalty = -8; // Slightly worse
     score += penalty;
     breakdown.push({ factor: `MC: ${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: penalty });
