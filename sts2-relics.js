@@ -2,247 +2,288 @@
 // Source: https://github.com/nkhoit/spire-archive
 // Last updated: 2026-05-05
 // Total relics: 293
+// With images: 161
 
 const STS2_RELICS = {
   "AKABEKO": {
     "name": "Akabeko",
     "character": "shared",
     "description": "At the start of each combat, gain 8 Vigor.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/akabeko.png"
   },
   "ALCHEMICAL COFFER": {
     "name": "Alchemical Coffer",
     "character": "event",
     "description": "Upon pickup, gain 4 potion slots filled with random potions.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/alchemical_coffer.png"
   },
   "AMETHYST AUBERGINE": {
     "name": "Amethyst Aubergine",
     "character": "shared",
     "description": "Enemies drop 15 additional Gold.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/amethyst_aubergine.png"
   },
   "ANCHOR": {
     "name": "Anchor",
     "character": "shared",
     "description": "Start each combat with 10 Block.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/anchor.png"
   },
   "ARCANE SCROLL": {
     "name": "Arcane Scroll",
     "character": "event",
     "description": "Upon pickup, obtain a random Rare Card to add to your Deck.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/arcane_scroll.png"
   },
   "ARCHAIC TOOTH": {
     "name": "Archaic Tooth",
     "character": "event",
     "description": "Upon pickup, Transform a starter card into an ancient version.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/archaic_tooth.png"
   },
   "ART OF WAR": {
     "name": "Art of War",
     "character": "shared",
     "description": "If you do not play any Attacks during your turn, gain an additional [E] next turn.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/art_of_war.png"
   },
   "ASTROLABE": {
     "name": "Astrolabe",
     "character": "event",
     "description": "Upon pickup, Transform 3 cards, then Upgrade them.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/astrolabe.png"
   },
   "BAG OF MARBLES": {
     "name": "Bag of Marbles",
     "character": "shared",
     "description": "At the start of each combat, apply 1 Vulnerable to ALL enemies.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/bag_of_marbles.png"
   },
   "BAG OF PREPARATION": {
     "name": "Bag of Preparation",
     "character": "shared",
     "description": "At the start of each combat, draw 2 additional cards.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/bag_of_preparation.png"
   },
   "BEATING REMNANT": {
     "name": "Beating Remnant",
     "character": "shared",
     "description": "You cannot lose more than 20 HP in a single turn.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/beating_remnant.png"
   },
   "BEAUTIFUL BRACELET": {
     "name": "Beautiful Bracelet",
     "character": "event",
     "description": "Upon pickup, choose 3 cards in your Deck. Enchant them with Swift 3.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/beautiful_bracelet.png"
   },
   "BELLOWS": {
     "name": "Bellows",
     "character": "shared",
     "description": "The first Hand you draw each combat is Upgraded.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/bellows.png"
   },
   "BELT BUCKLE": {
     "name": "Belt Buckle",
     "character": "shared",
     "description": "While you have no potions, you have 2 additional Dexterity.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/belt_buckle.png"
   },
   "BIG HAT": {
     "name": "Big Hat",
     "character": "necrobinder",
     "description": "At the start of each combat, add 2 random Ethereal cards into your Hand.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/big_hat.png"
   },
   "BIG MUSHROOM": {
     "name": "Big Mushroom",
     "character": "event",
     "description": "Upon pickup, raise your Max HP by 20. At the start of each combat, draw 2 fewer cards.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/big_mushroom.png"
   },
   "BIIIG HUG": {
     "name": "Biiig Hug",
     "character": "event",
     "description": "Upon pickup, remove 4 cards from your Deck. Whenever you shuffle your Draw Pile, add a Soot into your Draw Pile.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/biiig_hug.png"
   },
   "BING BONG": {
     "name": "Bing Bong",
     "character": "event",
     "description": "Whenever you add a card to your Deck, add one additional copy.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/bing_bong.png"
   },
   "BLACK BLOOD": {
     "name": "Black Blood",
     "character": "event",
     "description": "At the end of combat, heal 12 HP.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/black_blood.png"
   },
   "BLACK STAR": {
     "name": "Black Star",
     "character": "event",
     "description": "Elites drop an additional Relic when defeated.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/black_star.png"
   },
   "BLESSED ANTLER": {
     "name": "Blessed Antler",
     "character": "event",
     "description": "Gain [E] at the start of each turn. At the start of each combat, shuffle 3 Dazed into your Draw Pile.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/blessed_antler.png"
   },
   "BLOOD-SOAKED ROSE": {
     "name": "Blood-Soaked Rose",
     "character": "event",
     "description": "Upon pickup, add 1 Enthralled to your Deck. Gain [E] at the start of each turn.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/blood_soaked_rose.png"
   },
   "BLOOD VIAL": {
     "name": "Blood Vial",
     "character": "shared",
     "description": "At the start of each combat, heal 2 HP.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/blood_vial.png"
   },
   "BONE FLUTE": {
     "name": "Bone Flute",
     "character": "necrobinder",
     "description": "Whenever Osty attacks, gain 2 Block.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/bone_flute.png"
   },
   "BONE TEA": {
     "name": "Bone Tea",
     "character": "event",
     "description": "At the start of the next combat, Upgrade your starting hand.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/bone_tea.png"
   },
   "BOOK OF FIVE RINGS": {
     "name": "Book of Five Rings",
     "character": "shared",
     "description": "Every 5 cards you add to your Deck, heal 20 HP.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/book_of_five_rings.png"
   },
   "BOOK REPAIR KNIFE": {
     "name": "Book Repair Knife",
     "character": "necrobinder",
     "description": "Whenever a non-Minion enemy dies to Doom, heal 3 HP.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/book_repair_knife.png"
   },
   "BOOKMARK": {
     "name": "Bookmark",
     "character": "necrobinder",
     "description": "At the end of each turn, lower the cost of a random Retained card by 1 until played.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/bookmark.png"
   },
   "BOOMING CONCH": {
     "name": "Booming Conch",
     "character": "event",
     "description": "At the start of Elite combats, draw 2 additional cards.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/booming_conch.png"
   },
   "BOUND PHYLACTERY": {
     "name": "Bound Phylactery",
     "character": "necrobinder",
     "description": "At the start of your turn, Summon 1.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/bound_phylactery.png"
   },
   "BOWLER HAT": {
     "name": "Bowler Hat",
     "character": "shared",
     "description": "Gain 25% additional Gold.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/bowler_hat.png"
   },
   "BREAD": {
     "name": "Bread",
     "character": "shared",
     "description": "At the start of your first turn, lose [E][E]. At the start of all other turns, gain [E].",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/bread.png"
   },
   "BRILLIANT SCARF": {
     "name": "Brilliant Scarf",
     "character": "event",
     "description": "The 5th card you play each turn is free.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/brilliant_scarf.png"
   },
   "BRIMSTONE": {
     "name": "Brimstone",
     "character": "ironclad",
     "description": "At the start of your turn, gain 2 Strength and ALL enemies gain 1 Strength.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/brimstone.png"
   },
   "BRONZE SCALES": {
     "name": "Bronze Scales",
     "character": "shared",
     "description": "Start each combat with 3 Thorns.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/bronze_scales.png"
   },
   "BURNING BLOOD": {
     "name": "Burning Blood",
     "character": "ironclad",
     "description": "At the end of combat, heal 6 HP.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/burning_blood.png"
   },
   "BURNING STICKS": {
     "name": "Burning Sticks",
     "character": "shared",
     "description": "The first time each combat you Exhaust a Skill, add a copy of it into your Hand.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/burning_sticks.png"
   },
   "BYRDPIP": {
     "name": "Byrdpip",
     "character": "event",
     "description": "Upon pickup, gain the card Byrd Swoop. A Byrdpip will accompany you in battles.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/byrdpip.png"
   },
   "CALLING BELL": {
     "name": "Calling Bell",
     "character": "event",
     "description": "Upon pickup, obtain a unique Curse and 3 Relics.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/calling_bell.png"
   },
   "CANDELABRA": {
     "name": "Candelabra",
     "character": "shared",
     "description": "At the start of your 2nd turn, gain [E][E].",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/candelabra.png"
   },
   "CAPTAIN'S WHEEL": {
     "name": "Captain's Wheel",
@@ -254,19 +295,22 @@ const STS2_RELICS = {
     "name": "Cauldron",
     "character": "shared",
     "description": "Upon pickup, brews 5 random potions.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/cauldron.png"
   },
   "CENTENNIAL PUZZLE": {
     "name": "Centennial Puzzle",
     "character": "shared",
     "description": "The first time you lose HP each combat, draw 3 cards.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/centennial_puzzle.png"
   },
   "CHANDELIER": {
     "name": "Chandelier",
     "character": "shared",
     "description": "At the start of your 3rd turn, gain [E][E][E].",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/chandelier.png"
   },
   "CHARON'S ASHES": {
     "name": "Charon's Ashes",
@@ -278,13 +322,15 @@ const STS2_RELICS = {
     "name": "Chemical X",
     "character": "shared",
     "description": "The effects of your cost X cards are increased by 2.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/chemical_x.png"
   },
   "CHOICES PARADOX": {
     "name": "Choices Paradox",
     "character": "event",
     "description": "At the start of each combat, add 1 of 5 random cards into your Hand. Add Retain to the chosen card.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/choices_paradox.png"
   },
   "THE CHOSEN CHEESE": {
     "name": "The Chosen Cheese",
@@ -296,97 +342,113 @@ const STS2_RELICS = {
     "name": "Circlet",
     "character": "shared",
     "description": "It's a circlet.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/circlet.png"
   },
   "CLAWS": {
     "name": "Claws",
     "character": "event",
     "description": "Upon pickup, Transform up to 6 cards into Maul.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/claws.png"
   },
   "CLOAK CLASP": {
     "name": "Cloak Clasp",
     "character": "shared",
     "description": "At the end of your turn, gain 1 Block for each card in your Hand.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/cloak_clasp.png"
   },
   "CRACKED CORE": {
     "name": "Cracked Core",
     "character": "defect",
     "description": "At the start of each combat, Channel 1 Lightning.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/cracked_core.png"
   },
   "CROSSBOW": {
     "name": "Crossbow",
     "character": "event",
     "description": "At the start of your turn, add a random Attack into your Hand. It's free to play this turn.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/crossbow.png"
   },
   "CURSED PEARL": {
     "name": "Cursed Pearl",
     "character": "event",
     "description": "Upon pickup, receive Greed. Gain 333 Gold.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/cursed_pearl.png"
   },
   "DARKSTONE PERIAPT": {
     "name": "Darkstone Periapt",
     "character": "event",
     "description": "Whenever you obtain a Curse, raise your Max HP by 6.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/darkstone_periapt.png"
   },
   "DATA DISK": {
     "name": "Data Disk",
     "character": "defect",
     "description": "Start each combat with 1 Focus.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/data_disk.png"
   },
   "DAUGHTER OF THE WIND": {
     "name": "Daughter of the Wind",
     "character": "event",
     "description": "Whenever you play an Attack, gain 1 Block.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/daughter_of_the_wind.png"
   },
   "DELICATE FROND": {
     "name": "Delicate Frond",
     "character": "event",
     "description": "At the start of each combat, fill all empty potion slots with random potions.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/delicate_frond.png"
   },
   "DEMON TONGUE": {
     "name": "Demon Tongue",
     "character": "ironclad",
     "description": "The first time you lose HP on your turn, heal HP equal to the amount lost.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/demon_tongue.png"
   },
   "DIAMOND DIADEM": {
     "name": "Diamond Diadem",
     "character": "event",
     "description": "Whenever you play 2 or fewer cards in a turn, take half damage from enemies.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/diamond_diadem.png"
   },
   "DINGY RUG": {
     "name": "Dingy Rug",
     "character": "shared",
     "description": "Card rewards can now contain Colorless cards.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/dingy_rug.png"
   },
   "DISTINGUISHED CAPE": {
     "name": "Distinguished Cape",
     "character": "event",
     "description": "Upon pickup, lose 9 Max HP. Add 3 Apparitions to your Deck.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/distinguished_cape.png"
   },
   "DIVINE DESTINY": {
     "name": "Divine Destiny",
     "character": "event",
     "description": "At the start of each combat, gain [S][S][S][S][S][S].",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/divine_destiny.png"
   },
   "DIVINE RIGHT": {
     "name": "Divine Right",
     "character": "regent",
     "description": "At the start of each combat, gain [S][S][S].",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/divine_right.png"
   },
   "DOLLY'S MIRROR": {
     "name": "Dolly's Mirror",
@@ -398,79 +460,92 @@ const STS2_RELICS = {
     "name": "Dragon Fruit",
     "character": "shared",
     "description": "Whenever you gain Gold, raise your Max HP by 1.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/dragon_fruit.png"
   },
   "DREAM CATCHER": {
     "name": "Dream Catcher",
     "character": "event",
     "description": "Whenever you Rest, you may add a card to your Deck.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/dream_catcher.png"
   },
   "DRIFTWOOD": {
     "name": "Driftwood",
     "character": "event",
     "description": "You may reroll each card reward once.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/driftwood.png"
   },
   "DUSTY TOME": {
     "name": "Dusty Tome",
     "character": "event",
     "description": "Upon pickup, obtain an Ancient Card.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/dusty_tome.png"
   },
   "ECTOPLASM": {
     "name": "Ectoplasm",
     "character": "event",
     "description": "You can no longer gain Gold. Gain [E] at the start of each turn.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/ectoplasm.png"
   },
   "ELECTRIC SHRYMP": {
     "name": "Electric Shrymp",
     "character": "event",
     "description": "Upon pickup, Enchant a Skill with Imbued.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/electric_shrymp.png"
   },
   "EMBER TEA": {
     "name": "Ember Tea",
     "character": "event",
     "description": "At the start of the next combat, gain 2 Strength.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/ember_tea.png"
   },
   "EMOTION CHIP": {
     "name": "Emotion Chip",
     "character": "defect",
     "description": "If you lost HP during the previous turn, trigger the passive ability of all Orbs at the start of your turn.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/emotion_chip.png"
   },
   "EMPTY CAGE": {
     "name": "Empty Cage",
     "character": "event",
     "description": "Upon pickup, remove 2 cards from your Deck.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/empty_cage.png"
   },
   "ETERNAL FEATHER": {
     "name": "Eternal Feather",
     "character": "shared",
     "description": "For every 5 cards in your Deck, heal 3 HP whenever you enter a Rest Site.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/eternal_feather.png"
   },
   "ANCHOR???": {
     "name": "Anchor???",
     "character": "event",
     "description": "Start each combat with 4 Block.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/anchor.png"
   },
   "BLOOD VIAL???": {
     "name": "Blood Vial???",
     "character": "event",
     "description": "At the start of each combat, heal 1 HP.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/blood_vial.png"
   },
   "HAPPY FLOWER???": {
     "name": "Happy Flower???",
     "character": "event",
     "description": "Every 5 turns, gain [E].",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/happy_flower.png"
   },
   "LEE'S WAFFLE???": {
     "name": "Lee's Waffle???",
@@ -482,7 +557,8 @@ const STS2_RELICS = {
     "name": "Mango???",
     "character": "event",
     "description": "Upon pickup, raise your Max HP by 3.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/mango.png"
   },
   "THE MERCHANT'S RUG???": {
     "name": "The Merchant's Rug???",
@@ -494,7 +570,8 @@ const STS2_RELICS = {
     "name": "Orichalcum???",
     "character": "event",
     "description": "If you end your turn without Block, gain 3 Block.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/orichalcum.png"
   },
   "SNECKO EYE???": {
     "name": "Snecko Eye???",
@@ -518,283 +595,330 @@ const STS2_RELICS = {
     "name": "Fencing Manual",
     "character": "regent",
     "description": "At the start of each combat, Forge 10.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/fencing_manual.png"
   },
   "FESTIVE POPPER": {
     "name": "Festive Popper",
     "character": "shared",
     "description": "At the start of each combat, deal 9 damage to ALL enemies.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/festive_popper.png"
   },
   "FIDDLE": {
     "name": "Fiddle",
     "character": "event",
     "description": "At the start of each turn, draw 2 additional cards. You may not draw cards during your turn.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/fiddle.png"
   },
   "FORGOTTEN SOUL": {
     "name": "Forgotten Soul",
     "character": "event",
     "description": "Whenever you Exhaust a card, deal 1 damage to a random enemy.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/forgotten_soul.png"
   },
   "FRAGRANT MUSHROOM": {
     "name": "Fragrant Mushroom",
     "character": "event",
     "description": "Upon pickup, lose 15 HP and Upgrade 2 random cards.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/fragrant_mushroom.png"
   },
   "FRESNEL LENS": {
     "name": "Fresnel Lens",
     "character": "shared",
     "description": "Whenever you add a card that gains Block to your Deck, Enchant it with Nimble 2.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/fresnel_lens.png"
   },
   "FROZEN EGG": {
     "name": "Frozen Egg",
     "character": "shared",
     "description": "Whenever you add a Power into your Deck, Upgrade it.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/frozen_egg.png"
   },
   "FUNERARY MASK": {
     "name": "Funerary Mask",
     "character": "necrobinder",
     "description": "At the start of each combat, add 3 Souls into your Draw Pile.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/funerary_mask.png"
   },
   "FUR COAT": {
     "name": "Fur Coat",
     "character": "event",
     "description": "Upon pickup, mark 7 random combats. Enemies in those rooms have 1 HP.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/fur_coat.png"
   },
   "GALACTIC DUST": {
     "name": "Galactic Dust",
     "character": "regent",
     "description": "For every 10 [S] spent, gain 10 Block.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/galactic_dust.png"
   },
   "GAMBLING CHIP": {
     "name": "Gambling Chip",
     "character": "shared",
     "description": "At the start of each combat, discard any number of cards then draw that many.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/gambling_chip.png"
   },
   "GAME PIECE": {
     "name": "Game Piece",
     "character": "shared",
     "description": "Whenever you play a Power, draw 1 card.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/game_piece.png"
   },
   "GHOST SEED": {
     "name": "Ghost Seed",
     "character": "shared",
     "description": "Strikes and Defends gain Ethereal.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/ghost_seed.png"
   },
   "GIRYA": {
     "name": "Girya",
     "character": "shared",
     "description": "You can now gain Strength at Rest Sites. (3 times max)",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/girya.png"
   },
   "GLASS EYE": {
     "name": "Glass Eye",
     "character": "event",
     "description": "Upon pickup, obtain 2 Common cards, 2 Uncommon cards, and 1 Rare card.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/glass_eye.png"
   },
   "GLITTER": {
     "name": "Glitter",
     "character": "event",
     "description": "Enchant all card rewards with Glam.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/glitter.png"
   },
   "GNARLED HAMMER": {
     "name": "Gnarled Hammer",
     "character": "shared",
     "description": "Upon pickup, Enchant up to 3 Attacks with Sharp 3.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/gnarled_hammer.png"
   },
   "GOLD-PLATED CABLES": {
     "name": "Gold-Plated Cables",
     "character": "defect",
     "description": "Your rightmost Orb triggers its passive an additional time.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/gold_plated_cables.png"
   },
   "GOLDEN COMPASS": {
     "name": "Golden Compass",
     "character": "event",
     "description": "Upon pickup, replace the Act 2 Map with a single special path.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/golden_compass.png"
   },
   "GOLDEN PEARL": {
     "name": "Golden Pearl",
     "character": "event",
     "description": "Upon pickup, gain 150 Gold.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/golden_pearl.png"
   },
   "GORGET": {
     "name": "Gorget",
     "character": "shared",
     "description": "At the start of each combat, gain 4 Plating.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/gorget.png"
   },
   "GREMLIN HORN": {
     "name": "Gremlin Horn",
     "character": "shared",
     "description": "Whenever an enemy dies, gain [E] and draw 1 card.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/gremlin_horn.png"
   },
   "HAND DRILL": {
     "name": "Hand Drill",
     "character": "event",
     "description": "Whenever you break an enemy's Block, apply 2 Vulnerable.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/hand_drill.png"
   },
   "HAPPY FLOWER": {
     "name": "Happy Flower",
     "character": "shared",
     "description": "Every 3 turns, gain [E].",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/happy_flower.png"
   },
   "HEFTY TABLET": {
     "name": "Hefty Tablet",
     "character": "event",
     "description": "Upon pickup, choose 1 of 3 Rare cards to add to your Deck, and add 1 Injury to your Deck.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/hefty_tablet.png"
   },
   "HELICAL DART": {
     "name": "Helical Dart",
     "character": "silent",
     "description": "Whenever you play a Shiv, gain 1 Dexterity this turn.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/helical_dart.png"
   },
   "HISTORY COURSE": {
     "name": "History Course",
     "character": "event",
     "description": "At the start of your turn, play a copy of your last played Attack or Skill.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/history_course.png"
   },
   "HORN CLEAT": {
     "name": "Horn Cleat",
     "character": "shared",
     "description": "At the start of your 2nd turn, gain 14 Block.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/horn_cleat.png"
   },
   "ICE CREAM": {
     "name": "Ice Cream",
     "character": "shared",
     "description": "Energy is now conserved between turns.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/ice_cream.png"
   },
   "INFUSED CORE": {
     "name": "Infused Core",
     "character": "event",
     "description": "At the start of each combat, Channel 3 Lightning.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/infused_core.png"
   },
   "INTIMIDATING HELMET": {
     "name": "Intimidating Helmet",
     "character": "shared",
     "description": "Whenever you play a card that costs [E][E] or more, gain 4 Block.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/intimidating_helmet.png"
   },
   "IRON CLUB": {
     "name": "Iron Club",
     "character": "event",
     "description": "Every 4 cards you play, draw 1 card.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/iron_club.png"
   },
   "IVORY TILE": {
     "name": "Ivory Tile",
     "character": "necrobinder",
     "description": "Whenever you play a card that costs [E][E][E] or more, gain [E].",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/ivory_tile.png"
   },
   "JEWELED MASK": {
     "name": "Jeweled Mask",
     "character": "event",
     "description": "At the start of combat put a random Power from your Draw Pile into your Hand, it's free to play.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/jeweled_mask.png"
   },
   "JEWELRY BOX": {
     "name": "Jewelry Box",
     "character": "event",
     "description": "Upon pickup, add 1 Apotheosis to your Deck.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/jewelry_box.png"
   },
   "JOSS PAPER": {
     "name": "Joss Paper",
     "character": "shared",
     "description": "Every 5 times you Exhaust a card, draw 1 card.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/joss_paper.png"
   },
   "JUZU BRACELET": {
     "name": "Juzu Bracelet",
     "character": "shared",
     "description": "Regular enemy combats are no longer encountered in ? rooms.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/juzu_bracelet.png"
   },
   "KIFUDA": {
     "name": "Kifuda",
     "character": "shared",
     "description": "Upon pickup, Enchant up to 3 cards with Adroit.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/kifuda.png"
   },
   "KUNAI": {
     "name": "Kunai",
     "character": "shared",
     "description": "Every time you play 3 Attacks in a single turn, gain 1 Dexterity.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/kunai.png"
   },
   "KUSARIGAMA": {
     "name": "Kusarigama",
     "character": "shared",
     "description": "Every time you play 3 Attacks in a single turn, deal 6 damage to a random enemy.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/kusarigama.png"
   },
   "LANTERN": {
     "name": "Lantern",
     "character": "shared",
     "description": "Start each combat with an additional [E].",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/lantern.png"
   },
   "LARGE CAPSULE": {
     "name": "Large Capsule",
     "character": "event",
     "description": "Upon pickup, obtain 2 random Relics. Add an additional Strike and Defend to your Deck.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/large_capsule.png"
   },
   "LASTING CANDY": {
     "name": "Lasting Candy",
     "character": "event",
     "description": "Every other combat, your card rewards gain an additional Power.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/lasting_candy.png"
   },
   "LAVA LAMP": {
     "name": "Lava Lamp",
     "character": "shared",
     "description": "At the end of combat, Upgrade all card rewards if you took no damage.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/lava_lamp.png"
   },
   "LAVA ROCK": {
     "name": "Lava Rock",
     "character": "event",
     "description": "The Act 1 Boss drops 2 Relics.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/lava_rock.png"
   },
   "LEAD PAPERWEIGHT": {
     "name": "Lead Paperweight",
     "character": "event",
     "description": "Upon pickup, choose 1 of 2 Colorless cards to add to your Deck.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/lead_paperweight.png"
   },
   "LEAFY POULTICE": {
     "name": "Leafy Poultice",
     "character": "event",
     "description": "Upon pickup, Transform 1 of your Strikes and 1 of your Defends and lose 12 Max HP.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/leafy_poultice.png"
   },
   "LEE'S WAFFLE": {
     "name": "Lee's Waffle",
@@ -806,19 +930,22 @@ const STS2_RELICS = {
     "name": "Letter Opener",
     "character": "shared",
     "description": "Every time you play 3 Skills in a single turn, deal 5 damage to ALL enemies.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/letter_opener.png"
   },
   "LIZARD TAIL": {
     "name": "Lizard Tail",
     "character": "shared",
     "description": "When your HP would be reduced to 0, heal to 50% of your Max HP instead (works once).",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/lizard_tail.png"
   },
   "LOOMING FRUIT": {
     "name": "Looming Fruit",
     "character": "shared",
     "description": "Upon pickup, raise your Max HP by 31.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/looming_fruit.png"
   },
   "LORD'S PARASOL": {
     "name": "Lord's Parasol",
@@ -830,127 +957,148 @@ const STS2_RELICS = {
     "name": "Lost Coffer",
     "character": "event",
     "description": "Upon pickup, gain 1 card reward and procure 1 random potion.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/lost_coffer.png"
   },
   "LOST WISP": {
     "name": "Lost Wisp",
     "character": "event",
     "description": "Whenever you play a Power, deal 8 damage to ALL enemies.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/lost_wisp.png"
   },
   "LUCKY FYSH": {
     "name": "Lucky Fysh",
     "character": "shared",
     "description": "Whenever you add a card to your Deck, gain 15 Gold.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/lucky_fysh.png"
   },
   "LUNAR PASTRY": {
     "name": "Lunar Pastry",
     "character": "regent",
     "description": "At the end of your turn, gain [S].",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/lunar_pastry.png"
   },
   "MANGO": {
     "name": "Mango",
     "character": "shared",
     "description": "Upon pickup, raise your Max HP by 14.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/mango.png"
   },
   "MASSIVE SCROLL": {
     "name": "Massive Scroll",
     "character": "event",
     "description": "Upon pickup, choose 1 of 3 Multiplayer Cards to add to your Deck.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/massive_scroll.png"
   },
   "MAW BANK": {
     "name": "Maw Bank",
     "character": "event",
     "description": "Whenever you climb a floor, gain 12 Gold. No longer works when you spend any Gold at the shop.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/maw_bank.png"
   },
   "MEAL TICKET": {
     "name": "Meal Ticket",
     "character": "shared",
     "description": "Whenever you enter a shop room, heal 15 HP.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/meal_ticket.png"
   },
   "MEAT CLEAVER": {
     "name": "Meat Cleaver",
     "character": "event",
     "description": "You may Cook at Rest Sites.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/meat_cleaver.png"
   },
   "MEAT ON THE BONE": {
     "name": "Meat on the Bone",
     "character": "shared",
     "description": "If your HP is at or below 50% at the end of combat, heal 12 HP.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/meat_on_the_bone.png"
   },
   "MEMBERSHIP CARD": {
     "name": "Membership Card",
     "character": "shared",
     "description": "50% discount on all products!",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/membership_card.png"
   },
   "MERCURY HOURGLASS": {
     "name": "Mercury Hourglass",
     "character": "shared",
     "description": "At the start of your turn, deal 3 damage to ALL enemies.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/mercury_hourglass.png"
   },
   "METRONOME": {
     "name": "Metronome",
     "character": "defect",
     "description": "The first time you Channel 7 Orbs each combat, deal 30 damage to ALL enemies.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/metronome.png"
   },
   "MINI REGENT": {
     "name": "Mini Regent",
     "character": "regent",
     "description": "The first time you spend [S] each turn, gain 1 Strength.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/mini_regent.png"
   },
   "MINIATURE CANNON": {
     "name": "Miniature Cannon",
     "character": "shared",
     "description": "Upgraded Attacks deal 3 additional damage.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/miniature_cannon.png"
   },
   "MINIATURE TENT": {
     "name": "Miniature Tent",
     "character": "shared",
     "description": "You may choose any number of options at Rest Sites.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/miniature_tent.png"
   },
   "MOLTEN EGG": {
     "name": "Molten Egg",
     "character": "shared",
     "description": "Whenever you add an Attack card to your Deck, Upgrade it.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/molten_egg.png"
   },
   "MR. STRUGGLES": {
     "name": "Mr. Struggles",
     "character": "event",
     "description": "At the start of your turn, deal damage equal to the turn number to ALL enemies.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/mr_struggles.png"
   },
   "MUMMIFIED HAND": {
     "name": "Mummified Hand",
     "character": "shared",
     "description": "Whenever you play a Power, a random card in your Hand is free to play that turn.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/mummified_hand.png"
   },
   "MUSIC BOX": {
     "name": "Music Box",
     "character": "event",
     "description": "Create an Ethereal copy of the first Attack you play each turn.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/music_box.png"
   },
   "MYSTIC LIGHTER": {
     "name": "Mystic Lighter",
     "character": "shared",
     "description": "Enchanted Attacks deal 9 additional damage.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/mystic_lighter.png"
   },
   "NEOW'S BONES": {
     "name": "Neow's Bones",
@@ -974,67 +1122,78 @@ const STS2_RELICS = {
     "name": "New Leaf",
     "character": "event",
     "description": "Upon pickup, Transform 1 card.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/new_leaf.png"
   },
   "NINJA SCROLL": {
     "name": "Ninja Scroll",
     "character": "silent",
     "description": "At the start of each combat, add 3 Shivs into your Hand.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/ninja_scroll.png"
   },
   "NUNCHAKU": {
     "name": "Nunchaku",
     "character": "shared",
     "description": "Every time you play 10 Attacks, gain [E].",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/nunchaku.png"
   },
   "NUTRITIOUS OYSTER": {
     "name": "Nutritious Oyster",
     "character": "event",
     "description": "Upon pickup, raise your Max HP by 11.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/nutritious_oyster.png"
   },
   "NUTRITIOUS SOUP": {
     "name": "Nutritious Soup",
     "character": "event",
     "description": "Upon pickup, Enchant all Strikes in your Deck with Tezcatara's Ember.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/nutritious_soup.png"
   },
   "ODDLY SMOOTH STONE": {
     "name": "Oddly Smooth Stone",
     "character": "shared",
     "description": "Start each combat with 1 Dexterity.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/oddly_smooth_stone.png"
   },
   "OLD COIN": {
     "name": "Old Coin",
     "character": "shared",
     "description": "Upon pickup, gain 300 Gold.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/old_coin.png"
   },
   "ORANGE DOUGH": {
     "name": "Orange Dough",
     "character": "regent",
     "description": "At the start of each combat, add 2 random Colorless cards into your Hand.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/orange_dough.png"
   },
   "ORICHALCUM": {
     "name": "Orichalcum",
     "character": "shared",
     "description": "If you end your turn without Block, gain 6 Block.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/orichalcum.png"
   },
   "ORNAMENTAL FAN": {
     "name": "Ornamental Fan",
     "character": "shared",
     "description": "Every time you play 3 Attacks in a single turn, gain 4 Block.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/ornamental_fan.png"
   },
   "ORRERY": {
     "name": "Orrery",
     "character": "shared",
     "description": "Upon pickup, gain 5 card rewards.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/orrery.png"
   },
   "PAEL'S BLOOD": {
     "name": "Pael's Blood",
@@ -1106,19 +1265,22 @@ const STS2_RELICS = {
     "name": "Pantograph",
     "character": "shared",
     "description": "At the start of each Boss combat, heal 25 HP.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/pantograph.png"
   },
   "PAPER KRANE": {
     "name": "Paper Krane",
     "character": "silent",
     "description": "Enemies with Weak deal 40% less damage to you rather than 25%.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/paper_krane.png"
   },
   "PAPER PHROG": {
     "name": "Paper Phrog",
     "character": "ironclad",
     "description": "Enemies with Vulnerable take 75% more damage rather than 50%.",
-    "keywords": []
+    "keywords": [],
+    "image": "images/relics/paper_phrog.png"
   },
   "PARRYING SHIELD": {
     "name": "Parrying Shield",

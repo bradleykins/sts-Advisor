@@ -21,6 +21,7 @@ let currentDeck = [];
 let currentRelics = [];
 let currentCharacter = 'ironclad';
 let currentAct = 2;
+let currentAscension = 0;
 let detectedArchetypes = new Map();
 let selectedCards = new Set();
 let currentTheme = localStorage.getItem('theme') || 'dark';
@@ -415,9 +416,10 @@ function renderDeckCardList() {
   container.innerHTML = currentDeck.map((cardName, index) => {
     const card = findCard(cardName);
     const icon = card ? (TYPE_ICONS[card.type] || '📄') : '📄';
+    const imageAttr = card?.image ? `data-card-image="${card.image}"` : '';
 
     return `
-      <div class="pill-tag">
+      <div class="pill-tag" ${imageAttr} onmouseenter="showCardPreview(event, '${cardName}')" onmouseleave="hideCardPreview()">
         <span class="pill-tag-icon">${icon}</span>
         <span>${cardName}</span>
         <button class="pill-tag-remove" onclick="removeCardFromDeck(${index})" aria-label="Remove ${cardName}">×</button>
@@ -434,6 +436,7 @@ function analyzeDeckStats() {
   const prevCharacter = currentCharacter;
   currentCharacter = document.getElementById('character').value;
   currentAct = parseInt(document.getElementById('act').value);
+  currentAscension = parseInt(document.getElementById('ascension').value);
 
   // Reinit autocomplete if character changed
   if (prevCharacter !== currentCharacter) {
@@ -530,15 +533,61 @@ function calculateDeckHealth() {
 function detectArchetypes(deck) {
   detectedArchetypes.clear();
 
+  if (typeof STS2_ARCHETYPES === 'undefined') {
+    // Fallback to keyword detection
+    deck.forEach(cardName => {
+      const card = findCard(cardName);
+      if (!card || !card.keywords) return;
+
+      const keywords = Array.isArray(card.keywords) ? card.keywords : [card.keywords];
+
+      keywords.forEach(kw => {
+        const normalized = kw.toLowerCase();
+        detectedArchetypes.set(normalized, (detectedArchetypes.get(normalized) || 0) + 1);
+      });
+    });
+    return;
+  }
+
+  // Check against known archetypes
+  Object.entries(STS2_ARCHETYPES).forEach(([archetypeId, archetype]) => {
+    if (archetype.character !== currentCharacter) return;
+
+    let strength = 0;
+
+    // Count core cards
+    deck.forEach(cardName => {
+      const normalized = cardName.toLowerCase();
+
+      if (archetype.coreCards.some(core => core.toLowerCase() === normalized)) {
+        strength += 3; // Core cards worth more
+      } else if (archetype.supportCards?.some(support => support.toLowerCase() === normalized)) {
+        strength += 1;
+      }
+    });
+
+    // Bonus for having relics that match archetype
+    currentRelics.forEach(relicName => {
+      if (archetype.keyRelics?.some(key => key.toLowerCase() === relicName.toLowerCase())) {
+        strength += 2;
+      }
+    });
+
+    if (strength >= 3) { // Minimum threshold
+      detectedArchetypes.set(archetype.name, strength);
+    }
+  });
+
+  // Fallback: also track keywords for cards not in archetypes
   deck.forEach(cardName => {
     const card = findCard(cardName);
     if (!card || !card.keywords) return;
 
     const keywords = Array.isArray(card.keywords) ? card.keywords : [card.keywords];
-
     keywords.forEach(kw => {
       const normalized = kw.toLowerCase();
-      detectedArchetypes.set(normalized, (detectedArchetypes.get(normalized) || 0) + 1);
+      const existing = detectedArchetypes.get(normalized) || 0;
+      detectedArchetypes.set(normalized, existing + 1);
     });
   });
 }
@@ -729,6 +778,65 @@ function scoreCard(cardName, context = {}) {
     score += relicBonus;
     breakdown.push({ factor: 'Relic synergy', value: relicBonus });
   }
+
+  // Archetype synergies (card-to-card)
+  const archetypeBonus = calculateArchetypeSynergy(card);
+  if (archetypeBonus.score > 0) {
+    score += archetypeBonus.score;
+    breakdown.push({ factor: archetypeBonus.reason, value: archetypeBonus.score });
+  }
+
+  // Missing piece detection
+  const missingPiece = detectMissingPiece(card);
+  if (missingPiece.isMissing) {
+    score += missingPiece.bonus;
+    breakdown.push({ factor: missingPiece.reason, value: missingPiece.bonus });
+  }
+
+  // Premium card bonus (tier list meta picks)
+  if (typeof PREMIUM_CARDS !== 'undefined' && PREMIUM_CARDS[card.name]) {
+    const premiumData = PREMIUM_CARDS[card.name];
+    score += premiumData.bonus;
+    breakdown.push({ factor: `${premiumData.tier}-tier: ${premiumData.reason}`, value: premiumData.bonus });
+  }
+
+  // Ascension scaling (high Ascension favors consistency, scaling, and defensive power)
+  if (currentAscension >= 15) {
+    // High Ascension (A15+): enemies hit harder, favor block and scaling
+    if (card.type === 'Power') {
+      const ascBonus = 5;
+      score += ascBonus;
+      breakdown.push({ factor: 'A15+ scaling power', value: ascBonus });
+    }
+
+    if (card.block && card.block >= 8) {
+      const ascBonus = 8;
+      score += ascBonus;
+      breakdown.push({ factor: 'A15+ high block', value: ascBonus });
+    }
+
+    // Penalize low-damage strikes more heavily
+    if (card.type === 'Attack' && card.damage && card.damage <= 6 && act >= 2) {
+      const ascPenalty = -8;
+      score += ascPenalty;
+      breakdown.push({ factor: 'A15+ weak attack', value: ascPenalty });
+    }
+
+    // Favor exhaust/thin deck mechanics
+    if (card.keywords && (card.keywords.includes('exhaust') || card.keywords.includes('Exhaust'))) {
+      const ascBonus = 5;
+      score += ascBonus;
+      breakdown.push({ factor: 'A15+ deck thinning', value: ascBonus });
+    }
+  } else if (currentAscension >= 10) {
+    // Mid Ascension (A10-14): balance offense/defense
+    if (card.type === 'Power') {
+      const ascBonus = 3;
+      score += ascBonus;
+      breakdown.push({ factor: 'A10+ scaling', value: ascBonus });
+    }
+  }
+  // Low Ascension (A0-9): base scoring is fine, greedy picks work
 
   // Normalize
   score = Math.max(0, Math.min(100, score));
@@ -1142,9 +1250,10 @@ function renderShopCardList() {
   container.innerHTML = shopCards.map(cardName => {
     const card = findCard(cardName);
     const icon = card ? (TYPE_ICONS[card.type] || '📄') : '📄';
+    const imageAttr = card?.image ? `data-card-image="${card.image}"` : '';
 
     return `
-      <div class="pill-tag">
+      <div class="pill-tag" ${imageAttr} onmouseenter="showCardPreview(event, '${cardName}')" onmouseleave="hideCardPreview()">
         <span class="pill-tag-icon">${icon}</span>
         <span>${cardName}</span>
         <button class="pill-tag-remove" onclick="removeShopCard('${cardName}')" aria-label="Remove ${cardName}">×</button>
@@ -1714,8 +1823,11 @@ function renderRelicList() {
   if (!container) return;
 
   container.innerHTML = currentRelics.map(relicName => {
+    const relic = findRelic(relicName);
+    const imageAttr = relic?.image ? `data-relic-image="${relic.image}"` : '';
+
     return `
-      <div class="pill-tag">
+      <div class="pill-tag" ${imageAttr} onmouseenter="showRelicPreview(event, '${relicName}')" onmouseleave="hideCardPreview()">
         <span class="pill-tag-icon">🔮</span>
         <span>${relicName}</span>
         <button class="pill-tag-remove" onclick="removeRelic('${relicName}')" aria-label="Remove ${relicName}">×</button>
@@ -1766,6 +1878,71 @@ function setupInputClearButtons() {
       }
     });
   });
+}
+
+function showCardPreview(event, cardName) {
+  const card = findCard(cardName);
+  if (!card || !card.image) return;
+
+  const preview = document.getElementById('card-hover-preview');
+  if (!preview) return;
+
+  preview.innerHTML = `
+    <img src="${card.image}" alt="${card.name}">
+    <div class="card-hover-info">
+      <strong>${card.name}</strong>
+      ${card.description ? `<div style="margin-top: 4px;">${card.description}</div>` : ''}
+    </div>
+  `;
+
+  preview.classList.add('show');
+  positionPreview(preview, event);
+}
+
+function showRelicPreview(event, relicName) {
+  const relic = findRelic(relicName);
+  if (!relic || !relic.image) return;
+
+  const preview = document.getElementById('card-hover-preview');
+  if (!preview) return;
+
+  preview.innerHTML = `
+    <img src="${relic.image}" alt="${relic.name}">
+    <div class="card-hover-info">
+      <strong>${relic.name}</strong>
+      ${relic.description ? `<div style="margin-top: 4px;">${relic.description}</div>` : ''}
+    </div>
+  `;
+
+  preview.classList.add('show');
+  positionPreview(preview, event);
+}
+
+function hideCardPreview() {
+  const preview = document.getElementById('card-hover-preview');
+  if (preview) preview.classList.remove('show');
+}
+
+function positionPreview(preview, event) {
+  const rect = event.target.closest('.pill-tag').getBoundingClientRect();
+  const previewWidth = 300;
+  const previewHeight = 400; // Estimate
+
+  let left = rect.right + 10;
+  let top = rect.top;
+
+  // If too far right, show on left side
+  if (left + previewWidth > window.innerWidth) {
+    left = rect.left - previewWidth - 10;
+  }
+
+  // If too far down, adjust up
+  if (top + previewHeight > window.innerHeight) {
+    top = window.innerHeight - previewHeight - 10;
+  }
+
+  preview.style.left = Math.max(10, left) + 'px';
+  preview.style.top = Math.max(10, top) + 'px';
 }
 
 function calculateRelicSynergy(card) {
@@ -1828,6 +2005,88 @@ function calculateRelicSynergy(card) {
   return Math.min(bonus, 30); // Cap at +30
 }
 
+function calculateArchetypeSynergy(card) {
+  if (typeof CARD_SYNERGIES === 'undefined') {
+    return { score: 0, reason: '' };
+  }
+
+  let totalBonus = 0;
+  let synergyReasons = [];
+
+  // Check if this card synergizes with cards already in deck
+  currentDeck.forEach(deckCardName => {
+    const synergies = CARD_SYNERGIES[deckCardName];
+    if (synergies && synergies[card.name]) {
+      const bonus = synergies[card.name];
+      totalBonus += Math.floor(bonus / 2); // Scale down to not overpower
+      synergyReasons.push(`${deckCardName}`);
+    }
+
+    // Check reverse synergy
+    const cardSynergies = CARD_SYNERGIES[card.name];
+    if (cardSynergies && cardSynergies[deckCardName]) {
+      const bonus = cardSynergies[deckCardName];
+      totalBonus += Math.floor(bonus / 2);
+      if (!synergyReasons.includes(deckCardName)) {
+        synergyReasons.push(`${deckCardName}`);
+      }
+    }
+  });
+
+  if (totalBonus > 0) {
+    const capped = Math.min(totalBonus, 30);
+    return {
+      score: capped,
+      reason: `Combo: ${synergyReasons.slice(0, 2).join(', ')}`
+    };
+  }
+
+  return { score: 0, reason: '' };
+}
+
+function detectMissingPiece(card) {
+  if (typeof STS2_ARCHETYPES === 'undefined') {
+    return { isMissing: false, bonus: 0, reason: '' };
+  }
+
+  let bestMatch = { isMissing: false, bonus: 0, reason: '' };
+
+  // Check each archetype for this character
+  Object.entries(STS2_ARCHETYPES).forEach(([archetypeId, archetype]) => {
+    if (archetype.character !== currentCharacter) return;
+
+    // Count how many core cards we have
+    let coreCardsInDeck = 0;
+    let hasCoreCard = false;
+
+    archetype.coreCards.forEach(coreCardName => {
+      const count = currentDeck.filter(name =>
+        name.toLowerCase() === coreCardName.toLowerCase()
+      ).length;
+      coreCardsInDeck += count;
+    });
+
+    // Check if the card being evaluated is a core card for this archetype
+    const isCorCard = archetype.coreCards.some(core =>
+      core.toLowerCase() === card.name.toLowerCase()
+    );
+
+    // If we have 2+ cards from an archetype but missing a key piece
+    if (coreCardsInDeck >= 2 && isCorCard && coreCardsInDeck < 4) {
+      const bonus = 20;
+      if (bonus > bestMatch.bonus) {
+        bestMatch = {
+          isMissing: true,
+          bonus: bonus,
+          reason: `Missing piece: ${archetype.name}`
+        };
+      }
+    }
+  });
+
+  return bestMatch;
+}
+
 function addAdditionalRewardCard(cardName) {
   // Prevent duplicates
   if (additionalRewardCards.includes(cardName)) {
@@ -1861,9 +2120,10 @@ function renderAdditionalRewardList() {
   container.innerHTML = additionalRewardCards.map(cardName => {
     const card = findCard(cardName);
     const icon = card ? (TYPE_ICONS[card.type] || '📄') : '📄';
+    const imageAttr = card?.image ? `data-card-image="${card.image}"` : '';
 
     return `
-      <div class="pill-tag">
+      <div class="pill-tag" ${imageAttr} onmouseenter="showCardPreview(event, '${cardName}')" onmouseleave="hideCardPreview()">
         <span class="pill-tag-icon">${icon}</span>
         <span>${cardName}</span>
         <button class="pill-tag-remove" onclick="removeAdditionalRewardCard('${cardName}')" aria-label="Remove ${cardName}">×</button>

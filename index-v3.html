@@ -879,6 +879,38 @@
       color: var(--text-primary);
     }
 
+    /* Card/Relic Preview */
+    .card-hover-preview {
+      position: fixed;
+      z-index: 10001;
+      pointer-events: none;
+      display: none;
+      background: var(--bg-primary);
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      max-width: 300px;
+    }
+
+    .card-hover-preview.show {
+      display: block;
+      animation: fadeIn 0.15s;
+    }
+
+    .card-hover-preview img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .card-hover-info {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
     .pill-tag {
       display: flex;
       align-items: center;
@@ -1568,6 +1600,33 @@
         </div>
 
         <div class="form-group">
+          <label for="ascension">Ascension Level</label>
+          <select id="ascension" onchange="analyzeDeck()" aria-label="Ascension level">
+            <option value="0">0 (Base Game)</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+          </select>
+        </div>
+
+        <div class="form-group">
           <label for="relic-input">Relics</label>
           <div class="pill-input-wrapper">
             <div class="pill-input-container" id="relic-container">
@@ -1767,8 +1826,12 @@
     <div class="card-preview-keywords" id="preview-keywords"></div>
   </div>
 
+  <!-- Card Hover Preview -->
+  <div class="card-hover-preview" id="card-hover-preview"></div>
+
   <script src="sts2-cards.js"></script>
   <script src="sts2-relics.js"></script>
+  <script src="archetypes.js"></script>
   <script src="logic-v3.js"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 // Source: https://github.com/nkhoit/spire-archive
 // Last updated: 2026-05-05
 // Total cards: 568
+// With images: 559
 
 const STS2_CARDS = {
   "ABRASIVE": {
@@ -21,7 +22,8 @@ const STS2_CARDS = {
     "upgrade": {
       "thorns": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/abrasive.png"
   },
   "ACCELERANT": {
     "name": "Accelerant",
@@ -38,7 +40,8 @@ const STS2_CARDS = {
       "accelerant": 1,
       "description": "Poison is triggered 2 additional times."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/accelerant.png"
   },
   "ACCURACY": {
     "name": "Accuracy",
@@ -54,7 +57,8 @@ const STS2_CARDS = {
     "upgrade": {
       "accuracy": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/accuracy.png"
   },
   "ACROBATICS": {
     "name": "Acrobatics",
@@ -70,7 +74,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/acrobatics.png"
   },
   "ADAPTIVE STRIKE": {
     "name": "Adaptive Strike",
@@ -86,7 +91,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 5
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/adaptive_strike.png"
   },
   "ADRENALINE": {
     "name": "Adrenaline",
@@ -105,7 +111,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/adrenaline.png"
   },
   "AFTERIMAGE": {
     "name": "Afterimage",
@@ -123,7 +130,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/afterimage.png"
   },
   "AFTERLIFE": {
     "name": "Afterlife",
@@ -141,7 +149,8 @@ const STS2_CARDS = {
     "upgrade": {
       "summon": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/afterlife.png"
   },
   "AGGRESSION": {
     "name": "Aggression",
@@ -157,7 +166,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/aggression.png"
   },
   "ALCHEMIZE": {
     "name": "Alchemize",
@@ -173,7 +183,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/alchemize.png"
   },
   "ALIGNMENT": {
     "name": "Alignment",
@@ -189,7 +200,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/alignment.png"
   },
   "ALL FOR ONE": {
     "name": "All for One",
@@ -205,7 +217,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/all_for_one.png"
   },
   "ANGER": {
     "name": "Anger",
@@ -221,7 +234,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/anger.png"
   },
   "ANOINTED": {
     "name": "Anointed",
@@ -239,7 +253,8 @@ const STS2_CARDS = {
         "Retain"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/anointed.png"
   },
   "ANTICIPATE": {
     "name": "Anticipate",
@@ -255,7 +270,8 @@ const STS2_CARDS = {
     "upgrade": {
       "dexterity": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/anticipate.png"
   },
   "APOTHEOSIS": {
     "name": "Apotheosis",
@@ -272,7 +288,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/apotheosis.png"
   },
   "APPARITION": {
     "name": "Apparition",
@@ -293,7 +310,8 @@ const STS2_CARDS = {
         "Ethereal"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/apparition.png"
   },
   "ARMAMENTS": {
     "name": "Armaments",
@@ -309,7 +327,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Gain 5 Block.\nUpgrade ALL cards in your Hand."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/armaments.png"
   },
   "ARSENAL": {
     "name": "Arsenal",
@@ -327,7 +346,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/arsenal.png"
   },
   "ASCENDER'S BANE": {
     "name": "Ascender's Bane",
@@ -360,7 +380,8 @@ const STS2_CARDS = {
     "upgrade": {
       "extra_damage": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/ashen_strike.png"
   },
   "ASSASSINATE": {
     "name": "Assassinate",
@@ -381,7 +402,8 @@ const STS2_CARDS = {
       "damage": 3,
       "vulnerable": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/assassinate.png"
   },
   "ASTRAL PULSE": {
     "name": "Astral Pulse",
@@ -397,7 +419,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/astral_pulse.png"
   },
   "AUTOMATION": {
     "name": "Automation",
@@ -413,7 +436,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/automation.png"
   },
   "BACKFLIP": {
     "name": "Backflip",
@@ -430,7 +454,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/backflip.png"
   },
   "BACKSTAB": {
     "name": "Backstab",
@@ -449,7 +474,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/backstab.png"
   },
   "BAD LUCK": {
     "name": "Bad Luck",
@@ -466,7 +492,8 @@ const STS2_CARDS = {
       "hp_loss": 13
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/bad_luck.png"
   },
   "BALL LIGHTNING": {
     "name": "Ball Lightning",
@@ -482,7 +509,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/ball_lightning.png"
   },
   "BANSHEE'S CRY": {
     "name": "Banshee's Cry",
@@ -518,7 +546,8 @@ const STS2_CARDS = {
       "damage": 2,
       "description": "Deal 7 damage for each Channeled Orb."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/barrage.png"
   },
   "BARRICADE": {
     "name": "Barricade",
@@ -532,7 +561,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/barricade.png"
   },
   "BASH": {
     "name": "Bash",
@@ -550,7 +580,8 @@ const STS2_CARDS = {
       "damage": 2,
       "vulnerable": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/bash.png"
   },
   "BATTLE TRANCE": {
     "name": "Battle Trance",
@@ -566,7 +597,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/battle_trance.png"
   },
   "BEACON OF HOPE": {
     "name": "Beacon of Hope",
@@ -582,7 +614,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/beacon_of_hope.png"
   },
   "BEAM CELL": {
     "name": "Beam Cell",
@@ -600,7 +633,8 @@ const STS2_CARDS = {
       "damage": 1,
       "vulnerable": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/beam_cell.png"
   },
   "BEAT DOWN": {
     "name": "Beat Down",
@@ -616,7 +650,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "RandomEnemy"
+    "target": "RandomEnemy",
+    "image": "images/cards/beat_down.png"
   },
   "BEAT INTO SHAPE": {
     "name": "Beat into Shape",
@@ -636,7 +671,8 @@ const STS2_CARDS = {
       "calculation_base": 2,
       "calculation_extra": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/beat_into_shape.png"
   },
   "BECKON": {
     "name": "Beckon",
@@ -650,7 +686,8 @@ const STS2_CARDS = {
       "hp_loss": 6
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/beckon.png"
   },
   "BEGONE!": {
     "name": "BEGONE!",
@@ -664,7 +701,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Choose a card in your Hand to Transform into Minion Strike+."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/begone.png"
   },
   "BELIEVE IN YOU": {
     "name": "Believe in You",
@@ -680,7 +718,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "AnyAlly"
+    "target": "AnyAlly",
+    "image": "images/cards/believe_in_you.png"
   },
   "BIASED COGNITION": {
     "name": "Biased Cognition",
@@ -697,7 +736,8 @@ const STS2_CARDS = {
     "upgrade": {
       "focus": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/biased_cognition.png"
   },
   "BIG BANG": {
     "name": "Big Bang",
@@ -720,7 +760,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/big_bang.png"
   },
   "BLACK HOLE": {
     "name": "Black Hole",
@@ -736,7 +777,8 @@ const STS2_CARDS = {
     "upgrade": {
       "black_hole": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/black_hole.png"
   },
   "BLADE DANCE": {
     "name": "Blade Dance",
@@ -755,7 +797,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Add 4 Shivs into your Hand."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/blade_dance.png"
   },
   "BLADE OF INK": {
     "name": "Blade of Ink",
@@ -772,7 +815,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Add 3 Inky Shivs into your Hand."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/blade_of_ink.png"
   },
   "BLIGHT STRIKE": {
     "name": "Blight Strike",
@@ -788,7 +832,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/blight_strike.png"
   },
   "BLOOD WALL": {
     "name": "Blood Wall",
@@ -805,7 +850,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 4
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/blood_wall.png"
   },
   "BLOODLETTING": {
     "name": "Bloodletting",
@@ -822,7 +868,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/bloodletting.png"
   },
   "BLUDGEON": {
     "name": "Bludgeon",
@@ -838,7 +885,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 10
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/bludgeon.png"
   },
   "BLUR": {
     "name": "Blur",
@@ -855,7 +903,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/blur.png"
   },
   "BODY SLAM": {
     "name": "Body Slam",
@@ -872,7 +921,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/body_slam.png"
   },
   "BODYGUARD": {
     "name": "Bodyguard",
@@ -888,7 +938,8 @@ const STS2_CARDS = {
     "upgrade": {
       "summon": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/bodyguard.png"
   },
   "BOLAS": {
     "name": "Bolas",
@@ -904,7 +955,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/bolas.png"
   },
   "BOMBARDMENT": {
     "name": "Bombardment",
@@ -922,7 +974,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 6
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/bombardment.png"
   },
   "BONE SHARDS": {
     "name": "Bone Shards",
@@ -940,7 +993,8 @@ const STS2_CARDS = {
       "osty_damage": 3,
       "block": 3
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/bone_shards.png"
   },
   "BOOST AWAY": {
     "name": "Boost Away",
@@ -956,7 +1010,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/boost_away.png"
   },
   "BOOT SEQUENCE": {
     "name": "Boot Sequence",
@@ -975,7 +1030,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/boot_sequence.png"
   },
   "BORROWED TIME": {
     "name": "Borrowed Time",
@@ -992,7 +1048,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/borrowed_time.png"
   },
   "BOUNCING FLASK": {
     "name": "Bouncing Flask",
@@ -1009,7 +1066,8 @@ const STS2_CARDS = {
     "upgrade": {
       "repeat": 1
     },
-    "target": "RandomEnemy"
+    "target": "RandomEnemy",
+    "image": "images/cards/bouncing_flask.png"
   },
   "BRAND": {
     "name": "Brand",
@@ -1026,7 +1084,8 @@ const STS2_CARDS = {
     "upgrade": {
       "strength": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/brand.png"
   },
   "BREAK": {
     "name": "Break",
@@ -1044,7 +1103,8 @@ const STS2_CARDS = {
       "damage": 10,
       "vulnerable": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/break.png"
   },
   "BREAKTHROUGH": {
     "name": "Breakthrough",
@@ -1061,7 +1121,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/breakthrough.png"
   },
   "BRIGHTEST FLAME": {
     "name": "Brightest Flame",
@@ -1081,7 +1142,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Gain [E][E][E].\nDraw 3 cards.\nLose 1 Max HP."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/brightest_flame.png"
   },
   "BUBBLE BUBBLE": {
     "name": "Bubble Bubble",
@@ -1097,7 +1159,8 @@ const STS2_CARDS = {
     "upgrade": {
       "poison": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/bubble_bubble.png"
   },
   "BUFFER": {
     "name": "Buffer",
@@ -1114,7 +1177,8 @@ const STS2_CARDS = {
       "buffer": 1,
       "description": "Prevent the next 2 times you would lose HP."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/buffer.png"
   },
   "BULK UP": {
     "name": "Bulk Up",
@@ -1134,7 +1198,8 @@ const STS2_CARDS = {
       "dexterity": 1,
       "description": "Lose 1 Orb Slot.\nGain 3 Strength.\nGain 3 Dexterity."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/bulk_up.png"
   },
   "BULLET TIME": {
     "name": "Bullet Time",
@@ -1148,7 +1213,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/bullet_time.png"
   },
   "BULLY": {
     "name": "Bully",
@@ -1165,7 +1231,8 @@ const STS2_CARDS = {
     "upgrade": {
       "extra_damage": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/bully.png"
   },
   "BULWARK": {
     "name": "Bulwark",
@@ -1183,7 +1250,8 @@ const STS2_CARDS = {
       "block": 3,
       "forge": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/bulwark.png"
   },
   "BUNDLE OF JOY": {
     "name": "Bundle of Joy",
@@ -1202,7 +1270,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Add 4 random Colorless cards into your Hand."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/bundle_of_joy.png"
   },
   "BURN": {
     "name": "Burn",
@@ -1218,7 +1287,8 @@ const STS2_CARDS = {
       "damage": 2
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/burn.png"
   },
   "BURNING PACT": {
     "name": "Burning Pact",
@@ -1234,7 +1304,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/burning_pact.png"
   },
   "BURST": {
     "name": "Burst",
@@ -1251,7 +1322,8 @@ const STS2_CARDS = {
       "skills": 1,
       "description": "This turn, your next 2 Skills are played an extra time."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/burst.png"
   },
   "BURY": {
     "name": "Bury",
@@ -1267,7 +1339,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 11
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/bury.png"
   },
   "BYRD SWOOP": {
     "name": "Byrd Swoop",
@@ -1283,7 +1356,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/byrd_swoop.png"
   },
   "BYRDONIS EGG": {
     "name": "Byrdonis Egg",
@@ -1297,7 +1371,8 @@ const STS2_CARDS = {
     "description": "Can be hatched at a Rest Site.",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/byrdonis_egg.png"
   },
   "CALAMITY": {
     "name": "Calamity",
@@ -1311,7 +1386,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/calamity.png"
   },
   "CALCIFY": {
     "name": "Calcify",
@@ -1327,7 +1403,8 @@ const STS2_CARDS = {
     "upgrade": {
       "calcify": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/calcify.png"
   },
   "CALCULATED GAMBLE": {
     "name": "Calculated Gamble",
@@ -1345,7 +1422,8 @@ const STS2_CARDS = {
         "Retain"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/calculated_gamble.png"
   },
   "CALL OF THE VOID": {
     "name": "Call of the Void",
@@ -1363,7 +1441,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/call_of_the_void.png"
   },
   "CALTROPS": {
     "name": "Caltrops",
@@ -1379,7 +1458,8 @@ const STS2_CARDS = {
     "upgrade": {
       "thorns": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/caltrops.png"
   },
   "CAPACITOR": {
     "name": "Capacitor",
@@ -1395,7 +1475,8 @@ const STS2_CARDS = {
     "upgrade": {
       "repeat": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/capacitor.png"
   },
   "CAPTURE SPIRIT": {
     "name": "Capture Spirit",
@@ -1414,7 +1495,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Enemy loses 4 HP.\nAdd 4 Souls into your Draw Pile."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/capture_spirit.png"
   },
   "CASCADE": {
     "name": "Cascade",
@@ -1428,7 +1510,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Play the top X+1 cards of your Draw Pile."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/cascade.png"
   },
   "CATASTROPHE": {
     "name": "Catastrophe",
@@ -1445,7 +1528,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Play 3 random cards from your Draw Pile."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/catastrophe.png"
   },
   "CELESTIAL MIGHT": {
     "name": "Celestial Might",
@@ -1463,7 +1547,8 @@ const STS2_CARDS = {
       "repeat": 1,
       "description": "Deal 6 damage 4 times."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/celestial_might.png"
   },
   "CHAOS": {
     "name": "Chaos",
@@ -1480,7 +1565,8 @@ const STS2_CARDS = {
       "repeat": 1,
       "description": "Channel 2 random Orbs."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/chaos.png"
   },
   "CHARGE!!": {
     "name": "CHARGE!!",
@@ -1496,7 +1582,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Choose 2 cards in your Draw Pile to Transform into\nMinion Dive Bombs+."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/charge.png"
   },
   "CHARGE BATTERY": {
     "name": "Charge Battery",
@@ -1513,7 +1600,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/charge_battery.png"
   },
   "CHILD OF THE STARS": {
     "name": "Child of the Stars",
@@ -1529,7 +1617,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block_for_stars": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/child_of_the_stars.png"
   },
   "CHILL": {
     "name": "Chill",
@@ -1547,7 +1636,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/chill.png"
   },
   "CINDER": {
     "name": "Cinder",
@@ -1563,7 +1653,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 6
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/cinder.png"
   },
   "CLASH": {
     "name": "Clash",
@@ -1579,7 +1670,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/clash.png"
   },
   "CLAW": {
     "name": "Claw",
@@ -1597,7 +1689,8 @@ const STS2_CARDS = {
       "damage": 1,
       "increase": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/claw.png"
   },
   "CLEANSE": {
     "name": "Cleanse",
@@ -1613,7 +1706,8 @@ const STS2_CARDS = {
     "upgrade": {
       "summon": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/cleanse.png"
   },
   "CLOAK AND DAGGER": {
     "name": "Cloak and Dagger",
@@ -1631,7 +1725,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Gain 6 Block.\nAdd 2 Shivs into your Hand."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/cloak_and_dagger.png"
   },
   "CLOAK OF STARS": {
     "name": "Cloak of Stars",
@@ -1647,7 +1742,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/cloak_of_stars.png"
   },
   "CLUMSY": {
     "name": "Clumsy",
@@ -1662,7 +1758,8 @@ const STS2_CARDS = {
     "description": "",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/clumsy.png"
   },
   "COLD SNAP": {
     "name": "Cold Snap",
@@ -1678,7 +1775,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/cold_snap.png"
   },
   "COLLISION COURSE": {
     "name": "Collision Course",
@@ -1694,7 +1792,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/collision_course.png"
   },
   "COLOSSUS": {
     "name": "Colossus",
@@ -1711,7 +1810,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/colossus.png"
   },
   "COMET": {
     "name": "Comet",
@@ -1729,7 +1829,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 11
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/comet.png"
   },
   "COMPACT": {
     "name": "Compact",
@@ -1746,7 +1847,8 @@ const STS2_CARDS = {
       "block": 1,
       "description": "Gain 7 Block.\nTransform all Status cards in your Hand into Fuel+."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/compact.png"
   },
   "COMPILE DRIVER": {
     "name": "Compile Driver",
@@ -1765,7 +1867,8 @@ const STS2_CARDS = {
       "damage": 3,
       "description": "Deal 10 damage.\nDraw 1 card for each unique Orb you have."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/compile_driver.png"
   },
   "CONFLAGRATION": {
     "name": "Conflagration",
@@ -1783,7 +1886,8 @@ const STS2_CARDS = {
       "calculation_base": 1,
       "extra_damage": 1
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/conflagration.png"
   },
   "CONQUEROR": {
     "name": "Conqueror",
@@ -1799,7 +1903,8 @@ const STS2_CARDS = {
     "upgrade": {
       "forge": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/conqueror.png"
   },
   "CONSUMING SHADOW": {
     "name": "Consuming Shadow",
@@ -1816,7 +1921,8 @@ const STS2_CARDS = {
     "upgrade": {
       "repeat": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/consuming_shadow.png"
   },
   "CONVERGENCE": {
     "name": "Convergence",
@@ -1833,7 +1939,8 @@ const STS2_CARDS = {
     "upgrade": {
       "stars": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/convergence.png"
   },
   "COOLANT": {
     "name": "Coolant",
@@ -1849,7 +1956,8 @@ const STS2_CARDS = {
     "upgrade": {
       "coolant": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/coolant.png"
   },
   "COOLHEADED": {
     "name": "Coolheaded",
@@ -1866,7 +1974,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Channel 1 Frost.\nDraw 2 cards."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/coolheaded.png"
   },
   "COORDINATE": {
     "name": "Coordinate",
@@ -1882,7 +1991,8 @@ const STS2_CARDS = {
     "upgrade": {
       "strength": 3
     },
-    "target": "AnyAlly"
+    "target": "AnyAlly",
+    "image": "images/cards/coordinate.png"
   },
   "CORROSIVE WAVE": {
     "name": "Corrosive Wave",
@@ -1898,7 +2008,8 @@ const STS2_CARDS = {
     "upgrade": {
       "corrosive_wave": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/corrosive_wave.png"
   },
   "CORRUPTION": {
     "name": "Corruption",
@@ -1914,7 +2025,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/corruption.png"
   },
   "COSMIC INDIFFERENCE": {
     "name": "Cosmic Indifference",
@@ -1930,7 +2042,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/cosmic_indifference.png"
   },
   "COUNTDOWN": {
     "name": "Countdown",
@@ -1946,7 +2059,8 @@ const STS2_CARDS = {
     "upgrade": {
       "countdown": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/countdown.png"
   },
   "CRASH LANDING": {
     "name": "Crash Landing",
@@ -1962,7 +2076,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 5
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/crash_landing.png"
   },
   "CREATIVE AI": {
     "name": "Creative AI",
@@ -1978,7 +2093,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/creative_ai.png"
   },
   "CRESCENT SPEAR": {
     "name": "Crescent Spear",
@@ -1995,7 +2111,8 @@ const STS2_CARDS = {
     "upgrade": {
       "extra_damage": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/crescent_spear.png"
   },
   "CRIMSON MANTLE": {
     "name": "Crimson Mantle",
@@ -2011,7 +2128,8 @@ const STS2_CARDS = {
     "upgrade": {
       "crimson_mantle": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/crimson_mantle.png"
   },
   "CRUELTY": {
     "name": "Cruelty",
@@ -2027,7 +2145,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cruelty": 25
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/cruelty.png"
   },
   "CRUSH UNDER": {
     "name": "Crush Under",
@@ -2045,7 +2164,8 @@ const STS2_CARDS = {
       "damage": 1,
       "strength_loss": 1
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/crush_under.png"
   },
   "CURSE OF THE BELL": {
     "name": "Curse of the Bell",
@@ -2060,7 +2180,8 @@ const STS2_CARDS = {
     "description": "",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/curse_of_the_bell.png"
   },
   "DAGGER SPRAY": {
     "name": "Dagger Spray",
@@ -2076,7 +2197,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/dagger_spray.png"
   },
   "DAGGER THROW": {
     "name": "Dagger Throw",
@@ -2092,7 +2214,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/dagger_throw.png"
   },
   "DANSE MACABRE": {
     "name": "Danse Macabre",
@@ -2109,7 +2232,8 @@ const STS2_CARDS = {
     "upgrade": {
       "danse_macabre": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/danse_macabre.png"
   },
   "DARK EMBRACE": {
     "name": "Dark Embrace",
@@ -2123,7 +2247,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/dark_embrace.png"
   },
   "DARK SHACKLES": {
     "name": "Dark Shackles",
@@ -2141,7 +2266,8 @@ const STS2_CARDS = {
     "upgrade": {
       "strength_loss": 6
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/dark_shackles.png"
   },
   "DARKNESS": {
     "name": "Darkness",
@@ -2155,7 +2281,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Channel 1 Dark.\nTrigger the passive ability of all Dark Orbs twice."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/darkness.png"
   },
   "DASH": {
     "name": "Dash",
@@ -2173,7 +2300,8 @@ const STS2_CARDS = {
       "damage": 3,
       "block": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/dash.png"
   },
   "DAZED": {
     "name": "Dazed",
@@ -2188,7 +2316,8 @@ const STS2_CARDS = {
     "description": "",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/dazed.png"
   },
   "DEADLY POISON": {
     "name": "Deadly Poison",
@@ -2204,7 +2333,8 @@ const STS2_CARDS = {
     "upgrade": {
       "poison": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/deadly_poison.png"
   },
   "DEATH MARCH": {
     "name": "Death March",
@@ -2222,7 +2352,8 @@ const STS2_CARDS = {
       "calculation_base": 1,
       "extra_damage": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/death_march.png"
   },
   "DEATHBRINGER": {
     "name": "Deathbringer",
@@ -2239,7 +2370,8 @@ const STS2_CARDS = {
     "upgrade": {
       "doom": 5
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/deathbringer.png"
   },
   "DEATH'S DOOR": {
     "name": "Death's Door",
@@ -2276,7 +2408,8 @@ const STS2_CARDS = {
       "debilitate": 1,
       "description": "Deal 12 damage.\nVulnerable and Weak are twice as effective against the enemy for the next 4 turns."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/debilitate.png"
   },
   "DEBRIS": {
     "name": "Debris",
@@ -2290,7 +2423,8 @@ const STS2_CARDS = {
     "description": "",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/debris.png"
   },
   "DEBT": {
     "name": "Debt",
@@ -2306,7 +2440,8 @@ const STS2_CARDS = {
       "gold": 10
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/debt.png"
   },
   "DECAY": {
     "name": "Decay",
@@ -2322,7 +2457,8 @@ const STS2_CARDS = {
       "damage": 2
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/decay.png"
   },
   "DECISIONS, DECISIONS": {
     "name": "Decisions, Decisions",
@@ -2341,7 +2477,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/decisions_decisions.png"
   },
   "DEFEND": {
     "name": "Defend",
@@ -2375,7 +2512,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/defile.png"
   },
   "DEFLECT": {
     "name": "Deflect",
@@ -2391,7 +2529,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/deflect.png"
   },
   "DEFRAGMENT": {
     "name": "Defragment",
@@ -2407,7 +2546,8 @@ const STS2_CARDS = {
     "upgrade": {
       "focus": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/defragment.png"
   },
   "DEFY": {
     "name": "Defy",
@@ -2426,7 +2566,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/defy.png"
   },
   "DELAY": {
     "name": "Delay",
@@ -2444,7 +2585,8 @@ const STS2_CARDS = {
       "block": 2,
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/delay.png"
   },
   "DEMESNE": {
     "name": "Demesne",
@@ -2463,7 +2605,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/demesne.png"
   },
   "DEMON FORM": {
     "name": "Demon Form",
@@ -2479,7 +2622,8 @@ const STS2_CARDS = {
     "upgrade": {
       "strength": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/demon_form.png"
   },
   "DEMONIC SHIELD": {
     "name": "Demonic Shield",
@@ -2501,7 +2645,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "AnyAlly"
+    "target": "AnyAlly",
+    "image": "images/cards/demonic_shield.png"
   },
   "DEVASTATE": {
     "name": "Devastate",
@@ -2517,7 +2662,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 10
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/devastate.png"
   },
   "DEVOUR LIFE": {
     "name": "Devour Life",
@@ -2533,7 +2679,8 @@ const STS2_CARDS = {
     "upgrade": {
       "devour_life": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/devour_life.png"
   },
   "DIRGE": {
     "name": "Dirge",
@@ -2552,7 +2699,8 @@ const STS2_CARDS = {
       "summon": 1,
       "description": "Summon 4 X times.\nAdd X Souls+ into your Draw Pile."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/dirge.png"
   },
   "DISCOVERY": {
     "name": "Discovery",
@@ -2570,7 +2718,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/discovery.png"
   },
   "DISINTEGRATION": {
     "name": "Disintegration",
@@ -2584,7 +2733,8 @@ const STS2_CARDS = {
       "power_disintegration": 6
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/disintegration.png"
   },
   "DISMANTLE": {
     "name": "Dismantle",
@@ -2600,7 +2750,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/dismantle.png"
   },
   "DISTRACTION": {
     "name": "Distraction",
@@ -2616,7 +2767,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/distraction.png"
   },
   "DODGE AND ROLL": {
     "name": "Dodge and Roll",
@@ -2632,7 +2784,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/dodge_and_roll.png"
   },
   "DOMINATE": {
     "name": "Dominate",
@@ -2651,7 +2804,8 @@ const STS2_CARDS = {
     "upgrade": {
       "vulnerable": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/dominate.png"
   },
   "DOUBLE ENERGY": {
     "name": "Double Energy",
@@ -2667,7 +2821,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/double_energy.png"
   },
   "DOUBT": {
     "name": "Doubt",
@@ -2683,7 +2838,8 @@ const STS2_CARDS = {
       "power_weak": 1
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/doubt.png"
   },
   "DRAIN POWER": {
     "name": "Drain Power",
@@ -2702,7 +2858,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Deal 12 damage.\nUpgrade 3 random cards in your Discard Pile."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/drain_power.png"
   },
   "DRAMATIC ENTRANCE": {
     "name": "Dramatic Entrance",
@@ -2721,7 +2878,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/dramatic_entrance.png"
   },
   "DREDGE": {
     "name": "Dredge",
@@ -2741,7 +2899,8 @@ const STS2_CARDS = {
         "Retain"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/dredge.png"
   },
   "DRUM OF BATTLE": {
     "name": "Drum of Battle",
@@ -2758,7 +2917,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/drum_of_battle.png"
   },
   "DUAL WIELD": {
     "name": "Dual Wield",
@@ -2775,7 +2935,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Choose an Attack or Power card. Add 2 copies of that card into your Hand."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/dual_wield.png"
   },
   "DUALCAST": {
     "name": "Dualcast",
@@ -2789,7 +2950,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/dualcast.png"
   },
   "DYING STAR": {
     "name": "Dying Star",
@@ -2809,7 +2971,8 @@ const STS2_CARDS = {
       "damage": 2,
       "strength_loss": 2
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/dying_star.png"
   },
   "ECHO FORM": {
     "name": "Echo Form",
@@ -2829,7 +2992,8 @@ const STS2_CARDS = {
         "Ethereal"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/echo_form.png"
   },
   "ECHOING SLASH": {
     "name": "Echoing Slash",
@@ -2845,7 +3009,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/echoing_slash.png"
   },
   "EIDOLON": {
     "name": "Eidolon",
@@ -2859,7 +3024,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/eidolon.png"
   },
   "END OF DAYS": {
     "name": "End of Days",
@@ -2875,7 +3041,8 @@ const STS2_CARDS = {
     "upgrade": {
       "doom": 8
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/end_of_days.png"
   },
   "ENERGY SURGE": {
     "name": "Energy Surge",
@@ -2893,7 +3060,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "AllAllies"
+    "target": "AllAllies",
+    "image": "images/cards/energy_surge.png"
   },
   "ENFEEBLING TOUCH": {
     "name": "Enfeebling Touch",
@@ -2911,7 +3079,8 @@ const STS2_CARDS = {
     "upgrade": {
       "strength_loss": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/enfeebling_touch.png"
   },
   "ENLIGHTENMENT": {
     "name": "Enlightenment",
@@ -2927,7 +3096,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Reduce the cost of ALL cards in your Hand to 1 this combat."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/enlightenment.png"
   },
   "ENTHRALLED": {
     "name": "Enthralled",
@@ -2941,7 +3111,8 @@ const STS2_CARDS = {
     "description": "If this is in your Hand, it must be played before other cards.",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/enthralled.png"
   },
   "ENTRENCH": {
     "name": "Entrench",
@@ -2955,7 +3126,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/entrench.png"
   },
   "ENTROPY": {
     "name": "Entropy",
@@ -2973,7 +3145,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/entropy.png"
   },
   "ENVENOM": {
     "name": "Envenom",
@@ -2989,7 +3162,8 @@ const STS2_CARDS = {
     "upgrade": {
       "envenom": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/envenom.png"
   },
   "EQUILIBRIUM": {
     "name": "Equilibrium",
@@ -3006,7 +3180,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/equilibrium.png"
   },
   "ERADICATE": {
     "name": "Eradicate",
@@ -3024,7 +3199,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/eradicate.png"
   },
   "ESCAPE PLAN": {
     "name": "Escape Plan",
@@ -3040,7 +3216,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/escape_plan.png"
   },
   "ETERNAL ARMOR": {
     "name": "Eternal Armor",
@@ -3056,7 +3233,8 @@ const STS2_CARDS = {
     "upgrade": {
       "plating": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/eternal_armor.png"
   },
   "EVIL EYE": {
     "name": "Evil Eye",
@@ -3072,7 +3250,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/evil_eye.png"
   },
   "EXPECT A FIGHT": {
     "name": "Expect a Fight",
@@ -3090,7 +3269,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/expect_a_fight.png"
   },
   "EXPERTISE": {
     "name": "Expertise",
@@ -3106,7 +3286,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/expertise.png"
   },
   "EXPOSE": {
     "name": "Expose",
@@ -3124,7 +3305,8 @@ const STS2_CARDS = {
     "upgrade": {
       "power": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/expose.png"
   },
   "EXTERMINATE": {
     "name": "Exterminate",
@@ -3141,7 +3323,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 1
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/exterminate.png"
   },
   "FALLING STAR": {
     "name": "Falling Star",
@@ -3159,7 +3342,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/falling_star.png"
   },
   "FAN OF KNIVES": {
     "name": "Fan of Knives",
@@ -3175,7 +3359,8 @@ const STS2_CARDS = {
     "upgrade": {
       "shivs": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/fan_of_knives.png"
   },
   "FASTEN": {
     "name": "Fasten",
@@ -3191,7 +3376,8 @@ const STS2_CARDS = {
     "upgrade": {
       "extra_block": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/fasten.png"
   },
   "FEAR": {
     "name": "Fear",
@@ -3211,7 +3397,8 @@ const STS2_CARDS = {
       "damage": 1,
       "vulnerable": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/fear.png"
   },
   "FEED": {
     "name": "Feed",
@@ -3231,7 +3418,8 @@ const STS2_CARDS = {
       "damage": 2,
       "max_hp": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/feed.png"
   },
   "FEEDING FRENZY": {
     "name": "Feeding Frenzy",
@@ -3247,7 +3435,8 @@ const STS2_CARDS = {
     "upgrade": {
       "strength": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/feeding_frenzy.png"
   },
   "FEEL NO PAIN": {
     "name": "Feel No Pain",
@@ -3263,7 +3452,8 @@ const STS2_CARDS = {
     "upgrade": {
       "power": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/feel_no_pain.png"
   },
   "FERAL": {
     "name": "Feral",
@@ -3279,7 +3469,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/feral.png"
   },
   "FETCH": {
     "name": "Fetch",
@@ -3297,7 +3488,8 @@ const STS2_CARDS = {
       "osty_damage": 3,
       "description": "Osty deals 6 damage.\nIf this is the first time this card has been played this turn, draw 1 card."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/fetch.png"
   },
   "FIEND FIRE": {
     "name": "Fiend Fire",
@@ -3315,7 +3507,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/fiend_fire.png"
   },
   "FIGHT ME!": {
     "name": "Fight Me!",
@@ -3335,7 +3528,8 @@ const STS2_CARDS = {
       "damage": 1,
       "strength": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/fight_me.png"
   },
   "FIGHT THROUGH": {
     "name": "Fight Through",
@@ -3351,7 +3545,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 4
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/fight_through.png"
   },
   "FINESSE": {
     "name": "Finesse",
@@ -3368,7 +3563,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/finesse.png"
   },
   "FINISHER": {
     "name": "Finisher",
@@ -3387,7 +3583,8 @@ const STS2_CARDS = {
       "damage": 2,
       "description": "Deal 8 damage for each Attack already played this turn."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/finisher.png"
   },
   "FISTICUFFS": {
     "name": "Fisticuffs",
@@ -3403,7 +3600,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/fisticuffs.png"
   },
   "FLAK CANNON": {
     "name": "Flak Cannon",
@@ -3422,7 +3620,8 @@ const STS2_CARDS = {
       "damage": 3,
       "description": "Exhaust ALL your Status cards.\nDeal 11 damage to a random enemy for each card Exhausted."
     },
-    "target": "RandomEnemy"
+    "target": "RandomEnemy",
+    "image": "images/cards/flak_cannon.png"
   },
   "FLAME BARRIER": {
     "name": "Flame Barrier",
@@ -3440,7 +3639,8 @@ const STS2_CARDS = {
       "block": 4,
       "damage_back": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/flame_barrier.png"
   },
   "FLANKING": {
     "name": "Flanking",
@@ -3454,7 +3654,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/flanking.png"
   },
   "FLASH OF STEEL": {
     "name": "Flash of Steel",
@@ -3471,7 +3672,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/flash_of_steel.png"
   },
   "FLATTEN": {
     "name": "Flatten",
@@ -3487,7 +3689,8 @@ const STS2_CARDS = {
     "upgrade": {
       "osty_damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/flatten.png"
   },
   "FLECHETTES": {
     "name": "Flechettes",
@@ -3506,7 +3709,8 @@ const STS2_CARDS = {
       "damage": 2,
       "description": "Deal 7 damage for each Skill in your Hand."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/flechettes.png"
   },
   "FLICK-FLACK": {
     "name": "Flick-Flack",
@@ -3524,7 +3728,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/flick_flack.png"
   },
   "FOCUSED STRIKE": {
     "name": "Focused Strike",
@@ -3542,7 +3747,8 @@ const STS2_CARDS = {
       "damage": 2,
       "focus": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/focused_strike.png"
   },
   "FOLLOW THROUGH": {
     "name": "Follow Through",
@@ -3560,7 +3766,8 @@ const STS2_CARDS = {
       "damage": 2,
       "description": "Deal 9 damage.\nIf you have 5 or more other cards in your Hand, hits an additional time."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/follow_through.png"
   },
   "FOLLY": {
     "name": "Folly",
@@ -3577,7 +3784,8 @@ const STS2_CARDS = {
     "description": "",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/folly.png"
   },
   "FOOTWORK": {
     "name": "Footwork",
@@ -3593,7 +3801,8 @@ const STS2_CARDS = {
     "upgrade": {
       "dexterity": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/footwork.png"
   },
   "FORBIDDEN GRIMOIRE": {
     "name": "Forbidden Grimoire",
@@ -3609,7 +3818,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/forbidden_grimoire.png"
   },
   "FOREGONE CONCLUSION": {
     "name": "Foregone Conclusion",
@@ -3625,7 +3835,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/foregone_conclusion.png"
   },
   "FORGOTTEN RITUAL": {
     "name": "Forgotten Ritual",
@@ -3643,7 +3854,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/forgotten_ritual.png"
   },
   "FRANTIC ESCAPE": {
     "name": "Frantic Escape",
@@ -3655,7 +3867,8 @@ const STS2_CARDS = {
     "description": "Get farther away.\nIncrease Sandpit by 1.\nIncrease the cost of this card by 1.",
     "vars": {},
     "upgrade": {},
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/frantic_escape.png"
   },
   "FRIENDSHIP": {
     "name": "Friendship",
@@ -3672,7 +3885,8 @@ const STS2_CARDS = {
     "upgrade": {
       "strength": -1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/friendship.png"
   },
   "FTL": {
     "name": "FTL",
@@ -3691,7 +3905,8 @@ const STS2_CARDS = {
       "damage": 1,
       "play_max": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/ftl.png"
   },
   "FUEL": {
     "name": "Fuel",
@@ -3711,7 +3926,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Gain [E].\nDraw 2 cards."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/fuel.png"
   },
   "FURNACE": {
     "name": "Furnace",
@@ -3727,7 +3943,8 @@ const STS2_CARDS = {
     "upgrade": {
       "forge": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/furnace.png"
   },
   "FUSION": {
     "name": "Fusion",
@@ -3741,7 +3958,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/fusion.png"
   },
   "GAMMA BLAST": {
     "name": "Gamma Blast",
@@ -3759,7 +3977,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 5
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/gamma_blast.png"
   },
   "GANG UP": {
     "name": "Gang Up",
@@ -3776,7 +3995,8 @@ const STS2_CARDS = {
     "upgrade": {
       "extra_damage": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/gang_up.png"
   },
   "GATHER LIGHT": {
     "name": "Gather Light",
@@ -3793,7 +4013,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/gather_light.png"
   },
   "GENESIS": {
     "name": "Genesis",
@@ -3809,7 +4030,8 @@ const STS2_CARDS = {
     "upgrade": {
       "stars_per_turn": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/genesis.png"
   },
   "GENETIC ALGORITHM": {
     "name": "Genetic Algorithm",
@@ -3827,7 +4049,8 @@ const STS2_CARDS = {
     "upgrade": {
       "increase": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/genetic_algorithm.png"
   },
   "GIANT ROCK": {
     "name": "Giant Rock",
@@ -3843,7 +4066,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/giant_rock.png"
   },
   "GLACIER": {
     "name": "Glacier",
@@ -3859,7 +4083,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/glacier.png"
   },
   "GLASSWORK": {
     "name": "Glasswork",
@@ -3875,7 +4100,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/glasswork.png"
   },
   "GLIMMER": {
     "name": "Glimmer",
@@ -3893,7 +4119,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Draw 4 cards.\nPut 1 card from your Hand on top of your Draw Pile."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/glimmer.png"
   },
   "GLIMPSE BEYOND": {
     "name": "Glimpse Beyond",
@@ -3912,7 +4139,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "ALL players add 4 Souls into their Draw Pile."
     },
-    "target": "AllAllies"
+    "target": "AllAllies",
+    "image": "images/cards/glimpse_beyond.png"
   },
   "GLITTERSTREAM": {
     "name": "Glitterstream",
@@ -3930,7 +4158,8 @@ const STS2_CARDS = {
       "block": 2,
       "block_next_turn": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/glitterstream.png"
   },
   "GLOW": {
     "name": "Glow",
@@ -3947,7 +4176,8 @@ const STS2_CARDS = {
     "upgrade": {
       "stars": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/glow.png"
   },
   "GO FOR THE EYES": {
     "name": "Go for the Eyes",
@@ -3965,7 +4195,8 @@ const STS2_CARDS = {
       "damage": 1,
       "weak": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/go_for_the_eyes.png"
   },
   "GOLD AXE": {
     "name": "Gold Axe",
@@ -3984,7 +4215,8 @@ const STS2_CARDS = {
         "Retain"
       ]
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/gold_axe.png"
   },
   "GRAND FINALE": {
     "name": "Grand Finale",
@@ -4000,7 +4232,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 15
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/grand_finale.png"
   },
   "GRAVE WARDEN": {
     "name": "Grave Warden",
@@ -4017,7 +4250,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/grave_warden.png"
   },
   "GRAVEBLAST": {
     "name": "Graveblast",
@@ -4038,7 +4272,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/graveblast.png"
   },
   "GREED": {
     "name": "Greed",
@@ -4053,7 +4288,8 @@ const STS2_CARDS = {
     "description": "",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/greed.png"
   },
   "GUARDS!!!": {
     "name": "GUARDS!!!",
@@ -4069,7 +4305,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Transform any number of cards in your Hand into Minion Sacrifice+."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/guards.png"
   },
   "GUIDING STAR": {
     "name": "Guiding Star",
@@ -4088,7 +4325,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Deal 13 damage.\nDraw 3 cards."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/guiding_star.png"
   },
   "GUILTY": {
     "name": "Guilty",
@@ -4104,7 +4342,8 @@ const STS2_CARDS = {
       "combats": 5
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/guilty.png"
   },
   "GUNK UP": {
     "name": "Gunk Up",
@@ -4122,7 +4361,8 @@ const STS2_CARDS = {
       "damage": 1,
       "description": "Deal 5 damage 3 times.\nAdd a Slimed into your Discard Pile."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/gunk_up.png"
   },
   "HAILSTORM": {
     "name": "Hailstorm",
@@ -4138,7 +4378,8 @@ const STS2_CARDS = {
     "upgrade": {
       "hailstorm": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/hailstorm.png"
   },
   "HAMMER TIME": {
     "name": "Hammer Time",
@@ -4152,7 +4393,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/hammer_time.png"
   },
   "HAND OF GREED": {
     "name": "Hand of Greed",
@@ -4170,7 +4412,8 @@ const STS2_CARDS = {
       "damage": 5,
       "gold": 5
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/hand_of_greed.png"
   },
   "HAND TRICK": {
     "name": "Hand Trick",
@@ -4186,7 +4429,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/hand_trick.png"
   },
   "HANG": {
     "name": "Hang",
@@ -4202,7 +4446,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/hang.png"
   },
   "HAUNT": {
     "name": "Haunt",
@@ -4218,7 +4463,8 @@ const STS2_CARDS = {
     "upgrade": {
       "hp_loss": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/haunt.png"
   },
   "HAVOC": {
     "name": "Havoc",
@@ -4232,7 +4478,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/havoc.png"
   },
   "HAZE": {
     "name": "Haze",
@@ -4250,7 +4497,8 @@ const STS2_CARDS = {
     "upgrade": {
       "poison": 2
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/haze.png"
   },
   "HEADBUTT": {
     "name": "Headbutt",
@@ -4266,7 +4514,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/headbutt.png"
   },
   "HEAVENLY DRILL": {
     "name": "Heavenly Drill",
@@ -4283,7 +4532,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/heavenly_drill.png"
   },
   "HEGEMONY": {
     "name": "Hegemony",
@@ -4301,7 +4551,8 @@ const STS2_CARDS = {
       "damage": 3,
       "energy": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/hegemony.png"
   },
   "HEIRLOOM HAMMER": {
     "name": "Heirloom Hammer",
@@ -4318,7 +4569,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 5
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/heirloom_hammer.png"
   },
   "HELIX DRILL": {
     "name": "Helix Drill",
@@ -4337,7 +4589,8 @@ const STS2_CARDS = {
       "damage": 2,
       "description": "Deal 5 damage for each [E] previously spent this turn."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/helix_drill.png"
   },
   "HELLO WORLD": {
     "name": "Hello World",
@@ -4353,7 +4606,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/hello_world.png"
   },
   "HELLRAISER": {
     "name": "Hellraiser",
@@ -4367,7 +4621,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/hellraiser.png"
   },
   "HEMOKINESIS": {
     "name": "Hemokinesis",
@@ -4384,7 +4639,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 5
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/hemokinesis.png"
   },
   "HIDDEN CACHE": {
     "name": "Hidden Cache",
@@ -4401,7 +4657,8 @@ const STS2_CARDS = {
     "upgrade": {
       "star_next_turn": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/hidden_cache.png"
   },
   "HIDDEN DAGGERS": {
     "name": "Hidden Daggers",
@@ -4418,7 +4675,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Discard 2 cards.\nAdd 2 Shivs+ into your Hand."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/hidden_daggers.png"
   },
   "HIDDEN GEM": {
     "name": "Hidden Gem",
@@ -4434,7 +4692,8 @@ const STS2_CARDS = {
     "upgrade": {
       "replay": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/hidden_gem.png"
   },
   "HIGH FIVE": {
     "name": "High Five",
@@ -4452,7 +4711,8 @@ const STS2_CARDS = {
       "osty_damage": 2,
       "vulnerable": 1
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/high_five.png"
   },
   "HOLOGRAM": {
     "name": "Hologram",
@@ -4473,7 +4733,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/hologram.png"
   },
   "HOTFIX": {
     "name": "Hotfix",
@@ -4493,7 +4754,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/hotfix.png"
   },
   "HOWL FROM BEYOND": {
     "name": "Howl from Beyond",
@@ -4509,7 +4771,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 5
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/howl_from_beyond.png"
   },
   "HUDDLE UP": {
     "name": "Huddle Up",
@@ -4527,7 +4790,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "AllAllies"
+    "target": "AllAllies",
+    "image": "images/cards/huddle_up.png"
   },
   "HYPERBEAM": {
     "name": "Hyperbeam",
@@ -4544,7 +4808,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 8
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/hyperbeam.png"
   },
   "I AM INVINCIBLE": {
     "name": "I Am Invincible",
@@ -4560,7 +4825,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/i_am_invincible.png"
   },
   "ICE LANCE": {
     "name": "Ice Lance",
@@ -4577,7 +4843,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 5
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/ice_lance.png"
   },
   "IGNITION": {
     "name": "Ignition",
@@ -4595,7 +4862,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "AnyAlly"
+    "target": "AnyAlly",
+    "image": "images/cards/ignition.png"
   },
   "IMPATIENCE": {
     "name": "Impatience",
@@ -4611,7 +4879,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/impatience.png"
   },
   "IMPERVIOUS": {
     "name": "Impervious",
@@ -4629,7 +4898,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 10
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/impervious.png"
   },
   "INFECTION": {
     "name": "Infection",
@@ -4645,7 +4915,8 @@ const STS2_CARDS = {
       "damage": 3
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/infection.png"
   },
   "INFERNAL BLADE": {
     "name": "Infernal Blade",
@@ -4661,7 +4932,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/infernal_blade.png"
   },
   "INFERNO": {
     "name": "Inferno",
@@ -4677,7 +4949,8 @@ const STS2_CARDS = {
     "upgrade": {
       "inferno": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/inferno.png"
   },
   "INFINITE BLADES": {
     "name": "Infinite Blades",
@@ -4693,7 +4966,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/infinite_blades.png"
   },
   "INFLAME": {
     "name": "Inflame",
@@ -4709,7 +4983,8 @@ const STS2_CARDS = {
     "upgrade": {
       "strength": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/inflame.png"
   },
   "INJURY": {
     "name": "Injury",
@@ -4723,7 +4998,8 @@ const STS2_CARDS = {
     "description": "",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/injury.png"
   },
   "INTERCEPT": {
     "name": "Intercept",
@@ -4739,7 +5015,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 4
     },
-    "target": "AnyAlly"
+    "target": "AnyAlly",
+    "image": "images/cards/intercept.png"
   },
   "INVOKE": {
     "name": "Invoke",
@@ -4757,7 +5034,8 @@ const STS2_CARDS = {
       "summon": 1,
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/invoke.png"
   },
   "IRON WAVE": {
     "name": "Iron Wave",
@@ -4775,7 +5053,8 @@ const STS2_CARDS = {
       "damage": 2,
       "block": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/iron_wave.png"
   },
   "ITERATION": {
     "name": "Iteration",
@@ -4792,7 +5071,8 @@ const STS2_CARDS = {
       "iteration": 1,
       "description": "The first time you draw a Status each turn, draw 3 cards."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/iteration.png"
   },
   "JACK OF ALL TRADES": {
     "name": "Jack of All Trades",
@@ -4811,7 +5091,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Add 2 random Colorless cards into your Hand."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/jack_of_all_trades.png"
   },
   "JACKPOT": {
     "name": "Jackpot",
@@ -4829,7 +5110,8 @@ const STS2_CARDS = {
       "damage": 5,
       "description": "Deal 30 damage.\nAdd 3 random Upgraded} 0[E] card into your Hand."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/jackpot.png"
   },
   "JUGGERNAUT": {
     "name": "Juggernaut",
@@ -4845,7 +5127,8 @@ const STS2_CARDS = {
     "upgrade": {
       "juggernaut": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/juggernaut.png"
   },
   "JUGGLING": {
     "name": "Juggling",
@@ -4861,7 +5144,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/juggling.png"
   },
   "KINGLY KICK": {
     "name": "Kingly Kick",
@@ -4877,7 +5161,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 8
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/kingly_kick.png"
   },
   "KINGLY PUNCH": {
     "name": "Kingly Punch",
@@ -4895,7 +5180,8 @@ const STS2_CARDS = {
       "damage": 2,
       "increase": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/kingly_punch.png"
   },
   "KNIFE TRAP": {
     "name": "Knife Trap",
@@ -4912,7 +5198,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Upgrade and play every Shiv in your Exhaust Pile on the enemy."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/knife_trap.png"
   },
   "KNOCKDOWN": {
     "name": "Knockdown",
@@ -4931,7 +5218,8 @@ const STS2_CARDS = {
       "knockdown": 1,
       "description": "Deal 14 damage.\nThe enemy takes triple damage from other players this turn."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/knockdown.png"
   },
   "KNOCKOUT BLOW": {
     "name": "Knockout Blow",
@@ -4948,7 +5236,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 8
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/knockout_blow.png"
   },
   "KNOW THY PLACE": {
     "name": "Know Thy Place",
@@ -4969,7 +5258,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/know_thy_place.png"
   },
   "LANTERN KEY": {
     "name": "Lantern Key",
@@ -4983,7 +5273,8 @@ const STS2_CARDS = {
     "description": "Unlocks a special event in the next Act.",
     "vars": {},
     "upgrade": {},
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/lantern_key.png"
   },
   "LARGESSE": {
     "name": "Largesse",
@@ -4997,7 +5288,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Another player adds 1 random Upgraded Colorless card to their Hand."
     },
-    "target": "AnyAlly"
+    "target": "AnyAlly",
+    "image": "images/cards/largesse.png"
   },
   "LEADING STRIKE": {
     "name": "Leading Strike",
@@ -5015,7 +5307,8 @@ const STS2_CARDS = {
       "damage": 3,
       "description": "Deal 6 damage.\nAdd 2 Shivs into your Hand."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/leading_strike.png"
   },
   "LEAP": {
     "name": "Leap",
@@ -5031,7 +5324,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/leap.png"
   },
   "LEG SWEEP": {
     "name": "Leg Sweep",
@@ -5049,7 +5343,8 @@ const STS2_CARDS = {
       "block": 3,
       "weak": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/leg_sweep.png"
   },
   "LEGION OF BONE": {
     "name": "Legion of Bone",
@@ -5067,7 +5362,8 @@ const STS2_CARDS = {
     "upgrade": {
       "summon": 2
     },
-    "target": "AllAllies"
+    "target": "AllAllies",
+    "image": "images/cards/legion_of_bone.png"
   },
   "LETHALITY": {
     "name": "Lethality",
@@ -5085,7 +5381,8 @@ const STS2_CARDS = {
     "upgrade": {
       "lethality": 25
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/lethality.png"
   },
   "LIFT": {
     "name": "Lift",
@@ -5101,7 +5398,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 5
     },
-    "target": "AnyAlly"
+    "target": "AnyAlly",
+    "image": "images/cards/lift.png"
   },
   "LIGHTNING ROD": {
     "name": "Lightning Rod",
@@ -5119,7 +5417,8 @@ const STS2_CARDS = {
       "block": 3,
       "description": "Gain 7 Block.\nAt the start of the next 2 turns, Channel 1 Lightning."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/lightning_rod.png"
   },
   "LOOP": {
     "name": "Loop",
@@ -5136,7 +5435,8 @@ const STS2_CARDS = {
       "loop": 1,
       "description": "At the start of your turn, trigger the passive ability of your rightmost Orb 2 times."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/loop.png"
   },
   "LUMINESCE": {
     "name": "Luminesce",
@@ -5155,7 +5455,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/luminesce.png"
   },
   "LUNAR BLAST": {
     "name": "Lunar Blast",
@@ -5174,7 +5475,8 @@ const STS2_CARDS = {
       "damage": 1,
       "description": "Deal 5 damage for each Skill already played this turn."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/lunar_blast.png"
   },
   "MACHINE LEARNING": {
     "name": "Machine Learning",
@@ -5192,7 +5494,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/machine_learning.png"
   },
   "MAD SCIENCE": {
     "name": "Mad Science",
@@ -5215,7 +5518,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/mad_science.png"
   },
   "MAKE IT SO": {
     "name": "Make It So",
@@ -5233,7 +5537,8 @@ const STS2_CARDS = {
       "damage": 3,
       "description": "Deal 9 damage.\nEvery 3 Skills you play in a turn, put this into your Hand."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/make_it_so.png"
   },
   "MALAISE": {
     "name": "Malaise",
@@ -5249,7 +5554,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Enemy loses X+1 Strength. Apply X+1 Weak."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/malaise.png"
   },
   "MANGLE": {
     "name": "Mangle",
@@ -5267,7 +5573,8 @@ const STS2_CARDS = {
       "damage": 5,
       "strength_loss": 5
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/mangle.png"
   },
   "MANIFEST AUTHORITY": {
     "name": "Manifest Authority",
@@ -5284,7 +5591,8 @@ const STS2_CARDS = {
       "block": 1,
       "description": "Gain 8 Block.\nAdd 1 random Upgraded Colorless card into your Hand."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/manifest_authority.png"
   },
   "MASTER OF STRATEGY": {
     "name": "Master of Strategy",
@@ -5302,7 +5610,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/master_of_strategy.png"
   },
   "MASTER PLANNER": {
     "name": "Master Planner",
@@ -5316,7 +5625,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/master_planner.png"
   },
   "MAUL": {
     "name": "Maul",
@@ -5334,7 +5644,8 @@ const STS2_CARDS = {
       "damage": 1,
       "increase": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/maul.png"
   },
   "MAYHEM": {
     "name": "Mayhem",
@@ -5348,7 +5659,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/mayhem.png"
   },
   "MELANCHOLY": {
     "name": "Melancholy",
@@ -5365,7 +5677,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 4
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/melancholy.png"
   },
   "MEMENTO MORI": {
     "name": "Memento Mori",
@@ -5383,7 +5696,8 @@ const STS2_CARDS = {
       "calculation_base": 2,
       "extra_damage": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/memento_mori.png"
   },
   "METAMORPHOSIS": {
     "name": "Metamorphosis",
@@ -5401,7 +5715,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/metamorphosis.png"
   },
   "METEOR SHOWER": {
     "name": "Meteor Shower",
@@ -5419,7 +5734,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 7
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/meteor_shower.png"
   },
   "METEOR STRIKE": {
     "name": "Meteor Strike",
@@ -5435,7 +5751,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 6
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/meteor_strike.png"
   },
   "MIMIC": {
     "name": "Mimic",
@@ -5456,7 +5773,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "AnyAlly"
+    "target": "AnyAlly",
+    "image": "images/cards/mimic.png"
   },
   "MIND BLAST": {
     "name": "Mind Blast",
@@ -5475,7 +5793,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/mind_blast.png"
   },
   "MIND ROT": {
     "name": "Mind Rot",
@@ -5489,7 +5808,8 @@ const STS2_CARDS = {
       "power_mind_rot": 1
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/mind_rot.png"
   },
   "MINION DIVE BOMB": {
     "name": "Minion Dive Bomb",
@@ -5507,7 +5827,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/minion_dive_bomb.png"
   },
   "MINION SACRIFICE": {
     "name": "Minion Sacrifice",
@@ -5525,7 +5846,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/minion_sacrifice.png"
   },
   "MINION STRIKE": {
     "name": "Minion Strike",
@@ -5545,7 +5867,8 @@ const STS2_CARDS = {
       "damage": 3,
       "description": "Deal 9 damage.\nDraw 1 card."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/minion_strike.png"
   },
   "MIRAGE": {
     "name": "Mirage",
@@ -5564,7 +5887,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/mirage.png"
   },
   "MISERY": {
     "name": "Misery",
@@ -5583,7 +5907,8 @@ const STS2_CARDS = {
         "Retain"
       ]
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/misery.png"
   },
   "MODDED": {
     "name": "Modded",
@@ -5601,7 +5926,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Gain 1 Orb Slot.\nDraw 2 cards. Increase this card's cost by 1."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/modded.png"
   },
   "MOLTEN FIST": {
     "name": "Molten Fist",
@@ -5619,7 +5945,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/molten_fist.png"
   },
   "MOMENTUM STRIKE": {
     "name": "Momentum Strike",
@@ -5635,7 +5962,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/momentum_strike.png"
   },
   "MONARCH'S GAZE": {
     "name": "Monarch's Gaze",
@@ -5669,7 +5997,8 @@ const STS2_CARDS = {
         "Retain"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/monologue.png"
   },
   "MULTI-CAST": {
     "name": "Multi-Cast",
@@ -5683,7 +6012,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Evoke your rightmost Orb X+1 times."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/multi_cast.png"
   },
   "MURDER": {
     "name": "Murder",
@@ -5700,7 +6030,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/murder.png"
   },
   "NECRO MASTERY": {
     "name": "Necro Mastery",
@@ -5716,7 +6047,8 @@ const STS2_CARDS = {
     "upgrade": {
       "summon": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/necro_mastery.png"
   },
   "NEGATIVE PULSE": {
     "name": "Negative Pulse",
@@ -5734,7 +6066,8 @@ const STS2_CARDS = {
       "block": 1,
       "doom": 4
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/negative_pulse.png"
   },
   "NEOW'S FURY": {
     "name": "Neow's Fury",
@@ -5774,7 +6107,8 @@ const STS2_CARDS = {
       "energy": 1,
       "description": "Gain [E][E][E][E].\nDraw 2 cards.\nAt the start of your turn, apply 3 Doom to yourself."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/neurosurge.png"
   },
   "NEUTRALIZE": {
     "name": "Neutralize",
@@ -5792,7 +6126,8 @@ const STS2_CARDS = {
       "damage": 1,
       "weak": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/neutralize.png"
   },
   "NEUTRON AEGIS": {
     "name": "Neutron Aegis",
@@ -5808,7 +6143,8 @@ const STS2_CARDS = {
     "upgrade": {
       "plating": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/neutron_aegis.png"
   },
   "NIGHTMARE": {
     "name": "Nightmare",
@@ -5824,7 +6160,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/nightmare.png"
   },
   "NO ESCAPE": {
     "name": "No Escape",
@@ -5842,7 +6179,8 @@ const STS2_CARDS = {
     "upgrade": {
       "calculation_base": 5
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/no_escape.png"
   },
   "NORMALITY": {
     "name": "Normality",
@@ -5858,7 +6196,8 @@ const STS2_CARDS = {
       "calculation_base": 3
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/normality.png"
   },
   "NOSTALGIA": {
     "name": "Nostalgia",
@@ -5872,7 +6211,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/nostalgia.png"
   },
   "NOT YET": {
     "name": "Not Yet",
@@ -5890,7 +6230,8 @@ const STS2_CARDS = {
     "upgrade": {
       "heal": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/not_yet.png"
   },
   "NOXIOUS FUMES": {
     "name": "Noxious Fumes",
@@ -5906,7 +6247,8 @@ const STS2_CARDS = {
     "upgrade": {
       "poison_per_turn": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/noxious_fumes.png"
   },
   "NULL": {
     "name": "Null",
@@ -5924,7 +6266,8 @@ const STS2_CARDS = {
       "damage": 3,
       "weak": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/null.png"
   },
   "OBLIVION": {
     "name": "Oblivion",
@@ -5940,7 +6283,8 @@ const STS2_CARDS = {
     "upgrade": {
       "doom": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/oblivion.png"
   },
   "OFFERING": {
     "name": "Offering",
@@ -5960,7 +6304,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/offering.png"
   },
   "OMNISLICE": {
     "name": "Omnislice",
@@ -5976,7 +6321,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/omnislice.png"
   },
   "ONE-TWO PUNCH": {
     "name": "One-Two Punch",
@@ -5993,7 +6339,8 @@ const STS2_CARDS = {
       "attacks": 1,
       "description": "This turn, your next 2 Attacks are played an extra time."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/one_two_punch.png"
   },
   "ORBIT": {
     "name": "Orbit",
@@ -6009,7 +6356,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/orbit.png"
   },
   "OUTBREAK": {
     "name": "Outbreak",
@@ -6027,7 +6375,8 @@ const STS2_CARDS = {
       "outbreak": 4,
       "description": "Every 3 times you apply Poison, deal 15 damage to ALL enemies."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/outbreak.png"
   },
   "OUTMANEUVER": {
     "name": "Outmaneuver",
@@ -6043,7 +6392,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/outmaneuver.png"
   },
   "OVERCLOCK": {
     "name": "Overclock",
@@ -6059,7 +6409,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/overclock.png"
   },
   "PACT'S END": {
     "name": "Pact's End",
@@ -6093,7 +6444,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/pagestorm.png"
   },
   "PALE BLUE DOT": {
     "name": "Pale Blue Dot",
@@ -6111,7 +6463,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "If you play 5 or more cards in a turn, draw 2 cards at the start of your next turn."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/pale_blue_dot.png"
   },
   "PANACHE": {
     "name": "Panache",
@@ -6127,7 +6480,8 @@ const STS2_CARDS = {
     "upgrade": {
       "panache_damage": 4
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/panache.png"
   },
   "PANIC BUTTON": {
     "name": "Panic Button",
@@ -6147,7 +6501,8 @@ const STS2_CARDS = {
       "block": 10,
       "description": "Gain 40 Block.\nYou cannot gain Block from cards for 2 turns."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/panic_button.png"
   },
   "PARRY": {
     "name": "Parry",
@@ -6163,7 +6518,8 @@ const STS2_CARDS = {
     "upgrade": {
       "parry": 4
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/parry.png"
   },
   "PARSE": {
     "name": "Parse",
@@ -6181,7 +6537,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/parse.png"
   },
   "PARTICLE WALL": {
     "name": "Particle Wall",
@@ -6197,7 +6554,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/particle_wall.png"
   },
   "PATTER": {
     "name": "Patter",
@@ -6215,7 +6573,8 @@ const STS2_CARDS = {
       "block": 2,
       "vigor": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/patter.png"
   },
   "PECK": {
     "name": "Peck",
@@ -6232,7 +6591,8 @@ const STS2_CARDS = {
     "upgrade": {
       "repeat": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/peck.png"
   },
   "PERFECTED STRIKE": {
     "name": "Perfected Strike",
@@ -6249,7 +6609,8 @@ const STS2_CARDS = {
     "upgrade": {
       "extra_damage": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/perfected_strike.png"
   },
   "PHANTOM BLADES": {
     "name": "Phantom Blades",
@@ -6265,7 +6626,8 @@ const STS2_CARDS = {
     "upgrade": {
       "phantom_blades": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/phantom_blades.png"
   },
   "PHOTON CUT": {
     "name": "Photon Cut",
@@ -6285,7 +6647,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Deal 13 damage.\nDraw 2 cards.\nPut 1 card from your Hand on top of your Draw Pile."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/photon_cut.png"
   },
   "PIERCING WAIL": {
     "name": "Piercing Wail",
@@ -6303,7 +6666,8 @@ const STS2_CARDS = {
     "upgrade": {
       "strength_loss": 2
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/piercing_wail.png"
   },
   "PILLAGE": {
     "name": "Pillage",
@@ -6319,7 +6683,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/pillage.png"
   },
   "PILLAR OF CREATION": {
     "name": "Pillar of Creation",
@@ -6335,7 +6700,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/pillar_of_creation.png"
   },
   "PINPOINT": {
     "name": "Pinpoint",
@@ -6351,7 +6717,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/pinpoint.png"
   },
   "POISONED STAB": {
     "name": "Poisoned Stab",
@@ -6369,7 +6736,8 @@ const STS2_CARDS = {
       "damage": 2,
       "poison": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/poisoned_stab.png"
   },
   "POKE": {
     "name": "Poke",
@@ -6385,7 +6753,8 @@ const STS2_CARDS = {
     "upgrade": {
       "osty_damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/poke.png"
   },
   "POMMEL STRIKE": {
     "name": "Pommel Strike",
@@ -6404,7 +6773,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Deal 10 damage.\nDraw 2 cards."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/pommel_strike.png"
   },
   "POOR SLEEP": {
     "name": "Poor Sleep",
@@ -6419,7 +6789,8 @@ const STS2_CARDS = {
     "description": "",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/poor_sleep.png"
   },
   "POUNCE": {
     "name": "Pounce",
@@ -6435,7 +6806,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 6
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/pounce.png"
   },
   "PRECISE CUT": {
     "name": "Precise Cut",
@@ -6452,7 +6824,8 @@ const STS2_CARDS = {
     "upgrade": {
       "calculation_base": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/precise_cut.png"
   },
   "PREDATOR": {
     "name": "Predator",
@@ -6468,7 +6841,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 5
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/predator.png"
   },
   "PREP TIME": {
     "name": "Prep Time",
@@ -6484,7 +6858,8 @@ const STS2_CARDS = {
     "upgrade": {
       "prep_time": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/prep_time.png"
   },
   "PREPARED": {
     "name": "Prepared",
@@ -6501,7 +6876,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Draw 2 cards.\nDiscard 2 cards."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/prepared.png"
   },
   "PRIMAL FORCE": {
     "name": "Primal Force",
@@ -6515,7 +6891,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Transform all Attacks in your Hand into Giant Rock+."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/primal_force.png"
   },
   "PRODUCTION": {
     "name": "Production",
@@ -6533,7 +6910,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/production.png"
   },
   "PROLONG": {
     "name": "Prolong",
@@ -6551,7 +6929,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/prolong.png"
   },
   "PROPHESIZE": {
     "name": "Prophesize",
@@ -6568,7 +6947,8 @@ const STS2_CARDS = {
       "cards": 3,
       "description": "Draw 9 cards."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/prophesize.png"
   },
   "PROTECTOR": {
     "name": "Protector",
@@ -6586,7 +6966,8 @@ const STS2_CARDS = {
       "calculation_base": 5,
       "cost": 0
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/protector.png"
   },
   "PROWESS": {
     "name": "Prowess",
@@ -6604,7 +6985,8 @@ const STS2_CARDS = {
       "dexterity": 1,
       "strength": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/prowess.png"
   },
   "PULL AGGRO": {
     "name": "Pull Aggro",
@@ -6622,7 +7004,8 @@ const STS2_CARDS = {
       "summon": 1,
       "block": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/pull_aggro.png"
   },
   "PULL FROM BELOW": {
     "name": "Pull from Below",
@@ -6641,7 +7024,8 @@ const STS2_CARDS = {
       "damage": 2,
       "description": "Deal 7 damage for each Ethereal card played this combat."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/pull_from_below.png"
   },
   "PURITY": {
     "name": "Purity",
@@ -6660,7 +7044,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/purity.png"
   },
   "PUTREFY": {
     "name": "Putrefy",
@@ -6678,7 +7063,8 @@ const STS2_CARDS = {
     "upgrade": {
       "power": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/putrefy.png"
   },
   "PYRE": {
     "name": "Pyre",
@@ -6694,7 +7080,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/pyre.png"
   },
   "QUADCAST": {
     "name": "Quadcast",
@@ -6710,7 +7097,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/quadcast.png"
   },
   "QUASAR": {
     "name": "Quasar",
@@ -6724,7 +7112,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Choose 1 of 3 random Upgraded Colorless cards to add into your Hand."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/quasar.png"
   },
   "RADIATE": {
     "name": "Radiate",
@@ -6744,7 +7133,8 @@ const STS2_CARDS = {
       "damage": 1,
       "description": "Deal 4 damage to ALL enemies for each [S] gained this turn."
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/radiate.png"
   },
   "RAGE": {
     "name": "Rage",
@@ -6760,7 +7150,8 @@ const STS2_CARDS = {
     "upgrade": {
       "power": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/rage.png"
   },
   "RAINBOW": {
     "name": "Rainbow",
@@ -6778,7 +7169,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/rainbow.png"
   },
   "RALLY": {
     "name": "Rally",
@@ -6794,7 +7186,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 5
     },
-    "target": "AllAllies"
+    "target": "AllAllies",
+    "image": "images/cards/rally.png"
   },
   "RAMPAGE": {
     "name": "Rampage",
@@ -6811,7 +7204,8 @@ const STS2_CARDS = {
     "upgrade": {
       "increase": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/rampage.png"
   },
   "RATTLE": {
     "name": "Rattle",
@@ -6830,7 +7224,8 @@ const STS2_CARDS = {
       "osty_damage": 2,
       "description": "Osty deals 9 damage.\nHits an additional time for each other time he has attacked this turn."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/rattle.png"
   },
   "REANIMATE": {
     "name": "Reanimate",
@@ -6848,7 +7243,8 @@ const STS2_CARDS = {
     "upgrade": {
       "summon": 5
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/reanimate.png"
   },
   "REAP": {
     "name": "Reap",
@@ -6866,7 +7262,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 6
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/reap.png"
   },
   "REAPER FORM": {
     "name": "Reaper Form",
@@ -6882,7 +7279,8 @@ const STS2_CARDS = {
         "Retain"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/reaper_form.png"
   },
   "REAVE": {
     "name": "Reave",
@@ -6900,7 +7298,8 @@ const STS2_CARDS = {
       "damage": 2,
       "description": "Deal 11 damage.\nAdd a Soul+ into your Draw Pile."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/reave.png"
   },
   "REBOOT": {
     "name": "Reboot",
@@ -6919,7 +7318,8 @@ const STS2_CARDS = {
       "cards": 2,
       "description": "Shuffle ALL your cards into your Draw Pile.\nDraw 6 cards."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/reboot.png"
   },
   "REBOUND": {
     "name": "Rebound",
@@ -6935,7 +7335,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/rebound.png"
   },
   "REFINE BLADE": {
     "name": "Refine Blade",
@@ -6952,7 +7353,8 @@ const STS2_CARDS = {
     "upgrade": {
       "forge": 4
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/refine_blade.png"
   },
   "REFLECT": {
     "name": "Reflect",
@@ -6968,7 +7370,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 4
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/reflect.png"
   },
   "REFLEX": {
     "name": "Reflex",
@@ -6986,7 +7389,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/reflex.png"
   },
   "REFRACT": {
     "name": "Refract",
@@ -7003,7 +7407,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/refract.png"
   },
   "REGRET": {
     "name": "Regret",
@@ -7017,7 +7422,8 @@ const STS2_CARDS = {
     "description": "At the end of your turn, if this is in your Hand, lose 1 HP for each card in your Hand.",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/regret.png"
   },
   "RELAX": {
     "name": "Relax",
@@ -7040,7 +7446,8 @@ const STS2_CARDS = {
       "energy": 1,
       "description": "Gain 17 Block.\nNext turn, draw 3 cards and gain [E][E][E]."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/relax.png"
   },
   "REND": {
     "name": "Rend",
@@ -7058,7 +7465,8 @@ const STS2_CARDS = {
       "extra_damage": 3,
       "calculation_base": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/rend.png"
   },
   "RESONANCE": {
     "name": "Resonance",
@@ -7074,7 +7482,8 @@ const STS2_CARDS = {
     "upgrade": {
       "strength": 1
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/resonance.png"
   },
   "RESTLESSNESS": {
     "name": "Restlessness",
@@ -7094,7 +7503,8 @@ const STS2_CARDS = {
       "cards": 1,
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/restlessness.png"
   },
   "RICOCHET": {
     "name": "Ricochet",
@@ -7113,7 +7523,8 @@ const STS2_CARDS = {
     "upgrade": {
       "repeat": 1
     },
-    "target": "RandomEnemy"
+    "target": "RandomEnemy",
+    "image": "images/cards/ricochet.png"
   },
   "RIGHT HAND HAND": {
     "name": "Right Hand Hand",
@@ -7130,7 +7541,8 @@ const STS2_CARDS = {
     "upgrade": {
       "osty_damage": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/right_hand_hand.png"
   },
   "RIP AND TEAR": {
     "name": "Rip and Tear",
@@ -7146,7 +7558,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "RandomEnemy"
+    "target": "RandomEnemy",
+    "image": "images/cards/rip_and_tear.png"
   },
   "ROCKET PUNCH": {
     "name": "Rocket Punch",
@@ -7165,7 +7578,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Deal 14 damage.\nDraw 2 cards.\nWhenever you create a Status, reduce this card's cost to 0 [E] until played."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/rocket_punch.png"
   },
   "ROLLING BOULDER": {
     "name": "Rolling Boulder",
@@ -7182,7 +7596,8 @@ const STS2_CARDS = {
     "upgrade": {
       "rolling_boulder": 5
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/rolling_boulder.png"
   },
   "ROYAL GAMBLE": {
     "name": "Royal Gamble",
@@ -7202,7 +7617,8 @@ const STS2_CARDS = {
         "Retain"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/royal_gamble.png"
   },
   "ROYALTIES": {
     "name": "Royalties",
@@ -7218,7 +7634,8 @@ const STS2_CARDS = {
     "upgrade": {
       "gold": 5
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/royalties.png"
   },
   "RUPTURE": {
     "name": "Rupture",
@@ -7234,7 +7651,8 @@ const STS2_CARDS = {
     "upgrade": {
       "strength": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/rupture.png"
   },
   "SACRIFICE": {
     "name": "Sacrifice",
@@ -7250,7 +7668,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/sacrifice.png"
   },
   "SALVO": {
     "name": "Salvo",
@@ -7266,7 +7685,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/salvo.png"
   },
   "SCAVENGE": {
     "name": "Scavenge",
@@ -7282,7 +7702,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/scavenge.png"
   },
   "SCOURGE": {
     "name": "Scourge",
@@ -7301,7 +7722,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Apply 16 Doom.\nDraw 2 cards."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/scourge.png"
   },
   "SCRAPE": {
     "name": "Scrape",
@@ -7319,7 +7741,8 @@ const STS2_CARDS = {
       "damage": 3,
       "cards": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/scrape.png"
   },
   "SCRAWL": {
     "name": "Scrawl",
@@ -7337,7 +7760,8 @@ const STS2_CARDS = {
         "Retain"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/scrawl.png"
   },
   "SCULPTING STRIKE": {
     "name": "Sculpting Strike",
@@ -7353,7 +7777,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/sculpting_strike.png"
   },
   "SEANCE": {
     "name": "Seance",
@@ -7371,7 +7796,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/seance.png"
   },
   "SECOND WIND": {
     "name": "Second Wind",
@@ -7387,7 +7813,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/second_wind.png"
   },
   "SECRET TECHNIQUE": {
     "name": "Secret Technique",
@@ -7405,7 +7832,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/secret_technique.png"
   },
   "SECRET WEAPON": {
     "name": "Secret Weapon",
@@ -7423,7 +7851,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/secret_weapon.png"
   },
   "SEEKER STRIKE": {
     "name": "Seeker Strike",
@@ -7440,7 +7869,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/seeker_strike.png"
   },
   "SEEKING EDGE": {
     "name": "Seeking Edge",
@@ -7456,7 +7886,8 @@ const STS2_CARDS = {
     "upgrade": {
       "forge": 4
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/seeking_edge.png"
   },
   "SENTRY MODE": {
     "name": "Sentry Mode",
@@ -7472,7 +7903,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/sentry_mode.png"
   },
   "SERPENT FORM": {
     "name": "Serpent Form",
@@ -7488,7 +7920,8 @@ const STS2_CARDS = {
     "upgrade": {
       "serpent_form": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/serpent_form.png"
   },
   "SETUP STRIKE": {
     "name": "Setup Strike",
@@ -7506,7 +7939,8 @@ const STS2_CARDS = {
       "damage": 2,
       "strength": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/setup_strike.png"
   },
   "SEVEN STARS": {
     "name": "Seven Stars",
@@ -7523,7 +7957,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/seven_stars.png"
   },
   "SEVERANCE": {
     "name": "Severance",
@@ -7539,7 +7974,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 5
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/severance.png"
   },
   "SHADOW SHIELD": {
     "name": "Shadow Shield",
@@ -7555,7 +7991,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 4
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/shadow_shield.png"
   },
   "SHADOW STEP": {
     "name": "Shadow Step",
@@ -7571,7 +8008,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/shadow_step.png"
   },
   "SHADOWMELD": {
     "name": "Shadowmeld",
@@ -7587,7 +8025,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/shadowmeld.png"
   },
   "SHAME": {
     "name": "Shame",
@@ -7603,7 +8042,8 @@ const STS2_CARDS = {
       "frail": 1
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/shame.png"
   },
   "SHARED FATE": {
     "name": "Shared Fate",
@@ -7622,7 +8062,8 @@ const STS2_CARDS = {
     "upgrade": {
       "enemy_strength_loss": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/shared_fate.png"
   },
   "SHATTER": {
     "name": "Shatter",
@@ -7638,7 +8079,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/shatter.png"
   },
   "SHINING STRIKE": {
     "name": "Shining Strike",
@@ -7655,7 +8097,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/shining_strike.png"
   },
   "SHIV": {
     "name": "Shiv",
@@ -7673,7 +8116,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/shiv.png"
   },
   "SHOCKWAVE": {
     "name": "Shockwave",
@@ -7691,7 +8135,8 @@ const STS2_CARDS = {
     "upgrade": {
       "power": 2
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/shockwave.png"
   },
   "SHROUD": {
     "name": "Shroud",
@@ -7707,7 +8152,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/shroud.png"
   },
   "SHRUG IT OFF": {
     "name": "Shrug It Off",
@@ -7724,7 +8170,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/shrug_it_off.png"
   },
   "SIC 'EM": {
     "name": "Sic 'Em",
@@ -7742,7 +8189,8 @@ const STS2_CARDS = {
       "osty_damage": 1,
       "sic_em": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/sic_em.png"
   },
   "SIGNAL BOOST": {
     "name": "Signal Boost",
@@ -7760,7 +8208,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/signal_boost.png"
   },
   "SKEWER": {
     "name": "Skewer",
@@ -7776,7 +8225,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/skewer.png"
   },
   "SKIM": {
     "name": "Skim",
@@ -7792,7 +8242,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cards": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/skim.png"
   },
   "SLEIGHT OF FLESH": {
     "name": "Sleight of Flesh",
@@ -7808,7 +8259,8 @@ const STS2_CARDS = {
     "upgrade": {
       "sleight_of_flesh": 4
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/sleight_of_flesh.png"
   },
   "SLICE": {
     "name": "Slice",
@@ -7824,7 +8276,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/slice.png"
   },
   "SLIMED": {
     "name": "Slimed",
@@ -7840,7 +8293,8 @@ const STS2_CARDS = {
       "cards": 1
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/slimed.png"
   },
   "SLOTH": {
     "name": "Sloth",
@@ -7854,7 +8308,8 @@ const STS2_CARDS = {
       "power_sloth": 3
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/sloth.png"
   },
   "SMOKESTACK": {
     "name": "Smokestack",
@@ -7870,7 +8325,8 @@ const STS2_CARDS = {
     "upgrade": {
       "smokestack": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/smokestack.png"
   },
   "SNAKEBITE": {
     "name": "Snakebite",
@@ -7888,7 +8344,8 @@ const STS2_CARDS = {
     "upgrade": {
       "poison": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/snakebite.png"
   },
   "SNAP": {
     "name": "Snap",
@@ -7904,7 +8361,8 @@ const STS2_CARDS = {
     "upgrade": {
       "osty_damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/snap.png"
   },
   "SNEAKY": {
     "name": "Sneaky",
@@ -7922,7 +8380,8 @@ const STS2_CARDS = {
     "upgrade": {
       "sneaky": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/sneaky.png"
   },
   "SOLAR STRIKE": {
     "name": "Solar Strike",
@@ -7940,7 +8399,8 @@ const STS2_CARDS = {
       "damage": 1,
       "stars": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/solar_strike.png"
   },
   "SOOT": {
     "name": "Soot",
@@ -7954,7 +8414,8 @@ const STS2_CARDS = {
     "description": "",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/soot.png"
   },
   "SOUL": {
     "name": "Soul",
@@ -7973,7 +8434,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Draw 3 cards."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/soul.png"
   },
   "SOUL STORM": {
     "name": "Soul Storm",
@@ -7990,7 +8452,8 @@ const STS2_CARDS = {
     "upgrade": {
       "extra_damage": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/soul_storm.png"
   },
   "SOVEREIGN BLADE": {
     "name": "Sovereign Blade",
@@ -8011,7 +8474,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/sovereign_blade.png"
   },
   "SOW": {
     "name": "Sow",
@@ -8029,7 +8493,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/sow.png"
   },
   "SPECTRUM SHIFT": {
     "name": "Spectrum Shift",
@@ -8045,7 +8510,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/spectrum_shift.png"
   },
   "SPEEDSTER": {
     "name": "Speedster",
@@ -8063,7 +8529,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/speedster.png"
   },
   "SPINNER": {
     "name": "Spinner",
@@ -8079,7 +8546,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Channel 1 Glass.\nAt the start of your turn, Channel 1 Glass."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/spinner.png"
   },
   "SPIRIT OF ASH": {
     "name": "Spirit of Ash",
@@ -8095,7 +8563,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block_on_exhaust": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/spirit_of_ash.png"
   },
   "SPITE": {
     "name": "Spite",
@@ -8112,7 +8581,8 @@ const STS2_CARDS = {
     "upgrade": {
       "repeat": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/spite.png"
   },
   "SPLASH": {
     "name": "Splash",
@@ -8126,7 +8596,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Choose 1 of 3 random Upgraded Attacks from another character to add into your Hand. It's free to play this turn."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/splash.png"
   },
   "SPOILS MAP": {
     "name": "Spoils Map",
@@ -8142,7 +8613,8 @@ const STS2_CARDS = {
       "gold": 600
     },
     "upgrade": {},
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/spoils_map.png"
   },
   "SPOILS OF BATTLE": {
     "name": "Spoils of Battle",
@@ -8160,7 +8632,8 @@ const STS2_CARDS = {
       "forge": 3,
       "description": "Forge 8.\nDraw 2 cards."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/spoils_of_battle.png"
   },
   "SPORE MIND": {
     "name": "Spore Mind",
@@ -8174,7 +8647,8 @@ const STS2_CARDS = {
     "description": "",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/spore_mind.png"
   },
   "SPUR": {
     "name": "Spur",
@@ -8194,7 +8668,8 @@ const STS2_CARDS = {
       "summon": 2,
       "heal": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/spur.png"
   },
   "SQUASH": {
     "name": "Squash",
@@ -8212,7 +8687,8 @@ const STS2_CARDS = {
       "damage": 2,
       "vulnerable": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/squash.png"
   },
   "SQUEEZE": {
     "name": "Squeeze",
@@ -8230,7 +8706,8 @@ const STS2_CARDS = {
       "calculation_base": 5,
       "extra_damage": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/squeeze.png"
   },
   "STACK": {
     "name": "Stack",
@@ -8248,7 +8725,8 @@ const STS2_CARDS = {
       "calculation_base": 3,
       "description": "Gain Block equal to the number of cards in your Discard Pile +3."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/stack.png"
   },
   "STAMPEDE": {
     "name": "Stampede",
@@ -8264,7 +8742,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/stampede.png"
   },
   "STARDUST": {
     "name": "Stardust",
@@ -8280,7 +8759,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "RandomEnemy"
+    "target": "RandomEnemy",
+    "image": "images/cards/stardust.png"
   },
   "STOKE": {
     "name": "Stoke",
@@ -8294,7 +8774,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Exhaust your Hand.\nAdd 1 random Upgraded card into your Hand for each card Exhausted."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/stoke.png"
   },
   "STOMP": {
     "name": "Stomp",
@@ -8310,7 +8791,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/stomp.png"
   },
   "STONE ARMOR": {
     "name": "Stone Armor",
@@ -8326,7 +8808,8 @@ const STS2_CARDS = {
     "upgrade": {
       "plating": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/stone_armor.png"
   },
   "STORM": {
     "name": "Storm",
@@ -8342,7 +8825,8 @@ const STS2_CARDS = {
     "upgrade": {
       "storm": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/storm.png"
   },
   "STORM OF STEEL": {
     "name": "Storm of Steel",
@@ -8356,7 +8840,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Discard your Hand.\nAdd 1 Shiv+ into your Hand for each card discarded."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/storm_of_steel.png"
   },
   "STRANGLE": {
     "name": "Strangle",
@@ -8374,7 +8859,8 @@ const STS2_CARDS = {
       "damage": 2,
       "strangle": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/strangle.png"
   },
   "STRATAGEM": {
     "name": "Stratagem",
@@ -8388,7 +8874,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/stratagem.png"
   },
   "STRIKE": {
     "name": "Strike",
@@ -8418,7 +8905,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/subroutine.png"
   },
   "SUCKER PUNCH": {
     "name": "Sucker Punch",
@@ -8436,7 +8924,8 @@ const STS2_CARDS = {
       "damage": 2,
       "weak": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/sucker_punch.png"
   },
   "SUMMON FORTH": {
     "name": "Summon Forth",
@@ -8452,7 +8941,8 @@ const STS2_CARDS = {
     "upgrade": {
       "forge": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/summon_forth.png"
   },
   "SUNDER": {
     "name": "Sunder",
@@ -8469,7 +8959,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 8
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/sunder.png"
   },
   "SUPERCRITICAL": {
     "name": "Supercritical",
@@ -8487,7 +8978,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/supercritical.png"
   },
   "SUPERMASSIVE": {
     "name": "Supermassive",
@@ -8504,7 +8996,8 @@ const STS2_CARDS = {
     "upgrade": {
       "extra_damage": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/supermassive.png"
   },
   "SUPPRESS": {
     "name": "Suppress",
@@ -8524,7 +9017,8 @@ const STS2_CARDS = {
       "damage": 6,
       "weak": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/suppress.png"
   },
   "SURVIVOR": {
     "name": "Survivor",
@@ -8540,7 +9034,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 3
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/survivor.png"
   },
   "SWEEPING BEAM": {
     "name": "Sweeping Beam",
@@ -8558,7 +9053,8 @@ const STS2_CARDS = {
       "damage": 3,
       "description": "Deal 9 damage to ALL enemies.\nDraw 1 card."
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/sweeping_beam.png"
   },
   "SWEEPING GAZE": {
     "name": "Sweeping Gaze",
@@ -8577,7 +9073,8 @@ const STS2_CARDS = {
     "upgrade": {
       "osty_damage": 5
     },
-    "target": "RandomEnemy"
+    "target": "RandomEnemy",
+    "image": "images/cards/sweeping_gaze.png"
   },
   "SWORD BOOMERANG": {
     "name": "Sword Boomerang",
@@ -8594,7 +9091,8 @@ const STS2_CARDS = {
     "upgrade": {
       "repeat": 1
     },
-    "target": "RandomEnemy"
+    "target": "RandomEnemy",
+    "image": "images/cards/sword_boomerang.png"
   },
   "SWORD SAGE": {
     "name": "Sword Sage",
@@ -8610,7 +9108,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/sword_sage.png"
   },
   "SYNCHRONIZE": {
     "name": "Synchronize",
@@ -8631,7 +9130,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/synchronize.png"
   },
   "SYNTHESIS": {
     "name": "Synthesis",
@@ -8647,7 +9147,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 6
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/synthesis.png"
   },
   "TACTICIAN": {
     "name": "Tactician",
@@ -8665,7 +9166,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/tactician.png"
   },
   "TAG TEAM": {
     "name": "Tag Team",
@@ -8681,7 +9183,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/tag_team.png"
   },
   "TANK": {
     "name": "Tank",
@@ -8695,7 +9198,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/tank.png"
   },
   "TAUNT": {
     "name": "Taunt",
@@ -8713,7 +9217,8 @@ const STS2_CARDS = {
       "block": 1,
       "vulnerable": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/taunt.png"
   },
   "TEAR ASUNDER": {
     "name": "Tear Asunder",
@@ -8733,7 +9238,8 @@ const STS2_CARDS = {
       "damage": 2,
       "description": "Deal 7 damage.\nHits an additional time for each time you lost HP this combat."
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/tear_asunder.png"
   },
   "TEMPEST": {
     "name": "Tempest",
@@ -8747,7 +9253,8 @@ const STS2_CARDS = {
     "upgrade": {
       "description": "Channel X+1 Lightning."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/tempest.png"
   },
   "TERRAFORMING": {
     "name": "Terraforming",
@@ -8763,7 +9270,8 @@ const STS2_CARDS = {
     "upgrade": {
       "vigor": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/terraforming.png"
   },
   "TESLA COIL": {
     "name": "Tesla Coil",
@@ -8779,7 +9287,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/tesla_coil.png"
   },
   "THE BOMB": {
     "name": "The Bomb",
@@ -8797,7 +9306,8 @@ const STS2_CARDS = {
       "bomb_damage": 10,
       "description": "At the end of 3 turns, deal 50 damage to ALL enemies."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/the_bomb.png"
   },
   "THE GAMBIT": {
     "name": "The Gambit",
@@ -8813,7 +9323,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 25
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/the_gambit.png"
   },
   "THE HUNT": {
     "name": "The Hunt",
@@ -8831,7 +9342,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 5
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/the_hunt.png"
   },
   "THE SCYTHE": {
     "name": "The Scythe",
@@ -8849,7 +9361,8 @@ const STS2_CARDS = {
     "upgrade": {
       "increase": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/the_scythe.png"
   },
   "THE SEALED THRONE": {
     "name": "The Sealed Throne",
@@ -8865,7 +9378,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/the_sealed_throne.png"
   },
   "THE SMITH": {
     "name": "The Smith",
@@ -8881,7 +9395,8 @@ const STS2_CARDS = {
     "upgrade": {
       "forge": 10
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/the_smith.png"
   },
   "THINKING AHEAD": {
     "name": "Thinking Ahead",
@@ -8901,7 +9416,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/thinking_ahead.png"
   },
   "THRASH": {
     "name": "Thrash",
@@ -8917,7 +9433,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/thrash.png"
   },
   "THRUMMING HATCHET": {
     "name": "Thrumming Hatchet",
@@ -8933,7 +9450,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/thrumming_hatchet.png"
   },
   "THUNDER": {
     "name": "Thunder",
@@ -8949,7 +9467,8 @@ const STS2_CARDS = {
     "upgrade": {
       "thunder": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/thunder.png"
   },
   "THUNDERCLAP": {
     "name": "Thunderclap",
@@ -8966,7 +9485,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/thunderclap.png"
   },
   "TIME'S UP": {
     "name": "Time's Up",
@@ -9001,7 +9521,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/tools_of_the_trade.png"
   },
   "TORIC TOUGHNESS": {
     "name": "Toric Toughness",
@@ -9019,7 +9540,8 @@ const STS2_CARDS = {
       "block": 2,
       "description": "Gain 7 Block.\nGain 7 Block at the start of the next 2 turns."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/toric_toughness.png"
   },
   "TOXIC": {
     "name": "Toxic",
@@ -9035,7 +9557,8 @@ const STS2_CARDS = {
       "damage": 5
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/toxic.png"
   },
   "TRACKING": {
     "name": "Tracking",
@@ -9049,7 +9572,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/tracking.png"
   },
   "TRANSFIGURE": {
     "name": "Transfigure",
@@ -9069,7 +9593,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/transfigure.png"
   },
   "TRASH TO TREASURE": {
     "name": "Trash to Treasure",
@@ -9085,7 +9610,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/trash_to_treasure.png"
   },
   "TREMBLE": {
     "name": "Tremble",
@@ -9103,7 +9629,8 @@ const STS2_CARDS = {
     "upgrade": {
       "vulnerable": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/tremble.png"
   },
   "TRUE GRIT": {
     "name": "True Grit",
@@ -9120,7 +9647,8 @@ const STS2_CARDS = {
       "block": 2,
       "description": "Gain 9 Block.\nExhaust 1 card."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/true_grit.png"
   },
   "TURBO": {
     "name": "TURBO",
@@ -9136,7 +9664,8 @@ const STS2_CARDS = {
     "upgrade": {
       "energy": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/turbo.png"
   },
   "TWIN STRIKE": {
     "name": "Twin Strike",
@@ -9152,7 +9681,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/twin_strike.png"
   },
   "TYRANNY": {
     "name": "Tyranny",
@@ -9168,7 +9698,8 @@ const STS2_CARDS = {
         "Innate"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/tyranny.png"
   },
   "ULTIMATE DEFEND": {
     "name": "Ultimate Defend",
@@ -9184,7 +9715,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 4
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/ultimate_defend.png"
   },
   "ULTIMATE STRIKE": {
     "name": "Ultimate Strike",
@@ -9200,7 +9732,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 6
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/ultimate_strike.png"
   },
   "UNDEATH": {
     "name": "Undeath",
@@ -9216,7 +9749,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/undeath.png"
   },
   "UNLEASH": {
     "name": "Unleash",
@@ -9233,7 +9767,8 @@ const STS2_CARDS = {
     "upgrade": {
       "calculation_base": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/unleash.png"
   },
   "UNMOVABLE": {
     "name": "Unmovable",
@@ -9247,7 +9782,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/unmovable.png"
   },
   "UNRELENTING": {
     "name": "Unrelenting",
@@ -9263,7 +9799,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 6
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/unrelenting.png"
   },
   "UNTOUCHABLE": {
     "name": "Untouchable",
@@ -9281,7 +9818,8 @@ const STS2_CARDS = {
     "upgrade": {
       "block": 2
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/untouchable.png"
   },
   "UP MY SLEEVE": {
     "name": "Up My Sleeve",
@@ -9298,7 +9836,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Add 4 Shivs into your Hand.\nReduce this card's cost by 1."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/up_my_sleeve.png"
   },
   "UPPERCUT": {
     "name": "Uppercut",
@@ -9315,7 +9854,8 @@ const STS2_CARDS = {
     "upgrade": {
       "power": 1
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/uppercut.png"
   },
   "UPROAR": {
     "name": "Uproar",
@@ -9331,7 +9871,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/uproar.png"
   },
   "VEILPIERCER": {
     "name": "Veilpiercer",
@@ -9347,7 +9888,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/veilpiercer.png"
   },
   "VENERATE": {
     "name": "Venerate",
@@ -9363,7 +9905,8 @@ const STS2_CARDS = {
     "upgrade": {
       "stars": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/venerate.png"
   },
   "VICIOUS": {
     "name": "Vicious",
@@ -9380,7 +9923,8 @@ const STS2_CARDS = {
       "cards": 1,
       "description": "Whenever you apply Vulnerable, draw 2 cards."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/vicious.png"
   },
   "VOID": {
     "name": "Void",
@@ -9397,7 +9941,8 @@ const STS2_CARDS = {
       "energy": 1
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/void.png"
   },
   "VOID FORM": {
     "name": "Void Form",
@@ -9417,7 +9962,8 @@ const STS2_CARDS = {
         "Ethereal"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/void_form.png"
   },
   "VOLLEY": {
     "name": "Volley",
@@ -9433,7 +9979,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 4
     },
-    "target": "RandomEnemy"
+    "target": "RandomEnemy",
+    "image": "images/cards/volley.png"
   },
   "VOLTAIC": {
     "name": "Voltaic",
@@ -9454,7 +10001,8 @@ const STS2_CARDS = {
         "Exhaust"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/voltaic.png"
   },
   "WASTE AWAY": {
     "name": "Waste Away",
@@ -9468,7 +10016,8 @@ const STS2_CARDS = {
       "power_waste_away": 1
     },
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/waste_away.png"
   },
   "WELL-LAID PLANS": {
     "name": "Well-Laid Plans",
@@ -9485,7 +10034,8 @@ const STS2_CARDS = {
       "retain_amount": 1,
       "description": "At the end of your turn, Retain up to 2 cards."
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/well_laid_plans.png"
   },
   "WHIRLWIND": {
     "name": "Whirlwind",
@@ -9501,7 +10051,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 3
     },
-    "target": "AllEnemies"
+    "target": "AllEnemies",
+    "image": "images/cards/whirlwind.png"
   },
   "WHISTLE": {
     "name": "Whistle",
@@ -9519,7 +10070,8 @@ const STS2_CARDS = {
     "upgrade": {
       "damage": 11
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/whistle.png"
   },
   "WHITE NOISE": {
     "name": "White Noise",
@@ -9535,7 +10087,8 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/white_noise.png"
   },
   "WISH": {
     "name": "Wish",
@@ -9553,7 +10106,8 @@ const STS2_CARDS = {
         "Retain"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/wish.png"
   },
   "WISP": {
     "name": "Wisp",
@@ -9573,7 +10127,8 @@ const STS2_CARDS = {
         "Retain"
       ]
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/wisp.png"
   },
   "WOUND": {
     "name": "Wound",
@@ -9587,7 +10142,8 @@ const STS2_CARDS = {
     "description": "",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/wound.png"
   },
   "WRAITH FORM": {
     "name": "Wraith Form",
@@ -9604,7 +10160,8 @@ const STS2_CARDS = {
     "upgrade": {
       "intangible": 1
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/wraith_form.png"
   },
   "WRITHE": {
     "name": "Writhe",
@@ -9619,7 +10176,8 @@ const STS2_CARDS = {
     "description": "",
     "vars": {},
     "upgrade": {},
-    "target": "None"
+    "target": "None",
+    "image": "images/cards/writhe.png"
   },
   "WROUGHT IN WAR": {
     "name": "Wrought in War",
@@ -9637,7 +10195,8 @@ const STS2_CARDS = {
       "damage": 2,
       "forge": 2
     },
-    "target": "AnyEnemy"
+    "target": "AnyEnemy",
+    "image": "images/cards/wrought_in_war.png"
   },
   "ZAP": {
     "name": "Zap",
@@ -9651,6 +10210,7 @@ const STS2_CARDS = {
     "upgrade": {
       "cost": 0
     },
-    "target": "Self"
+    "target": "Self",
+    "image": "images/cards/zap.png"
   }
 };
