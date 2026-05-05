@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STS2 Decision Advisor</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #e2e8f0;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #60a5fa;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #94a3b8;
+      font-size: 1rem;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .panel {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .panel h2 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #60a5fa;
+      border-bottom: 2px solid #334155;
+      padding-bottom: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+
+    select, input, textarea {
+      width: 100%;
+      padding: 8px;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 4px;
+      color: #e2e8f0;
+      font-size: 0.95rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+      font-family: monospace;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #3b82f6;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #2563eb;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #334155;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+
+    .tab:hover {
+      color: #60a5fa;
+    }
+
+    .tab.active {
+      color: #60a5fa;
+      border-bottom-color: #60a5fa;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .card-result {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 12px;
+      transition: all 0.2s;
+    }
+
+    .card-result:hover {
+      border-color: #60a5fa;
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .card-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #60a5fa;
+    }
+
+    .card-score {
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 4px;
+      background: #334155;
+    }
+
+    .score-high {
+      background: #065f46;
+      color: #6ee7b7;
+    }
+
+    .score-medium {
+      background: #ca8a04;
+      color: #fde047;
+    }
+
+    .score-low {
+      background: #7f1d1d;
+      color: #fca5a5;
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    .card-reason {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    .archetype-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      padding: 4px 12px;
+      background: #334155;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    .pill.active {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .deck-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .deck-card {
+      padding: 6px 10px;
+      background: #334155;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .deck-card:hover {
+      background: #475569;
+      transform: scale(1.05);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: #64748b;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .stat-box {
+      background: #0f172a;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #334155;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #60a5fa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>⚔️ STS2 Decision Advisor</h1>
+      <p class="subtitle">Analyze card rewards, shop options, and removals with scoring and synergy detection</p>
+    </header>
+
+    <div class="main-grid">
+      <!-- Left sidebar -->
+      <div class="panel">
+        <h2>Deck Setup</h2>
+
+        <div class="form-group">
+          <label>Character</label>
+          <select id="character">
+            <option value="ironclad">Ironclad</option>
+            <option value="silent">Silent</option>
+            <option value="defect">Defect</option>
+            <option value="watcher">Watcher</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Current Floor</label>
+          <input type="number" id="floor" value="10" min="1" max="55">
+        </div>
+
+        <div class="form-group">
+          <label>Current Deck</label>
+          <textarea id="deck-input" placeholder="Strike, Strike, Defend, Defend, Bash...">(Paste card names, comma separated)</textarea>
+        </div>
+
+        <button onclick="analyzeDeck()">Update Deck</button>
+
+        <div class="stats-grid" style="margin-top: 20px;">
+          <div class="stat-box">
+            <div class="stat-label">Cards</div>
+            <div class="stat-value" id="deck-count">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Avg Cost</div>
+            <div class="stat-value" id="avg-cost">0</div>
+          </div>
+        </div>
+
+        <div class="archetype-pills" id="archetype-pills"></div>
+      </div>
+
+      <!-- Main content -->
+      <div class="panel">
+        <div class="tabs">
+          <button class="tab active" onclick="switchTab('rewards')">Card Rewards</button>
+          <button class="tab" onclick="switchTab('shop')">Shop</button>
+          <button class="tab" onclick="switchTab('removal')">Card Removal</button>
+        </div>
+
+        <div id="tab-rewards" class="tab-content active">
+          <div class="form-group">
+            <label>Card Options (comma separated)</label>
+            <input type="text" id="reward-cards" placeholder="Whirlwind, Rampage, Cleave">
+          </div>
+          <button onclick="scoreRewards()">Analyze Rewards</button>
+          <div id="reward-results" style="margin-top: 20px;"></div>
+        </div>
+
+        <div id="tab-shop" class="tab-content">
+          <div class="form-group">
+            <label>Shop Cards Available</label>
+            <input type="text" id="shop-cards" placeholder="Immolate, Inflame, Headbutt">
+          </div>
+          <button onclick="scoreShop()">Analyze Shop</button>
+          <div id="shop-results" style="margin-top: 20px;"></div>
+        </div>
+
+        <div id="tab-removal" class="tab-content">
+          <div class="form-group">
+            <label>Cards to Consider Removing</label>
+            <input type="text" id="removal-cards" placeholder="Strike, Defend, Bash">
+          </div>
+          <button onclick="scoreRemovals()">Analyze Removals</button>
+          <div id="removal-results" style="margin-top: 20px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="logic.js"></script>
+</body>
+</html>
