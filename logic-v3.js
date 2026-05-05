@@ -338,16 +338,22 @@ function setupDeckAutocomplete() {
       return;
     }
 
-    dropdown.innerHTML = matches.map((card, idx) => `
-      <div class="autocomplete-item" data-index="${idx}" data-name="${card.name}" onclick="addCardToDeckPill('${card.name}')">
-        <span class="autocomplete-item-icon">${card.icon}</span>
-        <span class="autocomplete-item-name">${card.name}</span>
-        <span class="autocomplete-item-meta">
-          <span>${card.cost >= 0 ? card.cost : 'X'}</span>
-          ${card.rarity ? `<span>${card.rarity}</span>` : ''}
-        </span>
-      </div>
-    `).join('');
+    dropdown.innerHTML = matches.map((card, idx) => {
+      const characterBadge = card.character !== currentCharacter
+        ? `<span style="font-size: 0.7rem; opacity: 0.7;">${card.character}</span>`
+        : '';
+      return `
+        <div class="autocomplete-item" data-index="${idx}" data-name="${card.name}" onclick="addCardToDeckPill('${card.name}')">
+          <span class="autocomplete-item-icon">${card.icon}</span>
+          <span class="autocomplete-item-name">${card.name}</span>
+          <span class="autocomplete-item-meta">
+            <span>${card.cost >= 0 ? card.cost : 'X'}</span>
+            ${card.rarity ? `<span>${card.rarity}</span>` : ''}
+            ${characterBadge}
+          </span>
+        </div>
+      `;
+    }).join('');
 
     dropdown.classList.add('show');
   });
@@ -1981,17 +1987,39 @@ function initAutocomplete() {
   console.log('Initializing autocomplete, CARDS:', Object.keys(CARDS).length);
   console.log('Current character:', currentCharacter);
 
-  // Build searchable card list
+  // Build searchable card list with priority sorting
+  // Priority: 1) Current character, 2) Colorless, 3) Other characters (alphabetical)
   autocompleteData = Object.values(CARDS)
-    .filter(card => card.name && card.character === currentCharacter)
+    .filter(card => card.name)
     .map(card => ({
       name: card.name,
       type: card.type || '',
       cost: card.cost,
       rarity: card.rarity || '',
+      character: card.character || 'unknown',
       icon: TYPE_ICONS[card.type] || '📄'
     }))
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => {
+      // Priority 1: Current character cards first
+      const aIsCurrentChar = a.character === currentCharacter;
+      const bIsCurrentChar = b.character === currentCharacter;
+      if (aIsCurrentChar && !bIsCurrentChar) return -1;
+      if (!aIsCurrentChar && bIsCurrentChar) return 1;
+
+      // Priority 2: Colorless cards second
+      const aIsColorless = a.character === 'colorless';
+      const bIsColorless = b.character === 'colorless';
+      if (aIsColorless && !bIsColorless) return -1;
+      if (!aIsColorless && bIsColorless) return 1;
+
+      // Priority 3: Other characters alphabetically by character name
+      if (a.character !== b.character) {
+        return a.character.localeCompare(b.character);
+      }
+
+      // Same priority level: sort by card name
+      return a.name.localeCompare(b.name);
+    });
 
   console.log('Autocomplete data:', autocompleteData.length, 'cards');
 
@@ -2045,16 +2073,22 @@ function setupAdditionalRewardAutocomplete() {
       return;
     }
 
-    dropdown.innerHTML = matches.map((card, idx) => `
-      <div class="autocomplete-item" data-index="${idx}" data-name="${card.name}" onclick="addAdditionalRewardCard('${card.name}')">
-        <span class="autocomplete-item-icon">${card.icon}</span>
-        <span class="autocomplete-item-name">${card.name}</span>
-        <span class="autocomplete-item-meta">
-          <span>${card.cost >= 0 ? card.cost : 'X'}</span>
-          ${card.rarity ? `<span>${card.rarity}</span>` : ''}
-        </span>
-      </div>
-    `).join('');
+    dropdown.innerHTML = matches.map((card, idx) => {
+      const characterBadge = card.character !== currentCharacter
+        ? `<span style="font-size: 0.7rem; opacity: 0.7;">${card.character}</span>`
+        : '';
+      return `
+        <div class="autocomplete-item" data-index="${idx}" data-name="${card.name}" onclick="addAdditionalRewardCard('${card.name}')">
+          <span class="autocomplete-item-icon">${card.icon}</span>
+          <span class="autocomplete-item-name">${card.name}</span>
+          <span class="autocomplete-item-meta">
+            <span>${card.cost >= 0 ? card.cost : 'X'}</span>
+            ${card.rarity ? `<span>${card.rarity}</span>` : ''}
+            ${characterBadge}
+          </span>
+        </div>
+      `;
+    }).join('');
 
     dropdown.classList.add('show');
   });
@@ -2598,16 +2632,22 @@ function setupShopAutocomplete() {
       return;
     }
 
-    dropdown.innerHTML = matches.map((card, idx) => `
-      <div class="autocomplete-item" data-index="${idx}" data-name="${card.name}" onclick="addShopCard('${card.name}')">
-        <span class="autocomplete-item-icon">${card.icon}</span>
-        <span class="autocomplete-item-name">${card.name}</span>
-        <span class="autocomplete-item-meta">
-          <span>${card.cost >= 0 ? card.cost : 'X'}</span>
-          ${card.rarity ? `<span>${card.rarity}</span>` : ''}
-        </span>
-      </div>
-    `).join('');
+    dropdown.innerHTML = matches.map((card, idx) => {
+      const characterBadge = card.character !== currentCharacter
+        ? `<span style="font-size: 0.7rem; opacity: 0.7;">${card.character}</span>`
+        : '';
+      return `
+        <div class="autocomplete-item" data-index="${idx}" data-name="${card.name}" onclick="addShopCard('${card.name}')">
+          <span class="autocomplete-item-icon">${card.icon}</span>
+          <span class="autocomplete-item-name">${card.name}</span>
+          <span class="autocomplete-item-meta">
+            <span>${card.cost >= 0 ? card.cost : 'X'}</span>
+            ${card.rarity ? `<span>${card.rarity}</span>` : ''}
+            ${characterBadge}
+          </span>
+        </div>
+      `;
+    }).join('');
 
     dropdown.classList.add('show');
   });
@@ -2683,16 +2723,22 @@ function setupAutocompleteField(inputId, dropdownId) {
       return;
     }
 
-    dropdown.innerHTML = matches.map((card, idx) => `
-      <div class="autocomplete-item" data-index="${idx}" data-name="${card.name}" onclick="selectAutocomplete('${inputId}', '${card.name}')">
-        <span class="autocomplete-item-icon">${card.icon}</span>
-        <span class="autocomplete-item-name">${card.name}</span>
-        <span class="autocomplete-item-meta">
-          <span>${card.cost >= 0 ? card.cost : 'X'}</span>
-          ${card.rarity ? `<span>${card.rarity}</span>` : ''}
-        </span>
-      </div>
-    `).join('');
+    dropdown.innerHTML = matches.map((card, idx) => {
+      const characterBadge = card.character !== currentCharacter
+        ? `<span style="font-size: 0.7rem; opacity: 0.7;">${card.character}</span>`
+        : '';
+      return `
+        <div class="autocomplete-item" data-index="${idx}" data-name="${card.name}" onclick="selectAutocomplete('${inputId}', '${card.name}')">
+          <span class="autocomplete-item-icon">${card.icon}</span>
+          <span class="autocomplete-item-name">${card.name}</span>
+          <span class="autocomplete-item-meta">
+            <span>${card.cost >= 0 ? card.cost : 'X'}</span>
+            ${card.rarity ? `<span>${card.rarity}</span>` : ''}
+            ${characterBadge}
+          </span>
+        </div>
+      `;
+    }).join('');
 
     dropdown.classList.add('show');
   });
