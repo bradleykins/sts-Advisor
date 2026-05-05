@@ -356,14 +356,14 @@ async function analyzeBossReadiness() {
 
       actHtml += `
         <div style="background: var(--bg-secondary); border-left: 4px solid ${color}; border-radius: 8px; padding: 16px; margin-bottom: 12px; animation: slideIn 0.3s ease;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px;">
+            <div style="flex: 1;">
               <div style="font-weight: bold; font-size: 1.1rem; color: var(--text-primary);">${bossData.name}</div>
               <div style="color: ${color}; font-weight: 600; font-size: 0.9rem; margin-top: 4px;">
                 ${readiness} (Score: ${Math.round(avgScore)})
               </div>
             </div>
-            <button onclick="selectBossFromReadiness('${bossKey}')" style="padding: 3px 8px; background: var(--accent); color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 0.7rem; white-space: nowrap; flex-shrink: 0;">
+            <button onclick="selectBossFromReadiness('${bossKey}')" style="padding: 2px 6px; background: var(--accent); color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 0.65rem; white-space: nowrap; flex-shrink: 0; height: fit-content;">
               Set
             </button>
           </div>
