@@ -14,6 +14,8 @@
     :root {
       --bg-primary: #1e293b;
       --bg-secondary: #0f172a;
+      --bg-tertiary: #0f172a;
+      --border: #334155;
       --border-color: #334155;
       --text-primary: #e2e8f0;
       --text-secondary: #94a3b8;
@@ -27,6 +29,8 @@
     [data-theme="light"] {
       --bg-primary: #f1f5f9;
       --bg-secondary: #ffffff;
+      --bg-tertiary: #ffffff;
+      --border: #cbd5e1;
       --border-color: #cbd5e1;
       --text-primary: #1e293b;
       --text-secondary: #64748b;
@@ -118,13 +122,17 @@
       right: 0;
       background: var(--bg-primary);
       border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 8px 16px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 0;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 0;
       transition: all 0.2s;
+      font-size: 1.2rem;
     }
 
     .theme-toggle:hover {
@@ -139,7 +147,7 @@
     /* Main grid */
     .main-grid {
       display: grid;
-      grid-template-columns: 350px 1fr;
+      grid-template-columns: 440px 1fr;
       gap: 20px;
       margin-bottom: 20px;
     }
@@ -806,6 +814,245 @@
 
     /* Shop card list */
     /* Pill input containers */
+    .shop-grid {
+      background: var(--bg-secondary);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .shop-row {
+      margin-bottom: 20px;
+    }
+
+    .shop-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .shop-row:first-child .shop-slots {
+      justify-content: center;
+    }
+
+    .shop-slot-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .shop-slots {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .shop-slot {
+      width: 120px;
+      height: 160px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 2px dashed var(--border-color);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .shop-slot.empty {
+      opacity: 0.5;
+    }
+
+    .shop-slot:not(.empty) {
+      background: var(--bg-primary);
+      border: 2px solid var(--accent);
+      border-style: solid;
+    }
+
+    .shop-slot:not(.empty):hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+    }
+
+    .shop-slot-content {
+      text-align: center;
+      padding: 8px;
+    }
+
+    .shop-slot-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .shop-slot-type {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .shop-slot-remove {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 20px;
+      height: 20px;
+      background: var(--error);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.75rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .shop-slot:hover .shop-slot-remove {
+      display: flex;
+    }
+
+    .shop-slot-actions {
+      position: absolute;
+      bottom: 4px;
+      left: 4px;
+      display: flex;
+      gap: 4px;
+      z-index: 3;
+    }
+
+    .shop-slot-action-btn {
+      width: 24px;
+      height: 24px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      color: var(--text-secondary);
+    }
+
+    .shop-slot-action-btn:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .shop-slot-action-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      font-weight: bold;
+    }
+
+    .shop-slot.upgraded {
+      border-color: #f59e0b;
+      box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
+    }
+
+    .shop-slot.enchanted {
+      border-color: #a855f7;
+      box-shadow: 0 0 8px rgba(168, 85, 247, 0.3);
+    }
+
+    .shop-slot.upgraded.enchanted {
+      border-color: #f59e0b;
+      box-shadow: 0 0 8px rgba(245, 158, 11, 0.3), 0 0 12px rgba(168, 85, 247, 0.3);
+    }
+
+    .shop-slot.generic-score {
+      border-color: #fbbf24;
+      border-style: dashed;
+    }
+
+    .shop-bad-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(239, 68, 68, 0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: rgba(239, 68, 68, 0.6);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .shop-slot.bad-purchase {
+      border-color: #ef4444;
+    }
+
+    .shop-slot.bad-purchase .shop-slot-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .shop-row-bottom {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      justify-content: space-between;
+    }
+
+    .shop-colorless-section {
+      min-width: 264px;
+    }
+
+    .shop-relics-section {
+      min-width: 540px;
+    }
+
+    .shop-removal-btn {
+      width: 120px;
+      height: 160px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 2px dashed #ef4444;
+      border-radius: 8px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .shop-removal-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+      border-color: #dc2626;
+      transform: translateY(-2px);
+    }
+
+    .shop-removal-btn.selected {
+      background: rgba(239, 68, 68, 0.3);
+      border-style: solid;
+      border-color: #ef4444;
+    }
+
+    .removal-icon {
+      font-size: 2rem;
+    }
+
+    .removal-cost {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fbbf24;
+    }
+
     .pill-input-wrapper {
       position: relative;
     }
@@ -961,6 +1208,129 @@
     .pill-tag-remove:hover {
       opacity: 1;
       background: rgba(255, 255, 255, 0.2);
+    }
+
+    .pill-upgrade-toggle {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      cursor: pointer;
+      font-size: 0.75rem;
+      padding: 0;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3px;
+      transition: all 0.2s;
+      opacity: 0.7;
+      flex-shrink: 0;
+      margin-left: 4px;
+    }
+
+    .pill-upgrade-toggle:hover {
+      opacity: 1;
+      background: rgba(59, 130, 246, 0.3);
+      border-color: #3b82f6;
+    }
+
+    .pill-tag.upgraded {
+      border-color: #fbbf24;
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(251, 191, 36, 0.05));
+    }
+
+    .pill-tag.upgraded .pill-upgrade-toggle {
+      background: #fbbf24;
+      border-color: #fbbf24;
+      color: #1e293b;
+    }
+
+    .pill-enchant-toggle {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      cursor: pointer;
+      font-size: 0.75rem;
+      padding: 0;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3px;
+      transition: all 0.2s;
+      opacity: 0.7;
+      flex-shrink: 0;
+      margin-left: 4px;
+    }
+
+    .pill-enchant-toggle:hover {
+      opacity: 1;
+      background: rgba(167, 139, 250, 0.3);
+      border-color: #a78bfa;
+    }
+
+    .pill-tag.enchanted {
+      border-color: #a78bfa;
+    }
+
+    .enchant-menu {
+      background: var(--bg-tertiary);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      padding: 8px;
+      min-width: 240px;
+      z-index: 1000;
+      animation: fadeIn 0.15s;
+    }
+
+    .enchant-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .enchant-option:hover {
+      background: rgba(167, 139, 250, 0.2);
+    }
+
+    .enchant-option.selected {
+      background: rgba(167, 139, 250, 0.3);
+      border: 1px solid #a78bfa;
+    }
+
+    .enchant-option.clear {
+      color: #ef4444;
+      border-top: 1px solid var(--border);
+      margin-top: 4px;
+      padding-top: 8px;
+    }
+
+    .enchant-option.clear:hover {
+      background: rgba(239, 68, 68, 0.2);
+    }
+
+    .enchant-icon {
+      font-size: 1.2rem;
+      width: 24px;
+      text-align: center;
+    }
+
+    .enchant-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+    }
+
+    .enchant-effect {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
     }
 
     .shop-card-icon {
@@ -1563,6 +1933,16 @@
       <aside class="panel sidebar" role="complementary" aria-label="Deck configuration">
         <h2><span aria-hidden="true">⚙️</span> Deck Setup</h2>
 
+        <!-- Best Cards Suggestion -->
+        <div id="best-cards-suggestions" style="margin-bottom: 12px; padding: 8px; background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 6px; display: none;">
+          <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+            💡 Best Additions
+          </div>
+          <div id="best-cards-list" style="display: flex; flex-wrap: wrap; gap: 4px;">
+            <!-- Pills populated by JS -->
+          </div>
+        </div>
+
         <div class="form-group">
           <label for="quick-start">Quick Start</label>
           <div class="starter-decks" role="group" aria-label="Starter decks" style="grid-template-columns: 1fr 1fr;">
@@ -1582,6 +1962,9 @@
               💀 Necrobinder
             </button>
           </div>
+          <button class="starter-btn" onclick="resetRun()" aria-label="Reset run" style="margin-top: 12px; width: 100%; background: rgba(239, 68, 68, 0.1); border-color: #ef4444; color: #ef4444;">
+            🔄 Reset Run
+          </button>
         </div>
 
         <div class="form-group">
@@ -1598,8 +1981,8 @@
         <div class="form-group">
           <label for="act">Current Act</label>
           <select id="act" onchange="analyzeDeck()" aria-label="Current act">
-            <option value="1">Act 1</option>
-            <option value="2" selected>Act 2</option>
+            <option value="1" selected>Act 1</option>
+            <option value="2">Act 2</option>
             <option value="3">Act 3</option>
             <option value="4">Act 4</option>
           </select>
@@ -1630,6 +2013,30 @@
             <option value="19">19</option>
             <option value="20">20</option>
           </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mc-simulations">MC Simulations</label>
+          <select id="mc-simulations" onchange="updateMCSimulations()" aria-label="Monte Carlo simulation count">
+            <option value="50">50 (Fast)</option>
+            <option value="100">100</option>
+            <option value="500" selected>500 (Default)</option>
+            <option value="1000">1000</option>
+            <option value="3000">3000 (Slow)</option>
+          </select>
+          <small style="color: var(--text-secondary); font-size: 0.75rem; display: block; margin-top: 4px;">
+            Higher = more accurate, slower analysis
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="toasts-toggle" onchange="toggleToasts()" style="width: 18px; height: 18px; cursor: pointer;">
+            <span>Enable Toast Notifications</span>
+          </label>
+          <small style="color: var(--text-secondary); font-size: 0.75rem; display: block; margin-top: 4px;">
+            Show success/info messages in bottom-right corner
+          </small>
         </div>
 
         <div class="form-group">
@@ -1746,29 +2153,6 @@
         </div>
 
         <div id="tab-rewards" class="tab-content active" role="tabpanel" aria-labelledby="tab-btn-rewards">
-          <div class="form-group" style="display: none;">
-            <label style="display: flex; justify-content: space-between; align-items: center;">
-              <span>Pick Individual Cards</span>
-              <button class="card-btn" style="width: auto; padding: 4px 12px; font-size: 0.85rem;" onclick="clearAutocompleteFields()" aria-label="Clear all autocomplete fields">
-                Clear All
-              </button>
-            </label>
-            <div class="autocomplete-grid">
-              <div class="autocomplete-wrapper">
-                <input type="text" id="reward-card-1" class="autocomplete-input" placeholder="Card 1..." aria-label="First reward card">
-                <div class="autocomplete-dropdown" id="reward-dropdown-1"></div>
-              </div>
-              <div class="autocomplete-wrapper">
-                <input type="text" id="reward-card-2" class="autocomplete-input" placeholder="Card 2..." aria-label="Second reward card">
-                <div class="autocomplete-dropdown" id="reward-dropdown-2"></div>
-              </div>
-              <div class="autocomplete-wrapper">
-                <input type="text" id="reward-card-3" class="autocomplete-input" placeholder="Card 3..." aria-label="Third reward card">
-                <div class="autocomplete-dropdown" id="reward-dropdown-3"></div>
-              </div>
-            </div>
-          </div>
-
           <div class="form-group">
             <label for="additional-reward-input">Choose the Rewards</label>
             <div class="pill-input-wrapper">
@@ -1791,22 +2175,63 @@
 
         <div id="tab-shop" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-shop">
           <div class="form-group">
-            <label for="shop-card-input">Shop Cards</label>
+            <label for="shop-input">Add Cards & Relics</label>
             <div class="pill-input-wrapper">
-              <div class="pill-input-container" id="shop-container">
-                <div id="shop-pills"></div>
-                <div class="input-wrapper">
-                  <input type="text" id="shop-card-input" placeholder="Add card..." aria-label="Add shop card">
-                  <button class="input-clear-btn" id="shop-clear" onclick="clearInput('shop-card-input')" aria-label="Clear input">×</button>
-                </div>
-              </div>
-              <div class="autocomplete-dropdown" id="shop-dropdown"></div>
+              <input type="text" id="shop-input" placeholder="Type card or relic name..." aria-label="Add shop items" style="width: 100%; padding: 10px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-primary);">
+              <div class="autocomplete-dropdown" id="shop-unified-dropdown"></div>
             </div>
           </div>
 
-          <button onclick="analyzeShopCards()" id="analyze-shop-btn" aria-label="Analyze shop cards" style="margin-top: 16px;">
-            ⚡ Analyze Shop Cards
-          </button>
+          <!-- Shop Grid Layout -->
+          <div class="shop-grid">
+            <div class="shop-row">
+              <div class="shop-slot-label">Class Cards</div>
+              <div class="shop-slots" id="shop-class-slots">
+                <div class="shop-slot empty">Slot 1</div>
+                <div class="shop-slot empty">Slot 2</div>
+                <div class="shop-slot empty">Slot 3</div>
+                <div class="shop-slot empty">Slot 4</div>
+                <div class="shop-slot empty">Slot 5</div>
+              </div>
+            </div>
+
+            <div class="shop-row">
+              <div class="shop-row-bottom">
+                <div class="shop-colorless-section">
+                  <div class="shop-slot-label">Colorless</div>
+                  <div class="shop-slots" id="shop-colorless-slots">
+                    <div class="shop-slot empty">Slot 1</div>
+                    <div class="shop-slot empty">Slot 2</div>
+                  </div>
+                </div>
+
+                <div class="shop-relics-section">
+                  <div class="shop-slot-label">Relics & Removal</div>
+                  <div class="shop-slots" id="shop-relic-slots">
+                    <div class="shop-slot empty">Slot 1</div>
+                    <div class="shop-slot empty">Slot 2</div>
+                    <div class="shop-slot empty">Slot 3</div>
+                    <button class="shop-removal-btn" id="shop-removal-btn" onclick="toggleShopRemoval()" aria-label="Card removal">
+                      <div class="removal-icon">🗑️</div>
+                      <div class="removal-cost">75G</div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; align-items: center; margin-top: 16px;">
+            <button onclick="analyzeShopCards()" id="analyze-shop-btn" aria-label="Analyze shop" style="flex: 1;">
+              ⚡ Analyze Shop
+            </button>
+            <div style="display: flex; gap: 8px; align-items: center; padding: 8px 12px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 6px;">
+              <span style="font-size: 0.85rem; color: var(--text-secondary);">Removals bought:</span>
+              <button onclick="incrementRemovalCount(-1)" style="width: 28px; height: 28px; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; line-height: 1; padding: 0;">−</button>
+              <span id="removal-count-display" style="font-weight: 600; min-width: 24px; text-align: center; font-size: 1rem;">0</span>
+              <button onclick="incrementRemovalCount(1)" style="width: 28px; height: 28px; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; line-height: 1; padding: 0;">+</button>
+            </div>
+          </div>
           <div id="shop-results" role="region" aria-live="polite" aria-label="Shop analysis results"></div>
         </div>
 
