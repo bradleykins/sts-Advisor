@@ -4291,6 +4291,24 @@ const STS2_CARDS = {
     "target": "None",
     "image": "images/cards/greed.png"
   },
+  "GRAPPLE": {
+    "name": "Grapple",
+    "character": "ironclad",
+    "type": "Attack",
+    "cost": 1,
+    "rarity": "Uncommon",
+    "keywords": [],
+    "description": "Deal 7 damage. Whenever you gain Block this turn, deal 5 damage to the enemy.",
+    "vars": {
+      "damage": 7,
+      "trigger_damage": 5
+    },
+    "upgrade": {
+      "damage": 3
+    },
+    "target": "AnyEnemy",
+    "image": "images/cards/grapple.png"
+  },
   "GUARDS!!!": {
     "name": "GUARDS!!!",
     "character": "regent",
@@ -8580,6 +8598,24 @@ const STS2_CARDS = {
     },
     "upgrade": {
       "repeat": 1
+    },
+    "target": "AnyEnemy",
+    "image": "images/cards/spite.png"
+  },
+  "SPITE2": {
+    "name": "Spite2",
+    "character": "ironclad",
+    "type": "Attack",
+    "cost": 0,
+    "rarity": "Uncommon",
+    "keywords": [],
+    "description": "Deal 6 damage.\nIf you lost HP this turn, draw 1 card.",
+    "vars": {
+      "damage": 6,
+      "draw": 1
+    },
+    "upgrade": {
+      "damage": 3
     },
     "target": "AnyEnemy",
     "image": "images/cards/spite.png"
