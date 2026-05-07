@@ -1392,7 +1392,6 @@
       font-size: 0.75rem;
       color: var(--text-secondary);
       margin-bottom: 4px;
-      text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
@@ -1897,6 +1896,118 @@
       outline: 2px solid var(--accent);
       outline-offset: 2px;
     }
+
+    /* Boss Selection Modal */
+    .boss-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .boss-modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    .boss-modal-content {
+      position: relative;
+      background: var(--bg-primary);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      max-width: 800px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      z-index: 10001;
+    }
+
+    .boss-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .boss-modal-header h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: var(--text-primary);
+    }
+
+    .boss-modal-close {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .boss-modal-close:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    .boss-modal-body {
+      padding: 24px;
+    }
+
+    .boss-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .boss-option {
+      background: var(--bg-secondary);
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+    }
+
+    .boss-option:hover {
+      border-color: var(--accent);
+      background: var(--bg-primary);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+    }
+
+    .boss-option img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      background: var(--bg-primary);
+    }
+
+    .boss-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
   </style>
 </head>
 <body>
@@ -1947,19 +2058,19 @@
         <div class="form-group">
           <label for="quick-start">Quick Start</label>
           <div class="starter-decks" role="group" aria-label="Starter decks" style="grid-template-columns: 1fr 1fr;">
-            <button class="starter-btn" onclick="loadStarter('ironclad')" aria-label="Load Ironclad starter deck">
+            <button class="starter-btn" onclick="openBossModal('ironclad')" aria-label="Load Ironclad starter deck">
               🛡️ Ironclad
             </button>
-            <button class="starter-btn" onclick="loadStarter('silent')" aria-label="Load Silent starter deck">
+            <button class="starter-btn" onclick="openBossModal('silent')" aria-label="Load Silent starter deck">
               🗡️ Silent
             </button>
-            <button class="starter-btn" onclick="loadStarter('defect')" aria-label="Load Defect starter deck">
+            <button class="starter-btn" onclick="openBossModal('defect')" aria-label="Load Defect starter deck">
               ⚡ Defect
             </button>
-            <button class="starter-btn" onclick="loadStarter('regent')" aria-label="Load Regent starter deck">
+            <button class="starter-btn" onclick="openBossModal('regent')" aria-label="Load Regent starter deck">
               👑 Regent
             </button>
-            <button class="starter-btn" onclick="loadStarter('necrobinder')" aria-label="Load Necrobinder starter deck">
+            <button class="starter-btn" onclick="openBossModal('necrobinder')" aria-label="Load Necrobinder starter deck">
               💀 Necrobinder
             </button>
           </div>
@@ -2027,6 +2138,16 @@
           </select>
           <small style="color: var(--text-secondary); font-size: 0.75rem; display: block; margin-top: 4px;">
             Higher = more accurate, slower analysis
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="heuristic-scoring-toggle" checked onchange="toggleHeuristicScoring()" style="width: 18px; height: 18px; cursor: pointer;">
+            <span>Use Heuristic Scoring</span>
+          </label>
+          <small style="color: var(--text-secondary); font-size: 0.75rem; display: block; margin-top: 4px;">
+            When enabled: uses context-aware heuristics + MC. When disabled: pure MC win rate only.
           </small>
         </div>
 
@@ -2139,6 +2260,18 @@
           <div id="bottleneck-content" style="display: flex; flex-direction: column; gap: 8px;"></div>
         </div>
 
+        <!-- Deck Size Optimization -->
+        <div id="deck-size-panel" class="deck-viz" style="margin: 20px 0; display: none;">
+          <h3 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 10px;">📏 Deck Size Analysis</h3>
+          <div id="deck-size-content"></div>
+        </div>
+
+        <!-- Archetype Transition -->
+        <div id="archetype-transition-panel" class="deck-viz" style="margin: 20px 0; display: none;">
+          <h3 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 10px;">🔄 Archetype Status</h3>
+          <div id="archetype-transition-content"></div>
+        </div>
+
         <div class="deck-viz">
           <h3 style="font-size: 1rem; color: var(--text-primary); margin: 20px 0 10px;">📈 Cost Distribution</h3>
           <div class="cost-chart" id="cost-chart" role="img" aria-label="Cost distribution chart"></div>
@@ -2227,9 +2360,17 @@
             </div>
           </div>
 
-          <button onclick="scoreRewards()" id="analyze-rewards-btn" aria-label="Analyze reward cards">
-            ⚡ Analyze Rewards
-          </button>
+          <div style="display: flex; gap: 12px; margin-top: 16px; margin-bottom: 12px; flex-wrap: wrap;">
+            <button onclick="scoreRewards()" id="analyze-rewards-btn" aria-label="Analyze reward cards" style="flex: 1; min-width: 120px;">
+              ⚡ Analyze Rewards
+            </button>
+            <button onclick="skipRewards()" style="padding: 8px 12px; background: linear-gradient(135deg, #f59e0b, #d97706); border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 0.85rem; font-weight: 600; white-space: nowrap; width: auto !important; flex-shrink: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" aria-label="Skip reward selection">
+              ⏭️ Skip
+            </button>
+            <button onclick="clearAutocompleteFields()" style="padding: 8px 12px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-primary); cursor: pointer; font-size: 0.85rem; white-space: nowrap; width: auto !important; flex-shrink: 0;" aria-label="Clear all reward cards">
+              🗑️ Clear
+            </button>
+          </div>
           <div id="reward-results" role="region" aria-live="polite" aria-label="Analysis results"></div>
         </div>
 
@@ -2281,9 +2422,12 @@
             </div>
           </div>
 
-          <div style="display: flex; gap: 12px; align-items: center; margin-top: 16px;">
-            <button onclick="analyzeShopCards()" id="analyze-shop-btn" aria-label="Analyze shop" style="flex: 1;">
+          <div style="display: flex; gap: 12px; align-items: center; margin-top: 16px; flex-wrap: wrap;">
+            <button onclick="analyzeShopCards()" id="analyze-shop-btn" aria-label="Analyze shop" style="flex: 1; min-width: 150px;">
               ⚡ Analyze Shop
+            </button>
+            <button onclick="clearShopCards()" style="padding: 8px 12px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-primary); cursor: pointer; font-size: 0.85rem; white-space: nowrap; flex-shrink: 0;" aria-label="Clear all shop items">
+              🗑️ Clear
             </button>
             <div style="display: flex; gap: 8px; align-items: center; padding: 8px 12px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 6px;">
               <span style="font-size: 0.85rem; color: var(--text-secondary);">Removals bought:</span>
@@ -2347,6 +2491,56 @@
 
   <!-- Card Hover Preview -->
   <div class="card-hover-preview" id="card-hover-preview"></div>
+
+  <!-- Boss Selection Modal -->
+  <div id="boss-modal" class="boss-modal" style="display: none;">
+    <div class="boss-modal-overlay" onclick="closeBossModal()"></div>
+    <div class="boss-modal-content">
+      <div class="boss-modal-header">
+        <h2>Choose Your Act 1 Boss</h2>
+        <button class="boss-modal-close" onclick="closeBossModal()">×</button>
+      </div>
+      <div class="boss-modal-body">
+        <h3 style="margin: 0 0 16px 0; color: var(--text-primary); font-size: 1.2rem;">Act 1a - Overgrowth</h3>
+        <div class="boss-grid">
+          <div class="boss-option" onclick="selectBossAndLoad('ceremonial_beast')">
+            <img src="images/bosses/ceremonial_beast_cropped.png" alt="Ceremonial Beast">
+            <div class="boss-name">Ceremonial Beast</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">HP: 252</div>
+          </div>
+          <div class="boss-option" onclick="selectBossAndLoad('kin_priest')">
+            <img src="images/bosses/kin_priest_cropped.png" alt="The Kin">
+            <div class="boss-name">The Kin</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">HP: 190 + Followers</div>
+          </div>
+          <div class="boss-option" onclick="selectBossAndLoad('vantom')">
+            <img src="images/bosses/vantom_cropped.png" alt="Vantom">
+            <div class="boss-name">Vantom</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">HP: 173</div>
+          </div>
+        </div>
+
+        <h3 style="margin: 24px 0 16px 0; color: var(--text-primary); font-size: 1.2rem;">Act 1b - Underdocks</h3>
+        <div class="boss-grid">
+          <div class="boss-option" onclick="selectBossAndLoad('lagavulin_matriarch')">
+            <img src="images/bosses/lagavulin_matriarch_cropped.png" alt="Lagavulin Matriarch">
+            <div class="boss-name">Lagavulin Matriarch</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">HP: 222</div>
+          </div>
+          <div class="boss-option" onclick="selectBossAndLoad('soul_fysh')">
+            <img src="images/bosses/soul_fysh_cropped.png" alt="Soul Fysh">
+            <div class="boss-name">Soul Fysh</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">HP: 211</div>
+          </div>
+          <div class="boss-option" onclick="selectBossAndLoad('waterfall_giant')">
+            <img src="images/bosses/waterfall_giant_cropped.png" alt="Waterfall Giant">
+            <div class="boss-name">Waterfall Giant</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">HP: 240</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="sts2-cards.js"></script>
   <script src="sts2-relics.js"></script>

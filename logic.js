@@ -14,68 +14,198 @@ if (typeof STS2_RELICS !== 'undefined') {
   console.error('STS2_RELICS not loaded!');
 }
 
-// STS2 Enchantments
+// STS2 Enchantments (prioritized: Nimble, Sharp, Swift first)
 const ENCHANTMENTS = {
-  'Sharp': { icon: '🗡️', effect: 'Deals 3 more damage' },
-  'Nimble': { icon: '💨', effect: 'Costs 1 less energy' },
-  'Heavy': { icon: '⚖️', effect: 'Costs 1 more, deals 50% more damage' },
-  'Doublecast': { icon: '✨', effect: 'Plays twice' },
-  'Free': { icon: '🆓', effect: 'Costs 0' },
-  'Pristine': { icon: '💎', effect: 'Cannot be modified' }
+  'Nimble': { icon: '🏃', effect: 'Increase Block by X' },
+  'Sharp': { icon: '🗡️', effect: 'Increase damage by X' },
+  'Swift': { icon: '🌪️', effect: 'Draw X cards first play' },
+  'Adroit': { icon: '🎯', effect: 'Gain X Block' },
+  'Clone': { icon: '👯', effect: 'Can be duplicated at Rest Sites' },
+  'Corrupted': { icon: '💀', effect: 'Deal 50% more damage, lose 2 HP' },
+  'Favored': { icon: '⭐', effect: 'Attack damage doubled' },
+  'Glam': { icon: '✨', effect: 'Replay once per combat' },
+  'Goopy': { icon: '💧', effect: 'Exhaust, +1 Block permanently each play' },
+  'Imbued': { icon: '🔮', effect: 'Auto-play at start of combat' },
+  'Inky': { icon: '🖋️', effect: '+2 damage, apply 1 Weak' },
+  'Instinct': { icon: '⚡', effect: 'Attack damage doubled' },
+  'Momentum': { icon: '💨', effect: 'Increase damage by X when played' },
+  'Perfect Fit': { icon: '🎴', effect: 'Top of draw pile when shuffled' },
+  'Royally Approved': { icon: '👑', effect: 'Innate and Retain' },
+  'Slither': { icon: '🐍', effect: 'Random cost 0-3 when drawn' },
+  'Slumbering Essence': { icon: '😴', effect: 'Cost -1 if held at end of turn' },
+  'Soul\'s Power': { icon: '👻', effect: 'Loses Exhaust' },
+  'Sown': { icon: '🌱', effect: 'Gain 1 Energy first play' },
+  'Spiral': { icon: '🌀', effect: 'Replay 1' },
+  'Steady': { icon: '🛡️', effect: 'Retain' },
+  'Tezcatara\'s Ember': { icon: '🔥', effect: 'Costs 0, Eternal' },
+  'Vigorous': { icon: '💪', effect: 'First play deals X more damage' }
 };
 
 // Relic gameplay effects for MC simulation
 const RELIC_EFFECTS = {
-  // Energy relics
+  // === ENERGY RELICS (Boss/Event) ===
   'LANTERN': { startEnergy: 1 },
   'COFFEE DRIPPER': { startEnergy: 1 },
   'PHILOSOPHERS STONE': { startEnergy: 1 },
+  'PHILOSOPHER\'S STONE': { startEnergy: 1 },
   'SOZU': { startEnergy: 1 },
   'BUSTED CROWN': { startEnergy: 1 },
   'CURSED KEY': { startEnergy: 1 },
   'FUSION HAMMER': { startEnergy: 1 },
   'RUNIC DOME': { startEnergy: 1 },
   'VELVET CHOKER': { startEnergy: 1 },
+  'ECTOPLASM': { startEnergy: 1 },
+  'PRISMATIC GEM': { startEnergy: 1 },
+  'WHISPERING EARRING': { startEnergy: 1 },
+  'BLESSED ANTLER': { startEnergy: 1 },
+  'BLOOD-SOAKED ROSE': { startEnergy: 1 },
+  'PUMPKIN CANDLE': { startEnergy: 1 },
+  'SPIKED GAUNTLETS': { startEnergy: 1 },
+  'MUTAGENIC STRENGTH': { startEnergy: 1, damageMultiplier: 1.05 }, // +2 str, enemies +1 str
+  'MARK OF PAIN': { startEnergy: 0.5 }, // +1 energy when taking unblocked damage (50% avg)
+  'NUCLEAR BATTERY': { startEnergy: 0.5 }, // Defect focus +1 = ~0.5 energy
+  'HAPPY FLOWER': { startEnergy: 0.33 }, // +1 energy every 3 turns
+  'HAPPY FLOWER???': { startEnergy: 0.25 }, // +1 energy every 4 turns
+  'NUNCHAKU': { startEnergy: 0.1 }, // +1 energy per 10 attacks
+  'ART OF WAR': { startEnergy: 0.3 }, // +1 energy next turn if no attacks played
+  'MUMMIFIED HAND': { startEnergy: 0.3 }, // Free card when playing power
+  'VENERABLE TEA SET': { startEnergy: 0.2 }, // 2+ cost cards = 7 block (indirect energy value)
+  'VENERABLE TEA SET???': { startEnergy: 0.1 }, // Weaker version
 
-  // Draw relics
+  // === DRAW RELICS ===
   'BAG OF MARBLES': { startDraw: 1 },
-  'SNECKO EYE': { startDraw: 2 },
+  'SNECKO EYE': { startDraw: 4 }, // Draw 2 additional + confused
+  'RING OF THE SNAKE': { startDraw: 2 }, // Silent starter
+  'BAG OF PREPARATION': { startDraw: 2 },
+  'BOOMING CONCH': { startDraw: 2 },
+  'PAEL\'S BLOOD': { startDraw: 1 },
+  'POCKETWATCH': { startDraw: 3 },
+  'POLLINOUS CORE': { startDraw: 2 },
+  'RING OF THE DRAKE': { startDraw: 2 },
+  'FIDDLE': { startDraw: 2 },
+  'SNECKO EYE???': { startDraw: 2 },
+  'VIOLET TOME': { startDraw: 1 }, // +1 card per turn
+  'GAMBLING CHIP': { startDraw: 1 }, // Discard any, draw same (net ~+1)
+  'CENTENNIAL PUZZLE': { startDraw: 1 }, // First hand +1 card
+  'SUNDIAL': { startDraw: 0.66 }, // Draw 2 every 3 turns
+  'RUNIC PYRAMID': { startDraw: 1 }, // No discard = effectively +1 draw
+  'POCKET JOURNAL': { startDraw: 1 }, // 3 or fewer cards = +3 draw (conditional avg)
+  'NINJA SCROLL': { startDraw: 1 }, // 3 shivs at start = ~1 draw value
+  'METRONOME': { startDraw: 1 }, // Random attack in hand at start
+  'STRIKE DUMMY': { startDraw: 1 }, // 2 0-cost cards at start
 
-  // Combat start relics
+  // === BLOCK RELICS ===
   'ANCHOR': { startBlock: 10 },
   'ORICHALCUM': { blockPerTurn: 6 },
-  'AKABEKO': { startVigor: 8 },
+  'SAI': { blockPerTurn: 7 },
+  'ANCHOR???': { startBlock: 4 },
   'ORNAMENTAL FAN': { blockPerAttack: 3, damageMultiplier: 1.05 },
+  'ORNAMENTAL FAN???': { blockPerAttack: 1, damageMultiplier: 1.02 },
   'THREAD AND NEEDLE': { platedArmor: 4 },
+  'GORGET': { platedArmor: 4 },
+  'CAPTAIN\'S WHEEL': { blockPerTurn: 3 }, // 6 block if ending with 0 (50% avg)
+  'HORN CLOAK': { startBlock: 7 }, // 2nd turn = 14 block (avg across turns)
+  'STONE CALENDAR': { startBlock: 6 }, // 3rd turn = 18 block (avg)
+  'TOUGH BANDAGES': { blockPerTurn: 2 }, // 3 block per discard (avg ~2/turn)
+  'SELF FORMING CLAY': { blockPerTurn: 2 }, // Block from HP loss
+  'BELLOWS': { damageMultiplier: 1.03 }, // First hand upgraded
+  'BOOK OF FIVE RINGS': { blockPerTurn: 2 }, // <10 block = deal 6 (indirect block value)
 
-  // Damage scaling
-  'VAJRA': { damageMultiplier: 1.15 }, // +1 strength
-  'PEN NIB': { damageMultiplier: 1.10 }, // Average over many hits
+  // === VIGOR/STRENGTH/DEX RELICS ===
+  'AKABEKO': { startVigor: 8 },
+  'VAJRA': { damageMultiplier: 1.15 }, // +1 strength permanent
+  'GIRYA': { damageMultiplier: 1.10 }, // +strength at rest sites
+  'DIVINE RIGHT': { damageMultiplier: 1.08 }, // Start with 3 gold = flexibility
+
+  // === DAMAGE MULTIPLIER RELICS ===
+  'PEN NIB': { damageMultiplier: 1.10 }, // Double damage every 10th attack
+  'KUNAI': { damageMultiplier: 1.08 }, // +1 dex every 3 attacks
+  'SHURIKEN': { damageMultiplier: 1.12 }, // +1 str every 3 attacks
   'WRIST BLADE': { damageMultiplier: 1.05 },
+  'MINIATURE CANNON': { damageMultiplier: 1.08 }, // Strike +3 damage
+  'PAPER KRANE': { damageMultiplier: 1.08 }, // Upgraded attacks +3 damage
+  'LETTER OPENER': { damageMultiplier: 1.04 }, // Every 3 skills = 5 damage
+  'THE BOOT': { damageMultiplier: 1.03 }, // Min 5 damage
+  'CHAMPION BELT': { damageMultiplier: 1.05 },
+  'PRESERVED INSECT': { damageMultiplier: 1.15 }, // Elites +25%
+  'SLING OF COURAGE': { damageMultiplier: 1.10 }, // Elites +10%
+  'RED SKULL': { damageMultiplier: 1.15 }, // +3 str when <50% HP
+  'RUPTURE': { damageMultiplier: 1.08 }, // Strength from HP loss
+  'ORANGE PELLETS': { damageMultiplier: 1.04 }, // +1 str/dex when playing all 3 types
+  'MERCURY HOURGLASS': { damageMultiplier: 1.02 }, // 3 dmg to all per turn
+  'TINGSHA': { damageMultiplier: 1.03 }, // 3 dmg per discard
+  'DU-VU DOLL': { damageMultiplier: 1.03 }, // +1 str per curse
+  'ODD MUSHROOM': { damageMultiplier: 1.05 }, // Weak = 40% instead of 25%
+  'PAPER FROG': { damageMultiplier: 1.05 }, // Weak enemies deal 50% less
+  'KUSARIGAMA': { damageMultiplier: 1.04 }, // Shiv +1 dex this turn
+  'CROSSBOW': { damageMultiplier: 1.02 }, // Every 3 attacks = 6 damage
+  'EMOTION CHIP': { damageMultiplier: 1.03 }, // Trigger orbs when hit
+  'DELICATE FROND': { damageMultiplier: 1.02 }, // Channel 7 orbs = 30 damage
+  'FENCING MANUAL': { damageMultiplier: 1.05 }, // Play A/S/P = +1 str/dex
+  'HISTORY COURSE': { damageMultiplier: 1.02 }, // First time A/S/P = +1 str/dex
+  'FUNERARY MASK': { damageMultiplier: 1.02 }, // Exhaust top = +1 str
+  'LOST WISP': { damageMultiplier: 1.02 }, // Negative strength = 0
+  'PANDORA\'S BOX': { damageMultiplier: 1.03 }, // Transform all strikes/defends
+  'CHARON\'S ASHES': { damageMultiplier: 1.02 }, // Start = 9 to all
 
-  // HP
+  // === HP RELICS ===
   'BLOOD VIAL': { startHP: 2 },
   'BURNING BLOOD': { hpPerCombat: 6 },
   'BLACK BLOOD': { hpPerCombat: 12 },
   'RING OF THE SERPENT': { hpPerCombat: 2 },
   'MAGIC FLOWER': { startHP: 5 },
+  'STRAWBERRY': { startHP: 7 },
+  'PEAR': { startHP: 10 },
+  'MANGO': { startHP: 14 },
+  'LEE\'S WAFFLE': { startHP: 7 },
+  'BIG MUSHROOM': { startHP: 20 },
+  'DARKSTONE PERIAPT': { startHP: 6 },
+  'DRAGON FRUIT': { startHP: 1 },
+  'LOOMING FRUIT': { startHP: 31 },
+  'NUTRITIOUS OYSTER': { startHP: 11 },
+  'STONE HUMIDIFIER': { startHP: 5 },
+  'MANGO???': { startHP: 3 },
+  'MEAT ON THE BONE': { hpPerCombat: 12 },
+  'BLOOD VIAL???': { startHP: 1 },
+  'PANTOGRAPH': { hpPerCombat: 13 }, // Heal 25 at boss (half value avg)
+  'LEE\'S WAFFLE???': { startHP: 3 },
 
-  // Conditional combat relics
-  'RED SKULL': { conditional: 'lowHP', damageMultiplier: 1.3 }, // +3 strength when <50% HP
-  'GINGER': { conditional: 'lowHP', preventDeath: true }, // Can't fall below 1 HP
-  'RUPTURE': { conditional: 'hpLoss', strengthPerHPLost: 0.1 }, // Gain strength from HP loss
-  'SELF FORMING CLAY': { conditional: 'hpLoss', blockPerHPLost: 0.5 }, // Gain block from HP loss
-  'CHEMICAL X': { xCostBonus: 2 }, // X-cost cards get +2 value
-  'ICE CREAM': { energyCarryover: true }, // Leftover energy carries to next turn
-  'BIRD FACED URN': { healPerPower: 2 }, // Heal 2 when playing power
-  'TURNIP': { strengthPerKill: 1 }, // Gain 1 strength per enemy killed (simulate as bonus)
-  'CHAMPION BELT': { conditional: 'enemyLowHP', applyVulnerable: 1 }, // Vulnerable when enemy <50% HP
-  'MARK OF PAIN': { conditional: 'unblocked', energyPerUnblocked: 1 }, // +1 energy when taking unblocked damage
-  'NUCLEAR BATTERY': { startFocus: 1, orbSlots: 1 }, // Defect specific
+  // === DAMAGE REDUCTION / DEFENSE ===
+  'BEATING REMNANT': { damageReduction: 10 }, // Can't lose >20 HP/turn
+  'TUNGSTEN ROD': { damageReduction: 1 },
+  'TORII': { damageReduction: 4 }, // Reduce damage >1 to 1
+  'INCENSE BURNER': { damageReduction: 3 }, // Every 6 turns no damage (avg)
 
-  // Special
+  // === PREVENT DEATH RELICS ===
+  'LIZARD TAIL': { preventDeath: true },
+  'GINGER': { preventDeath: true },
+  'FAIRY IN A BOTTLE': { preventDeath: true },
+
+  // === THORNS RELICS ===
+  'BRONZE SCALES': { startThorns: 3 },
+
+  // === SPECIAL MECHANICS ===
+  'CHEMICAL X': { xCostBonus: 2 },
+  'ICE CREAM': { energyCarryover: true },
+  'BIRD FACED URN': { healPerPower: 2 },
+  'TURNIP': { strengthPerKill: 1 },
   'ORRERY': { skipFirstTurn: true },
-  'TOOLBOX': { starterUpgrade: true }
+  'TOOLBOX': { starterUpgrade: true },
+
+  // === CARD QUALITY / UPGRADE RELICS ===
+  'TOXIC EGG': { damageMultiplier: 1.05 }, // Skills upgraded
+  'MOLTEN EGG': { damageMultiplier: 1.05 }, // Attacks upgraded
+  'FROZEN EGG': { damageMultiplier: 1.05 }, // Powers upgraded
+  'ENCHANTING AUBERGINE': { damageMultiplier: 1.03 }, // Block cards enchanted with Nimble
+
+  // === CHARACTER-SPECIFIC STARTERS ===
+  'CRACKED CORE': { startEnergy: 0.5 }, // Channel 1 Lightning (simplified)
+  'BOUND PHYLACTERY': { damageMultiplier: 1.05 }, // Summon 1 per turn (simplified)
+  'INFUSED CORE': { startEnergy: 1 }, // Channel 3 Lightning
+  'RUSTED CORE': { startEnergy: 0.3 }, // Channel 1 Lightning (weaker)
+
+  // === ORICHALCUM VARIANT ===
+  'ORICHALCUM???': { blockPerTurn: 3 }
 };
 
 // Global state
@@ -87,6 +217,7 @@ let currentCharacter = 'ironclad';
 let currentAct = 1;
 let currentAscension = 0;
 let mcSimulations = 500; // MC rollout simulation count
+let useHeuristicScoring = true; // Toggle for heuristic-based scoring vs pure MC
 let mcBaselineWinRate = null; // Cached baseline win rate (500 sims)
 let mcBaselineHash = null; // Hash of deck state to detect when cache is stale
 let mcCardCache = new Map(); // cardName → { baselineHash, winRate } cache
@@ -103,8 +234,9 @@ function invalidateMCBaseline() {
 }
 
 function calculateMCBaseline() {
-  // Run full 500 sim baseline for current deck
-  mcBaselineWinRate = performMCRollout({ name: '__BASELINE__' }, mcSimulations);
+  // Run full sim baseline for current deck
+  const baselineResult = performMCRollout({ name: '__BASELINE__' }, mcSimulations);
+  mcBaselineWinRate = baselineResult.winRate;
   mcBaselineHash = currentDeck.join(','); // Simple hash of deck state
   console.log(`MC Baseline calculated: ${Math.round(mcBaselineWinRate)}% win rate (${mcSimulations} sims)`);
 }
@@ -131,7 +263,7 @@ const TYPE_ICONS = {
   'Curse': '👿'
 };
 
-// Boss mechanics (STS2) - from mobalytics.gg
+// Boss mechanics (STS2) - from mobalytics.gg + in-game stats
 const BOSS_MECHANICS = {
   // Act 1a - Overgrowth
   'ceremonial_beast': {
@@ -143,18 +275,24 @@ const BOSS_MECHANICS = {
     rewardBlock: false,
     penalizeCombo: true,         // Ringing kills combo decks
     name: 'Ceremonial Beast',
-    emoji: '🐂'
+    emoji: '🐂',
+    hp: 252,
+    ascensionHP: 262
   },
   'kin_priest': {
     penalizeCardDraw: false,
     penalizePowers: true,        // Multi-enemy scaling fight
     requireMultiHit: false,
     requireFrontLoaded: true,    // Kill followers before they scale
-    requireAOE: true,            // 3 enemies
+    requireAOE: true,            // 3 enemies (1 priest + 2 followers)
     rewardBlock: true,           // Many small attacks
     penalizeCombo: false,
     name: 'The Kin',
-    emoji: '👥'
+    emoji: '👥',
+    hp: 190,                     // Priest HP
+    ascensionHP: 199,
+    followerHP: 58,              // Each follower: 58-59 HP
+    followerCount: 2
   },
   'vantom': {
     penalizeCardDraw: false,
@@ -164,7 +302,10 @@ const BOSS_MECHANICS = {
     requireAOE: false,
     rewardBlock: true,           // Dismember hits hard
     penalizeCombo: false,
-    name: 'Vantom'
+    name: 'Vantom',
+    emoji: '👻',
+    hp: 173,
+    ascensionHP: 183
   },
 
   // Act 1b - Underdocks
@@ -178,7 +319,10 @@ const BOSS_MECHANICS = {
     penalizeCombo: false,
     rewardSetup: true,           // 3 free turns for powers/combo
     rewardScaling: true,         // Kill before Soul Siphon stacks hurt
-    name: 'Lagavulin Matriarch'
+    name: 'Lagavulin Matriarch',
+    emoji: '😴',
+    hp: 222,
+    ascensionHP: 233
   },
   'soul_fysh': {
     penalizeCardDraw: true,      // Drawing Beckons = 6 HP each!
@@ -191,7 +335,10 @@ const BOSS_MECHANICS = {
     rewardSetup: false,
     rewardScaling: false,
     rewardExhaust: true,         // Remove Beckons permanently
-    name: 'Soul Fysh'
+    name: 'Soul Fysh',
+    emoji: '🐟',
+    hp: 211,
+    ascensionHP: 221
   },
   'waterfall_giant': {
     penalizeCardDraw: false,
@@ -205,7 +352,10 @@ const BOSS_MECHANICS = {
     rewardScaling: false,        // Scaling takes too long
     rewardExhaust: false,
     requireBurst: true,          // One-shot or die to explosion
-    name: 'Waterfall Giant'
+    name: 'Waterfall Giant',
+    emoji: '🗿',
+    hp: 240,
+    ascensionHP: 250
   },
 
   // Act 2 - Hive
@@ -835,6 +985,68 @@ function loadStarter(char) {
 }
 
 // ============================================================================
+// BOSS SELECTION MODAL
+// ============================================================================
+
+let pendingCharacter = null;
+
+function openBossModal(character) {
+  pendingCharacter = character;
+  const modal = document.getElementById('boss-modal');
+  modal.style.display = 'flex';
+
+  // Prevent body scroll
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBossModal() {
+  const modal = document.getElementById('boss-modal');
+  modal.style.display = 'none';
+  pendingCharacter = null;
+
+  // Restore body scroll
+  document.body.style.overflow = '';
+}
+
+function selectBossAndLoad(bossKey) {
+  if (!pendingCharacter) return;
+
+  // Load the starter deck
+  loadStarter(pendingCharacter);
+
+  // Set the boss
+  selectedBoss = bossKey;
+  const bossSelect = document.getElementById('boss-select');
+  if (bossSelect) {
+    bossSelect.value = bossKey;
+  }
+
+  // Set Act to 1
+  currentAct = 1;
+  document.getElementById('act').value = 1;
+
+  // Re-analyze with boss context
+  invalidateMCBaseline();
+  analyzeDeckStats();
+
+  // Close modal
+  closeBossModal();
+
+  const bossName = BOSS_MECHANICS[bossKey]?.name || bossKey;
+  showToast(`${pendingCharacter.charAt(0).toUpperCase() + pendingCharacter.slice(1)} vs ${bossName}`, 'success', 2500);
+}
+
+// Close modal on escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const modal = document.getElementById('boss-modal');
+    if (modal && modal.style.display === 'flex') {
+      closeBossModal();
+    }
+  }
+});
+
+// ============================================================================
 // TAB MANAGEMENT
 // ============================================================================
 
@@ -904,16 +1116,20 @@ function setupDeckAutocomplete() {
     }
 
     // Fuzzy search - deck allows duplicates, no filtering
-    const matches = autocompleteData.filter(card => {
-      const name = card.name.toLowerCase();
-      if (name.startsWith(query)) return true;
-      if (name.includes(query)) return true;
-      let j = 0;
-      for (let i = 0; i < name.length && j < query.length; i++) {
-        if (name[i] === query[j]) j++;
-      }
-      return j === query.length;
-    }).slice(0, 10);
+    const matches = autocompleteData
+      .map(card => {
+        const match = fuzzyMatch(card.name, query);
+        return match ? { card, ...match } : null;
+      })
+      .filter(result => result !== null)
+      .sort((a, b) => {
+        // Sort by priority first, then by distance
+        if (a.priority !== b.priority) return a.priority - b.priority;
+        if (a.distance !== b.distance) return a.distance - b.distance;
+        return a.card.name.localeCompare(b.card.name);
+      })
+      .slice(0, 20)
+      .map(result => result.card);
 
     if (matches.length === 0) {
       dropdown.classList.remove('show');
@@ -921,11 +1137,12 @@ function setupDeckAutocomplete() {
     }
 
     dropdown.innerHTML = matches.map((card, idx) => {
-      const characterBadge = card.character !== currentCharacter
+      const characterBadge = card.character !== currentCharacter && card.character !== 'Colorless'
         ? `<span style="font-size: 0.7rem; opacity: 0.7;">${card.character}</span>`
         : '';
+      const escapedName = card.name.replace(/'/g, "\\'");
       return `
-        <div class="autocomplete-item" data-index="${idx}" data-name="${card.name}" onclick="addCardToDeckPill('${card.name}')">
+        <div class="autocomplete-item" data-index="${idx}" data-name="${card.name}" onclick="addCardToDeckPill('${escapedName}')">
           <span class="autocomplete-item-icon">${card.icon}</span>
           <span class="autocomplete-item-name">${card.name}</span>
           <span class="autocomplete-item-meta">
@@ -1101,6 +1318,38 @@ function removeCardFromDeck(index) {
   const cardName = currentDeck[index];
   const key = `${index}-${cardName}`;
 
+  // Show MC validation confirmation
+  if (currentDeck.length >= 5 && mcBaselineWinRate !== null) {
+    // Test removal impact - temporarily modify deck
+    const originalDeck = [...currentDeck];
+    currentDeck.splice(index, 1);
+    const withoutCardResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 100));
+    currentDeck = originalDeck; // Restore deck
+    const impact = withoutCardResult.winRate - mcBaselineWinRate;
+    const impactRounded = Math.round(impact);
+    const baselineRounded = Math.round(mcBaselineWinRate);
+    const afterRounded = Math.round(withoutCardResult.winRate);
+
+    let confirmMessage = `Remove ${cardName}?\n\n`;
+    confirmMessage += `MC Impact: ${impactRounded >= 0 ? '+' : ''}${impactRounded}%\n`;
+    confirmMessage += `Win rate: ${baselineRounded}% → ${afterRounded}%\n\n`;
+
+    if (impactRounded < -5) {
+      confirmMessage += '⚠️ WARNING: Removing this card significantly hurts your deck!\n';
+      confirmMessage += 'Consider keeping it.';
+    } else if (impactRounded < -2) {
+      confirmMessage += '⚠️ Removing this card may hurt your deck.';
+    } else if (impactRounded > 2) {
+      confirmMessage += '✓ Removing this card improves your deck!';
+    } else {
+      confirmMessage += 'Neutral impact.';
+    }
+
+    if (!confirm(confirmMessage)) {
+      return; // User cancelled
+    }
+  }
+
   // Remove card and its metadata
   currentDeck.splice(index, 1);
   invalidateMCBaseline();
@@ -1235,6 +1484,17 @@ function renderBestCardsPills(scored, listContainer) {
     const block = card?.block ? `🛡️${card.block}` : '';
     const stats = [damage, block].filter(s => s).join(' ');
 
+    // Extract MC impact from breakdown
+    let mcDisplay = '';
+    if (item.breakdown && item.breakdown.mcImpact !== undefined && item.breakdown.mcBaseline !== undefined) {
+      const impact = Math.round(item.breakdown.mcImpact);
+      const baseline = Math.round(item.breakdown.mcBaseline);
+      const after = Math.round(item.breakdown.mcBaseline + item.breakdown.mcImpact);
+      const sign = impact >= 0 ? '+' : '';
+      const color = impact >= 3 ? '#10b981' : impact <= -3 ? '#ef4444' : '#64748b';
+      mcDisplay = `<span style="color: ${color}; font-size: 0.65rem; margin-left: 4px;">${sign}${impact}%</span>`;
+    }
+
     const tooltipText = `${item.name} (${item.score})\n${stats}\n${description}\n\nClick to add to deck`;
 
     return `
@@ -1250,6 +1510,7 @@ function renderBestCardsPills(scored, listContainer) {
         <span class="pill-tag-icon">${icon}</span>
         <span>${item.name}</span>
         ${costBadge}
+        ${mcDisplay}
       </div>
     `;
   }).join('');
@@ -1266,6 +1527,20 @@ function updateMCSimulations() {
   showToast(`MC simulations: ${mcSimulations}`, 'info', 1500);
 }
 
+function toggleHeuristicScoring() {
+  useHeuristicScoring = document.getElementById('heuristic-scoring-toggle').checked;
+  invalidateMCBaseline(); // Recalculate with new scoring mode
+  saveDeckState();
+
+  const mode = useHeuristicScoring ? 'Heuristic + MC' : 'Pure MC only';
+  showToast(`Scoring mode: ${mode}`, 'info', 2000);
+
+  // Re-analyze if deck exists
+  if (currentDeck.length > 0) {
+    analyzeDeckStats();
+  }
+}
+
 // ============================================================================
 // DECK PERSISTENCE
 // ============================================================================
@@ -1280,7 +1555,8 @@ function saveDeckState() {
     act: currentAct,
     ascension: currentAscension,
     mcSimulations: mcSimulations,
-    shopRemovalCount: shopRemovalCount
+    shopRemovalCount: shopRemovalCount,
+    useHeuristicScoring: useHeuristicScoring
   };
 
   try {
@@ -1305,12 +1581,14 @@ function loadDeckState() {
     currentAscension = state.ascension || 0;
     mcSimulations = state.mcSimulations || 500;
     shopRemovalCount = state.shopRemovalCount || 0;
+    useHeuristicScoring = state.useHeuristicScoring !== undefined ? state.useHeuristicScoring : true;
 
     // Update UI
     document.getElementById('character').value = currentCharacter;
     document.getElementById('act').value = currentAct;
     document.getElementById('ascension').value = currentAscension;
     document.getElementById('mc-simulations').value = mcSimulations;
+    document.getElementById('heuristic-scoring-toggle').checked = useHeuristicScoring;
     const removalDisplay = document.getElementById('removal-count-display');
     if (removalDisplay) {
       removalDisplay.textContent = shopRemovalCount;
@@ -1403,7 +1681,7 @@ function analyzeDeckStats() {
   }
 
   // Gap analysis (#3)
-  const gaps = analyzeGaps();
+  const gaps = analyzeGapsWithSuggestions();
   const gapPanel = document.getElementById('gap-analysis-panel');
   const gapContent = document.getElementById('gap-analysis-content');
   if (gaps.length > 0) {
@@ -1413,11 +1691,27 @@ function analyzeDeckStats() {
       medium: '#fbbf24',
       low: '#94a3b8'
     };
-    gapContent.innerHTML = gaps.map(gap => `
-      <div style="color: ${severityColors[gap.severity]}; margin-bottom: 6px;">
-        <strong>${gap.type}:</strong> ${gap.message}
-      </div>
-    `).join('');
+    gapContent.innerHTML = gaps.map(gap => {
+      let suggestionHtml = '';
+      if (gap.suggestion) {
+        const impactColor = gap.suggestion.mcImpact >= 3 ? '#10b981' : gap.suggestion.mcImpact <= -3 ? '#ef4444' : '#64748b';
+        const impactSign = gap.suggestion.mcImpact >= 0 ? '+' : '';
+        suggestionHtml = `
+          <div style="margin-top: 4px; padding: 6px 8px; background: rgba(100, 116, 139, 0.05); border-radius: 4px; font-size: 0.85rem;">
+            <span style="color: var(--text-secondary);">Suggested:</span>
+            <strong style="color: var(--text-primary);">${gap.suggestion.cardName}</strong>
+            <span style="color: ${impactColor}; margin-left: 6px;">${impactSign}${Math.round(gap.suggestion.mcImpact)}%</span>
+            <span style="color: var(--text-secondary); font-size: 0.75rem; margin-left: 4px;">(${Math.round(gap.suggestion.baseline)}% → ${Math.round(gap.suggestion.afterAdd)}%)</span>
+          </div>
+        `;
+      }
+      return `
+        <div style="color: ${severityColors[gap.severity]}; margin-bottom: 6px;">
+          <strong>${gap.type}:</strong> ${gap.message}
+          ${suggestionHtml}
+        </div>
+      `;
+    }).join('');
     gapPanel.style.display = 'block';
   } else {
     gapPanel.style.display = 'none';
@@ -1428,16 +1722,57 @@ function analyzeDeckStats() {
   const upgradePanel = document.getElementById('upgrade-priority-panel');
   const upgradeContent = document.getElementById('upgrade-priority-content');
   if (upgrades.length > 0) {
-    upgradeContent.innerHTML = upgrades.map((up, i) => `
-      <div onclick="upgradeCardFromPriority(${up.index}, '${up.cardName.replace(/'/g, "\\'")}')" style="margin-bottom: 8px; padding: 6px; background: rgba(100, 116, 139, 0.1); border-radius: 4px; cursor: pointer; transition: background 0.2s;" onmouseenter="this.style.background='rgba(100, 116, 139, 0.2)'" onmouseleave="this.style.background='rgba(100, 116, 139, 0.1)'">
-        <div style="color: #e2e8f0; font-weight: bold;">
-          ${i + 1}. ${up.cardName}
+    upgradeContent.innerHTML = upgrades.map((up, i) => {
+      let mcBadgeHtml = '';
+
+      if (up.mcImpact !== undefined) {
+        const impactRounded = Math.round(up.mcImpact);
+        const baselineRounded = Math.round(up.baseline);
+        const afterUpgradeRounded = Math.round(up.winRateAfterUpgrade);
+
+        let badgeColor, badgeBg, badgeIcon, badgeMessage;
+
+        if (impactRounded > 3) {
+          badgeColor = '#10b981';
+          badgeBg = 'rgba(16, 185, 129, 0.1)';
+          badgeIcon = '✓';
+          badgeMessage = `Upgrade improves win rate by +${impactRounded}%`;
+        } else if (impactRounded < -3) {
+          badgeColor = '#ef4444';
+          badgeBg = 'rgba(239, 68, 68, 0.1)';
+          badgeIcon = '⚠️';
+          badgeMessage = `Upgrade hurts win rate by ${impactRounded}%`;
+        } else {
+          badgeColor = '#64748b';
+          badgeBg = 'rgba(100, 116, 139, 0.1)';
+          badgeIcon = '〰️';
+          badgeMessage = `Neutral impact (${impactRounded >= 0 ? '+' : ''}${impactRounded}%)`;
+        }
+
+        mcBadgeHtml = `
+          <div style="margin-top: 6px; padding: 8px; background: ${badgeBg}; border-left: 3px solid ${badgeColor}; border-radius: 4px;">
+            <div style="font-size: 0.85rem; font-weight: 600; color: ${badgeColor};">
+              ${badgeIcon} ${badgeMessage}
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 2px;">
+              MC: <strong>${baselineRounded}%</strong> → <strong style="color: ${badgeColor};">${afterUpgradeRounded}%</strong>
+            </div>
+          </div>
+        `;
+      }
+
+      return `
+        <div onclick="upgradeCardFromPriority(${up.index}, '${up.cardName.replace(/'/g, "\\'")}')" style="margin-bottom: 8px; padding: 6px; background: rgba(100, 116, 139, 0.1); border-radius: 4px; cursor: pointer; transition: background 0.2s;" onmouseenter="this.style.background='rgba(100, 116, 139, 0.2)'" onmouseleave="this.style.background='rgba(100, 116, 139, 0.1)'">
+          <div style="color: #e2e8f0; font-weight: bold;">
+            ${i + 1}. ${up.cardName}
+          </div>
+          <div style="color: #94a3b8; font-size: 0.85rem; margin-top: 2px;">
+            Priority: ${up.priority} • Click to upgrade
+          </div>
+          ${mcBadgeHtml}
         </div>
-        <div style="color: #94a3b8; font-size: 0.85rem; margin-top: 2px;">
-          Priority: ${up.priority} • Click to upgrade
-        </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
     upgradePanel.style.display = 'block';
   } else {
     upgradeContent.innerHTML = '<div style="color: #94a3b8;">All cards upgraded!</div>';
@@ -1458,6 +1793,12 @@ function analyzeDeckStats() {
   } else {
     bottleneckPanel.style.display = 'none';
   }
+
+  // Deck Size Optimization (#9)
+  analyzeDeckSizeOptimization();
+
+  // Archetype Transition Analysis (#4)
+  analyzeArchetypeTransitions();
 
   showToast('Deck analyzed successfully', 'success');
 }
@@ -1516,10 +1857,124 @@ function getUpgradePriority() {
     return { cardName, index, priority, card };
   }).filter(Boolean).sort((a, b) => b.priority - a.priority);
 
-  return priorities.slice(0, 3);
+  const topCandidates = priorities.slice(0, 3);
+
+  // MC validation for top 3 candidates (if baseline exists)
+  if (mcBaselineWinRate !== null && currentDeck.length >= 5) {
+    for (const candidate of topCandidates) {
+      const key = `${candidate.index}-${candidate.cardName}`;
+
+      // Temporarily mark as upgraded
+      upgradedCards.add(key);
+      try {
+        const withUpgradeResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 100));
+        const impact = withUpgradeResult.winRate - mcBaselineWinRate;
+        candidate.mcImpact = impact;
+        candidate.winRateAfterUpgrade = withUpgradeResult.winRate;
+        candidate.baseline = mcBaselineWinRate;
+      } finally {
+        // Always remove temporary upgrade marker, even if error occurs
+        upgradedCards.delete(key);
+      }
+    }
+  }
+
+  return topCandidates;
 }
 
-// #3: Gap Analysis
+// #3: Gap Analysis with MC-validated suggestions
+function analyzeGapsWithSuggestions() {
+  const gaps = analyzeGaps();
+
+  // Add MC-validated suggestions for each gap (if baseline exists)
+  if (mcBaselineWinRate !== null && currentDeck.length >= 5) {
+    for (const gap of gaps) {
+      const candidates = getGapFillerCandidates(gap.type);
+      if (candidates.length > 0) {
+        // Test top candidate only (performance)
+        const topCard = candidates[0];
+        const originalDeck = [...currentDeck];
+        currentDeck.push(topCard);
+        const withCardResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 100));
+        currentDeck = originalDeck;
+
+        const impact = withCardResult.winRate - mcBaselineWinRate;
+        gap.suggestion = {
+          cardName: topCard,
+          mcImpact: impact,
+          baseline: mcBaselineWinRate,
+          afterAdd: withCardResult.winRate
+        };
+      }
+    }
+  }
+
+  return gaps;
+}
+
+function getGapFillerCandidates(gapType) {
+  // Return character-appropriate cards that fill this gap
+  const allCards = typeof STS2_CARDS !== 'undefined' ? Object.values(STS2_CARDS) : [];
+  const characterCards = allCards.filter(c =>
+    c.character === currentCharacter || c.character === 'Colorless'
+  );
+
+  switch (gapType) {
+    case 'AOE':
+      return characterCards
+        .filter(c => {
+          const keywords = c.keywords ? (Array.isArray(c.keywords) ? c.keywords : [c.keywords]) : [];
+          return keywords.some(k => k.toLowerCase().includes('aoe') || k.toLowerCase().includes('area')) ||
+            c.name.toLowerCase().includes('whirlwind') || c.name.toLowerCase().includes('cleave');
+        })
+        .map(c => c.name)
+        .slice(0, 3);
+
+    case 'Burst':
+      return characterCards
+        .filter(c => c.type === 'Attack' && c.damage && c.damage >= 20)
+        .sort((a, b) => b.damage - a.damage)
+        .map(c => c.name)
+        .slice(0, 3);
+
+    case 'Multi-hit':
+      return characterCards
+        .filter(c => {
+          const keywords = c.keywords ? (Array.isArray(c.keywords) ? c.keywords : [c.keywords]) : [];
+          return keywords.some(k => k.toLowerCase().includes('multihit'));
+        })
+        .map(c => c.name)
+        .slice(0, 3);
+
+    case 'Front-loaded':
+      return characterCards
+        .filter(c => c.type === 'Attack' && c.cost <= 1 && c.damage && c.damage >= 10)
+        .sort((a, b) => b.damage - a.damage)
+        .map(c => c.name)
+        .slice(0, 3);
+
+    case 'Block':
+      return characterCards
+        .filter(c => c.type === 'Skill' && c.block && c.block > 0)
+        .sort((a, b) => b.block - a.block)
+        .map(c => c.name)
+        .slice(0, 3);
+
+    case 'Sustain':
+      return characterCards
+        .filter(c => {
+          const name = c.name.toLowerCase();
+          return name.includes('heal') || name.includes('reaper') || name.includes('self-repair');
+        })
+        .map(c => c.name)
+        .slice(0, 3);
+
+    default:
+      return [];
+  }
+}
+
+// #3: Gap Analysis (base logic)
 function analyzeGaps() {
   const deckCtx = getDeckContext();
   const gaps = [];
@@ -1922,6 +2377,91 @@ function calculateConsistency() {
   return Math.max(0, Math.min(100, consistency));
 }
 
+// #9: Deck Size Optimization with MC
+function analyzeDeckSizeOptimization() {
+  const panel = document.getElementById('deck-size-panel');
+  const content = document.getElementById('deck-size-content');
+
+  if (!panel || !content) return; // Panel doesn't exist yet
+
+  if (currentDeck.length < 10 || mcBaselineWinRate === null) {
+    panel.style.display = 'none';
+    return;
+  }
+
+  const currentSize = currentDeck.length;
+  const currentWR = mcBaselineWinRate;
+
+  let recommendation = '';
+  let color = '#94a3b8';
+
+  // Optimal deck size is usually 15-25 cards
+  if (currentSize < 15) {
+    recommendation = `📏 Your deck is lean (${currentSize} cards, ${Math.round(currentWR)}% WR). Consider adding 1-2 more high-impact cards.`;
+    color = '#fbbf24';
+  } else if (currentSize >= 15 && currentSize <= 25) {
+    recommendation = `✓ Deck size is optimal (${currentSize} cards, ${Math.round(currentWR)}% WR). Good balance between consistency and power.`;
+    color = '#10b981';
+  } else if (currentSize > 25 && currentSize <= 30) {
+    recommendation = `⚠️ Deck is getting large (${currentSize} cards, ${Math.round(currentWR)}% WR). Consider skipping weak rewards or removing cards.`;
+    color = '#fdba74';
+  } else {
+    recommendation = `❌ Deck is bloated (${currentSize} cards, ${Math.round(currentWR)}% WR). Prioritize removals and skip most rewards.`;
+    color = '#fca5a5';
+  }
+
+  content.innerHTML = `<div style="color: ${color};">${recommendation}</div>`;
+  panel.style.display = 'block';
+}
+
+// #4: Archetype Transition Analysis with MC
+function analyzeArchetypeTransitions() {
+  const panel = document.getElementById('archetype-transition-panel');
+  const content = document.getElementById('archetype-transition-content');
+
+  if (!panel || !content) return; // Panel doesn't exist yet
+
+  if (detectedArchetypes.size === 0 || mcBaselineWinRate === null) {
+    panel.style.display = 'none';
+    return;
+  }
+
+  const currentArchetypes = Array.from(detectedArchetypes.entries())
+    .filter(([name, strength]) => strength >= 5)
+    .sort((a, b) => b[1] - a[1]);
+
+  if (currentArchetypes.length === 0) {
+    panel.style.display = 'none';
+    return;
+  }
+
+  const [primaryName, primaryStrength] = currentArchetypes[0];
+  let statusHtml = '';
+  let statusColor = '#10b981';
+
+  if (primaryStrength >= 12) {
+    statusHtml = `✓ <strong>${primaryName}</strong> archetype is fully committed (${primaryStrength}/15 strength, ${Math.round(mcBaselineWinRate)}% WR)`;
+    statusColor = '#10b981';
+  } else if (primaryStrength >= 8) {
+    statusHtml = `⚡ <strong>${primaryName}</strong> archetype is developing (${primaryStrength}/15 strength, ${Math.round(mcBaselineWinRate)}% WR)`;
+    statusColor = '#fbbf24';
+  } else {
+    statusHtml = `〰️ <strong>${primaryName}</strong> archetype is weak (${primaryStrength}/15 strength, ${Math.round(mcBaselineWinRate)}% WR). Consider pivoting or committing.`;
+    statusColor = '#fdba74';
+  }
+
+  // Show secondary archetypes if any
+  if (currentArchetypes.length > 1) {
+    const secondaryList = currentArchetypes.slice(1, 3).map(([name, strength]) =>
+      `${name} (${strength})`
+    ).join(', ');
+    statusHtml += `<div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">Also: ${secondaryList}</div>`;
+  }
+
+  content.innerHTML = `<div style="color: ${statusColor};">${statusHtml}</div>`;
+  panel.style.display = 'block';
+}
+
 function findCard(name) {
   const normalized = name.toUpperCase().trim();
 
@@ -2243,6 +2783,9 @@ function evaluateDamageOutput() {
 function performMCRollout(card, simulations = 100) {
   // Monte Carlo rollout: simulate adding this card and evaluate win rate
   let winCount = 0;
+  let totalTurns = 0;
+  let totalHP = 0;
+  let victorySamples = 0;
 
   // Baseline check: if card name is __BASELINE__, test current deck without adding anything
   const testDeck = card.name === '__BASELINE__' ? [...currentDeck] : [...currentDeck, card.name];
@@ -2255,14 +2798,45 @@ function performMCRollout(card, simulations = 100) {
     const result = simulateCombat(testDeck, enemyProfile, i);
     if (result.victory) {
       winCount++;
+      totalTurns += result.turnsToWin;
+      totalHP += result.finalHP;
+      victorySamples++;
     }
   }
 
-  return (winCount / simulations) * 100; // Return win percentage
+  const winRate = (winCount / simulations) * 100;
+  const avgTurnsToWin = victorySamples > 0 ? totalTurns / victorySamples : 20;
+  const avgFinalHP = victorySamples > 0 ? totalHP / victorySamples : 0;
+
+  return {
+    winRate: winRate,
+    avgTurnsToWin: avgTurnsToWin,
+    avgFinalHP: avgFinalHP
+  };
 }
 
 function getEnemyProfile() {
-  // Return enemy stats based on current act and ascension
+  // If a boss is selected, use actual boss HP
+  if (selectedBoss && BOSS_MECHANICS[selectedBoss]) {
+    const boss = BOSS_MECHANICS[selectedBoss];
+    const bossHP = currentAscension >= 8 ? (boss.ascensionHP || boss.hp) : boss.hp;
+
+    // Special handling for multi-enemy bosses
+    let totalHP = bossHP;
+    if (boss.followerCount && boss.followerHP) {
+      totalHP += boss.followerCount * boss.followerHP;
+    }
+
+    const ascensionMultiplier = ASCENSION_DAMAGE_MULTIPLIER[currentAscension] || 1.0;
+
+    return {
+      hp: totalHP,
+      damage: Math.round(12 * ascensionMultiplier), // Boss attacks vary, use reasonable avg
+      attackProbability: 0.75
+    };
+  }
+
+  // Return enemy stats based on current act and ascension (generic enemies)
   const baseProfiles = {
     1: { hp: 50, damage: 8, attackProbability: 0.7 },
     2: { hp: 80, damage: 12, attackProbability: 0.7 },
@@ -2917,21 +3491,81 @@ function scoreCard(cardName, context = {}) {
   let score = 50;
   let breakdown = [{ factor: 'Base value', value: 50 }];
 
-  // Character match (colorless cards are valid for all characters)
-  if (card.character && card.character !== 'colorless' && card.character !== currentCharacter) {
-    return {
-      score: 0,
-      reason: 'Wrong character',
-      breakdown: [{ factor: 'Wrong character', value: -100 }]
-    };
-  }
-
   // Get context
   const act = currentAct;
   const deckCtx = getDeckContext();
   const enemyCtx = getEnemyContext();
 
-  // === NEW HEURISTICS ===
+  // If heuristic scoring is disabled, skip all heuristics and use only MC
+  if (!useHeuristicScoring) {
+    // Skip to MC simulation section
+    if (!context.skipMC) {
+      // Calculate baseline if not cached
+      if (mcBaselineWinRate === null) {
+        calculateMCBaseline();
+      }
+
+      // Check if this card has been simulated already
+      const cacheKey = cardName;
+      const cached = mcCardCache.get(cacheKey);
+      let mcResult;
+
+      if (cached && cached.baselineHash === mcBaselineHash) {
+        mcResult = cached;
+      } else {
+        mcResult = performMCRollout(card, mcSimulations);
+        mcCardCache.set(cacheKey, {
+          baselineHash: mcBaselineHash,
+          ...mcResult
+        });
+      }
+
+      const improvement = mcResult.winRate - mcBaselineWinRate;
+      const baselineRounded = Math.round(mcBaselineWinRate);
+      const withCardRounded = Math.round(mcResult.winRate);
+      const improvementRounded = Math.round(improvement);
+
+      // Calculate Deck Power Score (extends beyond 100% for comparing perfect decks)
+      // Base: win rate (0-100)
+      // Speed bonus: faster kills = higher score (max +50)
+      // HP bonus: more HP remaining = higher score (max +50)
+      let powerScore = mcResult.winRate;
+
+      if (mcResult.winRate >= 100) {
+        // Perfect win rate - now differentiate by quality
+        const speedBonus = Math.max(0, 50 - (mcResult.avgTurnsToWin * 2.5)); // 20 turns = 0, 0 turns = 50
+        const hpBonus = (mcResult.avgFinalHP / 80) * 50; // Assuming 80 base HP, max 50 bonus
+        powerScore = 100 + speedBonus + hpBonus;
+      }
+
+      // Pure MC scoring: convert win rate improvement directly to score
+      score = 50 + (improvement * 3); // 10% improvement = 30 point bonus
+
+      breakdown = [
+        { factor: 'Base value', value: 50 },
+        { factor: `MC: ${improvementRounded >= 0 ? '+' : ''}${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: improvement * 3 },
+        { factor: `Deck Power: ${Math.round(powerScore)}`, value: 0 } // Informational
+      ];
+
+      const reason = `Pure MC: ${withCardRounded}% WR (${improvementRounded >= 0 ? '+' : ''}${improvementRounded}%), Power: ${Math.round(powerScore)}`;
+
+      return {
+        score: Math.round(Math.max(0, score)),
+        reason: reason,
+        breakdown: breakdown,
+        powerScore: Math.round(powerScore)
+      };
+    }
+
+    // If MC is skipped, return base score
+    return {
+      score: 50,
+      reason: 'Base score (MC skipped)',
+      breakdown: [{ factor: 'Base value', value: 50 }]
+    };
+  }
+
+  // === NEW HEURISTICS (only run if useHeuristicScoring is true) ===
 
   // 1. DEAD DRAW ANALYSIS - Cards that literally do nothing
   const deadDrawPenalty = checkDeadDraw(card, cardName, deckCtx);
@@ -3236,23 +3870,23 @@ function scoreCard(cardName, context = {}) {
     // Check if this card has been simulated already for this baseline
     const cacheKey = cardName;
     const cached = mcCardCache.get(cacheKey);
-    let withCardWinRate;
+    let mcResult;
 
     if (cached && cached.baselineHash === mcBaselineHash) {
       // Use cached result
-      withCardWinRate = cached.winRate;
+      mcResult = cached;
     } else {
       // Run simulation and cache result (respects user's simulation count)
-      withCardWinRate = performMCRollout(card, mcSimulations);
+      mcResult = performMCRollout(card, mcSimulations);
       mcCardCache.set(cacheKey, {
         baselineHash: mcBaselineHash,
-        winRate: withCardWinRate
+        ...mcResult
       });
     }
 
-    const improvement = withCardWinRate - mcBaselineWinRate;
+    const improvement = mcResult.winRate - mcBaselineWinRate;
     const baselineRounded = Math.round(mcBaselineWinRate);
-    const withCardRounded = Math.round(withCardWinRate);
+    const withCardRounded = Math.round(mcResult.winRate);
     const improvementRounded = Math.round(improvement);
 
     // Score based on improvement, not absolute win rate
@@ -3763,6 +4397,23 @@ function renderCardResult(card, result, showAddButton = false, rewardKey = null)
   const isUpgraded = rewardKey ? upgradedCards.has(rewardKey) : false;
   const enchantment = rewardKey ? cardEnchantments.get(rewardKey) : null;
 
+  // Check if good for selected boss
+  let bossBadge = '';
+  const boss = selectedBoss && BOSS_MECHANICS[selectedBoss] ? BOSS_MECHANICS[selectedBoss] : null;
+  if (boss) {
+    const keywords = card.keywords ? (Array.isArray(card.keywords) ? card.keywords : [card.keywords]) : [];
+    const isGoodForBoss = (
+      (boss.requireAOE && keywords.some(k => k.toLowerCase().includes('aoe') || k.toLowerCase().includes('area'))) ||
+      (boss.requireBurst && card.type === 'Attack' && card.damage >= 20) ||
+      (boss.requireMultiHit && keywords.some(k => k.toLowerCase().includes('multihit'))) ||
+      (boss.requireFrontLoaded && card.cost <= 1 && card.damage >= 10) ||
+      (boss.rewardBlock && card.type === 'Skill' && card.block)
+    );
+    if (isGoodForBoss) {
+      bossBadge = `<span class="pill" style="background: rgba(251, 191, 36, 0.2); color: #fbbf24; border-color: #fbbf24;">👑 ${boss.name}</span>`;
+    }
+  }
+
   const breakdownHtml = result.breakdown && result.breakdown.length > 0
     ? `
       <div class="expand-btn" onclick="toggleBreakdown(this)">📊 Show breakdown</div>
@@ -3820,6 +4471,7 @@ function renderCardResult(card, result, showAddButton = false, rewardKey = null)
         ${card.cost !== undefined ? `<span class="pill">Cost: ${card.cost >= 0 ? card.cost : 'X'}</span>` : ''}
         ${card.rarity ? `<span class="pill pill-${card.rarity}">${card.rarity}</span>` : ''}
         ${card.keywords ? (Array.isArray(card.keywords) ? card.keywords : [card.keywords]).map(k => `<span class="pill">${k}</span>`).join('') : ''}
+        ${bossBadge}
       </div>
       <div class="card-reason">${result.reason}</div>
       ${actionButtonsHtml}
@@ -4193,7 +4845,7 @@ function incrementRemovalCount(delta) {
   }
   renderShopGrid(); // Update removal button cost
   saveDeckState();
-  showToast(`Removal cost: ${50 + (shopRemovalCount * 25)}G`, 'info', 1500);
+  showToast(`Removal cost: ${75 + (shopRemovalCount * 25)}G`, 'info', 1500);
 }
 
 function purchaseShopCard(cardName, shopKey) {
@@ -4297,6 +4949,8 @@ function purchaseShopRemoval() {
     return;
   }
 
+  const worst = scored[0];
+  const indexToRemove = currentDeck.indexOf(worst.cardName);
   const removedName = worst.cardName;
   const removedIndex = indexToRemove;
 
@@ -4484,11 +5138,12 @@ function renderShopGrid() {
     for (let i = 0; i < 3; i++) {
       const relicName = shopRelics[i];
       if (relicName) {
-        // Context-aware relic scoring
+        // Context-aware relic scoring with MC validation
         const relic = RELICS[relicName];
-        const relicResult = scoreRelic(relicName);
+        const relicResult = scoreRelic(relicName, { validateWithMC: true });
         const relicScore = relicResult.score;
         const analyzed = relicResult.analyzed;
+        const mcImpact = relicResult.mcImpact;
         const isBad = relicScore < 55;
 
         const tooltip = analyzed
@@ -4497,12 +5152,37 @@ function renderShopGrid() {
 
         const genericWarning = !analyzed ? '<span style="font-size: 0.7rem; color: #fbbf24;">⚠️</span>' : '';
 
+        // Build MC impact display
+        let mcImpactHTML = '';
+        if (mcImpact) {
+          const impactRounded = Math.round(mcImpact.impact);
+          const baselineRounded = Math.round(mcImpact.baselineWR);
+          const withRelicRounded = Math.round(mcImpact.withRelicWR);
+
+          let impactColor = '#64748b'; // Neutral gray
+          let impactIcon = '';
+          if (impactRounded >= 5) {
+            impactColor = '#10b981'; // Green
+            impactIcon = '✓';
+          } else if (impactRounded <= -3) {
+            impactColor = '#ef4444'; // Red
+            impactIcon = '⚠️';
+          }
+
+          mcImpactHTML = `
+            <div style="margin-top: 4px; padding: 4px 6px; background: rgba(0,0,0,0.2); border-radius: 4px; font-size: 0.75rem; color: ${impactColor};">
+              ${impactIcon} MC: ${impactRounded >= 0 ? '+' : ''}${impactRounded}% (${baselineRounded}% → ${withRelicRounded}%)
+            </div>
+          `;
+        }
+
         relicSlots.innerHTML += `
           <div class="shop-slot ${isBad ? 'bad-purchase' : ''} ${!analyzed ? 'generic-score' : ''}"
                data-relic="${relicName}"
                data-score="${relicScore}"
+               data-mc-impact="${mcImpact ? Math.round(mcImpact.impact) : 0}"
                onclick="purchaseShopRelic('${relicName.replace(/'/g, "\\'")}')"
-               onmouseenter="showShopItemAnalysis(event, '${relicName.replace(/'/g, "\\'")}', 'relic', ${relicScore}, ${analyzed})"
+               onmouseenter="showShopItemAnalysis(event, '${relicName.replace(/'/g, "\\'")}', 'relic', ${relicScore}, ${analyzed}, ${mcImpact ? mcImpact.impact : 0})"
                onmouseleave="hideCardPreview()"
                style="cursor: pointer;"
                title="${tooltip}">
@@ -4510,6 +5190,7 @@ function renderShopGrid() {
             <div class="shop-slot-content">
               <div class="shop-slot-name">🏺 ${relicName} ${genericWarning}</div>
               <div class="shop-slot-type">Relic • ${relicScore}</div>
+              ${mcImpactHTML}
             </div>
             <button class="shop-slot-remove" onclick="event.stopPropagation(); removeShopItem('${relicName.replace(/'/g, "\\'")}', 'relic')">×</button>
           </div>
@@ -4522,7 +5203,7 @@ function renderShopGrid() {
 
   // Always add removal button (even if no cards/relics in shop)
   if (relicSlots && currentDeck.length > 0) {
-    const removalCost = 50 + (shopRemovalCount * 25);
+    const removalCost = 75 + (shopRemovalCount * 25);
     relicSlots.innerHTML += `
       <div class="shop-slot"
            onclick="purchaseShopRemoval()"
@@ -4635,17 +5316,82 @@ function clearShopUpgradeEnchantState() {
   shopEnchantKeys.forEach(key => cardEnchantments.delete(key));
 }
 
-function scoreRelic(relicName) {
+function clearShopCards() {
+  // Clear all shop slots
+  shopCards = {};
+  shopColorlessCards = {};
+  shopRelics = {};
+  shopRemovalSelected = false;
+
+  // Clear upgrade/enchant state
+  clearShopUpgradeEnchantState();
+
+  // Re-render the shop grid
+  renderShopGrid();
+
+  // Clear results
+  document.getElementById('shop-results').innerHTML = '';
+
+  showToast('Shop cleared', 'success', 1500);
+}
+
+function scoreRelic(relicName, options = {}) {
   const relic = findRelic(relicName);
-  if (!relic) return { score: 50, analyzed: false };
+  if (!relic) return { score: 50, analyzed: false, mcImpact: null };
 
   let score = 60; // Base relic score
   let analyzed = false;
+  let mcImpact = null;
 
   const deckCtx = getDeckContext();
   const enemyCtx = getEnemyContext();
   const name = relicName.toLowerCase();
   const desc = (relic.description || '').toLowerCase();
+
+  // Monte Carlo validation if requested (for shop context)
+  if (options.validateWithMC && currentDeck.length > 0) {
+    // Temporarily add relic and check win rate impact
+    const hadRelic = currentRelics.includes(relicName);
+    if (!hadRelic) {
+      // Store original baseline
+      const originalBaselineWR = mcBaselineWinRate;
+      if (originalBaselineWR === null) {
+        // Calculate baseline if not already cached
+        const baselineResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 100));
+        mcBaselineWinRate = baselineResult.winRate;
+      }
+
+      // Add relic temporarily and test
+      currentRelics.push(relicName);
+      const withRelicResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 100));
+      currentRelics.pop();
+
+      const impact = withRelicResult.winRate - mcBaselineWinRate;
+      mcImpact = {
+        impact: impact,
+        baselineWR: mcBaselineWinRate,
+        withRelicWR: withRelicResult.winRate
+      };
+
+      // Adjust score based on MC impact
+      if (impact >= 10) {
+        score += 25;
+        analyzed = true;
+      } else if (impact >= 5) {
+        score += 15;
+        analyzed = true;
+      } else if (impact >= 2) {
+        score += 8;
+        analyzed = true;
+      } else if (impact < -5) {
+        score -= 20;
+        analyzed = true;
+      } else if (impact < -2) {
+        score -= 10;
+        analyzed = true;
+      }
+    }
+  }
 
   // === ENERGY RELICS (always premium) ===
   if (desc.includes('energy')) {
@@ -4935,7 +5681,7 @@ function scoreRelic(relicName) {
     score = 55; // Slightly above base for "probably useful"
   }
 
-  return { score: Math.max(0, score), analyzed };
+  return { score: Math.max(0, score), analyzed, mcImpact };
 }
 
 function calculateUpgradeValue(card, cardName) {
@@ -5227,6 +5973,11 @@ async function analyzeShopCards() {
 
     shopScore = Math.max(0, shopScore); // Allow scores above 100
 
+    // Detect if card is only worth buying on sale (50% off)
+    // If base score without shop penalties would be 60+ but shop score is 45-55, it's a sale candidate
+    const scoreWithoutShopPenalties = baseScore.score;
+    const isOnlyGoodOnSale = shopScore >= 40 && shopScore < 55 && scoreWithoutShopPenalties >= 60;
+
     const reasonText = shopReasons
       .filter(r => Math.abs(r.value) >= 5)
       .map(r => `${r.factor} (${r.value > 0 ? '+' : ''}${r.value})`)
@@ -5237,9 +5988,13 @@ async function analyzeShopCards() {
       score: Math.round(shopScore),
       reason: reasonText || 'Standard evaluation',
       breakdown: shopReasons,
-      removalValue: removalValue
+      removalValue: removalValue,
+      onlyGoodOnSale: isOnlyGoodOnSale
     };
   });
+
+  // Combine all scored items (class cards, colorless cards would go here if implemented)
+  const scored = [...scoredClassCards];
 
   const filtered = filterAndSortCards(scored);
 
@@ -5249,6 +6004,14 @@ async function analyzeShopCards() {
   const shouldSkip = bestScore < SHOP_SKIP_THRESHOLD;
 
   let html = '';
+
+  // Add explanation about shop vs reward scoring
+  html += `
+    <div style="margin-bottom: 16px; padding: 12px; background: rgba(59, 130, 246, 0.1); border-left: 3px solid #3b82f6; border-radius: 6px; font-size: 0.9rem;">
+      <strong style="color: #60a5fa;">💰 Shop Scoring:</strong> Shop cards score 5-20 points lower than rewards due to gold cost, opportunity cost, and deck dilution.
+      A 60-score shop card = 65-80 score reward card.
+    </div>
+  `;
 
   if (shouldSkip) {
     // Show SKIP recommendation for shop
@@ -5282,6 +6045,12 @@ async function analyzeShopCards() {
 
   html += filtered.map(item => {
     let cardHtml = renderCardResult(item.card, item, true);
+
+    // Add "only good on sale" indicator
+    if (item.onlyGoodOnSale) {
+      const saleBadge = `<div style="font-size: 0.85rem; color: #f59e0b; margin-top: 6px; padding: 8px; background: rgba(245, 158, 11, 0.1); border-radius: 6px; border: 1px solid rgba(245, 158, 11, 0.3);">🏷️ Only worth buying on sale (50% off)</div>`;
+      cardHtml = cardHtml.replace('</div>\n  `;', `${saleBadge}</div>\n  \`;`);
+    }
 
     // Add removal value indicator
     if (item.removalValue > 60) {
@@ -5482,9 +6251,106 @@ async function autoAnalyzeRemovals() {
     };
   }).sort((a, b) => b.score - a.score);
 
+  // MC Validation: Check if removing top candidates would hurt win rate
+  const topCandidates = scored.slice(0, 5); // Check top 5 removal candidates
+
+  // Calculate baseline if not cached
+  if (mcBaselineWinRate === null) {
+    calculateMCBaseline();
+  }
+
+  // Test removal impact for each candidate
+  for (const candidate of topCandidates) {
+    // Simulate deck without this card (remove one copy)
+    const indexToRemove = currentDeck.indexOf(candidate.card.name);
+    if (indexToRemove !== -1) {
+      // Temporarily remove card from deck
+      const originalDeck = [...currentDeck];
+      currentDeck.splice(indexToRemove, 1);
+
+      // Run MC simulation with reduced deck
+      const withoutCardResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 100));
+      const winRateAfterRemoval = withoutCardResult.winRate;
+      const impact = winRateAfterRemoval - mcBaselineWinRate;
+
+      // Restore original deck
+      currentDeck = originalDeck;
+
+      // Flag if removal hurts win rate
+      candidate.mcImpact = impact;
+      candidate.winRateAfterRemoval = winRateAfterRemoval;
+
+      if (impact < -3) {
+        // Removing this card hurts the deck
+        candidate.safeToRemove = false;
+        candidate.removalWarning = `⚠️ Removing hurts win rate by ${Math.abs(Math.round(impact))}%`;
+      } else if (impact > 3) {
+        // Removing this card helps!
+        candidate.safeToRemove = true;
+        candidate.removalBonus = `✓ Removal improves win rate by +${Math.round(impact)}%`;
+      } else {
+        // Neutral impact
+        candidate.safeToRemove = true;
+        candidate.removalNote = `Neutral impact (${impact >= 0 ? '+' : ''}${Math.round(impact)}%)`;
+      }
+    }
+  }
+
   const html = scored.map(item => {
     const cardWithCount = { ...item.card, name: `${item.card.name || item.name}${item.count > 1 ? ` (×${item.count})` : ''}` };
-    return renderCardResult(cardWithCount, item, false);
+
+    // Add MC validation warning/bonus if available
+    let cardHtml = renderCardResult(cardWithCount, item, false);
+
+    // Build MC impact display
+    if (item.mcImpact !== undefined) {
+      const impactRounded = Math.round(item.mcImpact);
+      const baselineRounded = Math.round(mcBaselineWinRate);
+      const afterRemovalRounded = Math.round(item.winRateAfterRemoval);
+
+      let badgeColor, badgeBg, badgeIcon, badgeMessage;
+
+      if (impactRounded < -3) {
+        // Hurts win rate - red warning
+        badgeColor = '#ef4444';
+        badgeBg = 'rgba(239, 68, 68, 0.1)';
+        badgeIcon = '⚠️';
+        badgeMessage = `Removing hurts win rate by ${Math.abs(impactRounded)}%`;
+      } else if (impactRounded > 3) {
+        // Helps win rate - green bonus
+        badgeColor = '#10b981';
+        badgeBg = 'rgba(16, 185, 129, 0.1)';
+        badgeIcon = '✓';
+        badgeMessage = `Removal improves win rate by +${impactRounded}%`;
+      } else {
+        // Neutral - gray
+        badgeColor = '#64748b';
+        badgeBg = 'rgba(100, 116, 139, 0.1)';
+        badgeIcon = '〰️';
+        badgeMessage = `Neutral impact (${impactRounded >= 0 ? '+' : ''}${impactRounded}%)`;
+      }
+
+      const mcBadge = `
+        <div style="margin-top: 8px; padding: 10px; background: ${badgeBg}; border-left: 3px solid ${badgeColor}; border-radius: 6px;">
+          <div style="font-size: 0.9rem; font-weight: 600; color: ${badgeColor}; margin-bottom: 4px;">
+            ${badgeIcon} ${badgeMessage}
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary);">
+            MC: <strong>${baselineRounded}%</strong> → <strong style="color: ${badgeColor};">${afterRemovalRounded}%</strong>
+            ${impactRounded < -3 ? '<br><small>Keep this card - deck needs it</small>' : ''}
+            ${impactRounded > 3 ? '<br><small>Safe to remove - improves deck</small>' : ''}
+          </div>
+        </div>
+      `;
+
+      // Insert before the last closing div tag
+      const lastDivIndex = cardHtml.lastIndexOf('</div>');
+      if (lastDivIndex !== -1) {
+        cardHtml = cardHtml.substring(0, lastDivIndex) + mcBadge + cardHtml.substring(lastDivIndex);
+      }
+    }
+
+    return cardHtml;
   }).join('');
 
   document.getElementById('removal-results').innerHTML = html;
@@ -5582,6 +6448,73 @@ let autocompleteData = [];
 let currentAutocompleteIndex = -1;
 let currentAutocompleteField = null;
 
+// Levenshtein distance for fuzzy typo matching
+function levenshteinDistance(a, b) {
+  const matrix = [];
+
+  for (let i = 0; i <= b.length; i++) {
+    matrix[i] = [i];
+  }
+
+  for (let j = 0; j <= a.length; j++) {
+    matrix[0][j] = j;
+  }
+
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      if (b.charAt(i - 1) === a.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1, // substitution
+          matrix[i][j - 1] + 1,     // insertion
+          matrix[i - 1][j] + 1      // deletion
+        );
+      }
+    }
+  }
+
+  return matrix[b.length][a.length];
+}
+
+function fuzzyMatch(cardName, query) {
+  const name = cardName.toLowerCase();
+  const q = query.toLowerCase();
+
+  // Priority 1: Exact prefix match
+  if (name.startsWith(q)) return { priority: 1, distance: 0 };
+
+  // Priority 2: Contains match
+  if (name.includes(q)) return { priority: 2, distance: 0 };
+
+  // Priority 3: Character sequence match (all chars in order)
+  let j = 0;
+  for (let i = 0; i < name.length && j < q.length; i++) {
+    if (name[i] === q[j]) j++;
+  }
+  if (j === q.length) return { priority: 3, distance: 0 };
+
+  // Priority 4: Levenshtein distance for typo tolerance
+  // Allow up to 2 character differences for queries 5+ chars, 1 for shorter
+  const maxDistance = q.length >= 5 ? 2 : 1;
+  const distance = levenshteinDistance(q, name);
+
+  if (distance <= maxDistance) {
+    return { priority: 4, distance: distance };
+  }
+
+  // Check if query is close to any word in the card name
+  const words = name.split(/\s+/);
+  for (const word of words) {
+    const wordDistance = levenshteinDistance(q, word);
+    if (wordDistance <= maxDistance) {
+      return { priority: 5, distance: wordDistance };
+    }
+  }
+
+  return null;
+}
+
 function initAutocomplete() {
 
   // Build searchable card list with priority sorting
@@ -5648,19 +6581,20 @@ function setupAdditionalRewardAutocomplete() {
     }
 
     // Fuzzy search - exclude already selected cards
-    const matches = autocompleteData.filter(card => {
-      // Skip if already in additionalRewardCards
-      if (additionalRewardCards.includes(card.name)) return false;
-
-      const name = card.name.toLowerCase();
-      if (name.startsWith(query)) return true;
-      if (name.includes(query)) return true;
-      let j = 0;
-      for (let i = 0; i < name.length && j < query.length; i++) {
-        if (name[i] === query[j]) j++;
-      }
-      return j === query.length;
-    }).slice(0, 10);
+    const matches = autocompleteData
+      .filter(card => !additionalRewardCards.includes(card.name))
+      .map(card => {
+        const match = fuzzyMatch(card.name, query);
+        return match ? { card, ...match } : null;
+      })
+      .filter(result => result !== null)
+      .sort((a, b) => {
+        if (a.priority !== b.priority) return a.priority - b.priority;
+        if (a.distance !== b.distance) return a.distance - b.distance;
+        return a.card.name.localeCompare(b.card.name);
+      })
+      .slice(0, 20)
+      .map(result => result.card);
 
     if (matches.length === 0) {
       dropdown.classList.remove('show');
@@ -5671,8 +6605,9 @@ function setupAdditionalRewardAutocomplete() {
       const characterBadge = card.character !== currentCharacter
         ? `<span style="font-size: 0.7rem; opacity: 0.7;">${card.character}</span>`
         : '';
+      const escapedName = card.name.replace(/'/g, "\\'");
       return `
-        <div class="autocomplete-item" data-index="${idx}" data-name="${card.name}" onclick="addAdditionalRewardCard('${card.name}')">
+        <div class="autocomplete-item" data-index="${idx}" data-name="${card.name}" onclick="addAdditionalRewardCard('${escapedName}')">
           <span class="autocomplete-item-icon">${card.icon}</span>
           <span class="autocomplete-item-name">${card.name}</span>
           <span class="autocomplete-item-meta">
@@ -6083,7 +7018,7 @@ function showRelicPreview(event, relicName) {
   positionPreview(preview, event);
 }
 
-function showShopItemAnalysis(event, itemName, itemType, shopScore, isUpgraded = false, enchantment = '', analyzed = true) {
+function showShopItemAnalysis(event, itemName, itemType, shopScore, isUpgraded = false, enchantment = '', analyzed = true, mcImpact = 0) {
   const preview = document.getElementById('card-hover-preview');
   if (!preview) return;
 
@@ -6106,6 +7041,47 @@ function showShopItemAnalysis(event, itemName, itemType, shopScore, isUpgraded =
       </div>
     ` : '';
 
+    // MC Impact display
+    let mcImpactHTML = '';
+    if (mcImpact && Math.abs(mcImpact) >= 1) {
+      const impactRounded = Math.round(mcImpact);
+      let impactColor = '#64748b';
+      let impactBg = 'rgba(100, 116, 139, 0.1)';
+      let impactIcon = '〰️';
+      let impactText = 'Neutral impact';
+
+      if (impactRounded >= 5) {
+        impactColor = '#10b981';
+        impactBg = 'rgba(16, 185, 129, 0.1)';
+        impactIcon = '✓';
+        impactText = 'Strong win rate boost';
+      } else if (impactRounded >= 2) {
+        impactColor = '#6ee7b7';
+        impactBg = 'rgba(110, 231, 183, 0.1)';
+        impactIcon = '✓';
+        impactText = 'Moderate win rate boost';
+      } else if (impactRounded <= -5) {
+        impactColor = '#ef4444';
+        impactBg = 'rgba(239, 68, 68, 0.1)';
+        impactIcon = '⚠️';
+        impactText = 'Hurts win rate significantly';
+      } else if (impactRounded <= -2) {
+        impactColor = '#fbbf24';
+        impactBg = 'rgba(251, 191, 36, 0.1)';
+        impactIcon = '⚠️';
+        impactText = 'Slightly hurts win rate';
+      }
+
+      mcImpactHTML = `
+        <div style="margin-top: 8px; padding: 8px; background: ${impactBg}; border-left: 2px solid ${impactColor}; border-radius: 4px;">
+          <strong style="color: ${impactColor};">${impactIcon} ${impactText}</strong>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">
+            MC validation: ${impactRounded >= 0 ? '+' : ''}${impactRounded}% win rate change
+          </div>
+        </div>
+      `;
+    }
+
     preview.innerHTML = `
       ${imageHtml}
       <div class="card-hover-info">
@@ -6119,6 +7095,7 @@ function showShopItemAnalysis(event, itemName, itemType, shopScore, isUpgraded =
         </div>
         ${relic.description ? `<div style="margin-top: 8px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">${relic.description}</div>` : ''}
         ${genericWarning}
+        ${mcImpactHTML}
         <div style="margin-top: 12px; padding: 8px; background: var(--bg-secondary); border-radius: 4px;">
           <div style="font-size: 0.9rem;">${recommendation}</div>
           <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">Shop Purchase Analysis</div>
@@ -6208,7 +7185,60 @@ function showRemovalPreview(event) {
   // Take top 3-5 candidates
   const topCandidates = scored.slice(0, 5);
 
-  const removalCost = 50 + (shopRemovalCount * 25);
+  // MC validation for top candidate
+  let topCandidateMC = null;
+  if (topCandidates.length > 0 && mcBaselineWinRate !== null) {
+    const topCard = topCandidates[0];
+    const indexToRemove = currentDeck.indexOf(topCard.cardName);
+    if (indexToRemove !== -1) {
+      // Temporarily modify deck
+      const originalDeck = [...currentDeck];
+      currentDeck.splice(indexToRemove, 1);
+      const withoutCardResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 100));
+      currentDeck = originalDeck; // Restore deck
+      const impact = withoutCardResult.winRate - mcBaselineWinRate;
+      topCandidateMC = {
+        impact: impact,
+        baseline: mcBaselineWinRate,
+        afterRemoval: withoutCardResult.winRate
+      };
+    }
+  }
+
+  const removalCost = 75 + (shopRemovalCount * 25);
+
+  // Build MC impact display for top candidate
+  let mcImpactHTML = '';
+  if (topCandidateMC) {
+    const impactRounded = Math.round(topCandidateMC.impact);
+    const baselineRounded = Math.round(topCandidateMC.baseline);
+    const afterRounded = Math.round(topCandidateMC.afterRemoval);
+
+    let impactColor = '#64748b';
+    let impactIcon = '〰️';
+    let impactText = 'Neutral';
+
+    if (impactRounded < -3) {
+      impactColor = '#ef4444';
+      impactIcon = '⚠️';
+      impactText = 'Hurts deck';
+    } else if (impactRounded > 3) {
+      impactColor = '#10b981';
+      impactIcon = '✓';
+      impactText = 'Improves deck';
+    }
+
+    mcImpactHTML = `
+      <div style="margin-top: 8px; padding: 8px; background: rgba(${impactColor === '#ef4444' ? '239, 68, 68' : impactColor === '#10b981' ? '16, 185, 129' : '100, 116, 139'}, 0.1); border-left: 2px solid ${impactColor}; border-radius: 4px;">
+        <div style="font-size: 0.8rem; font-weight: 600; color: ${impactColor}; margin-bottom: 2px;">
+          ${impactIcon} MC Impact: ${impactText} (${impactRounded >= 0 ? '+' : ''}${impactRounded}%)
+        </div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary);">
+          Win rate: ${baselineRounded}% → <strong style="color: ${impactColor};">${afterRounded}%</strong>
+        </div>
+      </div>
+    `;
+  }
 
   preview.innerHTML = `
     <div class="card-hover-info">
@@ -6238,6 +7268,7 @@ function showRemovalPreview(event) {
           `;
         }).join('')}
       </div>
+      ${mcImpactHTML}
       <div style="margin-top: 12px; padding: 8px; background: rgba(239, 68, 68, 0.1); border: 1px solid var(--error); border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">
         💡 <strong>Tip:</strong> Remove starter cards (Strike/Defend) and low-impact cards to thin your deck.
       </div>
@@ -6619,19 +7650,19 @@ function setupAutocompleteField(inputId, dropdownId) {
     }
 
     // Fuzzy search
-    const matches = autocompleteData.filter(card => {
-      const name = card.name.toLowerCase();
-      // Exact prefix match gets priority
-      if (name.startsWith(query)) return true;
-      // Contains match
-      if (name.includes(query)) return true;
-      // Fuzzy match (all chars in order)
-      let j = 0;
-      for (let i = 0; i < name.length && j < query.length; i++) {
-        if (name[i] === query[j]) j++;
-      }
-      return j === query.length;
-    }).slice(0, 10);
+    const matches = autocompleteData
+      .map(card => {
+        const match = fuzzyMatch(card.name, query);
+        return match ? { card, ...match } : null;
+      })
+      .filter(result => result !== null)
+      .sort((a, b) => {
+        if (a.priority !== b.priority) return a.priority - b.priority;
+        if (a.distance !== b.distance) return a.distance - b.distance;
+        return a.card.name.localeCompare(b.card.name);
+      })
+      .slice(0, 20)
+      .map(result => result.card);
 
     if (matches.length === 0) {
       dropdown.classList.remove('show');
@@ -6756,6 +7787,33 @@ function clearAutocompleteFields() {
   document.getElementById('reward-results').innerHTML = '';
 
   showToast('Cleared all selections', 'info', 1500);
+}
+
+function skipRewards() {
+  // Clear all reward inputs and results
+  clearAutocompleteFields();
+
+  // Show skip confirmation message
+  const resultsDiv = document.getElementById('reward-results');
+  resultsDiv.innerHTML = `
+    <div class="card-result skip-recommendation" style="border: 3px solid #10b981; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));">
+      <div class="card-header">
+        <div class="card-name-section">
+          <span class="card-icon" style="font-size: 1.8rem;">⏭️</span>
+          <span class="card-name" style="font-size: 1.3rem; color: #10b981;">REWARD SKIPPED</span>
+        </div>
+        <span class="card-score" style="background: linear-gradient(135deg, #059669, #10b981); color: #d1fae5; font-size: 1.5rem;">✓</span>
+      </div>
+      <div class="card-reason" style="font-size: 1rem; margin-top: 10px;">
+        You chose to skip this reward. No cards were added to your deck.
+      </div>
+      <div style="margin-top: 12px; padding: 12px; background: rgba(16, 185, 129, 0.1); border-radius: 6px; font-size: 0.9rem; color: var(--text-secondary);">
+        💡 <strong>Good decision when:</strong> All offered cards would dilute your deck strategy, or you're keeping your deck tight for consistency.
+      </div>
+    </div>
+  `;
+
+  showToast('⏭️ Reward skipped', 'success', 2000);
 }
 
 // ============================================================================
