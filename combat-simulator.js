@@ -132,16 +132,27 @@ class CombatState {
   }
 
   getCardStats(cardName, deckIndex) {
-    const card = typeof findCard === 'function' ? findCard(cardName) : null;
-    if (!card) return null;
+    // Try findCard first (if logic.js is loaded), otherwise look up directly in STS2_CARDS
+    let card = null;
+    if (typeof findCard === 'function') {
+      card = findCard(cardName);
+    } else if (typeof STS2_CARDS !== 'undefined') {
+      const normalized = cardName.toUpperCase().trim();
+      card = STS2_CARDS[normalized];
+    }
+
+    if (!card) {
+      console.error(`getCardStats: Card not found for "${cardName}"`);
+      return null;
+    }
 
     const key = `${deckIndex}-${cardName}`;
     const isUpgraded = this.upgradedCards?.has(key) || false;
     const enchantment = this.enchantments?.get(key) || null;
 
-    // Copy card stats
-    let damage = card.damage || 0;
-    let block = card.block || 0;
+    // Copy card stats (check both card.vars and top-level properties)
+    let damage = card.vars?.damage || card.damage || 0;
+    let block = card.vars?.block || card.block || 0;
     let cost = card.cost >= 0 ? card.cost : 0;
 
     // Apply upgrade bonuses using exact API data
@@ -363,8 +374,12 @@ class CombatState {
   }
 
   playCard(card, deckIndex) {
-    const stats = this.getCardStats(card.name, deckIndex);
-    if (!stats) return;
+    // card is already a stats object from prioritizeCards
+    const stats = card;
+    if (!stats || !stats.name) {
+      console.warn('playCard: Invalid card stats', card);
+      return;
+    }
 
     // Track plays
     this.cardsPlayedThisTurn++;
@@ -643,6 +658,17 @@ function simulateCombatNew(deck, enemyProfile, seed, gameState) {
     if (enemyAttacking) {
       let enemyDamage = state.enemyDamage;
 
+      // Enemy scaling: gain strength over time
+      // Research from STS2 wiki monsters:
+      // - Normal enemies: +1-4 Strength every 2-3 turns (Axebot, BruteRaider)
+      // - Elites: +10 Strength upfront (BygoneEffigy)
+      // - Bosses: +2-4 Strength per turn (CeremonialBeast)
+      // - CalcifiedCultist: +2 Strength per turn via Ritual
+      // Average model: +1 Strength every 3 turns
+      if (state.turn > 0 && state.turn % 3 === 0) {
+        state.enemyStrength += 1;
+      }
+
       // Apply enemy weak
       if (state.enemyWeak > 0) {
         enemyDamage *= 0.75;
@@ -656,7 +682,8 @@ function simulateCombatNew(deck, enemyProfile, seed, gameState) {
         enemyDamage *= 1.5;
       }
 
-      state.takeDamage(Math.floor(enemyDamage));
+      const finalDamage = Math.floor(enemyDamage);
+      state.takeDamage(finalDamage);
     }
 
     state.endTurn();

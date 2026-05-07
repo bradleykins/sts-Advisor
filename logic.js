@@ -216,7 +216,7 @@ let currentRelics = [];
 let currentCharacter = 'ironclad';
 let currentAct = 1;
 let currentAscension = 0;
-let mcSimulations = 500; // MC rollout simulation count
+let mcSimulations = 100; // MC rollout simulation count
 let useHeuristicScoring = true; // Toggle for heuristic-based scoring vs pure MC
 let mcBaselineWinRate = null; // Cached baseline win rate (500 sims)
 let mcBaselineHash = null; // Hash of deck state to detect when cache is stale
@@ -224,6 +224,63 @@ let mcCardCache = new Map(); // cardName → { baselineHash, winRate } cache
 let bestCardsCache = null; // Cached best card suggestions
 let bestCardsCacheHash = null; // Hash to detect when cache is stale
 let detectedArchetypes = new Map();
+let removalScoreCache = new Map(); // Cache removal MC scores: "cardName-upgraded-enchanted" → { impact, winRateAfter, baseline }
+let upgradeScoreCache = new Map(); // Cache upgrade MC scores: "cardName-index" → { impact, winRateAfter, baseline }
+
+// Auto-increase simulation quality when idle
+let lastInteractionTime = Date.now();
+let idleQualityInterval = null;
+
+function resetIdleTimer() {
+  lastInteractionTime = Date.now();
+}
+
+function startIdleQualityBoost() {
+  if (idleQualityInterval) return; // Already running
+
+  idleQualityInterval = setInterval(() => {
+    const idleSeconds = (Date.now() - lastInteractionTime) / 1000;
+
+    if (idleSeconds >= 10 && mcSimulations < 1000) {
+      // Increase simulation count
+      const oldSims = mcSimulations;
+      mcSimulations = Math.min(1000, mcSimulations + 100);
+
+      // Recalculate baseline and best cards with higher quality
+      if (currentDeck.length > 0) {
+        invalidateMCBaseline();
+        calculateMCBaseline();
+        updateBestCardsSuggestions();
+        autoAnalyzeRemovals(); // Always update removal (available from deck section)
+        analyzeDeckStats(); // Update deck stats + upgrade priority
+
+        // Re-analyze visible tab content
+        const activeTab = document.querySelector('.tab-button.active')?.dataset.tab;
+        if (activeTab === 'rewards' && selectedCards.size > 0) {
+          analyzeRewardCards();
+        } else if (activeTab === 'shop' && Object.keys(shopCards).length > 0) {
+          analyzeShopItems();
+        }
+      }
+
+      // Reset timer after boost
+      lastInteractionTime = Date.now();
+    }
+  }, 10000); // Check every 10 seconds
+}
+
+// Start idle quality boost on page load
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', () => {
+    startIdleQualityBoost();
+
+    // Reset timer on any user interaction
+    document.addEventListener('click', resetIdleTimer);
+    document.addEventListener('keydown', resetIdleTimer);
+    document.addEventListener('input', resetIdleTimer);
+    document.addEventListener('scroll', resetIdleTimer);
+  });
+}
 
 function invalidateMCBaseline() {
   mcBaselineWinRate = null;
@@ -231,24 +288,25 @@ function invalidateMCBaseline() {
   mcCardCache.clear(); // All card scores are invalid when baseline changes
   bestCardsCache = null; // Invalidate best cards cache too
   bestCardsCacheHash = null;
+  removalScoreCache.clear(); // Invalidate removal scores when deck changes
+  upgradeScoreCache.clear(); // Invalidate upgrade scores when deck changes
 }
 
 function calculateMCBaseline() {
   // Run full sim baseline for current deck
-  console.log(`Calculating MC baseline for ${currentDeck.length} card deck, Act ${currentAct}, Asc ${currentAscension}...`);
   const baselineResult = performMCRollout({ name: '__BASELINE__' }, mcSimulations);
   mcBaselineWinRate = baselineResult.winRate;
   mcBaselineHash = currentDeck.join(','); // Simple hash of deck state
-  console.log(`MC Baseline calculated: ${Math.round(mcBaselineWinRate)}% win rate (${mcSimulations} sims)`);
-  console.log(`  Average turns to win: ${baselineResult.avgTurnsToWin?.toFixed(1)}, Final HP: ${baselineResult.avgFinalHP?.toFixed(0)}`);
 
-  // Debug: Check if 100% win rate (suspicious)
-  if (mcBaselineWinRate >= 99) {
-    console.warn('⚠️ MC Baseline is 100% - deck may be too strong or enemy too weak!');
-    const profile = getEnemyProfile();
-    console.log(`  Enemy: ${profile.hp} HP, ${profile.damage} damage, ${(profile.attackProbability * 100).toFixed(0)}% attack chance`);
-  }
+  // Cache the baseline result with deck power
+  mcCardCache.set(`baseline-${mcBaselineHash}`, {
+    baselineHash: mcBaselineHash,
+    ...baselineResult
+  });
+
+  console.log(`✓ MC Baseline: ${Math.round(mcBaselineWinRate)}% win, ${Math.round(baselineResult.deckPower)} power (${mcSimulations} sims)`);
 }
+
 let selectedCards = new Set();
 let currentTheme = localStorage.getItem('theme') || 'dark';
 let currentFilters = {
@@ -372,19 +430,28 @@ const BOSS_MECHANICS = {
     penalizeCardDraw: false, penalizePowers: true, requireMultiHit: true, requireFrontLoaded: true,
     requireAOE: true, rewardBlock: true, penalizeCombo: false, rewardSetup: false, rewardScaling: false,
     rewardExhaust: false, requireBurst: false, rewardRetain: false, rewardAttacks: false,
-    name: 'Kaiser Crab'
+    name: 'Kaiser Crab',
+    emoji: '🦀',
+    hp: 350,
+    ascensionHP: 370
   },
   'knowledge_demon': {
     penalizeCardDraw: true, penalizePowers: true, requireMultiHit: false, requireFrontLoaded: true,
     requireAOE: false, rewardBlock: true, penalizeCombo: true, rewardSetup: false, rewardScaling: false,
     rewardExhaust: true, requireBurst: true, rewardRetain: false, rewardAttacks: false,
-    name: 'Knowledge Demon'
+    name: 'Knowledge Demon',
+    emoji: '📚',
+    hp: 320,
+    ascensionHP: 340
   },
   'the_insatiable': {
     penalizeCardDraw: false, penalizePowers: true, requireMultiHit: false, requireFrontLoaded: true,
     requireAOE: false, rewardBlock: true, penalizeCombo: true, rewardSetup: false, rewardScaling: false,
     rewardExhaust: false, requireBurst: true, rewardRetain: false, rewardAttacks: false,
-    name: 'The Insatiable'
+    name: 'The Insatiable',
+    emoji: '🦑',
+    hp: 380,
+    ascensionHP: 400
   },
 
   // Act 3 - Glory
@@ -392,19 +459,28 @@ const BOSS_MECHANICS = {
     penalizeCardDraw: true, penalizePowers: false, requireMultiHit: true, requireFrontLoaded: false,
     requireAOE: false, rewardBlock: true, penalizeCombo: true, rewardSetup: false, rewardScaling: false,
     rewardExhaust: false, requireBurst: false, rewardRetain: true, rewardAttacks: false,
-    name: 'Doormaker'
+    name: 'Doormaker',
+    emoji: '🚪',
+    hp: 450,
+    ascensionHP: 480
   },
   'queen': {
     penalizeCardDraw: false, penalizePowers: true, requireMultiHit: true, requireFrontLoaded: true,
     requireAOE: true, rewardBlock: true, penalizeCombo: true, rewardSetup: false, rewardScaling: false,
     rewardExhaust: false, requireBurst: false, rewardRetain: false, rewardAttacks: false,
-    name: 'Queen'
+    name: 'Queen',
+    emoji: '👑',
+    hp: 500,
+    ascensionHP: 530
   },
   'test_subject_c10': {
     penalizeCardDraw: false, penalizePowers: false, requireMultiHit: true, requireFrontLoaded: true,
     requireAOE: false, rewardBlock: true, penalizeCombo: false, rewardSetup: false, rewardScaling: true,
     rewardExhaust: true, requireBurst: true, rewardRetain: false, rewardAttacks: true,
-    name: 'Test Subject #C10'
+    name: 'Test Subject #C10',
+    emoji: '🧪',
+    hp: 480,
+    ascensionHP: 510
   }
 };
 
@@ -1606,9 +1682,22 @@ function analyzeDeckStats() {
   const avgCost = costs.length > 0 ? (costs.reduce((a,b) => a+b, 0) / costs.length).toFixed(1) : '0';
   document.getElementById('avg-cost').textContent = avgCost;
 
-  // Calculate win probability
-  const deckHealth = calculateDeckHealth();
-  document.getElementById('win-prob').textContent = deckHealth + '%';
+  // Win % - respect heuristic toggle
+  if (useHeuristicScoring) {
+    // Use heuristic deck health score
+    const deckHealth = calculateDeckHealth();
+    document.getElementById('win-prob').textContent = deckHealth + '%';
+  } else {
+    // Use MC baseline win rate - calculate if not cached
+    if (mcBaselineWinRate === null && currentDeck.length > 0) {
+      calculateMCBaseline();
+    }
+    if (mcBaselineWinRate !== null) {
+      document.getElementById('win-prob').textContent = Math.round(mcBaselineWinRate) + '%';
+    } else {
+      document.getElementById('win-prob').textContent = '--';
+    }
+  }
 
   // Detect archetypes
   detectArchetypes(currentDeck);
@@ -1794,51 +1883,78 @@ function getUpgradePriority() {
     const isUpgraded = upgradedCards.has(key);
     if (isUpgraded) return null; // Already upgraded
 
-    let priority = 50;
+    let priority = 0;
 
-    // Cost reduction is king
-    if (card.cost >= 2) {
-      priority += 40;
-    } else if (card.cost === 1) {
-      priority += 15;
-    }
+    // Get actual upgrade data if available
+    const normalizedName = cardName.toUpperCase().trim();
+    const upgradeData = typeof CARD_UPGRADES !== 'undefined' ? CARD_UPGRADES[normalizedName] : null;
 
-    // Powers benefit massively (usually cost -1)
-    if (card.type === 'Power') {
-      priority += 35;
-    }
+    if (useHeuristicScoring) {
+      // HEURISTIC MODE: Score based on actual upgrade changes
+      priority = 50; // Base
 
-    // Expensive cards first (cost reduction impact)
-    if (card.cost >= 3) {
-      priority += 20;
-    }
+      if (upgradeData) {
+        // Use real upgrade data
+        const costReduction = (card.cost || 0) - (upgradeData.cost >= 0 ? upgradeData.cost : card.cost);
+        const damageIncrease = (upgradeData.damage || upgradeData.vars?.damage || 0) - (card.damage || card.vars?.damage || 0);
+        const blockIncrease = (upgradeData.block || upgradeData.vars?.block || 0) - (card.block || card.vars?.block || 0);
 
-    // Multi-hit attacks scale well
-    if (card.type === 'Attack' && card.keywords) {
-      const keywords = Array.isArray(card.keywords) ? card.keywords : [card.keywords];
-      if (keywords.some(k => k.toLowerCase().includes('multihit'))) {
-        priority += 25;
+        // Cost reduction is king (only if it actually reduces)
+        if (costReduction > 0) {
+          priority += costReduction * 40; // -1 cost = +40, -2 cost = +80
+        }
+
+        // Damage increase (scaled)
+        if (damageIncrease > 0) {
+          priority += damageIncrease * 2; // +5 dmg = +10 priority
+        }
+
+        // Block increase (scaled)
+        if (blockIncrease > 0) {
+          priority += blockIncrease * 1.5; // +5 block = +7.5 priority
+        }
+
+        // Multi-hit attacks benefit more from damage
+        if (card.type === 'Attack' && damageIncrease > 0) {
+          const keywords = card.keywords ? (Array.isArray(card.keywords) ? card.keywords : [card.keywords]) : [];
+          if (keywords.some(k => k.toLowerCase().includes('multihit'))) {
+            priority += damageIncrease; // Extra bonus for multi-hit
+          }
+        }
+      } else {
+        // Fallback to heuristics if no upgrade data
+        if (card.cost >= 2) priority += 40;
+        else if (card.cost === 1) priority += 15;
+
+        if (card.type === 'Power') priority += 35;
+        if (card.cost >= 3) priority += 20;
+
+        if (card.type === 'Attack' && card.damage) {
+          priority += Math.floor(card.damage / 5);
+        }
       }
     }
-
-    // Block cards in Act 1
-    if (currentAct === 1 && card.type === 'Skill' && card.block) {
-      priority += 18;
-    }
-
-    // Damage scaling
-    if (card.type === 'Attack' && card.damage) {
-      priority += Math.floor(card.damage / 5); // Higher damage = better upgrade
-    }
+    // If heuristic OFF, priority stays 0 (will be sorted by MC only)
 
     return { cardName, index, priority, card };
-  }).filter(Boolean).sort((a, b) => b.priority - a.priority);
+  }).filter(Boolean);
 
-  const topCandidates = priorities.slice(0, 3);
-
-  // MC validation for top 3 candidates (if baseline exists)
+  // MC validation for ALL candidates (caching makes this fast)
   if (mcBaselineWinRate !== null && currentDeck.length >= 5) {
-    for (const candidate of topCandidates) {
+    for (const candidate of priorities) {
+      const upgradeCacheKey = `${candidate.cardName}-${candidate.index}`;
+
+      // Check cache first
+      if (upgradeScoreCache.has(upgradeCacheKey)) {
+        const cached = upgradeScoreCache.get(upgradeCacheKey);
+        if (cached.baseline === mcBaselineWinRate) {
+          candidate.mcImpact = cached.impact;
+          candidate.winRateAfterUpgrade = cached.winRateAfter;
+          candidate.baseline = mcBaselineWinRate;
+          continue;
+        }
+      }
+
       const key = `${candidate.index}-${candidate.cardName}`;
 
       // Temporarily mark as upgraded
@@ -1849,14 +1965,38 @@ function getUpgradePriority() {
         candidate.mcImpact = impact;
         candidate.winRateAfterUpgrade = withUpgradeResult.winRate;
         candidate.baseline = mcBaselineWinRate;
+
+        // Cache result
+        upgradeScoreCache.set(upgradeCacheKey, {
+          impact: impact,
+          winRateAfter: withUpgradeResult.winRate,
+          baseline: mcBaselineWinRate
+        });
       } finally {
-        // Always remove temporary upgrade marker, even if error occurs
+        // Always remove temporary upgrade marker
         upgradedCards.delete(key);
       }
     }
   }
 
-  return topCandidates;
+  // Sort based on mode
+  if (useHeuristicScoring) {
+    // Heuristic + MC: combine both scores
+    priorities.sort((a, b) => {
+      const aScore = a.priority + (a.mcImpact !== undefined ? a.mcImpact * 10 : 0); // MC impact weighted 10x
+      const bScore = b.priority + (b.mcImpact !== undefined ? b.mcImpact * 10 : 0);
+      return bScore - aScore;
+    });
+  } else {
+    // Pure MC mode: sort by MC impact only
+    priorities.sort((a, b) => {
+      const aImpact = a.mcImpact !== undefined ? a.mcImpact : -999;
+      const bImpact = b.mcImpact !== undefined ? b.mcImpact : -999;
+      return bImpact - aImpact;
+    });
+  }
+
+  return priorities.slice(0, 3);
 }
 
 // #3: Gap Analysis with MC-validated suggestions
@@ -2086,12 +2226,12 @@ function getRemovalPriorityWithDuplicates() {
     }
 
     // MC simulation: test deck without this card
-    const originalDeck = [...currentDeck];
-    currentDeck.splice(index, 1);
+    // Create test deck by filtering out the current index
+    const testDeck = currentDeck.filter((_, i) => i !== index);
 
     // Use fewer simulations for speed (100 sims per card)
-    const withoutCardResult = performMCRollout({ name: '__BASELINE__' }, 100);
-    currentDeck = originalDeck; // Restore deck
+    // Pass testDeck as deckOverride to avoid mutating currentDeck
+    const withoutCardResult = performMCRollout({ name: '__BASELINE__' }, 100, testDeck);
 
     const mcImpact = withoutCardResult.winRate - mcBaselineWinRate;
 
@@ -2682,46 +2822,94 @@ function evaluateDamageOutput() {
   };
 }
 
-function performMCRollout(card, simulations = 100) {
-  // Monte Carlo rollout: simulate adding this card and evaluate win rate
-  let winCount = 0;
-  let totalTurns = 0;
-  let totalHP = 0;
-  let victorySamples = 0;
+function performMCRollout(card, simulations = 100, deckOverride = null) {
+  // MULTI-ACT WEIGHTED SIMULATION
+  // Current act has full weight, future acts have reduced weight
+  // Act 1: sim Act 1 (100%), Act 2 (50%), Act 3 (25%)
+  // Act 2: sim Act 2 (100%), Act 3 (50%)
+  // Act 3: sim Act 3 (100%)
 
-  // Baseline check: if card name is __BASELINE__, test current deck without adding anything
-  const testDeck = card.name === '__BASELINE__' ? [...currentDeck] : [...currentDeck, card.name];
+  const baseDeck = deckOverride || currentDeck;
+  const testDeck = card.name === '__BASELINE__' ? [...baseDeck] : [...baseDeck, card.name];
 
-  // Get enemy profile based on current act
-  const enemyProfile = getEnemyProfile();
-
-  // Pass current game state to simulation
   const gameState = {
     relics: currentRelics,
     upgradedCards: upgradedCards,
     enchantments: cardEnchantments
   };
 
-  for (let i = 0; i < simulations; i++) {
-    // Each simulation uses a different random seed
-    const result = simulateCombatNew(testDeck, enemyProfile, i, gameState);
-    if (result.victory) {
-      winCount++;
-      totalTurns += result.turnsToWin;
-      totalHP += result.finalHP;
-      victorySamples++;
-    }
+  // Define acts to simulate based on current act
+  const actsToSimulate = [];
+  if (currentAct === 1) {
+    actsToSimulate.push({ act: 1, weight: 1.0 });
+    actsToSimulate.push({ act: 2, weight: 0.5 });
+    actsToSimulate.push({ act: 3, weight: 0.25 });
+  } else if (currentAct === 2) {
+    actsToSimulate.push({ act: 2, weight: 1.0 });
+    actsToSimulate.push({ act: 3, weight: 0.5 });
+  } else {
+    actsToSimulate.push({ act: 3, weight: 1.0 });
   }
 
-  const winRate = (winCount / simulations) * 100;
-  const avgTurnsToWin = victorySamples > 0 ? totalTurns / victorySamples : 20;
-  const avgFinalHP = victorySamples > 0 ? totalHP / victorySamples : 0;
+  const totalWeight = actsToSimulate.reduce((sum, a) => sum + a.weight, 0);
+  let weightedWinRate = 0;
+  let weightedFinalHP = 0;
+
+  // Simulate each act
+  for (const { act, weight } of actsToSimulate) {
+    const enemyProfile = getEnemyProfileForAct(act);
+
+    let winCount = 0;
+    let totalHP = 0;
+    let victoryCount = 0;
+
+    for (let i = 0; i < simulations; i++) {
+      try {
+        const result = simulateCombatNew(testDeck, enemyProfile, i, gameState);
+        if (result.victory) {
+          winCount++;
+          totalHP += result.finalHP;
+          victoryCount++;
+        }
+      } catch (error) {
+        console.error(`Combat simulation ${i} failed:`, error);
+        throw error;
+      }
+    }
+
+    const actWinRate = (winCount / simulations) * 100;
+    const actAvgHP = victoryCount > 0 ? totalHP / victoryCount : 0;
+
+    // Add weighted contribution
+    weightedWinRate += (actWinRate * weight) / totalWeight;
+    weightedFinalHP += (actAvgHP * weight) / totalWeight;
+  }
+
+  const deckPower = (weightedFinalHP / 80) * 100;
 
   return {
-    winRate: winRate,
-    avgTurnsToWin: avgTurnsToWin,
-    avgFinalHP: avgFinalHP
+    winRate: weightedWinRate,
+    avgTurnsToWin: 0, // Not meaningful across acts
+    avgFinalHP: weightedFinalHP,
+    deckPower: deckPower
   };
+}
+
+function getEnemyProfileForAct(act) {
+  // Return enemy stats for specific act
+  const baseProfiles = {
+    1: { hp: 50, damage: 8, attackProbability: 0.7 },
+    2: { hp: 80, damage: 12, attackProbability: 0.7 },
+    3: { hp: 120, damage: 16, attackProbability: 0.75 }
+  };
+
+  const profile = baseProfiles[act] || baseProfiles[2];
+
+  // Apply ascension multiplier
+  const ascensionMultiplier = ASCENSION_DAMAGE_MULTIPLIER[currentAscension] || 1.0;
+  profile.damage = Math.round(profile.damage * ascensionMultiplier);
+
+  return profile;
 }
 
 function getEnemyProfile() {
@@ -3851,8 +4039,22 @@ function scoreCard(cardName, context = {}) {
     const withCardRounded = Math.round(mcResult.winRate);
     const improvementRounded = Math.round(improvement);
 
+    // Get baseline deck power for cached baseline
+    const baselineResult = mcCardCache.get(`baseline-${mcBaselineHash}`);
+    const baselinePower = baselineResult?.deckPower || 0;
+    const powerImprovement = mcResult.deckPower - baselinePower;
+
+    // When both are 100% win rate, use deck power as tiebreaker
+    if (baselineRounded === 100 && withCardRounded === 100) {
+      const powerBonus = Math.round(powerImprovement / 2); // -10 to +10 range typically
+      score += powerBonus;
+      breakdown.push({
+        factor: `MC: 100% (Power: ${Math.round(mcResult.deckPower)} vs ${Math.round(baselinePower)}, ${powerBonus >= 0 ? '+' : ''}${powerBonus})`,
+        value: powerBonus
+      });
+    }
     // Score based on improvement, not absolute win rate
-    if (improvement >= 15) {
+    else if (improvement >= 15) {
       const bonus = 20; // Huge improvement
       score += bonus;
       breakdown.push({ factor: `MC: +${improvementRounded}% (${baselineRounded}% → ${withCardRounded}%)`, value: bonus });
@@ -5793,7 +5995,7 @@ function calculateRemovalValue(cardName) {
   const enemyCtx = getEnemyContext();
 
   // Score the incoming card
-  const incomingScore = scoreCard(card, cardName).score;
+  const incomingScore = scoreCard(cardName).score;
 
   // If deck is empty, any card has max removal value
   if (currentDeck.length === 0) return incomingScore;
@@ -5811,7 +6013,7 @@ function calculateRemovalValue(cardName) {
       removalScore = 100;
     } else {
       // Score the deck card
-      const deckCardScore = scoreCard(deckCard, deckCardName).score;
+      const deckCardScore = scoreCard(deckCardName).score;
 
       // Low-scoring cards are removal candidates
       if (deckCardScore < 40) removalScore += 40;
@@ -6114,6 +6316,18 @@ async function autoAnalyzeRemovals() {
       };
     }
 
+    if (!useHeuristicScoring) {
+      // Pure MC mode: score stays 0, will be sorted by MC only
+      const count = currentDeck.filter(c => c === name).length;
+      return {
+        card: card || { name },
+        score: 0,
+        reason: 'MC evaluation only',
+        count: count
+      };
+    }
+
+    // HEURISTIC MODE: score based on card properties
     // Get the card's value to the deck
     const cardScore = scoreCard(name).score;
 
@@ -6211,18 +6425,18 @@ async function autoAnalyzeRemovals() {
       reason: reasons.join(' • ') || 'Consider removing',
       count: count
     };
-  }).sort((a, b) => b.score - a.score);
-
-  // MC Validation: Check if removing top candidates would hurt win rate
-  const topCandidates = scored.slice(0, 5); // Check top 5 removal candidates
+  });
 
   // Calculate baseline if not cached
   if (mcBaselineWinRate === null) {
     calculateMCBaseline();
   }
 
+  // MC Validation: Test ALL candidates (or top 10 in heuristic mode)
+  const candidatesToTest = useHeuristicScoring ? scored.slice(0, 10) : scored;
+
   // Test removal impact for each candidate
-  for (const candidate of topCandidates) {
+  for (const candidate of candidatesToTest) {
     // Simulate deck without this card (remove one copy)
     const indexToRemove = currentDeck.indexOf(candidate.card.name);
     if (indexToRemove !== -1) {
@@ -6256,6 +6470,19 @@ async function autoAnalyzeRemovals() {
         candidate.removalNote = `Neutral impact (${impact >= 0 ? '+' : ''}${Math.round(impact)}%)`;
       }
     }
+  }
+
+  // Sort based on mode
+  if (useHeuristicScoring) {
+    // Heuristic + MC: sort by heuristic score, MC warnings shown as badges
+    scored.sort((a, b) => b.score - a.score);
+  } else {
+    // Pure MC mode: sort by MC impact only
+    scored.sort((a, b) => {
+      const aImpact = a.mcImpact !== undefined ? a.mcImpact : -999;
+      const bImpact = b.mcImpact !== undefined ? b.mcImpact : -999;
+      return bImpact - aImpact; // Higher positive impact (removal helps) = top of list
+    });
   }
 
   const html = scored.map(item => {
@@ -6899,6 +7126,152 @@ function showCardPreview(event, cardName, isUpgraded = false, enchantment = '') 
   finalScore = Math.max(0, finalScore); // Allow scores above 100
   const scoreClass = finalScore >= 70 ? 'score-high' : finalScore >= 40 ? 'score-medium' : 'score-low';
 
+  // Calculate MC removal impact (if baseline exists and card is in deck)
+  let removalImpactHtml = '';
+  const cardIndex = currentDeck.indexOf(cardName);
+  if (mcBaselineWinRate !== null && cardIndex !== -1) {
+    // Build cache key with upgrade/enchant status
+    const cacheKey = `${cardName}-${isUpgraded ? 'up' : 'no'}-${enchantment || 'none'}`;
+
+    let impact, winRateAfterRemoval;
+
+    // Check cache first
+    if (removalScoreCache.has(cacheKey)) {
+      const cached = removalScoreCache.get(cacheKey);
+      // Verify baseline hasn't changed
+      if (cached.baseline === mcBaselineWinRate) {
+        impact = cached.impact;
+        winRateAfterRemoval = cached.winRateAfter;
+      }
+    }
+
+    // If not cached or baseline changed, calculate
+    if (impact === undefined) {
+      // Simulate deck without this card
+      const originalDeck = [...currentDeck];
+      currentDeck.splice(cardIndex, 1);
+
+      // Run quick MC simulation (limit to 100 sims for hover speed)
+      const withoutCardResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 100));
+      winRateAfterRemoval = withoutCardResult.winRate;
+      impact = winRateAfterRemoval - mcBaselineWinRate;
+
+      // Restore original deck
+      currentDeck = originalDeck;
+
+      // Cache result
+      removalScoreCache.set(cacheKey, {
+        impact: impact,
+        winRateAfter: winRateAfterRemoval,
+        baseline: mcBaselineWinRate
+      });
+    }
+
+    // Round impact first for consistency
+    const impactRounded = Math.round(impact);
+    // Then calculate display values based on impact
+    const baselineRounded = Math.round(mcBaselineWinRate);
+    const afterRemovalRounded = baselineRounded + impactRounded; // Ensures math is consistent
+
+    let badgeColor, badgeBg, badgeIcon, badgeMessage;
+    if (impactRounded > 3) {
+      badgeColor = '#10b981';
+      badgeBg = 'rgba(16, 185, 129, 0.1)';
+      badgeIcon = '✓';
+      badgeMessage = 'Removing improves win rate';
+    } else if (impactRounded < -3) {
+      badgeColor = '#ef4444';
+      badgeBg = 'rgba(239, 68, 68, 0.1)';
+      badgeIcon = '⚠️';
+      badgeMessage = 'Removing hurts win rate';
+    } else {
+      badgeColor = '#64748b';
+      badgeBg = 'rgba(100, 116, 139, 0.1)';
+      badgeIcon = '~';
+      badgeMessage = 'Minimal impact';
+    }
+
+    removalImpactHtml = `<div style="margin-top: 8px; padding: 8px; background: ${badgeBg}; border-left: 2px solid ${badgeColor}; border-radius: 4px;">
+      <strong style="color: ${badgeColor};">${badgeIcon} Removal Impact:</strong>
+      <span style="font-size: 0.85rem; color: var(--text-secondary);"> ${baselineRounded}% → ${afterRemovalRounded}% (${impactRounded >= 0 ? '+' : ''}${impactRounded}%)</span>
+      <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px;">${badgeMessage}</div>
+    </div>`;
+  }
+
+  // Calculate upgrade impact (if not already upgraded and baseline exists)
+  let upgradeImpactHtml = '';
+  if (!isUpgraded && mcBaselineWinRate !== null && cardIndex !== -1) {
+    const upgradeCacheKey = `${cardName}-${cardIndex}`;
+
+    let upgradeImpact, winRateAfterUpgrade;
+
+    // Check cache
+    if (upgradeScoreCache.has(upgradeCacheKey)) {
+      const cached = upgradeScoreCache.get(upgradeCacheKey);
+      if (cached.baseline === mcBaselineWinRate) {
+        upgradeImpact = cached.impact;
+        winRateAfterUpgrade = cached.winRateAfter;
+      }
+    }
+
+    // Calculate if not cached
+    if (upgradeImpact === undefined) {
+      // Temporarily upgrade the card
+      const upgradeKey = `${cardIndex}-${cardName}`;
+      const wasUpgraded = upgradedCards.has(upgradeKey);
+      if (!wasUpgraded) {
+        upgradedCards.add(upgradeKey);
+      }
+
+      // Run MC simulation with upgraded card
+      const withUpgradeResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 100));
+      winRateAfterUpgrade = withUpgradeResult.winRate;
+      upgradeImpact = winRateAfterUpgrade - mcBaselineWinRate;
+
+      // Restore original state
+      if (!wasUpgraded) {
+        upgradedCards.delete(upgradeKey);
+      }
+
+      // Cache result
+      upgradeScoreCache.set(upgradeCacheKey, {
+        impact: upgradeImpact,
+        winRateAfter: winRateAfterUpgrade,
+        baseline: mcBaselineWinRate
+      });
+    }
+
+    // Round impact first for consistency
+    const upgradeImpactRounded = Math.round(upgradeImpact);
+    // Then calculate display values based on impact
+    const baselineRounded = Math.round(mcBaselineWinRate);
+    const afterUpgradeRounded = baselineRounded + upgradeImpactRounded; // Ensures math is consistent
+
+    let badgeColor, badgeBg, badgeIcon, badgeMessage;
+    if (upgradeImpactRounded > 3) {
+      badgeColor = '#10b981';
+      badgeBg = 'rgba(16, 185, 129, 0.1)';
+      badgeIcon = '✓';
+      badgeMessage = 'Upgrade improves win rate';
+    } else if (upgradeImpactRounded < -3) {
+      badgeColor = '#ef4444';
+      badgeBg = 'rgba(239, 68, 68, 0.1)';
+      badgeIcon = '⚠️';
+      badgeMessage = 'Upgrade hurts win rate';
+    } else {
+      badgeColor = '#64748b';
+      badgeBg = 'rgba(100, 116, 139, 0.1)';
+      badgeIcon = '~';
+      badgeMessage = 'Minimal impact';
+    }
+
+    upgradeImpactHtml = `<div style="margin-top: 8px; padding: 8px; background: ${badgeBg}; border-left: 2px solid ${badgeColor}; border-radius: 4px;">
+      <strong style="color: ${badgeColor};">${badgeIcon} Upgrade Impact:</strong>
+      <span style="font-size: 0.85rem; color: var(--text-secondary);"> ${baselineRounded}% → ${afterUpgradeRounded}% (${upgradeImpactRounded >= 0 ? '+' : ''}${upgradeImpactRounded}%)</span>
+      <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px;">${badgeMessage}</div>
+    </div>`;
+  }
+
   // Calculate upgraded stats
   let displayDamage = card.damage;
   let displayBlock = card.block;
@@ -6955,6 +7328,8 @@ function showCardPreview(event, cardName, isUpgraded = false, enchantment = '') 
       ${keywordsHtml ? `<div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;">${keywordsHtml}</div>` : ''}
       ${card.description ? `<div style="margin-top: 8px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">${card.description}</div>` : ''}
       ${enchantDisplay}
+      ${upgradeImpactHtml}
+      ${removalImpactHtml}
     </div>
   `;
 
@@ -7013,14 +7388,12 @@ function showShopItemAnalysisWithMC(event, itemName, itemType, shopScore, isUpgr
         try {
           const withCardResult = performMCRollout(card, Math.min(mcSimulations, 50));
           mcImpact = withCardResult.winRate - mcBaselineWinRate;
-          console.log(`Shop MC for ${itemName}: baseline=${Math.round(mcBaselineWinRate)}%, with card=${Math.round(withCardResult.winRate)}%, impact=${Math.round(mcImpact)}%`);
         } catch (e) {
           console.error(`Failed to calculate MC for ${itemName}:`, e);
         }
       }
     }
   } else if (itemType === 'card' && currentDeck.length < 5) {
-    console.log(`Shop MC skipped for ${itemName}: deck too small (${currentDeck.length} cards, need 5+)`);
   }
 
   showShopItemAnalysis(event, itemName, itemType, shopScore, isUpgraded, enchantment, true, mcImpact);
