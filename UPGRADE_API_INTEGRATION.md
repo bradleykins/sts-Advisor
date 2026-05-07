@@ -183,9 +183,10 @@ fetch('card-upgrades.json')
 3. **index.html** (+10 lines)
    - Added fetch() to load upgrade data
 
-4. **card-upgrades.json** (NEW, 15,500 lines)
+4. **card-upgrades.js** (NEW, 15,500 lines)
    - 532 cards with exact upgrade values
    - Sourced from spire-codex.com API
+   - Defines global `CARD_UPGRADES` constant
 
 5. **test-upgrades.html** (NEW, 95 lines)
    - Test page showing old vs new calculations
@@ -207,7 +208,7 @@ Loaded exact upgrade data for 532 cards
 
 ## Fallback Behavior
 
-If `card-upgrades.json` fails to load or a card is missing:
+If `card-upgrades.js` fails to load or a card is missing:
 - Falls back to 40% approximation
 - Logs warning to console
 - Simulation continues without errors
@@ -221,13 +222,15 @@ Cards not in upgrade data (44 cards):
 
 ## Maintenance
 
-Update `card-upgrades.json` when STS2 balance patches change upgrade values:
+Update `card-upgrades.js` when STS2 balance patches change upgrade values:
 
 ```bash
-node fetch-upgrades.js  # Re-download from API
+# Fetch new data and convert to JS
+node fetch-upgrades.js
+echo "const CARD_UPGRADES = $(cat card-upgrades.json);" > card-upgrades.js
 ```
 
-Or manually update specific cards in the JSON file.
+Or manually update specific cards in the JS file.
 
 ---
 

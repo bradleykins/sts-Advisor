@@ -235,10 +235,19 @@ function invalidateMCBaseline() {
 
 function calculateMCBaseline() {
   // Run full sim baseline for current deck
+  console.log(`Calculating MC baseline for ${currentDeck.length} card deck, Act ${currentAct}, Asc ${currentAscension}...`);
   const baselineResult = performMCRollout({ name: '__BASELINE__' }, mcSimulations);
   mcBaselineWinRate = baselineResult.winRate;
   mcBaselineHash = currentDeck.join(','); // Simple hash of deck state
   console.log(`MC Baseline calculated: ${Math.round(mcBaselineWinRate)}% win rate (${mcSimulations} sims)`);
+  console.log(`  Average turns to win: ${baselineResult.avgTurnsToWin?.toFixed(1)}, Final HP: ${baselineResult.avgFinalHP?.toFixed(0)}`);
+
+  // Debug: Check if 100% win rate (suspicious)
+  if (mcBaselineWinRate >= 99) {
+    console.warn('⚠️ MC Baseline is 100% - deck may be too strong or enemy too weak!');
+    const profile = getEnemyProfile();
+    console.log(`  Enemy: ${profile.hp} HP, ${profile.damage} damage, ${(profile.attackProbability * 100).toFixed(0)}% attack chance`);
+  }
 }
 let selectedCards = new Set();
 let currentTheme = localStorage.getItem('theme') || 'dark';
@@ -2049,130 +2058,55 @@ function analyzeGaps() {
   return gaps;
 }
 
-// #4: Duplicate Detection in Removal
+// #4: MC-Based Removal Priority (Pure Simulation)
 function getRemovalPriorityWithDuplicates() {
-  const deckCtx = getDeckContext();
-  const enemyCtx = getEnemyContext();
+  // Skip if deck too small or no baseline
+  if (currentDeck.length < 5) {
+    return [];
+  }
 
-  // Count duplicates
-  const cardCounts = {};
-  currentDeck.forEach(c => {
-    cardCounts[c] = (cardCounts[c] || 0) + 1;
-  });
+  // Calculate baseline if not cached
+  if (mcBaselineWinRate === null) {
+    calculateMCBaseline();
+  }
 
+  // Test removing each card with MC simulation
   const scored = currentDeck.map((cardName, index) => {
     const card = findCard(cardName);
-    let removalScore = 0;
 
-    // Base scoring (existing logic)
+    // Curses and Status cards: always remove (skip MC simulation)
     if (card?.type === 'Curse' || card?.type === 'Status') {
-      removalScore += 100;
+      return {
+        cardName,
+        index,
+        mcImpact: 100, // Huge positive impact
+        afterRemoval: 100,
+        heuristic: true
+      };
     }
 
-    const result = scoreCard(cardName);
-    if (result.score < 40) {
-      removalScore += 40;
-    } else if (result.score < 55) {
-      removalScore += 25;
-    }
+    // MC simulation: test deck without this card
+    const originalDeck = [...currentDeck];
+    currentDeck.splice(index, 1);
 
-    // NEW: Duplicate penalty escalates
-    const count = cardCounts[cardName];
-    if (count >= 4) {
-      removalScore += 30; // 4th+ copy
-    } else if (count === 3) {
-      removalScore += 20; // 3rd copy
-    } else if (count === 2) {
-      removalScore += 5; // 2nd copy (slight penalty)
-    }
-    // 1st copy: no penalty
+    // Use fewer simulations for speed (100 sims per card)
+    const withoutCardResult = performMCRollout({ name: '__BASELINE__' }, 100);
+    currentDeck = originalDeck; // Restore deck
 
-    // Starter cards
-    const name = cardName.toLowerCase();
-    if (name === 'strike' || name === 'defend') {
-      if (currentAct >= 2) {
-        removalScore += 35;
-      } else if (currentDeck.length > 20) {
-        removalScore += 25;
-      } else if (count >= 3) {
-        removalScore += 20;
-      } else {
-        removalScore += 5;
-      }
-    }
-
-    if (name === 'bash' || name === 'neutralize') {
-      removalScore += 15;
-    }
-
-    // High cost in fast deck
-    if (card && card.cost >= 3 && deckCtx.deckSize < 15) {
-      removalScore += 15;
-    } else if (card && card.cost >= 4) {
-      removalScore += 10;
-    }
-
-    // Weak damage in attack deck
-    if (card && card.type === 'Attack' && card.damage && deckCtx.attacks > deckCtx.skills * 1.5) {
-      if (card.damage < enemyCtx.normalDamage) {
-        removalScore += 15;
-      }
-    }
-
-    // Weak block in defense deck
-    if (card && card.type === 'Skill' && card.block && deckCtx.skills > deckCtx.attacks * 1.5) {
-      if (card.block < enemyCtx.normalDamage * 0.8) {
-        removalScore += 12;
-      }
-    }
-
-    // Off-archetype cards
-    const strongArchetype = Array.from(detectedArchetypes.entries())
-      .filter(([name, strength]) => strength >= 8)
-      .map(([name]) => name);
-
-    if (strongArchetype.length > 0 && card) {
-      const cardArchetypes = ARCHETYPE_PATTERNS
-        .filter(p => p.cards.some(c => c.toLowerCase() === cardName.toLowerCase()))
-        .map(p => p.name);
-
-      const isOffArchetype = cardArchetypes.length > 0 &&
-        !cardArchetypes.some(a => strongArchetype.includes(a));
-
-      if (isOffArchetype) {
-        removalScore += 10;
-      }
-    }
-
-    // Deck dilution
-    if (deckCtx.deckSize > 25) {
-      removalScore += 8;
-    }
+    const mcImpact = withoutCardResult.winRate - mcBaselineWinRate;
 
     return {
       cardName,
       index,
-      score: removalScore,
-      count: cardCounts[cardName]
+      mcImpact: mcImpact, // Positive = removing helps, negative = removing hurts
+      baseline: mcBaselineWinRate,
+      afterRemoval: withoutCardResult.winRate,
+      heuristic: false
     };
-  }).sort((a, b) => {
-    if (Math.abs(a.score - b.score) < 5) {
-      // Tiebreaker: Strike > Defend > others, but prefer higher counts
-      const aIsStrike = a.cardName.toLowerCase() === 'strike';
-      const bIsStrike = b.cardName.toLowerCase() === 'strike';
-      const aIsDefend = a.cardName.toLowerCase() === 'defend';
-      const bIsDefend = b.cardName.toLowerCase() === 'defend';
-
-      if (aIsStrike && !bIsStrike) return -1;
-      if (!aIsStrike && bIsStrike) return 1;
-      if (aIsDefend && !bIsDefend) return -1;
-      if (!aIsDefend && bIsDefend) return 1;
-
-      // Otherwise prefer removing duplicates
-      return b.count - a.count;
-    }
-    return b.score - a.score;
   });
+
+  // Sort by MC impact (highest positive impact = best removal)
+  scored.sort((a, b) => b.mcImpact - a.mcImpact);
 
   return scored.slice(0, 5);
 }
@@ -7061,11 +6995,34 @@ function showRelicPreview(event, relicName) {
 function showShopItemAnalysisWithMC(event, itemName, itemType, shopScore, isUpgraded = false, enchantment = '') {
   // Calculate MC impact on hover (lazy evaluation)
   let mcImpact = 0;
-  if (itemType === 'card' && currentDeck.length >= 5 && mcBaselineWinRate !== null) {
-    const testDeck = [...currentDeck, itemName];
-    const testResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 50));
-    mcImpact = testResult.winRate - mcBaselineWinRate;
+
+  if (itemType === 'card' && currentDeck.length >= 5) {
+    // Calculate baseline if not cached
+    if (mcBaselineWinRate === null) {
+      try {
+        calculateMCBaseline();
+      } catch (e) {
+        console.error('Failed to calculate MC baseline:', e);
+      }
+    }
+
+    // Test deck with this card added (only if baseline exists)
+    if (mcBaselineWinRate !== null) {
+      const card = findCard(itemName);
+      if (card) {
+        try {
+          const withCardResult = performMCRollout(card, Math.min(mcSimulations, 50));
+          mcImpact = withCardResult.winRate - mcBaselineWinRate;
+          console.log(`Shop MC for ${itemName}: baseline=${Math.round(mcBaselineWinRate)}%, with card=${Math.round(withCardResult.winRate)}%, impact=${Math.round(mcImpact)}%`);
+        } catch (e) {
+          console.error(`Failed to calculate MC for ${itemName}:`, e);
+        }
+      }
+    }
+  } else if (itemType === 'card' && currentDeck.length < 5) {
+    console.log(`Shop MC skipped for ${itemName}: deck too small (${currentDeck.length} cards, need 5+)`);
   }
+
   showShopItemAnalysis(event, itemName, itemType, shopScore, isUpgraded, enchantment, true, mcImpact);
 }
 
@@ -7238,40 +7195,21 @@ function showRemovalPreview(event) {
     return;
   }
 
-  // Use new duplicate-aware removal priority (#4)
+  // Use MC-based removal priority
   const scored = getRemovalPriorityWithDuplicates();
 
   // Take top 3-5 candidates
   const topCandidates = scored.slice(0, 5);
 
-  // MC validation for top candidate
-  let topCandidateMC = null;
-  if (topCandidates.length > 0 && mcBaselineWinRate !== null) {
-    const topCard = topCandidates[0];
-    const indexToRemove = currentDeck.indexOf(topCard.cardName);
-    if (indexToRemove !== -1) {
-      // Temporarily modify deck
-      const originalDeck = [...currentDeck];
-      currentDeck.splice(indexToRemove, 1);
-      const withoutCardResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 100));
-      currentDeck = originalDeck; // Restore deck
-      const impact = withoutCardResult.winRate - mcBaselineWinRate;
-      topCandidateMC = {
-        impact: impact,
-        baseline: mcBaselineWinRate,
-        afterRemoval: withoutCardResult.winRate
-      };
-    }
-  }
-
   const removalCost = 75 + (shopRemovalCount * 25);
 
-  // Build MC impact display for top candidate
+  // Build MC impact display for top candidate (already calculated in getRemovalPriorityWithDuplicates)
   let mcImpactHTML = '';
-  if (topCandidateMC) {
-    const impactRounded = Math.round(topCandidateMC.impact);
-    const baselineRounded = Math.round(topCandidateMC.baseline);
-    const afterRounded = Math.round(topCandidateMC.afterRemoval);
+  if (topCandidates.length > 0 && !topCandidates[0].heuristic) {
+    const topCard = topCandidates[0];
+    const impactRounded = Math.round(topCard.mcImpact);
+    const baselineRounded = Math.round(topCard.baseline);
+    const afterRounded = Math.round(topCard.afterRemoval);
 
     let impactColor = '#64748b';
     let impactIcon = '〰️';
@@ -7290,7 +7228,7 @@ function showRemovalPreview(event) {
     mcImpactHTML = `
       <div style="margin-top: 8px; padding: 8px; background: rgba(${impactColor === '#ef4444' ? '239, 68, 68' : impactColor === '#10b981' ? '16, 185, 129' : '100, 116, 139'}, 0.1); border-left: 2px solid ${impactColor}; border-radius: 4px;">
         <div style="font-size: 0.8rem; font-weight: 600; color: ${impactColor}; margin-bottom: 2px;">
-          ${impactIcon} MC Impact: ${impactText} (${impactRounded >= 0 ? '+' : ''}${impactRounded}%)
+          ${impactIcon} Removing ${topCard.cardName}: ${impactText} (${impactRounded >= 0 ? '+' : ''}${impactRounded}%)
         </div>
         <div style="font-size: 0.75rem; color: var(--text-secondary);">
           Win rate: ${baselineRounded}% → <strong style="color: ${impactColor};">${afterRounded}%</strong>
@@ -7316,13 +7254,34 @@ function showRemovalPreview(event) {
           const card = findCard(item.cardName);
           const icon = card ? (TYPE_ICONS[card.type] || '📄') : '📄';
           const rankColor = idx === 0 ? '#ef4444' : idx === 1 ? '#f59e0b' : '#6b7280';
-          const duplicateMarker = item.count > 1 ? ` (x${item.count})` : '';
+
+          // Show MC impact
+          const impact = Math.round(item.mcImpact);
+          let impactColor = '#64748b';
+          let impactText = '';
+          if (item.heuristic) {
+            impactText = 'Curse/Status';
+            impactColor = '#10b981';
+          } else if (impact >= 3) {
+            impactText = `+${impact}%`;
+            impactColor = '#10b981';
+          } else if (impact >= 0) {
+            impactText = `+${impact}%`;
+            impactColor = '#64748b';
+          } else if (impact <= -5) {
+            impactText = `${impact}%`;
+            impactColor = '#ef4444';
+          } else {
+            impactText = `${impact}%`;
+            impactColor = '#fbbf24';
+          }
+
           return `
             <div style="display: flex; align-items: center; gap: 8px; padding: 6px; background: var(--bg-secondary); border-radius: 4px; border-left: 3px solid ${rankColor};">
               <span style="font-weight: 600; color: ${rankColor}; min-width: 16px;">#${idx + 1}</span>
               <span>${icon}</span>
-              <span style="font-weight: 500; flex: 1;">${item.cardName}${duplicateMarker}</span>
-              <span style="font-size: 0.75rem; color: var(--text-secondary);">${card?.cost !== undefined ? card.cost + 'E' : ''}</span>
+              <span style="font-weight: 500; flex: 1;">${item.cardName}</span>
+              <span style="font-size: 0.75rem; font-weight: 600; color: ${impactColor};">${impactText}</span>
             </div>
           `;
         }).join('')}

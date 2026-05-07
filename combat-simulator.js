@@ -10,22 +10,7 @@
 // - Relic effects
 // - Upgrades (exact values from API) and enchantments
 
-// Load upgrade data
-let CARD_UPGRADES = {};
-if (typeof window !== 'undefined') {
-  // Browser environment - will be loaded via script tag
-  fetch('card-upgrades.json')
-    .then(r => r.json())
-    .then(data => { CARD_UPGRADES = data; })
-    .catch(e => console.warn('card-upgrades.json not loaded:', e.message));
-} else if (typeof require !== 'undefined') {
-  // Node environment
-  try {
-    CARD_UPGRADES = require('./card-upgrades.json');
-  } catch (e) {
-    console.warn('card-upgrades.json not loaded:', e.message);
-  }
-}
+// CARD_UPGRADES is loaded via card-upgrades.js script tag before this file
 
 // ============================================================================
 // COMBAT STATE
@@ -689,4 +674,12 @@ function simulateCombatNew(deck, enemyProfile, seed, gameState) {
 // Export for use in main logic
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { simulateCombatNew, CombatState, CombatAI };
+}
+
+// Explicitly make functions global for browser
+if (typeof window !== 'undefined') {
+  window.simulateCombatNew = simulateCombatNew;
+  window.CombatState = CombatState;
+  window.CombatAI = CombatAI;
+  console.log('Combat simulator loaded: simulateCombatNew');
 }

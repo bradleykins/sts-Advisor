@@ -2545,18 +2545,14 @@
   <script src="sts2-cards.js"></script>
   <script src="sts2-relics.js"></script>
   <script src="archetypes.js"></script>
-  <script>
-    // Load upgrade data asynchronously
-    let CARD_UPGRADES = {};
-    fetch('card-upgrades.json')
-      .then(r => r.json())
-      .then(data => {
-        CARD_UPGRADES = data;
-        console.log('Loaded exact upgrade data for', Object.keys(data).length, 'cards');
-      })
-      .catch(e => console.warn('card-upgrades.json not loaded:', e.message));
-  </script>
+  <script src="card-upgrades.js"></script>
   <script src="combat-simulator.js"></script>
   <script src="logic.js"></script>
+  <script>
+    // Log after everything loads
+    if (typeof CARD_UPGRADES !== 'undefined') {
+      console.log('Loaded exact upgrade data for', Object.keys(CARD_UPGRADES).length, 'cards');
+    }
+  </script>
 </body>
 </html>
