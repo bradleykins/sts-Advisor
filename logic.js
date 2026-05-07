@@ -1318,38 +1318,6 @@ function removeCardFromDeck(index) {
   const cardName = currentDeck[index];
   const key = `${index}-${cardName}`;
 
-  // Show MC validation confirmation
-  if (currentDeck.length >= 5 && mcBaselineWinRate !== null) {
-    // Test removal impact - temporarily modify deck
-    const originalDeck = [...currentDeck];
-    currentDeck.splice(index, 1);
-    const withoutCardResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 100));
-    currentDeck = originalDeck; // Restore deck
-    const impact = withoutCardResult.winRate - mcBaselineWinRate;
-    const impactRounded = Math.round(impact);
-    const baselineRounded = Math.round(mcBaselineWinRate);
-    const afterRounded = Math.round(withoutCardResult.winRate);
-
-    let confirmMessage = `Remove ${cardName}?\n\n`;
-    confirmMessage += `MC Impact: ${impactRounded >= 0 ? '+' : ''}${impactRounded}%\n`;
-    confirmMessage += `Win rate: ${baselineRounded}% → ${afterRounded}%\n\n`;
-
-    if (impactRounded < -5) {
-      confirmMessage += '⚠️ WARNING: Removing this card significantly hurts your deck!\n';
-      confirmMessage += 'Consider keeping it.';
-    } else if (impactRounded < -2) {
-      confirmMessage += '⚠️ Removing this card may hurt your deck.';
-    } else if (impactRounded > 2) {
-      confirmMessage += '✓ Removing this card improves your deck!';
-    } else {
-      confirmMessage += 'Neutral impact.';
-    }
-
-    if (!confirm(confirmMessage)) {
-      return; // User cancelled
-    }
-  }
-
   // Remove card and its metadata
   currentDeck.splice(index, 1);
   invalidateMCBaseline();
@@ -2793,9 +2761,16 @@ function performMCRollout(card, simulations = 100) {
   // Get enemy profile based on current act
   const enemyProfile = getEnemyProfile();
 
+  // Pass current game state to simulation
+  const gameState = {
+    relics: currentRelics,
+    upgradedCards: upgradedCards,
+    enchantments: cardEnchantments
+  };
+
   for (let i = 0; i < simulations; i++) {
     // Each simulation uses a different random seed
-    const result = simulateCombat(testDeck, enemyProfile, i);
+    const result = simulateCombatNew(testDeck, enemyProfile, i, gameState);
     if (result.victory) {
       winCount++;
       totalTurns += result.turnsToWin;
@@ -2854,7 +2829,7 @@ function getEnemyProfile() {
   };
 }
 
-function simulateCombat(deck, enemyProfile, seed) {
+function simulateCombat(deck, enemyProfile, seed, gameState) {
   // Seeded random number generator for reproducible variance
   let rngState = seed * 1000 + 12345;
   const seededRandom = () => {
@@ -2882,7 +2857,9 @@ function simulateCombat(deck, enemyProfile, seed) {
     conditionalRelics: [] // Store conditional relic names for special handling
   };
 
-  currentRelics.forEach(relicName => {
+  // Use relics from game state instead of global
+  const relics = gameState?.relics || currentRelics;
+  relics.forEach(relicName => {
     const effect = RELIC_EFFECTS[relicName.toUpperCase()];
     if (effect) {
       relicEffects.startEnergy += effect.startEnergy || 0;
@@ -2988,10 +2965,61 @@ function simulateCombat(deck, enemyProfile, seed) {
     const incomingDamage = enemyAttacking ? enemyProfile.damage : 0;
 
     // Simple AI: prioritize block if taking damage, otherwise attack
-    const handCards = hand.map(name => findCard(name)).filter(c => c);
+    // Map hand cards with their deck indices to apply upgrades/enchantments
+    const handCardsWithState = hand.map(cardName => {
+      const card = findCard(cardName);
+      if (!card) return null;
+
+      // Find this card's index in the deck
+      const deckIndex = deck.indexOf(cardName);
+      const key = `${deckIndex}-${cardName}`;
+
+      // Check if upgraded
+      const isUpgraded = gameState?.upgradedCards?.has(key) || false;
+
+      // Check enchantment
+      const enchantment = gameState?.enchantments?.get(key) || null;
+
+      // Apply upgrade bonuses using exact API data
+      let damage = card.damage || 0;
+      let block = card.block || 0;
+      let cost = card.cost;
+
+      if (isUpgraded && typeof CARD_UPGRADES !== 'undefined') {
+        const upgradeData = CARD_UPGRADES[cardName];
+        if (upgradeData) {
+          // Use exact upgraded values from API
+          if (upgradeData.upgradedDamage !== null && upgradeData.upgradedDamage !== upgradeData.baseDamage) {
+            damage = upgradeData.upgradedDamage;
+          }
+          if (upgradeData.upgradedBlock !== null && upgradeData.upgradedBlock !== upgradeData.baseBlock) {
+            block = upgradeData.upgradedBlock;
+          }
+          if (upgradeData.upgradedCost !== upgradeData.baseCost) {
+            cost = upgradeData.upgradedCost;
+          }
+        } else {
+          // Fallback to approximation if card not in upgrade data
+          if (damage > 0) damage = Math.ceil(damage * 1.4);
+          if (block > 0) block = Math.ceil(block * 1.4);
+          if (cost >= 2) cost = Math.max(0, cost - 1);
+        }
+      }
+
+      // Apply enchantment bonuses
+      if (enchantment) {
+        if (enchantment === 'Sharp' && damage > 0) damage += 3;
+        if (enchantment === 'Heavy' && block > 0) block += 8;
+        if (enchantment === 'Nimble' && cost >= 1) cost = Math.max(0, cost - 1);
+        if (enchantment === 'Free') cost = 0;
+        // Note: Glam (replay), Doublecast, etc. would need more complex logic
+      }
+
+      return { ...card, damage, block, cost, name: cardName };
+    }).filter(c => c);
 
     // Sort cards: blocks first if taking damage, attacks first otherwise
-    handCards.sort((a, b) => {
+    handCardsWithState.sort((a, b) => {
       if (enemyAttacking) {
         const aBlock = a.block || 0;
         const bBlock = b.block || 0;
@@ -3004,7 +3032,7 @@ function simulateCombat(deck, enemyProfile, seed) {
     });
 
     // Play cards
-    for (const card of handCards) {
+    for (const card of handCardsWithState) {
       let cost = card.cost >= 0 ? card.cost : 0;
 
       // X-cost bonus (Chemical X)
@@ -5042,7 +5070,7 @@ function renderShopGrid() {
                data-upgraded="${isUpgraded}"
                data-enchant="${enchantment || ''}"
                onclick="purchaseShopCard('${cardName.replace(/'/g, "\\'")}', '${shopKey}')"
-               onmouseenter="showShopItemAnalysis(event, '${cardName.replace(/'/g, "\\'")}', 'card', ${shopScore}, ${isUpgraded}, '${enchantment || ''}')"
+               onmouseenter="showShopItemAnalysisWithMC(event, '${cardName.replace(/'/g, "\\'")}', 'card', ${shopScore}, ${isUpgraded}, '${enchantment || ''}')"
                onmouseleave="hideCardPreview()"
                style="cursor: pointer;"
                title="Click to purchase and add to deck">
@@ -5105,7 +5133,7 @@ function renderShopGrid() {
                data-upgraded="${isUpgraded}"
                data-enchant="${enchantment || ''}"
                onclick="purchaseShopCard('${cardName.replace(/'/g, "\\'")}', '${shopKey}')"
-               onmouseenter="showShopItemAnalysis(event, '${cardName.replace(/'/g, "\\'")}', 'card', ${shopScore}, ${isUpgraded}, '${enchantment || ''}')"
+               onmouseenter="showShopItemAnalysisWithMC(event, '${cardName.replace(/'/g, "\\'")}', 'card', ${shopScore}, ${isUpgraded}, '${enchantment || ''}')"
                onmouseleave="hideCardPreview()"
                style="cursor: pointer;"
                title="Click to purchase and add to deck">
@@ -6409,7 +6437,18 @@ async function scoreRemovals() {
 
   const filtered = filterAndSortCards(scored);
 
-  const html = filtered.map(item => renderCardResult(item.card, item)).join('');
+  const html = filtered.map(item => {
+    const cardIndex = currentDeck.indexOf(item.card.name);
+    const cardResult = renderCardResult(item.card, item);
+    // Make removal cards clickable
+    if (cardIndex !== -1) {
+      return cardResult.replace(
+        '<div class="card-result"',
+        `<div class="card-result" onclick="removeCardFromDeck(${cardIndex})" style="cursor: pointer;" title="Click to remove from deck"`
+      );
+    }
+    return cardResult;
+  }).join('');
   document.getElementById('removal-results').innerHTML = html;
 
   setLoading('removal-results', false);
@@ -7018,6 +7057,18 @@ function showRelicPreview(event, relicName) {
   positionPreview(preview, event);
 }
 
+// Lazy MC calculation wrapper for shop items
+function showShopItemAnalysisWithMC(event, itemName, itemType, shopScore, isUpgraded = false, enchantment = '') {
+  // Calculate MC impact on hover (lazy evaluation)
+  let mcImpact = 0;
+  if (itemType === 'card' && currentDeck.length >= 5 && mcBaselineWinRate !== null) {
+    const testDeck = [...currentDeck, itemName];
+    const testResult = performMCRollout({ name: '__BASELINE__' }, Math.min(mcSimulations, 50));
+    mcImpact = testResult.winRate - mcBaselineWinRate;
+  }
+  showShopItemAnalysis(event, itemName, itemType, shopScore, isUpgraded, enchantment, true, mcImpact);
+}
+
 function showShopItemAnalysis(event, itemName, itemType, shopScore, isUpgraded = false, enchantment = '', analyzed = true, mcImpact = 0) {
   const preview = document.getElementById('card-hover-preview');
   if (!preview) return;
@@ -7146,6 +7197,14 @@ function showShopItemAnalysis(event, itemName, itemType, shopScore, isUpgraded =
         ${keywordsHtml ? `<div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;">${keywordsHtml}</div>` : ''}
         ${card.description ? `<div style="margin-top: 8px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">${card.description}</div>` : ''}
         ${enchantment && ENCHANTMENTS[enchantment] ? `<div style="margin-top: 8px; padding: 6px; background: rgba(168, 85, 247, 0.1); border: 1px solid #a855f7; border-radius: 4px; font-size: 0.8rem;">${ENCHANTMENTS[enchantment].icon} <strong>${enchantment}:</strong> ${ENCHANTMENTS[enchantment].effect}</div>` : ''}
+        ${mcImpact && Math.abs(mcImpact) >= 1 ? `
+          <div style="margin-top: 8px; padding: 8px; background: ${mcImpact >= 3 ? 'rgba(16, 185, 129, 0.1)' : mcImpact >= 0 ? 'rgba(100, 116, 139, 0.1)' : mcImpact >= -3 ? 'rgba(251, 191, 36, 0.1)' : 'rgba(239, 68, 68, 0.1)'}; border-left: 2px solid ${mcImpact >= 3 ? '#10b981' : mcImpact >= 0 ? '#64748b' : mcImpact >= -3 ? '#fbbf24' : '#ef4444'}; border-radius: 4px;">
+            <strong style="color: ${mcImpact >= 3 ? '#10b981' : mcImpact >= 0 ? '#64748b' : mcImpact >= -3 ? '#fbbf24' : '#ef4444'};">${mcImpact >= 3 ? '✓' : mcImpact >= 0 ? '〰️' : '⚠️'} MC: ${Math.round(mcImpact) >= 0 ? '+' : ''}${Math.round(mcImpact)}%</strong>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">
+              Win rate: ${Math.round(mcBaselineWinRate)}% → ${Math.round(mcBaselineWinRate + mcImpact)}%
+            </div>
+          </div>
+        ` : ''}
         <div style="margin-top: 12px; padding: 8px; background: var(--bg-secondary); border-radius: 4px;">
           <div style="font-size: 0.9rem;">${recommendation}</div>
           <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">Base: ${baseScore.score} | Shop: ${shopScore} (-5 gold cost)</div>

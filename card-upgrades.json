@@ -1,0 +1,6458 @@
+{
+  "Abrasive": {
+    "name": "Abrasive",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "thornspower": "+2"
+    }
+  },
+  "Accelerant": {
+    "name": "Accelerant",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "accelerant": "+1"
+    }
+  },
+  "Accuracy": {
+    "name": "Accuracy",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "accuracypower": "+2"
+    }
+  },
+  "Acrobatics": {
+    "name": "Acrobatics",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Adaptive Strike": {
+    "name": "Adaptive Strike",
+    "baseCost": 2,
+    "baseDamage": 18,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 23,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5"
+    }
+  },
+  "Adrenaline": {
+    "name": "Adrenaline",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Afterimage": {
+    "name": "Afterimage",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Afterlife": {
+    "name": "Afterlife",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "summon": "+3"
+    }
+  },
+  "Aggression": {
+    "name": "Aggression",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Alchemize": {
+    "name": "Alchemize",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Alignment": {
+    "name": "Alignment",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "All for One": {
+    "name": "All for One",
+    "baseCost": 2,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 14,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Anger": {
+    "name": "Anger",
+    "baseCost": 0,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 8,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Anointed": {
+    "name": "Anointed",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_retain": 1
+    }
+  },
+  "Anticipate": {
+    "name": "Anticipate",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "dexterity": "+1"
+    }
+  },
+  "Apotheosis": {
+    "name": "Apotheosis",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Apparition": {
+    "name": "Apparition",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_ethereal": 1
+    }
+  },
+  "Armaments": {
+    "name": "Armaments",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 5,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 5,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Arsenal": {
+    "name": "Arsenal",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Ashen Strike": {
+    "name": "Ashen Strike",
+    "baseCost": 1,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "extradamage": "+1"
+    }
+  },
+  "Assassinate": {
+    "name": "Assassinate",
+    "baseCost": 0,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 13,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3",
+      "vulnerable": "+1"
+    }
+  },
+  "Astral Pulse": {
+    "name": "Astral Pulse",
+    "baseCost": 0,
+    "baseDamage": 14,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 18,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Automation": {
+    "name": "Automation",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "BEGONE!": {
+    "name": "BEGONE!",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Backflip": {
+    "name": "Backflip",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 5,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 8,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Backstab": {
+    "name": "Backstab",
+    "baseCost": 0,
+    "baseDamage": 11,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 15,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Ball Lightning": {
+    "name": "Ball Lightning",
+    "baseCost": 1,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Banshee's Cry": {
+    "name": "Banshee's Cry",
+    "baseCost": 9,
+    "baseDamage": 33,
+    "baseBlock": null,
+    "upgradedCost": 7,
+    "upgradedDamage": 33,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 7
+    }
+  },
+  "Barrage": {
+    "name": "Barrage",
+    "baseCost": 1,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 7,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Barricade": {
+    "name": "Barricade",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 2
+    }
+  },
+  "Bash": {
+    "name": "Bash",
+    "baseCost": 2,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "vulnerable": "+1"
+    }
+  },
+  "Battle Trance": {
+    "name": "Battle Trance",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Beacon of Hope": {
+    "name": "Beacon of Hope",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Beam Cell": {
+    "name": "Beam Cell",
+    "baseCost": 0,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 4,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "vulnerable": "+1"
+    }
+  },
+  "Beat Down": {
+    "name": "Beat Down",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Beat into Shape": {
+    "name": "Beat into Shape",
+    "baseCost": 1,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 7,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "calculationbase": "+2",
+      "calculationextra": "+2"
+    }
+  },
+  "Believe in You": {
+    "name": "Believe in You",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Biased Cognition": {
+    "name": "Biased Cognition",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "focuspower": "+1"
+    }
+  },
+  "Big Bang": {
+    "name": "Big Bang",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Black Hole": {
+    "name": "Black Hole",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "blackholepower": "+1"
+    }
+  },
+  "Blade Dance": {
+    "name": "Blade Dance",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Blade of Ink": {
+    "name": "Blade of Ink",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Blight Strike": {
+    "name": "Blight Strike",
+    "baseCost": 1,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Blood Wall": {
+    "name": "Blood Wall",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 16,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 20,
+    "upgradeChanges": {
+      "block": "+4"
+    }
+  },
+  "Bloodletting": {
+    "name": "Bloodletting",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Bludgeon": {
+    "name": "Bludgeon",
+    "baseCost": 3,
+    "baseDamage": 32,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 42,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+10"
+    }
+  },
+  "Blur": {
+    "name": "Blur",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 5,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 8,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Body Slam": {
+    "name": "Body Slam",
+    "baseCost": 1,
+    "baseDamage": 0,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 0,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Bodyguard": {
+    "name": "Bodyguard",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "summon": "+2"
+    }
+  },
+  "Bolas": {
+    "name": "Bolas",
+    "baseCost": 0,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 4,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1"
+    }
+  },
+  "Bombardment": {
+    "name": "Bombardment",
+    "baseCost": 3,
+    "baseDamage": 18,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 24,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+6"
+    }
+  },
+  "Bone Shards": {
+    "name": "Bone Shards",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": 9,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": 12,
+    "upgradeChanges": {
+      "block": "+3",
+      "ostydamage": "+3"
+    }
+  },
+  "Boost Away": {
+    "name": "Boost Away",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": 6,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": 9,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Boot Sequence": {
+    "name": "Boot Sequence",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": 10,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": 13,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Borrowed Time": {
+    "name": "Borrowed Time",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+2"
+    }
+  },
+  "Bouncing Flask": {
+    "name": "Bouncing Flask",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "repeat": "+1"
+    }
+  },
+  "Brand": {
+    "name": "Brand",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "strength": "+1"
+    }
+  },
+  "Break": {
+    "name": "Break",
+    "baseCost": 1,
+    "baseDamage": 20,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 30,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+10",
+      "vulnerable": "+2"
+    }
+  },
+  "Breakthrough": {
+    "name": "Breakthrough",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 13,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Brightest Flame": {
+    "name": "Brightest Flame",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1",
+      "cards": "+1"
+    }
+  },
+  "Bubble Bubble": {
+    "name": "Bubble Bubble",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "poison": "+3"
+    }
+  },
+  "Buffer": {
+    "name": "Buffer",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "bufferpower": "+1"
+    }
+  },
+  "Bulk Up": {
+    "name": "Bulk Up",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "strength": "+1",
+      "dexterity": "+1"
+    }
+  },
+  "Bullet Time": {
+    "name": "Bullet Time",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 2
+    }
+  },
+  "Bully": {
+    "name": "Bully",
+    "baseCost": 0,
+    "baseDamage": 4,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 4,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "extradamage": "+1"
+    }
+  },
+  "Bulwark": {
+    "name": "Bulwark",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 13,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 16,
+    "upgradeChanges": {
+      "block": "+3",
+      "forge": "+3"
+    }
+  },
+  "Bundle of Joy": {
+    "name": "Bundle of Joy",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Burning Pact": {
+    "name": "Burning Pact",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Burst": {
+    "name": "Burst",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "skills": "+1"
+    }
+  },
+  "Bury": {
+    "name": "Bury",
+    "baseCost": 4,
+    "baseDamage": 52,
+    "baseBlock": null,
+    "upgradedCost": 4,
+    "upgradedDamage": 63,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+11"
+    }
+  },
+  "Byrd Swoop": {
+    "name": "Byrd Swoop",
+    "baseCost": 0,
+    "baseDamage": 14,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 18,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "CHARGE!!": {
+    "name": "CHARGE!!",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Calamity": {
+    "name": "Calamity",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 2
+    }
+  },
+  "Calcify": {
+    "name": "Calcify",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "calcifypower": "+2"
+    }
+  },
+  "Calculated Gamble": {
+    "name": "Calculated Gamble",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_retain": 1
+    }
+  },
+  "Call of the Void": {
+    "name": "Call of the Void",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Caltrops": {
+    "name": "Caltrops",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "thornspower": "+2"
+    }
+  },
+  "Capacitor": {
+    "name": "Capacitor",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "repeat": "+1"
+    }
+  },
+  "Capture Spirit": {
+    "name": "Capture Spirit",
+    "baseCost": 1,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 4,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "cards": "+1"
+    }
+  },
+  "Cascade": {
+    "name": "Cascade",
+    "baseCost": -1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": -1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Catastrophe": {
+    "name": "Catastrophe",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Celestial Might": {
+    "name": "Celestial Might",
+    "baseCost": 2,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "repeat": "+1"
+    }
+  },
+  "Chaos": {
+    "name": "Chaos",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "repeat": "+1"
+    }
+  },
+  "Charge Battery": {
+    "name": "Charge Battery",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 7,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 10,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Child of the Stars": {
+    "name": "Child of the Stars",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "blockforstars": "+1"
+    }
+  },
+  "Chill": {
+    "name": "Chill",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Cinder": {
+    "name": "Cinder",
+    "baseCost": 2,
+    "baseDamage": 18,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 24,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+6"
+    }
+  },
+  "Clash": {
+    "name": "Clash",
+    "baseCost": 0,
+    "baseDamage": 14,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 18,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Claw": {
+    "name": "Claw",
+    "baseCost": 0,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 4,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "increase": "+1"
+    }
+  },
+  "Cleanse": {
+    "name": "Cleanse",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "summon": "+2"
+    }
+  },
+  "Cloak and Dagger": {
+    "name": "Cloak and Dagger",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 6,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 6,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Cloak of Stars": {
+    "name": "Cloak of Stars",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": 7,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": 10,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Cold Snap": {
+    "name": "Cold Snap",
+    "baseCost": 1,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Collision Course": {
+    "name": "Collision Course",
+    "baseCost": 0,
+    "baseDamage": 11,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 15,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Colossus": {
+    "name": "Colossus",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 5,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 8,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Comet": {
+    "name": "Comet",
+    "baseCost": 0,
+    "baseDamage": 33,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 44,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+11"
+    }
+  },
+  "Compact": {
+    "name": "Compact",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 6,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 7,
+    "upgradeChanges": {
+      "block": "+1"
+    }
+  },
+  "Compile Driver": {
+    "name": "Compile Driver",
+    "baseCost": 1,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Conflagration": {
+    "name": "Conflagration",
+    "baseCost": 1,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 8,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "calculationbase": "+1",
+      "extradamage": "+1"
+    }
+  },
+  "Conqueror": {
+    "name": "Conqueror",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "forge": "+2"
+    }
+  },
+  "Consuming Shadow": {
+    "name": "Consuming Shadow",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "repeat": "+1"
+    }
+  },
+  "Convergence": {
+    "name": "Convergence",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "stars": "+1"
+    }
+  },
+  "Coolant": {
+    "name": "Coolant",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "coolantpower": "+1"
+    }
+  },
+  "Coolheaded": {
+    "name": "Coolheaded",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Coordinate": {
+    "name": "Coordinate",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "strength": "+3"
+    }
+  },
+  "Corrosive Wave": {
+    "name": "Corrosive Wave",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "corrosivewave": "+1"
+    }
+  },
+  "Corruption": {
+    "name": "Corruption",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 2
+    }
+  },
+  "Cosmic Indifference": {
+    "name": "Cosmic Indifference",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 6,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 9,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Countdown": {
+    "name": "Countdown",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "countdownpower": "+3"
+    }
+  },
+  "Crash Landing": {
+    "name": "Crash Landing",
+    "baseCost": 1,
+    "baseDamage": 21,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 26,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5"
+    }
+  },
+  "Creative AI": {
+    "name": "Creative AI",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 2
+    }
+  },
+  "Crescent Spear": {
+    "name": "Crescent Spear",
+    "baseCost": 1,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "extradamage": "+1"
+    }
+  },
+  "Crimson Mantle": {
+    "name": "Crimson Mantle",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "crimsonmantlepower": "+2"
+    }
+  },
+  "Cruelty": {
+    "name": "Cruelty",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "crueltypower": "+25"
+    }
+  },
+  "Crush Under": {
+    "name": "Crush Under",
+    "baseCost": 1,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 8,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "strengthloss": "+1"
+    }
+  },
+  "Dagger Spray": {
+    "name": "Dagger Spray",
+    "baseCost": 1,
+    "baseDamage": 4,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Dagger Throw": {
+    "name": "Dagger Throw",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 12,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Danse Macabre": {
+    "name": "Danse Macabre",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "dansemacabrepower": "+2"
+    }
+  },
+  "Dark Embrace": {
+    "name": "Dark Embrace",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Dark Shackles": {
+    "name": "Dark Shackles",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "strengthloss": "+6"
+    }
+  },
+  "Darkness": {
+    "name": "Darkness",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Dash": {
+    "name": "Dash",
+    "baseCost": 2,
+    "baseDamage": 10,
+    "baseBlock": 10,
+    "upgradedCost": 2,
+    "upgradedDamage": 13,
+    "upgradedBlock": 13,
+    "upgradeChanges": {
+      "damage": "+3",
+      "block": "+3"
+    }
+  },
+  "Deadly Poison": {
+    "name": "Deadly Poison",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "poison": "+2"
+    }
+  },
+  "Death March": {
+    "name": "Death March",
+    "baseCost": 1,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 8,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "calculationbase": "+1",
+      "extradamage": "+1"
+    }
+  },
+  "Death's Door": {
+    "name": "Death's Door",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 6,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 7,
+    "upgradeChanges": {
+      "block": "+1"
+    }
+  },
+  "Deathbringer": {
+    "name": "Deathbringer",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "doom": "+5"
+    }
+  },
+  "Debilitate": {
+    "name": "Debilitate",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 12,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "debilitatepower": "+1"
+    }
+  },
+  "Decisions, Decisions": {
+    "name": "Decisions, Decisions",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+2"
+    }
+  },
+  "Defend": {
+    "name": "Defend",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 5,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 8,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Defile": {
+    "name": "Defile",
+    "baseCost": 1,
+    "baseDamage": 13,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 17,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Deflect": {
+    "name": "Deflect",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": 4,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": 7,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Defragment": {
+    "name": "Defragment",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "focuspower": "+1"
+    }
+  },
+  "Defy": {
+    "name": "Defy",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 6,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 9,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Delay": {
+    "name": "Delay",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 11,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 13,
+    "upgradeChanges": {
+      "block": "+2",
+      "energy": "+1"
+    }
+  },
+  "Demesne": {
+    "name": "Demesne",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 2
+    }
+  },
+  "Demon Form": {
+    "name": "Demon Form",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "strengthpower": "+1"
+    }
+  },
+  "Demonic Shield": {
+    "name": "Demonic Shield",
+    "baseCost": 0,
+    "baseDamage": 0,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 0,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Devastate": {
+    "name": "Devastate",
+    "baseCost": 1,
+    "baseDamage": 30,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 40,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+10"
+    }
+  },
+  "Devour Life": {
+    "name": "Devour Life",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "devourlifepower": "+1"
+    }
+  },
+  "Dirge": {
+    "name": "Dirge",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "summon": "+1"
+    }
+  },
+  "Discovery": {
+    "name": "Discovery",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Dismantle": {
+    "name": "Dismantle",
+    "baseCost": 1,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Distraction": {
+    "name": "Distraction",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Dodge and Roll": {
+    "name": "Dodge and Roll",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 4,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 6,
+    "upgradeChanges": {
+      "block": "+2"
+    }
+  },
+  "Dominate": {
+    "name": "Dominate",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "vulnerablepower": "+1"
+    }
+  },
+  "Double Energy": {
+    "name": "Double Energy",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Drain Power": {
+    "name": "Drain Power",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 12,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "cards": "+1"
+    }
+  },
+  "Dramatic Entrance": {
+    "name": "Dramatic Entrance",
+    "baseCost": 0,
+    "baseDamage": 11,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 15,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Dredge": {
+    "name": "Dredge",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_retain": 1
+    }
+  },
+  "Drum of Battle": {
+    "name": "Drum of Battle",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Dual Wield": {
+    "name": "Dual Wield",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Dualcast": {
+    "name": "Dualcast",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Dying Star": {
+    "name": "Dying Star",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 11,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "strengthloss": "+2"
+    }
+  },
+  "Echo Form": {
+    "name": "Echo Form",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_ethereal": 1
+    }
+  },
+  "Echoing Slash": {
+    "name": "Echoing Slash",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 13,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Eidolon": {
+    "name": "Eidolon",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "End of Days": {
+    "name": "End of Days",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "doom": "+8"
+    }
+  },
+  "Energy Surge": {
+    "name": "Energy Surge",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Enfeebling Touch": {
+    "name": "Enfeebling Touch",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "strengthloss": "+3"
+    }
+  },
+  "Enlightenment": {
+    "name": "Enlightenment",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Entrench": {
+    "name": "Entrench",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Entropy": {
+    "name": "Entropy",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Envenom": {
+    "name": "Envenom",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "envenompower": "+1"
+    }
+  },
+  "Equilibrium": {
+    "name": "Equilibrium",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 13,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 16,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Eradicate": {
+    "name": "Eradicate",
+    "baseCost": 0,
+    "baseDamage": 11,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 14,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Escape Plan": {
+    "name": "Escape Plan",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": 3,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": 5,
+    "upgradeChanges": {
+      "block": "+2"
+    }
+  },
+  "Eternal Armor": {
+    "name": "Eternal Armor",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "platingpower": "+3"
+    }
+  },
+  "Evil Eye": {
+    "name": "Evil Eye",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 8,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 11,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Expect a Fight": {
+    "name": "Expect a Fight",
+    "baseCost": 2,
+    "baseDamage": 0,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 0,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Expertise": {
+    "name": "Expertise",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Expose": {
+    "name": "Expose",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "power": "+1"
+    }
+  },
+  "Exterminate": {
+    "name": "Exterminate",
+    "baseCost": 1,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 4,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1"
+    }
+  },
+  "FTL": {
+    "name": "FTL",
+    "baseCost": 0,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "playmax": "+1"
+    }
+  },
+  "Falling Star": {
+    "name": "Falling Star",
+    "baseCost": 0,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 12,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Fan of Knives": {
+    "name": "Fan of Knives",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "shivs": "+1"
+    }
+  },
+  "Fasten": {
+    "name": "Fasten",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "extrablock": "+2"
+    }
+  },
+  "Fear": {
+    "name": "Fear",
+    "baseCost": 1,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 8,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "vulnerable": "+1"
+    }
+  },
+  "Feed": {
+    "name": "Feed",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 12,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "maxhp": "+1"
+    }
+  },
+  "Feeding Frenzy": {
+    "name": "Feeding Frenzy",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "strength": "+2"
+    }
+  },
+  "Feel No Pain": {
+    "name": "Feel No Pain",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "power": "+1"
+    }
+  },
+  "Feral": {
+    "name": "Feral",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Fetch": {
+    "name": "Fetch",
+    "baseCost": 0,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 3,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "ostydamage": "+3"
+    }
+  },
+  "Fiend Fire": {
+    "name": "Fiend Fire",
+    "baseCost": 2,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Fight Me!": {
+    "name": "Fight Me!",
+    "baseCost": 2,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "strength": "+1"
+    }
+  },
+  "Fight Through": {
+    "name": "Fight Through",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 13,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 17,
+    "upgradeChanges": {
+      "block": "+4"
+    }
+  },
+  "Finesse": {
+    "name": "Finesse",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": 4,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": 7,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Finisher": {
+    "name": "Finisher",
+    "baseCost": 1,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 8,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Fisticuffs": {
+    "name": "Fisticuffs",
+    "baseCost": 1,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Flak Cannon": {
+    "name": "Flak Cannon",
+    "baseCost": 2,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 11,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Flame Barrier": {
+    "name": "Flame Barrier",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 12,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 16,
+    "upgradeChanges": {
+      "block": "+4",
+      "damageback": "+2"
+    }
+  },
+  "Flanking": {
+    "name": "Flanking",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Flash of Steel": {
+    "name": "Flash of Steel",
+    "baseCost": 0,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 8,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Flatten": {
+    "name": "Flatten",
+    "baseCost": 2,
+    "baseDamage": 12,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 12,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "ostydamage": "+4"
+    }
+  },
+  "Flechettes": {
+    "name": "Flechettes",
+    "baseCost": 1,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 7,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Flick-Flack": {
+    "name": "Flick-Flack",
+    "baseCost": 1,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 8,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Focused Strike": {
+    "name": "Focused Strike",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 11,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "focuspower": "+1"
+    }
+  },
+  "Follow Through": {
+    "name": "Follow Through",
+    "baseCost": 1,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Footwork": {
+    "name": "Footwork",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "dexterity": "+1"
+    }
+  },
+  "Forbidden Grimoire": {
+    "name": "Forbidden Grimoire",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Foregone Conclusion": {
+    "name": "Foregone Conclusion",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Forgotten Ritual": {
+    "name": "Forgotten Ritual",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Friendship": {
+    "name": "Friendship",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "strengthpower": "-1"
+    }
+  },
+  "Fuel": {
+    "name": "Fuel",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Furnace": {
+    "name": "Furnace",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "forge": "+2"
+    }
+  },
+  "Fusion": {
+    "name": "Fusion",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "GUARDS!!!": {
+    "name": "GUARDS!!!",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Gamma Blast": {
+    "name": "Gamma Blast",
+    "baseCost": 0,
+    "baseDamage": 13,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 18,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5"
+    }
+  },
+  "Gang Up": {
+    "name": "Gang Up",
+    "baseCost": 1,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 5,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "extradamage": "+2"
+    }
+  },
+  "Gather Light": {
+    "name": "Gather Light",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 8,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 11,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Genesis": {
+    "name": "Genesis",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "starsperturn": "+1"
+    }
+  },
+  "Genetic Algorithm": {
+    "name": "Genetic Algorithm",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 1,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 1,
+    "upgradeChanges": {
+      "increase": "+1"
+    }
+  },
+  "Giant Rock": {
+    "name": "Giant Rock",
+    "baseCost": 1,
+    "baseDamage": 16,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 20,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Glacier": {
+    "name": "Glacier",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 6,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 9,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Glasswork": {
+    "name": "Glasswork",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 5,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 8,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Glimmer": {
+    "name": "Glimmer",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Glimpse Beyond": {
+    "name": "Glimpse Beyond",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Glitterstream": {
+    "name": "Glitterstream",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 11,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 13,
+    "upgradeChanges": {
+      "block": "+2",
+      "blocknextturn": "+2"
+    }
+  },
+  "Glow": {
+    "name": "Glow",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "stars": "+1"
+    }
+  },
+  "Go for the Eyes": {
+    "name": "Go for the Eyes",
+    "baseCost": 0,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 4,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "weak": "+1"
+    }
+  },
+  "Gold Axe": {
+    "name": "Gold Axe",
+    "baseCost": 1,
+    "baseDamage": 0,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 0,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_retain": 1
+    }
+  },
+  "Grand Finale": {
+    "name": "Grand Finale",
+    "baseCost": 0,
+    "baseDamage": 60,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 75,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+15"
+    }
+  },
+  "Grave Warden": {
+    "name": "Grave Warden",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 8,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 11,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Graveblast": {
+    "name": "Graveblast",
+    "baseCost": 1,
+    "baseDamage": 4,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "remove_exhaust": 1
+    }
+  },
+  "Guiding Star": {
+    "name": "Guiding Star",
+    "baseCost": 1,
+    "baseDamage": 12,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 13,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "cards": "+1"
+    }
+  },
+  "Gunk Up": {
+    "name": "Gunk Up",
+    "baseCost": 1,
+    "baseDamage": 4,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 5,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1"
+    }
+  },
+  "Hailstorm": {
+    "name": "Hailstorm",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "hailstormpower": "+2"
+    }
+  },
+  "Hammer Time": {
+    "name": "Hammer Time",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Hand Trick": {
+    "name": "Hand Trick",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 7,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 10,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Hand of Greed": {
+    "name": "Hand of Greed",
+    "baseCost": 2,
+    "baseDamage": 20,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 25,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5",
+      "gold": "+5"
+    }
+  },
+  "Hang": {
+    "name": "Hang",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 13,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Haunt": {
+    "name": "Haunt",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "hploss": "+2"
+    }
+  },
+  "Havoc": {
+    "name": "Havoc",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Haze": {
+    "name": "Haze",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "poison": "+2"
+    }
+  },
+  "Headbutt": {
+    "name": "Headbutt",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 12,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Heavenly Drill": {
+    "name": "Heavenly Drill",
+    "baseCost": 0,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Hegemony": {
+    "name": "Hegemony",
+    "baseCost": 2,
+    "baseDamage": 15,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 18,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3",
+      "energy": "+1"
+    }
+  },
+  "Heirloom Hammer": {
+    "name": "Heirloom Hammer",
+    "baseCost": 2,
+    "baseDamage": 20,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 25,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5"
+    }
+  },
+  "Helix Drill": {
+    "name": "Helix Drill",
+    "baseCost": 0,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 5,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Hello World": {
+    "name": "Hello World",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Hellraiser": {
+    "name": "Hellraiser",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Hemokinesis": {
+    "name": "Hemokinesis",
+    "baseCost": 1,
+    "baseDamage": 15,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 20,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5"
+    }
+  },
+  "Hidden Cache": {
+    "name": "Hidden Cache",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "starnextturnpower": "+1"
+    }
+  },
+  "Hidden Daggers": {
+    "name": "Hidden Daggers",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Hidden Gem": {
+    "name": "Hidden Gem",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "replay": "+1"
+    }
+  },
+  "High Five": {
+    "name": "High Five",
+    "baseCost": 2,
+    "baseDamage": 11,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 11,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "ostydamage": "+2",
+      "vulnerable": "+1"
+    }
+  },
+  "Hologram": {
+    "name": "Hologram",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 3,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 5,
+    "upgradeChanges": {
+      "block": "+2",
+      "remove_exhaust": 1
+    }
+  },
+  "Hotfix": {
+    "name": "Hotfix",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Howl from Beyond": {
+    "name": "Howl from Beyond",
+    "baseCost": 3,
+    "baseDamage": 16,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 21,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5"
+    }
+  },
+  "Huddle Up": {
+    "name": "Huddle Up",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Hyperbeam": {
+    "name": "Hyperbeam",
+    "baseCost": 2,
+    "baseDamage": 26,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 34,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+8"
+    }
+  },
+  "I Am Invincible": {
+    "name": "I Am Invincible",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 10,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 13,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Ice Lance": {
+    "name": "Ice Lance",
+    "baseCost": 3,
+    "baseDamage": 19,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 24,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5"
+    }
+  },
+  "Ignition": {
+    "name": "Ignition",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Impatience": {
+    "name": "Impatience",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Impervious": {
+    "name": "Impervious",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 30,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 40,
+    "upgradeChanges": {
+      "block": "+10"
+    }
+  },
+  "Infernal Blade": {
+    "name": "Infernal Blade",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Inferno": {
+    "name": "Inferno",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "infernopower": "+3"
+    }
+  },
+  "Infinite Blades": {
+    "name": "Infinite Blades",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Inflame": {
+    "name": "Inflame",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "strengthpower": "+1"
+    }
+  },
+  "Intercept": {
+    "name": "Intercept",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 9,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 13,
+    "upgradeChanges": {
+      "block": "+4"
+    }
+  },
+  "Invoke": {
+    "name": "Invoke",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "summon": "+1",
+      "energy": "+1"
+    }
+  },
+  "Iron Wave": {
+    "name": "Iron Wave",
+    "baseCost": 1,
+    "baseDamage": 5,
+    "baseBlock": 5,
+    "upgradedCost": 1,
+    "upgradedDamage": 7,
+    "upgradedBlock": 7,
+    "upgradeChanges": {
+      "damage": "+2",
+      "block": "+2"
+    }
+  },
+  "Iteration": {
+    "name": "Iteration",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "iterationpower": "+1"
+    }
+  },
+  "Jack of All Trades": {
+    "name": "Jack of All Trades",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Jackpot": {
+    "name": "Jackpot",
+    "baseCost": 3,
+    "baseDamage": 25,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 30,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5"
+    }
+  },
+  "Juggernaut": {
+    "name": "Juggernaut",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "juggernautpower": "+2"
+    }
+  },
+  "Juggling": {
+    "name": "Juggling",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Kingly Kick": {
+    "name": "Kingly Kick",
+    "baseCost": 4,
+    "baseDamage": 27,
+    "baseBlock": null,
+    "upgradedCost": 4,
+    "upgradedDamage": 35,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+8"
+    }
+  },
+  "Kingly Punch": {
+    "name": "Kingly Punch",
+    "baseCost": 1,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "increase": "+2"
+    }
+  },
+  "Knife Trap": {
+    "name": "Knife Trap",
+    "baseCost": 2,
+    "baseDamage": 0,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 0,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Knockdown": {
+    "name": "Knockdown",
+    "baseCost": 3,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 14,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4",
+      "knockdownpower": "+1"
+    }
+  },
+  "Knockout Blow": {
+    "name": "Knockout Blow",
+    "baseCost": 3,
+    "baseDamage": 30,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 38,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+8"
+    }
+  },
+  "Know Thy Place": {
+    "name": "Know Thy Place",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Largesse": {
+    "name": "Largesse",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Leading Strike": {
+    "name": "Leading Strike",
+    "baseCost": 1,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Leap": {
+    "name": "Leap",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 9,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 12,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Leg Sweep": {
+    "name": "Leg Sweep",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 11,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 14,
+    "upgradeChanges": {
+      "block": "+3",
+      "weak": "+1"
+    }
+  },
+  "Legion of Bone": {
+    "name": "Legion of Bone",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "summon": "+2"
+    }
+  },
+  "Lethality": {
+    "name": "Lethality",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "lethalitypower": "+25"
+    }
+  },
+  "Lift": {
+    "name": "Lift",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 11,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 16,
+    "upgradeChanges": {
+      "block": "+5"
+    }
+  },
+  "Lightning Rod": {
+    "name": "Lightning Rod",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 4,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 7,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Loop": {
+    "name": "Loop",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "loop": "+1"
+    }
+  },
+  "Luminesce": {
+    "name": "Luminesce",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Lunar Blast": {
+    "name": "Lunar Blast",
+    "baseCost": 0,
+    "baseDamage": 4,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 5,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1"
+    }
+  },
+  "Machine Learning": {
+    "name": "Machine Learning",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Mad Science": {
+    "name": "Mad Science",
+    "baseCost": 1,
+    "baseDamage": 12,
+    "baseBlock": 8,
+    "upgradedCost": 1,
+    "upgradedDamage": 12,
+    "upgradedBlock": 8,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Make It So": {
+    "name": "Make It So",
+    "baseCost": 0,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Malaise": {
+    "name": "Malaise",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Mangle": {
+    "name": "Mangle",
+    "baseCost": 3,
+    "baseDamage": 15,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 20,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5",
+      "strengthloss": "+5"
+    }
+  },
+  "Manifest Authority": {
+    "name": "Manifest Authority",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 7,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 8,
+    "upgradeChanges": {
+      "block": "+1"
+    }
+  },
+  "Master Planner": {
+    "name": "Master Planner",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Master of Strategy": {
+    "name": "Master of Strategy",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Maul": {
+    "name": "Maul",
+    "baseCost": 1,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "increase": "+1"
+    }
+  },
+  "Mayhem": {
+    "name": "Mayhem",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Melancholy": {
+    "name": "Melancholy",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": 13,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": 17,
+    "upgradeChanges": {
+      "block": "+4"
+    }
+  },
+  "Memento Mori": {
+    "name": "Memento Mori",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "calculationbase": "+2",
+      "extradamage": "+1"
+    }
+  },
+  "Metamorphosis": {
+    "name": "Metamorphosis",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+2"
+    }
+  },
+  "Meteor Shower": {
+    "name": "Meteor Shower",
+    "baseCost": 0,
+    "baseDamage": 14,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 21,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+7"
+    }
+  },
+  "Meteor Strike": {
+    "name": "Meteor Strike",
+    "baseCost": 5,
+    "baseDamage": 24,
+    "baseBlock": null,
+    "upgradedCost": 5,
+    "upgradedDamage": 30,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+6"
+    }
+  },
+  "Mimic": {
+    "name": "Mimic",
+    "baseCost": 1,
+    "baseDamage": 0,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 0,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Mind Blast": {
+    "name": "Mind Blast",
+    "baseCost": 1,
+    "baseDamage": 0,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 0,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Minion Dive Bomb": {
+    "name": "Minion Dive Bomb",
+    "baseCost": 0,
+    "baseDamage": 13,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 16,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Minion Sacrifice": {
+    "name": "Minion Sacrifice",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": 9,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": 12,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Minion Strike": {
+    "name": "Minion Strike",
+    "baseCost": 0,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Mirage": {
+    "name": "Mirage",
+    "baseCost": 1,
+    "baseDamage": 0,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 0,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Misery": {
+    "name": "Misery",
+    "baseCost": 0,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "add_retain": 1
+    }
+  },
+  "Modded": {
+    "name": "Modded",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Molten Fist": {
+    "name": "Molten Fist",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 14,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Momentum Strike": {
+    "name": "Momentum Strike",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 13,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Monarch's Gaze": {
+    "name": "Monarch's Gaze",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 2
+    }
+  },
+  "Monologue": {
+    "name": "Monologue",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_retain": 1
+    }
+  },
+  "Multi-Cast": {
+    "name": "Multi-Cast",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Murder": {
+    "name": "Murder",
+    "baseCost": 3,
+    "baseDamage": 1,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 1,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 2
+    }
+  },
+  "Necro Mastery": {
+    "name": "Necro Mastery",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "summon": "+3"
+    }
+  },
+  "Negative Pulse": {
+    "name": "Negative Pulse",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 5,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 6,
+    "upgradeChanges": {
+      "block": "+1",
+      "doom": "+4"
+    }
+  },
+  "Neow's Fury": {
+    "name": "Neow's Fury",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 14,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4",
+      "cards": "+1"
+    }
+  },
+  "Neurosurge": {
+    "name": "Neurosurge",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Neutralize": {
+    "name": "Neutralize",
+    "baseCost": 0,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 4,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "weak": "+1"
+    }
+  },
+  "Neutron Aegis": {
+    "name": "Neutron Aegis",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "platingpower": "+3"
+    }
+  },
+  "Nightmare": {
+    "name": "Nightmare",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 2
+    }
+  },
+  "No Escape": {
+    "name": "No Escape",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "calculationbase": "+5"
+    }
+  },
+  "Nostalgia": {
+    "name": "Nostalgia",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Not Yet": {
+    "name": "Not Yet",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "heal": "+3"
+    }
+  },
+  "Noxious Fumes": {
+    "name": "Noxious Fumes",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "poisonperturn": "+1"
+    }
+  },
+  "Null": {
+    "name": "Null",
+    "baseCost": 2,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 13,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3",
+      "weak": "+1"
+    }
+  },
+  "Oblivion": {
+    "name": "Oblivion",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "doom": "+1"
+    }
+  },
+  "Offering": {
+    "name": "Offering",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+2"
+    }
+  },
+  "Omnislice": {
+    "name": "Omnislice",
+    "baseCost": 0,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 11,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "One-Two Punch": {
+    "name": "One-Two Punch",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "attacks": "+1"
+    }
+  },
+  "Orbit": {
+    "name": "Orbit",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Outbreak": {
+    "name": "Outbreak",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "outbreakpower": "+4"
+    }
+  },
+  "Outmaneuver": {
+    "name": "Outmaneuver",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Overclock": {
+    "name": "Overclock",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Pact's End": {
+    "name": "Pact's End",
+    "baseCost": 0,
+    "baseDamage": 17,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 23,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+6"
+    }
+  },
+  "Pagestorm": {
+    "name": "Pagestorm",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Pale Blue Dot": {
+    "name": "Pale Blue Dot",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Panache": {
+    "name": "Panache",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "panachedamage": "+4"
+    }
+  },
+  "Panic Button": {
+    "name": "Panic Button",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": 30,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": 40,
+    "upgradeChanges": {
+      "block": "+10"
+    }
+  },
+  "Parry": {
+    "name": "Parry",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "parrypower": "+4"
+    }
+  },
+  "Parse": {
+    "name": "Parse",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Particle Wall": {
+    "name": "Particle Wall",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": 9,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": 12,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Patter": {
+    "name": "Patter",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 9,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 11,
+    "upgradeChanges": {
+      "block": "+2",
+      "vigorpower": "+1"
+    }
+  },
+  "Peck": {
+    "name": "Peck",
+    "baseCost": 1,
+    "baseDamage": 2,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 2,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "repeat": "+1"
+    }
+  },
+  "Perfected Strike": {
+    "name": "Perfected Strike",
+    "baseCost": 2,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "extradamage": "+1"
+    }
+  },
+  "Phantom Blades": {
+    "name": "Phantom Blades",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "phantombladespower": "+3"
+    }
+  },
+  "Photon Cut": {
+    "name": "Photon Cut",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 13,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3",
+      "cards": "+1"
+    }
+  },
+  "Piercing Wail": {
+    "name": "Piercing Wail",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "strengthloss": "+2"
+    }
+  },
+  "Pillage": {
+    "name": "Pillage",
+    "baseCost": 1,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Pillar of Creation": {
+    "name": "Pillar of Creation",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 3,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 4,
+    "upgradeChanges": {
+      "block": "+1"
+    }
+  },
+  "Pinpoint": {
+    "name": "Pinpoint",
+    "baseCost": 3,
+    "baseDamage": 15,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 19,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Poisoned Stab": {
+    "name": "Poisoned Stab",
+    "baseCost": 1,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 8,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "poison": "+1"
+    }
+  },
+  "Poke": {
+    "name": "Poke",
+    "baseCost": 0,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "ostydamage": "+3"
+    }
+  },
+  "Pommel Strike": {
+    "name": "Pommel Strike",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "cards": "+1"
+    }
+  },
+  "Pounce": {
+    "name": "Pounce",
+    "baseCost": 2,
+    "baseDamage": 12,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 18,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+6"
+    }
+  },
+  "Precise Cut": {
+    "name": "Precise Cut",
+    "baseCost": 0,
+    "baseDamage": 13,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 13,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "calculationbase": "+3"
+    }
+  },
+  "Predator": {
+    "name": "Predator",
+    "baseCost": 2,
+    "baseDamage": 15,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 20,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5"
+    }
+  },
+  "Prep Time": {
+    "name": "Prep Time",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "preptimepower": "+2"
+    }
+  },
+  "Prepared": {
+    "name": "Prepared",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Primal Force": {
+    "name": "Primal Force",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Production": {
+    "name": "Production",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Prolong": {
+    "name": "Prolong",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Prophesize": {
+    "name": "Prophesize",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+3"
+    }
+  },
+  "Protector": {
+    "name": "Protector",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0,
+      "calculationbase": "+5"
+    }
+  },
+  "Prowess": {
+    "name": "Prowess",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "dexterity": "+1",
+      "strength": "+1"
+    }
+  },
+  "Pull Aggro": {
+    "name": "Pull Aggro",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 7,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 9,
+    "upgradeChanges": {
+      "block": "+2",
+      "summon": "+1"
+    }
+  },
+  "Pull from Below": {
+    "name": "Pull from Below",
+    "baseCost": 1,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 7,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Purity": {
+    "name": "Purity",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+2"
+    }
+  },
+  "Putrefy": {
+    "name": "Putrefy",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "power": "+1"
+    }
+  },
+  "Pyre": {
+    "name": "Pyre",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Quadcast": {
+    "name": "Quadcast",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Quasar": {
+    "name": "Quasar",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Radiate": {
+    "name": "Radiate",
+    "baseCost": 0,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 4,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1"
+    }
+  },
+  "Rage": {
+    "name": "Rage",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "power": "+2"
+    }
+  },
+  "Rainbow": {
+    "name": "Rainbow",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Rally": {
+    "name": "Rally",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 12,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 17,
+    "upgradeChanges": {
+      "block": "+5"
+    }
+  },
+  "Rampage": {
+    "name": "Rampage",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "increase": "+4"
+    }
+  },
+  "Rattle": {
+    "name": "Rattle",
+    "baseCost": 1,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 7,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "ostydamage": "+2"
+    }
+  },
+  "Reanimate": {
+    "name": "Reanimate",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "summon": "+5"
+    }
+  },
+  "Reap": {
+    "name": "Reap",
+    "baseCost": 3,
+    "baseDamage": 27,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 33,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+6"
+    }
+  },
+  "Reaper Form": {
+    "name": "Reaper Form",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_retain": 1
+    }
+  },
+  "Reave": {
+    "name": "Reave",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 11,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Reboot": {
+    "name": "Reboot",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+2"
+    }
+  },
+  "Rebound": {
+    "name": "Rebound",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 12,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Refine Blade": {
+    "name": "Refine Blade",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "forge": "+4"
+    }
+  },
+  "Reflect": {
+    "name": "Reflect",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 17,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 21,
+    "upgradeChanges": {
+      "block": "+4"
+    }
+  },
+  "Reflex": {
+    "name": "Reflex",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Refract": {
+    "name": "Refract",
+    "baseCost": 3,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 12,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Relax": {
+    "name": "Relax",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": 15,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": 17,
+    "upgradeChanges": {
+      "block": "+2",
+      "cards": "+1",
+      "energy": "+1"
+    }
+  },
+  "Rend": {
+    "name": "Rend",
+    "baseCost": 2,
+    "baseDamage": 15,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 15,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "extradamage": "+3",
+      "calculationbase": "+3"
+    }
+  },
+  "Resonance": {
+    "name": "Resonance",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "strengthpower": "+1"
+    }
+  },
+  "Restlessness": {
+    "name": "Restlessness",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1",
+      "energy": "+1"
+    }
+  },
+  "Ricochet": {
+    "name": "Ricochet",
+    "baseCost": 2,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 3,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "repeat": "+1"
+    }
+  },
+  "Right Hand Hand": {
+    "name": "Right Hand Hand",
+    "baseCost": 0,
+    "baseDamage": 4,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 4,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "ostydamage": "+2"
+    }
+  },
+  "Rip and Tear": {
+    "name": "Rip and Tear",
+    "baseCost": 1,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Rocket Punch": {
+    "name": "Rocket Punch",
+    "baseCost": 2,
+    "baseDamage": 13,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 14,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "cards": "+1"
+    }
+  },
+  "Rolling Boulder": {
+    "name": "Rolling Boulder",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "rollingboulderpower": "+5"
+    }
+  },
+  "Royal Gamble": {
+    "name": "Royal Gamble",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_retain": 1
+    }
+  },
+  "Royalties": {
+    "name": "Royalties",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "gold": "+5"
+    }
+  },
+  "Rupture": {
+    "name": "Rupture",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "strength": "+1"
+    }
+  },
+  "Sacrifice": {
+    "name": "Sacrifice",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Salvo": {
+    "name": "Salvo",
+    "baseCost": 1,
+    "baseDamage": 12,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 16,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Scavenge": {
+    "name": "Scavenge",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Scourge": {
+    "name": "Scourge",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "doom": "+3",
+      "cards": "+1"
+    }
+  },
+  "Scrape": {
+    "name": "Scrape",
+    "baseCost": 1,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3",
+      "cards": "+1"
+    }
+  },
+  "Scrawl": {
+    "name": "Scrawl",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_retain": 1
+    }
+  },
+  "Sculpting Strike": {
+    "name": "Sculpting Strike",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 12,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Seance": {
+    "name": "Seance",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Second Wind": {
+    "name": "Second Wind",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 5,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 7,
+    "upgradeChanges": {
+      "block": "+2"
+    }
+  },
+  "Secret Technique": {
+    "name": "Secret Technique",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Secret Weapon": {
+    "name": "Secret Weapon",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Seeker Strike": {
+    "name": "Seeker Strike",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 12,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Seeking Edge": {
+    "name": "Seeking Edge",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "forge": "+4"
+    }
+  },
+  "Sentry Mode": {
+    "name": "Sentry Mode",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Serpent Form": {
+    "name": "Serpent Form",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "serpentformpower": "+2"
+    }
+  },
+  "Setup Strike": {
+    "name": "Setup Strike",
+    "baseCost": 1,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "strength": "+1"
+    }
+  },
+  "Seven Stars": {
+    "name": "Seven Stars",
+    "baseCost": 2,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 7,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Severance": {
+    "name": "Severance",
+    "baseCost": 2,
+    "baseDamage": 13,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 18,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5"
+    }
+  },
+  "Shadow Shield": {
+    "name": "Shadow Shield",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 11,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 15,
+    "upgradeChanges": {
+      "block": "+4"
+    }
+  },
+  "Shadow Step": {
+    "name": "Shadow Step",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Shadowmeld": {
+    "name": "Shadowmeld",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Shared Fate": {
+    "name": "Shared Fate",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "enemystrengthloss": "+1"
+    }
+  },
+  "Shatter": {
+    "name": "Shatter",
+    "baseCost": 1,
+    "baseDamage": 11,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 15,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Shining Strike": {
+    "name": "Shining Strike",
+    "baseCost": 1,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 11,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Shiv": {
+    "name": "Shiv",
+    "baseCost": 0,
+    "baseDamage": 4,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Shockwave": {
+    "name": "Shockwave",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "power": "+2"
+    }
+  },
+  "Shroud": {
+    "name": "Shroud",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 2,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 3,
+    "upgradeChanges": {
+      "block": "+1"
+    }
+  },
+  "Shrug It Off": {
+    "name": "Shrug It Off",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 8,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 11,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Sic 'Em": {
+    "name": "Sic 'Em",
+    "baseCost": 1,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 5,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "ostydamage": "+1",
+      "sicempower": "+1"
+    }
+  },
+  "Signal Boost": {
+    "name": "Signal Boost",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Skewer": {
+    "name": "Skewer",
+    "baseCost": 0,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 11,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Skim": {
+    "name": "Skim",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Sleight of Flesh": {
+    "name": "Sleight of Flesh",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "sleightoffleshpower": "+4"
+    }
+  },
+  "Slice": {
+    "name": "Slice",
+    "baseCost": 0,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Smokestack": {
+    "name": "Smokestack",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "smokestackpower": "+2"
+    }
+  },
+  "Snakebite": {
+    "name": "Snakebite",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "poison": "+3"
+    }
+  },
+  "Snap": {
+    "name": "Snap",
+    "baseCost": 1,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 7,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "ostydamage": "+3"
+    }
+  },
+  "Sneaky": {
+    "name": "Sneaky",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "sneakypower": "+1"
+    }
+  },
+  "Solar Strike": {
+    "name": "Solar Strike",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+1",
+      "stars": "+1"
+    }
+  },
+  "Soul": {
+    "name": "Soul",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Soul Storm": {
+    "name": "Soul Storm",
+    "baseCost": 1,
+    "baseDamage": 9,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "extradamage": "+1"
+    }
+  },
+  "Sovereign Blade": {
+    "name": "Sovereign Blade",
+    "baseCost": 2,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Sow": {
+    "name": "Sow",
+    "baseCost": 1,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 11,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Spectrum Shift": {
+    "name": "Spectrum Shift",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Speedster": {
+    "name": "Speedster",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Spinner": {
+    "name": "Spinner",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Spirit of Ash": {
+    "name": "Spirit of Ash",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "blockonexhaust": "+1"
+    }
+  },
+  "Spite": {
+    "name": "Spite",
+    "baseCost": 0,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 5,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "repeat": "+1"
+    }
+  },
+  "Splash": {
+    "name": "Splash",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Spoils of Battle": {
+    "name": "Spoils of Battle",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "forge": "+3"
+    }
+  },
+  "Spur": {
+    "name": "Spur",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "summon": "+2",
+      "heal": "+2"
+    }
+  },
+  "Squash": {
+    "name": "Squash",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 12,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "vulnerable": "+1"
+    }
+  },
+  "Squeeze": {
+    "name": "Squeeze",
+    "baseCost": 3,
+    "baseDamage": 25,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 25,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "calculationbase": "+5",
+      "extradamage": "+1"
+    }
+  },
+  "Stack": {
+    "name": "Stack",
+    "baseCost": 1,
+    "baseDamage": 0,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 0,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "calculationbase": "+3"
+    }
+  },
+  "Stampede": {
+    "name": "Stampede",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Stardust": {
+    "name": "Stardust",
+    "baseCost": 0,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 7,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Stoke": {
+    "name": "Stoke",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Stomp": {
+    "name": "Stomp",
+    "baseCost": 3,
+    "baseDamage": 12,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 15,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Stone Armor": {
+    "name": "Stone Armor",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "platingpower": "+2"
+    }
+  },
+  "Storm": {
+    "name": "Storm",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "stormpower": "+1"
+    }
+  },
+  "Storm of Steel": {
+    "name": "Storm of Steel",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Strangle": {
+    "name": "Strangle",
+    "baseCost": 1,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "stranglepower": "+1"
+    }
+  },
+  "Stratagem": {
+    "name": "Stratagem",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Strike": {
+    "name": "Strike",
+    "baseCost": 1,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Subroutine": {
+    "name": "Subroutine",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Sucker Punch": {
+    "name": "Sucker Punch",
+    "baseCost": 1,
+    "baseDamage": 8,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "weak": "+1"
+    }
+  },
+  "Summon Forth": {
+    "name": "Summon Forth",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "forge": "+3"
+    }
+  },
+  "Sunder": {
+    "name": "Sunder",
+    "baseCost": 3,
+    "baseDamage": 24,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 32,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+8"
+    }
+  },
+  "Supercritical": {
+    "name": "Supercritical",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+2"
+    }
+  },
+  "Supermassive": {
+    "name": "Supermassive",
+    "baseCost": 1,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 5,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "extradamage": "+1"
+    }
+  },
+  "Suppress": {
+    "name": "Suppress",
+    "baseCost": 0,
+    "baseDamage": 11,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 17,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+6",
+      "weak": "+2"
+    }
+  },
+  "Survivor": {
+    "name": "Survivor",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 8,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 11,
+    "upgradeChanges": {
+      "block": "+3"
+    }
+  },
+  "Sweeping Beam": {
+    "name": "Sweeping Beam",
+    "baseCost": 1,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Sweeping Gaze": {
+    "name": "Sweeping Gaze",
+    "baseCost": 0,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 10,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "ostydamage": "+5"
+    }
+  },
+  "Sword Boomerang": {
+    "name": "Sword Boomerang",
+    "baseCost": 1,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 3,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "repeat": "+1"
+    }
+  },
+  "Sword Sage": {
+    "name": "Sword Sage",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Synchronize": {
+    "name": "Synchronize",
+    "baseCost": 1,
+    "baseDamage": 0,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 0,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Synthesis": {
+    "name": "Synthesis",
+    "baseCost": 2,
+    "baseDamage": 12,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 18,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+6"
+    }
+  },
+  "TURBO": {
+    "name": "TURBO",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Tactician": {
+    "name": "Tactician",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "energy": "+1"
+    }
+  },
+  "Tag Team": {
+    "name": "Tag Team",
+    "baseCost": 2,
+    "baseDamage": 11,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 15,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Tank": {
+    "name": "Tank",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Taunt": {
+    "name": "Taunt",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 7,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 8,
+    "upgradeChanges": {
+      "block": "+1",
+      "vulnerable": "+1"
+    }
+  },
+  "Tear Asunder": {
+    "name": "Tear Asunder",
+    "baseCost": 2,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 7,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Tempest": {
+    "name": "Tempest",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "description_changed": 1
+    }
+  },
+  "Terraforming": {
+    "name": "Terraforming",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "vigorpower": "+2"
+    }
+  },
+  "Tesla Coil": {
+    "name": "Tesla Coil",
+    "baseCost": 0,
+    "baseDamage": 3,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "The Bomb": {
+    "name": "The Bomb",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "bombdamage": "+10"
+    }
+  },
+  "The Gambit": {
+    "name": "The Gambit",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": 50,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": 75,
+    "upgradeChanges": {
+      "block": "+25"
+    }
+  },
+  "The Hunt": {
+    "name": "The Hunt",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 15,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+5"
+    }
+  },
+  "The Scythe": {
+    "name": "The Scythe",
+    "baseCost": 2,
+    "baseDamage": 13,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 13,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "increase": "+1"
+    }
+  },
+  "The Sealed Throne": {
+    "name": "The Sealed Throne",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "The Smith": {
+    "name": "The Smith",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "forge": "+10"
+    }
+  },
+  "Thinking Ahead": {
+    "name": "Thinking Ahead",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Thrash": {
+    "name": "Thrash",
+    "baseCost": 1,
+    "baseDamage": 4,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Thrumming Hatchet": {
+    "name": "Thrumming Hatchet",
+    "baseCost": 1,
+    "baseDamage": 11,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 14,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Thunder": {
+    "name": "Thunder",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "thunderpower": "+2"
+    }
+  },
+  "Thunderclap": {
+    "name": "Thunderclap",
+    "baseCost": 1,
+    "baseDamage": 4,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 7,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Time's Up": {
+    "name": "Time's Up",
+    "baseCost": 2,
+    "baseDamage": 0,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 0,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_retain": 1
+    }
+  },
+  "Tools of the Trade": {
+    "name": "Tools of the Trade",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Toric Toughness": {
+    "name": "Toric Toughness",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 5,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 7,
+    "upgradeChanges": {
+      "block": "+2"
+    }
+  },
+  "Tracking": {
+    "name": "Tracking",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Transfigure": {
+    "name": "Transfigure",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Trash to Treasure": {
+    "name": "Trash to Treasure",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Tremble": {
+    "name": "Tremble",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "vulnerable": "+1"
+    }
+  },
+  "True Grit": {
+    "name": "True Grit",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 7,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 9,
+    "upgradeChanges": {
+      "block": "+2"
+    }
+  },
+  "Twin Strike": {
+    "name": "Twin Strike",
+    "baseCost": 1,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 7,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Tyranny": {
+    "name": "Tyranny",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_innate": 1
+    }
+  },
+  "Ultimate Defend": {
+    "name": "Ultimate Defend",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": 11,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": 15,
+    "upgradeChanges": {
+      "block": "+4"
+    }
+  },
+  "Ultimate Strike": {
+    "name": "Ultimate Strike",
+    "baseCost": 1,
+    "baseDamage": 14,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 20,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+6"
+    }
+  },
+  "Undeath": {
+    "name": "Undeath",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": 7,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": 9,
+    "upgradeChanges": {
+      "block": "+2"
+    }
+  },
+  "Unleash": {
+    "name": "Unleash",
+    "baseCost": 1,
+    "baseDamage": 6,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 6,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "calculationbase": "+3"
+    }
+  },
+  "Unmovable": {
+    "name": "Unmovable",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 1
+    }
+  },
+  "Unrelenting": {
+    "name": "Unrelenting",
+    "baseCost": 2,
+    "baseDamage": 12,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 18,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+6"
+    }
+  },
+  "Untouchable": {
+    "name": "Untouchable",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": 6,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": 8,
+    "upgradeChanges": {
+      "block": "+2"
+    }
+  },
+  "Up My Sleeve": {
+    "name": "Up My Sleeve",
+    "baseCost": 2,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Uppercut": {
+    "name": "Uppercut",
+    "baseCost": 2,
+    "baseDamage": 13,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 13,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "power": "+1"
+    }
+  },
+  "Uproar": {
+    "name": "Uproar",
+    "baseCost": 2,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 2,
+    "upgradedDamage": 7,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2"
+    }
+  },
+  "Veilpiercer": {
+    "name": "Veilpiercer",
+    "baseCost": 1,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 13,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Venerate": {
+    "name": "Venerate",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "stars": "+1"
+    }
+  },
+  "Vicious": {
+    "name": "Vicious",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cards": "+1"
+    }
+  },
+  "Void Form": {
+    "name": "Void Form",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_ethereal": 1
+    }
+  },
+  "Volley": {
+    "name": "Volley",
+    "baseCost": 0,
+    "baseDamage": 10,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 14,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+4"
+    }
+  },
+  "Voltaic": {
+    "name": "Voltaic",
+    "baseCost": 3,
+    "baseDamage": 0,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 0,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "remove_exhaust": 1
+    }
+  },
+  "Well-Laid Plans": {
+    "name": "Well-Laid Plans",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "retainamount": "+1"
+    }
+  },
+  "Whirlwind": {
+    "name": "Whirlwind",
+    "baseCost": 0,
+    "baseDamage": 5,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": 8,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+3"
+    }
+  },
+  "Whistle": {
+    "name": "Whistle",
+    "baseCost": 3,
+    "baseDamage": 33,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": 44,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+11"
+    }
+  },
+  "White Noise": {
+    "name": "White Noise",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  },
+  "Wish": {
+    "name": "Wish",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_retain": 1
+    }
+  },
+  "Wisp": {
+    "name": "Wisp",
+    "baseCost": 0,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "add_retain": 1
+    }
+  },
+  "Wraith Form": {
+    "name": "Wraith Form",
+    "baseCost": 3,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 3,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "intangiblepower": "+1"
+    }
+  },
+  "Wrought in War": {
+    "name": "Wrought in War",
+    "baseCost": 1,
+    "baseDamage": 7,
+    "baseBlock": null,
+    "upgradedCost": 1,
+    "upgradedDamage": 9,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "damage": "+2",
+      "forge": "+2"
+    }
+  },
+  "Zap": {
+    "name": "Zap",
+    "baseCost": 1,
+    "baseDamage": null,
+    "baseBlock": null,
+    "upgradedCost": 0,
+    "upgradedDamage": null,
+    "upgradedBlock": null,
+    "upgradeChanges": {
+      "cost": 0
+    }
+  }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upgrade Test</title>
+</head>
+<body>
+  <h1>Testing Exact Upgrade Values</h1>
+  <div id="output"></div>
+
+  <script src="sts2-cards.js"></script>
+  <script>
+    let CARD_UPGRADES = {};
+    fetch('card-upgrades.json')
+      .then(r => r.json())
+      .then(data => {
+        CARD_UPGRADES = data;
+        runTests();
+      });
+
+    function findCard(name) {
+      return STS2_CARDS[name.toUpperCase().replace(/\s+/g, '_')];
+    }
+
+    function runTests() {
+      const output = document.getElementById('output');
+      let html = '<h2>Test Results:</h2>';
+
+      // Test damage cards
+      const damageTests = ['Strike', 'Bash', 'Carnage', 'Pummel'];
+      html += '<h3>Damage Upgrades:</h3>';
+      damageTests.forEach(name => {
+        const card = findCard(name);
+        const upgrade = CARD_UPGRADES[name];
+        if (card && upgrade) {
+          const oldCalc = Math.ceil(card.damage * 1.4);
+          const newCalc = upgrade.upgradedDamage || card.damage;
+          const diff = newCalc - oldCalc;
+          const diffStr = diff > 0 ? `+${diff}` : diff;
+          html += `<p><b>${name}</b>: ${card.damage} → Old: ${oldCalc}, New: ${newCalc} (${diffStr})</p>`;
+        }
+      });
+
+      // Test block cards
+      const blockTests = ['Defend', 'Backflip', 'Blur', 'Equilibrium'];
+      html += '<h3>Block Upgrades:</h3>';
+      blockTests.forEach(name => {
+        const card = findCard(name);
+        const upgrade = CARD_UPGRADES[name];
+        if (card && upgrade) {
+          const oldCalc = Math.ceil(card.block * 1.4);
+          const newCalc = upgrade.upgradedBlock || card.block;
+          const diff = newCalc - oldCalc;
+          const diffStr = diff > 0 ? `+${diff}` : diff;
+          html += `<p><b>${name}</b>: ${card.block} → Old: ${oldCalc}, New: ${newCalc} (${diffStr})</p>`;
+        }
+      });
+
+      // Test cost reduction
+      const costTests = ['Alchemize', 'Apotheosis', 'Barricade', 'Body Slam'];
+      html += '<h3>Cost Upgrades:</h3>';
+      costTests.forEach(name => {
+        const card = findCard(name);
+        const upgrade = CARD_UPGRADES[name];
+        if (card && upgrade) {
+          const oldCalc = card.cost >= 2 ? card.cost - 1 : card.cost;
+          const newCalc = upgrade.upgradedCost;
+          const diff = newCalc - oldCalc;
+          const diffStr = diff > 0 ? `+${diff}` : diff;
+          html += `<p><b>${name}</b>: ${card.cost} → Old: ${oldCalc}, New: ${newCalc} (${diffStr})</p>`;
+        }
+      });
+
+      output.innerHTML = html;
+    }
+  </script>
+</body>
+</html>
