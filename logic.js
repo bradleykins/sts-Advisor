@@ -790,7 +790,7 @@ const STARTER_DECKS = {
   'silent': 'Strike, Strike, Strike, Strike, Strike, Defend, Defend, Defend, Defend, Defend, Neutralize, Survivor',
   'defect': 'Strike, Strike, Strike, Strike, Zap, Defend, Defend, Defend, Defend, Dualcast',
   'necrobinder': 'Strike, Strike, Strike, Strike, Defend, Defend, Defend, Defend, Bodyguard, Unleash',
-  'regent': 'Strike, Strike, Strike, Strike, Defend, Defend, Defend, Defend, Falling Star', 'Venerate',
+  'regent': 'Strike, Strike, Strike, Strike, Defend, Defend, Defend, Defend, Falling Star','Venerate',
 };
 
 // Starter relics (character-specific starting relics)
